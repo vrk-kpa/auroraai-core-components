@@ -1,2 +1,2 @@
-# AuroraAI
-Repository for AuroraAI network architecture and technical concepts. 
+# AuroraAI Core Components
+Repository for AuroraAI Core Components
