@@ -1,0 +1,1 @@
+ALTER TABLE service_recommender.recommendation_redirect ADD COLUMN auroraai_access_token varchar(255);

@@ -1,0 +1,1 @@
+CREATE TABLE service_recommender.ptv_fetch_timestamp (time TIMESTAMPTZ NOT NULL DEFAULT NOW());

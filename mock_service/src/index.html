@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mock service</title>
+    <link rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/static/favicon-32x32.png" />
+    <link rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/static/favicon-16x16.png" />
+    <link rel="stylesheet"
+          href="../node_modules/suomifi-ui-components/dist/main.css" />
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600&display=swap" />
+
+    <style>
+        .ttm-3x10d-grid {
+            width: 100%;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        @media (min-width: 1280px) {
+            .ttm-3x10d-grid {
+                width: 50%;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .ttm-3x10d-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+    </style>
+</head>
+  <body>
+    <div id="root"></div>
+
+    <script type="module">
+      window.serviceHost = "<%= serviceHost %>"
+      window.mockInstanceNumber = "<%= mockInstanceNumber %>"
+    </script>
+    <script type="module" src="./index.tsx"></script>
+  </body>
+</html>

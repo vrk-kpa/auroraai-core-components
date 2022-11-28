@@ -1,0 +1,10 @@
+default:
+  port: 7100
+  log_level: info
+  log_requests: 'true'
+  datamodel_api_url: https://tietomallit.test.yti.cloud.dvv.fi/datamodel-api/api/v1/exportModel
+  json_schema_query: graph=http%3A%2F%2Furi.suomi.fi%2Fdatamodel%2Fns%2Faurora-att&content-type=application%2Fschema%2Bjson&lang=fi&raw=true
+  json_ld_query: graph=http%3A%2F%2Furi.suomi.fi%2Fdatamodel%2Fns%2Faurora-att&content-type=application%2Fld%2Bjson&lang=fi&raw=true
+local: {}
+localcluster: {}
+localunittest: {}

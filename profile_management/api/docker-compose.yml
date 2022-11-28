@@ -1,0 +1,21 @@
+version: "3"
+services:
+  profile_postgres:
+    image: postgres:11
+    ports:
+      - "${POSTGRES_PORT-7001}:5432"  # for connecting with host clients
+    environment:
+      POSTGRES_DB: "${POSTGRES_DB-profile_management}"
+      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD-admin}"
+  profile_flyway:
+    image: flyway/flyway:7.9.1-alpine
+    depends_on:
+      - profile_postgres
+    environment:
+      FLYWAY_URL: "jdbc:postgresql://profile_postgres:5432/${POSTGRES_DB-profile_management}"
+      FLYWAY_USER: "postgres"
+      FLYWAY_PASSWORD: "${POSTGRES_PASSWORD-admin}"
+      FLYWAY_LOCATIONS: "filesystem:/flyway/sql"
+    volumes:
+      - $PWD/migrations/sql:/flyway/sql
+    command: migrate

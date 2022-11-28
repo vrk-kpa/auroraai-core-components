@@ -1,0 +1,549 @@
+{
+  "id" : "ee5b376d-c60d-47f7-9c2a-22fe0538ae94",
+  "codeValue" : "maakunta_1_20220101",
+  "uri" : "http://uri.suomi.fi/codelist/jhs/maakunta_1_20220101",
+  "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/maakunta_1_20220101",
+  "codesUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/maakunta_1_20220101/codes/",
+  "extensionsUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/maakunta_1_20220101/extensions/",
+  "codes" : [ {
+    "id" : "eab41128-82a6-4d6c-9265-bac2f4c40fa4",
+    "codeValue" : "01",
+    "uri" : "http://uri.suomi.fi/codelist/jhs/maakunta_1_20220101/code/01",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/maakunta_1_20220101/codes/01",
+    "status" : "DRAFT",
+    "order" : 1,
+    "hierarchyLevel" : 1,
+    "startDate" : "2020-01-01",
+    "created" : "2021-12-14T16:10:21.721Z",
+    "modified" : "2021-12-14T16:10:21.721Z",
+    "prefLabel" : {
+      "en" : "Uusimaa",
+      "fi" : "Uusimaa",
+      "sv" : "Nyland"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/maakunta_1_20220101/codes/01/members/"
+  }, {
+    "id" : "8c80a117-86e8-4427-9a03-8da36d9a4085",
+    "codeValue" : "02",
+    "uri" : "http://uri.suomi.fi/codelist/jhs/maakunta_1_20220101/code/02",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/maakunta_1_20220101/codes/02",
+    "status" : "DRAFT",
+    "order" : 2,
+    "hierarchyLevel" : 1,
+    "startDate" : "2020-01-01",
+    "created" : "2021-12-14T16:10:21.721Z",
+    "modified" : "2021-12-14T16:10:21.721Z",
+    "prefLabel" : {
+      "en" : "Southwest Finland",
+      "fi" : "Varsinais-Suomi",
+      "sv" : "Egentliga Finland"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/maakunta_1_20220101/codes/02/members/"
+  }, {
+    "id" : "c3034c44-63e2-4315-90c8-f3f7cdd7ae39",
+    "codeValue" : "04",
+    "uri" : "http://uri.suomi.fi/codelist/jhs/maakunta_1_20220101/code/04",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/maakunta_1_20220101/codes/04",
+    "status" : "DRAFT",
+    "order" : 3,
+    "hierarchyLevel" : 1,
+    "startDate" : "2020-01-01",
+    "created" : "2021-12-14T16:10:21.721Z",
+    "modified" : "2021-12-14T16:10:21.721Z",
+    "prefLabel" : {
+      "en" : "Satakunta",
+      "fi" : "Satakunta",
+      "sv" : "Satakunta"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/maakunta_1_20220101/codes/04/members/"
+  }, {
+    "id" : "38308197-fb9d-43db-b178-4e40f9bfa63c",
+    "codeValue" : "05",
+    "uri" : "http://uri.suomi.fi/codelist/jhs/maakunta_1_20220101/code/05",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/maakunta_1_20220101/codes/05",
+    "status" : "DRAFT",
+    "order" : 4,
+    "hierarchyLevel" : 1,
+    "startDate" : "2020-01-01",
+    "created" : "2021-12-14T16:10:21.721Z",
+    "modified" : "2021-12-14T16:10:21.721Z",
+    "prefLabel" : {
+      "en" : "Kanta-Häme",
+      "fi" : "Kanta-Häme",
+      "sv" : "Egentliga Tavastland"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/maakunta_1_20220101/codes/05/members/"
+  }, {
+    "id" : "b4b2b9b5-b6fc-4049-a04b-e888508bec1b",
+    "codeValue" : "06",
+    "uri" : "http://uri.suomi.fi/codelist/jhs/maakunta_1_20220101/code/06",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/maakunta_1_20220101/codes/06",
+    "status" : "DRAFT",
+    "order" : 5,
+    "hierarchyLevel" : 1,
+    "startDate" : "2020-01-01",
+    "created" : "2021-12-14T16:10:21.721Z",
+    "modified" : "2021-12-14T16:10:21.721Z",
+    "prefLabel" : {
+      "en" : "Pirkanmaa",
+      "fi" : "Pirkanmaa",
+      "sv" : "Birkaland"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/maakunta_1_20220101/codes/06/members/"
+  }, {
+    "id" : "c853b468-ba78-4d99-b368-d450b2de2a3c",
+    "codeValue" : "07",
+    "uri" : "http://uri.suomi.fi/codelist/jhs/maakunta_1_20220101/code/07",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/maakunta_1_20220101/codes/07",
+    "status" : "DRAFT",
+    "order" : 6,
+    "hierarchyLevel" : 1,
+    "startDate" : "2020-01-01",
+    "created" : "2021-12-14T16:10:21.721Z",
+    "modified" : "2021-12-14T16:10:21.721Z",
+    "prefLabel" : {
+      "en" : "Päijät-Häme",
+      "fi" : "Päijät-Häme",
+      "sv" : "Päijänne-Tavastland"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/maakunta_1_20220101/codes/07/members/"
+  }, {
+    "id" : "cce3679d-0c8a-4aef-a7e3-fbbf7d765ae4",
+    "codeValue" : "08",
+    "uri" : "http://uri.suomi.fi/codelist/jhs/maakunta_1_20220101/code/08",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/maakunta_1_20220101/codes/08",
+    "status" : "DRAFT",
+    "order" : 7,
+    "hierarchyLevel" : 1,
+    "startDate" : "2020-01-01",
+    "created" : "2021-12-14T16:10:21.721Z",
+    "modified" : "2021-12-14T16:10:21.721Z",
+    "prefLabel" : {
+      "en" : "Kymenlaakso",
+      "fi" : "Kymenlaakso",
+      "sv" : "Kymmenedalen"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/maakunta_1_20220101/codes/08/members/"
+  }, {
+    "id" : "4a2de738-d2a0-456e-97ec-d7f5de748841",
+    "codeValue" : "09",
+    "uri" : "http://uri.suomi.fi/codelist/jhs/maakunta_1_20220101/code/09",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/maakunta_1_20220101/codes/09",
+    "status" : "DRAFT",
+    "order" : 8,
+    "hierarchyLevel" : 1,
+    "startDate" : "2020-01-01",
+    "created" : "2021-12-14T16:10:21.721Z",
+    "modified" : "2021-12-14T16:10:21.721Z",
+    "prefLabel" : {
+      "en" : "South Karelia",
+      "fi" : "Etelä-Karjala",
+      "sv" : "Södra Karelen"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/maakunta_1_20220101/codes/09/members/"
+  }, {
+    "id" : "bdf2953c-757b-488f-a46e-596c8759083b",
+    "codeValue" : "10",
+    "uri" : "http://uri.suomi.fi/codelist/jhs/maakunta_1_20220101/code/10",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/maakunta_1_20220101/codes/10",
+    "status" : "DRAFT",
+    "order" : 9,
+    "hierarchyLevel" : 1,
+    "startDate" : "2020-01-01",
+    "created" : "2021-12-14T16:10:21.721Z",
+    "modified" : "2021-12-14T16:10:21.721Z",
+    "prefLabel" : {
+      "en" : "South Savo",
+      "fi" : "Etelä-Savo",
+      "sv" : "Södra Savolax"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/maakunta_1_20220101/codes/10/members/"
+  }, {
+    "id" : "0f2bf651-68c2-4adb-b414-7e93c11f860c",
+    "codeValue" : "11",
+    "uri" : "http://uri.suomi.fi/codelist/jhs/maakunta_1_20220101/code/11",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/maakunta_1_20220101/codes/11",
+    "status" : "DRAFT",
+    "order" : 10,
+    "hierarchyLevel" : 1,
+    "startDate" : "2020-01-01",
+    "created" : "2021-12-14T16:10:21.721Z",
+    "modified" : "2021-12-14T16:10:21.721Z",
+    "prefLabel" : {
+      "en" : "North Savo",
+      "fi" : "Pohjois-Savo",
+      "sv" : "Norra Savolax"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/maakunta_1_20220101/codes/11/members/"
+  }, {
+    "id" : "c7150146-12a6-4798-97ce-f5183db2437c",
+    "codeValue" : "12",
+    "uri" : "http://uri.suomi.fi/codelist/jhs/maakunta_1_20220101/code/12",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/maakunta_1_20220101/codes/12",
+    "status" : "DRAFT",
+    "order" : 11,
+    "hierarchyLevel" : 1,
+    "startDate" : "2020-01-01",
+    "created" : "2021-12-14T16:10:21.721Z",
+    "modified" : "2021-12-14T16:10:21.721Z",
+    "prefLabel" : {
+      "en" : "North Karelia",
+      "fi" : "Pohjois-Karjala",
+      "sv" : "Norra Karelen"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/maakunta_1_20220101/codes/12/members/"
+  }, {
+    "id" : "7560f40d-1b79-4c81-8b88-af4410bd6c20",
+    "codeValue" : "13",
+    "uri" : "http://uri.suomi.fi/codelist/jhs/maakunta_1_20220101/code/13",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/maakunta_1_20220101/codes/13",
+    "status" : "DRAFT",
+    "order" : 12,
+    "hierarchyLevel" : 1,
+    "startDate" : "2020-01-01",
+    "created" : "2021-12-14T16:10:21.721Z",
+    "modified" : "2021-12-14T16:10:21.721Z",
+    "prefLabel" : {
+      "en" : "Central Finland",
+      "fi" : "Keski-Suomi",
+      "sv" : "Mellersta Finland"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/maakunta_1_20220101/codes/13/members/"
+  }, {
+    "id" : "f794cbe2-210a-44b2-a0ae-0c982673b56a",
+    "codeValue" : "14",
+    "uri" : "http://uri.suomi.fi/codelist/jhs/maakunta_1_20220101/code/14",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/maakunta_1_20220101/codes/14",
+    "status" : "DRAFT",
+    "order" : 13,
+    "hierarchyLevel" : 1,
+    "startDate" : "2020-01-01",
+    "created" : "2021-12-14T16:10:21.721Z",
+    "modified" : "2021-12-14T16:10:21.721Z",
+    "prefLabel" : {
+      "en" : "South Ostrobothnia",
+      "fi" : "Etelä-Pohjanmaa",
+      "sv" : "Södra Österbotten"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/maakunta_1_20220101/codes/14/members/"
+  }, {
+    "id" : "05210972-76af-4ea1-baa9-403477bf5d7c",
+    "codeValue" : "15",
+    "uri" : "http://uri.suomi.fi/codelist/jhs/maakunta_1_20220101/code/15",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/maakunta_1_20220101/codes/15",
+    "status" : "DRAFT",
+    "order" : 14,
+    "hierarchyLevel" : 1,
+    "startDate" : "2020-01-01",
+    "created" : "2021-12-14T16:10:21.721Z",
+    "modified" : "2021-12-14T16:10:21.721Z",
+    "prefLabel" : {
+      "en" : "Ostrobothnia",
+      "fi" : "Pohjanmaa",
+      "sv" : "Österbotten"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/maakunta_1_20220101/codes/15/members/"
+  }, {
+    "id" : "1d826440-8e3d-4d5d-998a-92dcf12c314a",
+    "codeValue" : "16",
+    "uri" : "http://uri.suomi.fi/codelist/jhs/maakunta_1_20220101/code/16",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/maakunta_1_20220101/codes/16",
+    "status" : "DRAFT",
+    "order" : 15,
+    "hierarchyLevel" : 1,
+    "startDate" : "2020-01-01",
+    "created" : "2021-12-14T16:10:21.721Z",
+    "modified" : "2021-12-14T16:10:21.721Z",
+    "prefLabel" : {
+      "en" : "Central Ostrobothnia",
+      "fi" : "Keski-Pohjanmaa",
+      "sv" : "Mellersta Österbotten"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/maakunta_1_20220101/codes/16/members/"
+  }, {
+    "id" : "05bf8754-4eca-465a-9dce-d48e1128014c",
+    "codeValue" : "17",
+    "uri" : "http://uri.suomi.fi/codelist/jhs/maakunta_1_20220101/code/17",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/maakunta_1_20220101/codes/17",
+    "status" : "DRAFT",
+    "order" : 16,
+    "hierarchyLevel" : 1,
+    "startDate" : "2020-01-01",
+    "created" : "2021-12-14T16:10:21.721Z",
+    "modified" : "2021-12-14T16:10:21.721Z",
+    "prefLabel" : {
+      "en" : "North Ostrobothnia",
+      "fi" : "Pohjois-Pohjanmaa",
+      "sv" : "Norra Österbotten"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/maakunta_1_20220101/codes/17/members/"
+  }, {
+    "id" : "9f65053a-5a62-45b5-aeab-f1c5e38c763c",
+    "codeValue" : "18",
+    "uri" : "http://uri.suomi.fi/codelist/jhs/maakunta_1_20220101/code/18",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/maakunta_1_20220101/codes/18",
+    "status" : "DRAFT",
+    "order" : 17,
+    "hierarchyLevel" : 1,
+    "startDate" : "2020-01-01",
+    "created" : "2021-12-14T16:10:21.721Z",
+    "modified" : "2021-12-14T16:10:21.721Z",
+    "prefLabel" : {
+      "en" : "Kainuu",
+      "fi" : "Kainuu",
+      "sv" : "Kajanaland"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/maakunta_1_20220101/codes/18/members/"
+  }, {
+    "id" : "ac8e5f71-539f-4808-83a6-05536d33c8cc",
+    "codeValue" : "19",
+    "uri" : "http://uri.suomi.fi/codelist/jhs/maakunta_1_20220101/code/19",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/maakunta_1_20220101/codes/19",
+    "status" : "DRAFT",
+    "order" : 18,
+    "hierarchyLevel" : 1,
+    "startDate" : "2020-01-01",
+    "created" : "2021-12-14T16:10:21.721Z",
+    "modified" : "2021-12-14T16:10:21.721Z",
+    "prefLabel" : {
+      "en" : "Lapland",
+      "fi" : "Lappi",
+      "sv" : "Lappland"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/maakunta_1_20220101/codes/19/members/"
+  }, {
+    "id" : "e2c8e024-ce92-42fd-9d11-29a6a62fd129",
+    "codeValue" : "21",
+    "uri" : "http://uri.suomi.fi/codelist/jhs/maakunta_1_20220101/code/21",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/maakunta_1_20220101/codes/21",
+    "status" : "DRAFT",
+    "order" : 19,
+    "hierarchyLevel" : 1,
+    "startDate" : "2020-01-01",
+    "created" : "2021-12-14T16:10:21.721Z",
+    "modified" : "2021-12-14T16:10:21.721Z",
+    "prefLabel" : {
+      "en" : "Åland",
+      "fi" : "Ahvenanmaa",
+      "sv" : "Åland"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/maakunta_1_20220101/codes/21/members/"
+  } ],
+  "prefLabel" : {
+    "en" : "Regions 2022",
+    "fi" : "Maakunnat 2022",
+    "sv" : "Landskapen 2022"
+  },
+  "definition" : {
+    "en" : "Regions 2022\n",
+    "fi" : "Alue, johon kuuluvat kunnat muodostavat toiminnallisesti ja taloudellisesti sekä alueen suunnittelun kannalta tarkoituksenmukaisen kokonaisuuden.",
+    "sv" : "Landskapen 2022"
+  },
+  "description" : {
+    "en" : "The purpose of regional classifications used in statistics is to describe regional variations of various phenomena and regional structure. As most regional classifications, the division of regions is based on the administrative regional division. The Government decided on the division of regions in summer 1992.\nStarting from September 1997, the areas of regions and regional councils representing them are uniform. Regional councils attend to the supervision of municipalities’ interests and are in charge of regional development in their operating areas. According to the Government decision in principle (6 February 1997), the regional division of regional councils was adopted as the basis for the regional divisions of regional administration authorities.\n\nNames of regions\nBy the decision of the Government on 26 February 1998, the names of regions in Finnish and Swedish were confirmed. The decision entered into force on 1 March 1998. Apart from the regional council of Häme, the names of regional councils correspond to the names of regions starting from 1 January 1999.\nThe recommendation was made in the Ministry of the Interior (December 1998) for the equivalent names of regions in English, German and French. The main principle is to use the national names of regions. However, exceptions are Lapland, Ostrobothnia, Central Finland and Karelia, which already have established equivalents in foreign languages. The Swedish name of a region is used in Nordic languages. If the word region needs to be combined to the name, the structure in Swedish and English is as follows: Etelä-Pohjanmaan maakunta - landskapet Södra Österbotten - (the) region of South Ostrobothnia.",
+    "fi" : "Tilastoissa käytettävien alueluokitusten tarkoituksena on ilmiöiden alueellisten vaihtelujen ja aluerakenteen kuvaaminen. Useimpien alueluokitusten tapaan maakuntajako perustuu hallinnolliseen aluejakoon. Valtioneuvosto päätti maakuntajaosta kesällä 1992.\n\nSyyskuusta 1997 lähtien maakuntien ja niitä edustavien maakuntien liittojen alueet ovat yhteneväiset. Maakuntien liitot huolehtivat alueensa kuntien edunvalvonnasta ja vastaavat toimialueensa alueellisesta kehittämisestä. Valtioneuvoston periaatepäätöksen (6.2.1997) mukaan maakunnan liittojen aluejako otettiin valtion aluehallintoviranomaisten aluejakojen pohjaksi.\n\nMaakuntien nimet\n\nValtioneuvosto vahvisti 26.2.1998 tekemällään päätöksellä maakuntien nimet suomeksi ja ruotsiksi. Päätös tuli voimaan 1.3.1998. Maakuntien liittojen nimet vastaavat 1.1.1999 lähtien maakuntien nimiä Hämeen liittoa lukuunottamatta.\n\nSisäasiainministeriössä on laadittu suositus (joulukuu 1998) maakuntien nimien vastineiksi englanniksi, saksaksi ja ranskaksi. Pääperiaatteen mukaan käytetään maakuntien kansallisia nimiä. Poikkeuksia ovat kuitenkin Lappi, Pohjanmaa, Keski-Suomi ja Karjala, joilla on jo vakiintuneet vieraskieliset vastineet. Pohjoismaisissa kielissä käytetään maakunnan ruotsinkielistä nimeä.\n\nJos nimeen on tarpeen yhdistää yleiskäsitteenä sana maakunta, on rakenne silloin ruotsiksi ja englanniksi seuraava: Etelä-Pohjanmaan maakunta - landskapet Södra Österbotten - (the) region of South Ostrobothnia.",
+    "sv" : "Syftet med regionindelningarna i statistiken är att beskriva regionala variationer av fenomenen och regionstrukturen. I likhet med de flesta regionindelningarna baserar sig landskapsindelningen på en administrativ regional indelning. Statsrådet beslöt om landskapsindelningen våren 1992.\n\nFr.o.m. september 1997 motsvarar landskapens områden områdena för de landskapsförbund som representerar dem. Landskapsförbunden sköter intressebevakningen för kommunerna på sitt område och ansvarar för den regionala utvecklingen i sitt verksamhetsområde. Genom statsrådets principbeslut (6.2.1997) var landskapsförbundens områdesindelning underlag för statens regionförvaltningsmyndigheters indelning i områden.\n\nNamnen på landskapen\n\nStatsrådet fastställde genom sitt beslut 26.2.1998 landskapens namn på finska och svenska. Beslutet trädde i kraft 1.3.1998. Namnen på landskapsförbunden motsvarar fr.o.m. 1.1.1999 namnen på landskapsförbunden med undantag av Tavastlands förbund.\n\nInrikesministeriet har utarbetat en rekommendation (december 1998) som gäller landskapens namn på engelska, tyska och franska. Enligt huvudprincipen används de nationella namnen på landskapen. Undantag är dock Lappland, Österbotten, Mellersta Finland och Karelen, som redan har vedertagna motsvarigheter på olika språk. I de nordiska språken används det svenskspråkiga namnet på landskapet. Om man behöver lägga till ordet landskap som ett allmänt begrepp till namnet, är strukturen följande på svenska och engelska: Etelä-Pohjanmaan maakunta - landskapet Södra Österbotten - (the) region of South Ostrobothnia."
+  },
+  "changeNote" : {
+    "en" : "No changes as of 1 January 2022\n\nChanges as of 1 January 2021\n\nHeinävesi (090) moved from the region of South Savo to the region of North Karelia (12).\n\nIitti (142) moved from the region of Kymenlaakso (08) to the region of Päijät-Häme (07).\n\nIsokyrö (152) moved from the region of Ostrobothnia (15) to the region of South Ostrobothnia (14).\n\nJoroinen (171) moved from the region of South Savo (10) to the region of North Savo (11).\n\nKuhmoinen (291) moved from the region of Central Finland (13) to the region of Pirkanmaa (06).\n\nNo changes as of 1 January 2020\n\nChanges on 1 January 2019\nÅland has been left out of the Finnish name (previously Ahvenanmaa-Åland) for the region of Åland.\n\nThe English name of three regions has changed:\nEtelä-Savo > South Savo\nPohjois-Savo > North Savo\nVarsinais-Suomi > Southwest Finland.\n\nOn 1 January 2016, Vaala (785) moved from the region of Kainuu (18) to the region of North Ostrobothnia (17). On 1 January 2013, Suomenniemi (775) was merged with Mikkeli (491), whereby the area of the former municipality of Suomenniemi moved from the region of South Karelia (09) to the region of Etelä-Savo (10), and Kiikoinen (254) was merged with Sastamala (790), whereby the area of the former municipality of Kiikkoinen moved from the region of Satakunta (04) to the region of Pirkanmaa (06). On 1 January 2011, the region of Itä-Uusimaa (20) was merged with the region of Uusimaa (01). On 1 January 2010, Himanka (095) was merged with the municipality of Kalajoki (208) and the area of the former municipality of Himanka moved from the region of Ostrobothnia (16) to that of North Ostrobothnia (17). On 1 January 2009, the boundary between Itä-Uusimaa (20) and Uusimaa (01) changed when part of Sipoo was merged with Helsinki. On 1 January 2007, as a result of the abolishment of Längelmäki (443), the regional boundary changed, when part of the area of Längelmäki moved from Pirkanmaa (06) to the region of Central Finland. The areas of Längelmäki were merged with Jämsä (182, Central Finland) and Orivesi (562, Pirkanmaa). The size of the area merged with Orivesi is 300 km2, the area merged with Jämsä 197.6 km2. According to the population data on the situation in 2004, 64 per cent (1,088 persons) of the inhabitants in the present municipality of Längelmäki moved to the area merged with Jämsä and 36 per cent (612) to the area merged with Orivesi. On 1 January 2005, Punkalaidun (619) moved from the region of Satakunta (04) to the region of Pirkanmaa (06). The change is taken into account in statistics produced on the national level. The change is not taken into consideration in statistics submitted to Eurostat, because data are delivered according to the NUTS classification. (NUTS is the EU's common classification of statistical regions, which is updated at most every three years.) On 1 January 2002, Kangaslampi (212) moved from the region of Etelä-Savo (10) to the region of Pohjois-Savo (11). As a result of the municipal merger of 1 January 2001 when Kuorevesi (299) merged with Jämsä, the former municipality of Kuorevesi moved from the region of Pirkanmaa to that of Central Finland. On 1 March 1998, regions received their official names. In this connection, two regions changed their names: The new name of the region of Häme (05) is Kanta-Häme. The new name of Coastal Vasa (15) is Ostrobothnia.",
+    "fi" : "Ei muutoksia 1.1.2022\n\nMuutokset 1.1.2021\n\nHeinävesi (090) siirtyy Etelä-Savon maakunnasta (10) Pohjois-Karjalan maakuntaan (12). \n\nIitti (142) siirtyy Kymenlaakson maakunnasta (08) Päijät-Hämeen maakuntaan (07).\n\nIsokyrö (152) siirtyy Pohjanmaan maakunnasta (15) Etelä-Pohjanmaan maakuntaan (14).\n\nJoroinen (171) siirtyy Etelä-Savon maakunnasta (10) Pohjois-Savon maakuntaan (11).\n\nKuhmoinen (291) siirtyy Keski-Suomen maakunnasta (13) Pirkanmaan maakuntaan (06).\n\nEi muutoksia 1.1.2020\n\n1.1.2019\nAhvenanmaan maakunnan suomenkielisestä nimestä on jätetty pois Åland.\nKolmen maakunnan englanninkielinen nimi on muuttunut:\n\nEtelä-Savo > South Savo\nPohjois-Savo > North Savo\nVarsinais-Suomi > Southwest Finland.\n\n\n1.1.2016 Vaala (785) siirtyy Kainuun maakunnasta (18) Pohjois-Pohjanmaan maakuntaan (17).\n\n1.1.2013 Suomenniemi (775) liitettiin Mikkeliin (491), jolloin entisen Suomenniemen kunnan alue siirtyi Etelä-Karjalan maakunnasta (09) Etelä-Savon maakuntaan (10) ja Kiikoinen (254) liitettiin Sastamalaan (790), jolloin entisen Kiikoisen kunnan alue siirtyi Satakunnan maakunnasta (04) Pirkanmaan maakuntaan (06).\n\n1.1.2011 Itä-Uudenmaan maakunta (20) liitetty Uudenmaan maakuntaan (01).\n\n1.1.2010 Himanka (095) liitettiin Kalajoen kuntaan (208), jolloin entisen Himangan kunnan alue siirtyi Keski-Pohjanmaan maakunnasta (16) Pohjois-Pohjanmaan maakuntaan (17).\n\n1.1.2009 Itä-Uudenmaan (20) ja Uudenmaan (01) välinen raja muuttui, kun osa Sipoosta liitettiin Helsinkiin.\n\n1.1.2007 Längelmäen (443) lakkauttamisen seurauksena maakuntaraja muuttui, kun osa Längelmäen alueesta siirtyi Pirkanmaasta (06) Keski-Suomen maakuntaan (13). Längelmäen alueet liitettiin Jämsään (182, Keski-Suomi) ja Oriveteen (562, Pirkanmaa). Oriveteen liitetty alue on 300 neliökilometrin laajuinen, Jämsään liitetty puolestaan 197,6 km2. Vuoden 2004 tilanteen mukaisen väkilukutiedon mukaan Jämsään liitettylle alueelle siirtyi 64% (1088 henkilöä) ja Oriveteen liitettävälle alueelle 36% (612 henkilöä) nykyisen Längelmäen kunnan asukkaista.\n\n1.1.2005 Punkalaidun (619) siirtyi Satakunnan maakunnasta (04) Pirkanmaan maakuntaan (06). Muutos huomioidaan kansallisella tasolla tuotettavissa tilastoissa. Eurostatille toimitettavissa tilastoissa muutosta ei huomioida, koska sinne tiedot toimitetaan NUTS-luokituksen mukaisesti. (NUTS on EU:n yhteinen tilastollisten alueiden luokitus, jota päivitetään enintään kolmen vuoden välein.)\n\n1.1.2002 Kangaslampi (212) siirtyi Etelä-Savon maakunnasta (10) Pohjois-Savon maakuntaan (11).\n\n1.1.2001 kuntaliitoksen johdosta Kuoreveden (299) liittyessä Jämsään (182) entisen Kuoreveden kunnan osa siirtyy Pirkanmaan maakunnasta Keski-Suomen maakuntaan.\n\n1.3.1998 maakunnat saivat viralliset nimet. Kaksi maakuntaa vaihtoi tässä yhteydessä nimeä:\n\nHämeen maakunnan (05) uusi nimi on Kanta-Häme.\nVaasan rannikkoseudun (15) uusi nimi on Pohjanmaa.",
+    "sv" : "Inga förändringar 1.1.2022\n\nÄndringar 1.1.2021\n\nHeinävesi kommun (090) överförs från landskapet Södra Savolax (10) till landskapet Norra Karelen (12).\n\nItis kommun (142) överförs från landskapet Kymmenedalen (08) till landskapet Päijänne-Tavastland (07).\n\nStorkyro kommun (152) överförs från landskapet Österbotten (15) till landskapet Södra Österbotten (14).\n\nJorois kommun (171) överförs från landskapet Södra Savolax (10) till landskapet Norra Savolax (11).\n\nKuhmois kommun (291) överförs från landskapet Mellersta Finland (13) till landskapet Birkaland (06).\n\nInga förändringar 1.1.2020\n\nFörändringar 1.1.2019\n\nI det finska namnet på landskapet Åland (Ahvenanmaa-Åland) har Åland lämnats bort.\n\nDet engelska namnet på tre landskap har ändrats:\nEtelä-Savo > South Savo\nPohjois-Savo > North Savo\nVarsinais-Suomi > Southwest Finlan\n\n1.1.2016 Vaala kommun (785) överförs från landskapet Kajanaland (18) till landskapet Norra Österbotten (17). 1.1.2013 Suomenniemi (775) anslöts till S:t Michel (491) och området för den tidigare kommunen Suomenniemi överfördes från landskapet Södra Karelen (09) till landskapet Södra Savolax (10). Kiikoinen (254) anslöts till Sastamala (790) och området för den tidigare kommunen Kiikoinen överfördes från landskapet Satakunta (04) till landskapet Birkaland (06) 1.1.2011 Landskapet Östra Nyland (20) anslöts till landskapet Nyland (01). 1.1.2010 Himanka (095) anslöts till Kalajoki kommun (208) och området för den tidigare kommunen Himanka överfördes från landskapet Mellersta Österbotten (16) till landskapet Norra Österbotten (17). 1.1.2009 Gränsen mellan Östra Nyland (20) och Nyland (01) ändrades när en del av Sibbo anslöts till Helsingfors. 1.1.2007 Till följd av att Längelmäki (443) upphörde ändrades landskapsgränsen, då en del av området i Längelmäki överfördes från landskapet Birkaland (06) till landskapet Mellersta Finland (13). Områdena i Längelmäki anslöts till Jämsä (182, Mellersta Finland) och Orivesi (562, Birkaland). Området som anslöts till Orivesi är 300 kvadratkilometer stort och området som anslöts till Jämsä 197,6 km2. Enligt uppgiften om folkmängden efter situationen år 2004 övergick 64 procent (1 088 personer) av invånarna i Längelmäki kommun till det område som anslöts till Jämsä och 36 procent (612 personer) till det område som anslöts till Orivesi. 1.1.2005 Punkalaidun (619) överfördes från landskapet Satakunta (04) till landskapet Birkaland (06). Ändringen beaktas i statistikgrenar som framställs på nationell nivå. I de statistikgrenar som skickas till Eurostat beaktas inte ändringen, eftersom uppgifterna som levereras dit följer NUTS-klassificeringen. (NUTS är EU:s gemensamma klassificering av statistiska områden, som uppdateras högst vart tredje år.) 1.1.2016 Kangaslampi (212) överfördes från landskapet Södra Savolax (10) till Norra Savolax (11). 1.1.2001 när Kuorevesi (299) ansluts till Jämsä (182) på grund av kommunsammanslagningen överförs en del av den tidigare kommunen Kuorevesi (299) från landskapet Birkaland till landskapet Mellersta Finland. 1.3.1998 landskapen fick sina officiella namn. Två landskap bytte namn i detta sammanhang: Det nya namnet på landskapet Tavastland (05) är Egentliga Tavastland. Det nya namnet på Vasa kustregion (15) är Österbotten."
+  },
+  "startDate" : "2022-01-01",
+  "endDate" : "2022-12-31",
+  "created" : "2021-12-14T16:10:21.606Z",
+  "modified" : "2022-01-03T13:16:44.483Z",
+  "statusModified" : "2022-01-03T13:16:44.202Z",
+  "status" : "VALID",
+  "version" : "1",
+  "governancePolicy" : "Kansallinen suositus (JHS)",
+  "infoDomains" : [ {
+    "id" : "0c1fcbb8-ebfa-4a94-8fc3-a18134d8e792",
+    "codeValue" : "P9",
+    "uri" : "http://uri.suomi.fi/codelist/jupo/serviceclassification/code/P9",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jupo/codeschemes/serviceclassification/codes/P9",
+    "status" : "VALID",
+    "order" : 95,
+    "hierarchyLevel" : 1,
+    "created" : "2018-01-01T00:00:00.000Z",
+    "modified" : "2018-01-01T00:00:00.000Z",
+    "prefLabel" : {
+      "en" : "General information and administrative services",
+      "fi" : "Yleiset tieto- ja hallintopalvelut",
+      "sv" : "Generella informations- ja förvaltningstjänster"
+    },
+    "description" : {
+      "fi" : "Tässä palveluluokassa käsitellään kansalaisille, yhteisöille ja toisille viranomaisille tarjottavia tieto-, hallinto- ja tukipalveluja, jotka sisällöltään voivat liittyä mihin aiheeseen tahansa ja joita ei tämän vuoksi voida sijoittaa julkisen palvelun luokituksen muihin aiheluokkiin."
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jupo/codeschemes/serviceclassification/codes/P9/members/"
+  } ],
+  "languageCodes" : [ {
+    "id" : "931ea36d-b2e9-409b-bf86-87ff85708c75",
+    "codeValue" : "sv",
+    "uri" : "http://uri.suomi.fi/codelist/interoperabilityplatform/languagecodes/code/sv",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/interoperabilityplatform/codeschemes/languagecodes/codes/sv",
+    "status" : "VALID",
+    "order" : 1433,
+    "hierarchyLevel" : 1,
+    "created" : "2018-10-05T12:36:13.394Z",
+    "modified" : "2019-09-03T05:07:23.042Z",
+    "prefLabel" : {
+      "en" : "Swedish",
+      "fi" : "ruotsi",
+      "sv" : "svenska"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/interoperabilityplatform/codeschemes/languagecodes/codes/sv/members/"
+  }, {
+    "id" : "1cc15c8d-256e-4235-b1cc-071e5b750a08",
+    "codeValue" : "en",
+    "uri" : "http://uri.suomi.fi/codelist/interoperabilityplatform/languagecodes/code/en",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/interoperabilityplatform/codeschemes/languagecodes/codes/en",
+    "status" : "VALID",
+    "order" : 883,
+    "hierarchyLevel" : 1,
+    "created" : "2018-10-05T12:35:59.315Z",
+    "modified" : "2019-09-03T05:06:59.187Z",
+    "prefLabel" : {
+      "en" : "English",
+      "fi" : "englanti",
+      "sv" : "engelska"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/interoperabilityplatform/codeschemes/languagecodes/codes/en/members/"
+  }, {
+    "id" : "beda08b1-c3ac-4e82-af4b-cb269d36eaf9",
+    "codeValue" : "fi",
+    "uri" : "http://uri.suomi.fi/codelist/interoperabilityplatform/languagecodes/code/fi",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/interoperabilityplatform/codeschemes/languagecodes/codes/fi",
+    "status" : "VALID",
+    "order" : 1034,
+    "hierarchyLevel" : 1,
+    "created" : "2018-10-05T12:36:02.639Z",
+    "modified" : "2019-09-03T05:07:06.108Z",
+    "prefLabel" : {
+      "en" : "Finnish",
+      "fi" : "suomi",
+      "sv" : "finska"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/interoperabilityplatform/codeschemes/languagecodes/codes/fi/members/"
+  } ],
+  "externalReferences" : [ {
+    "id" : "9a25f7fc-e4be-11e7-82ab-479f4f288376",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/externalreferences/9a25f7fc-e4be-11e7-82ab-479f4f288376",
+    "created" : "2018-01-01T00:00:00.000Z",
+    "modified" : "2018-01-01T00:00:00.000Z",
+    "href" : "https://creativecommons.org/licenses/by/4.0/",
+    "global" : true,
+    "title" : {
+      "en" : "Creative Commons Attribution 4.0 International (CC BY 4.0)",
+      "fi" : "Creative Commons Nimeä 4.0 Kansainvälinen (CC BY 4.0)",
+      "sv" : "Creative Commons Erkännande 4.0 Internationell (CC BY 4.0)"
+    },
+    "description" : {
+      "en" : "This code list is licensed under a Creative Commons Attribution 4.0 International License.",
+      "fi" : "Koodisto on lisensoitu Creative Commons Nimeä 4.0 Kansainvälinen -lisenssillä.",
+      "sv" : "Detta kodelist är licensierat under en Creative Commons Erkännande 4.0 Internationell Licens."
+    },
+    "propertyType" : {
+      "id" : "b568015e-e4be-11e7-97e2-e75d9bd2e46f",
+      "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/propertytypes/b568015e-e4be-11e7-97e2-e75d9bd2e46f",
+      "created" : "2018-01-01T00:00:00.000Z",
+      "modified" : "2021-04-21T13:24:08.208Z",
+      "context" : "ExternalReference",
+      "uri" : "http://purl.org/dc/terms/license/",
+      "localName" : "license",
+      "prefLabel" : {
+        "en" : "License",
+        "fi" : "Lisenssi",
+        "sv" : "Licens"
+      },
+      "definition" : {
+        "en" : "A legal document giving official permission to do something with the resource.",
+        "fi" : "Viittaus viralliseen lisenssidokumenttiin.",
+        "sv" : "Hänvisning till det officiella licensdokumentet."
+      }
+    }
+  } ],
+  "prevCodeschemeId" : "c8cd0b64-37a6-4aa8-bc72-dd620ebf1786",
+  "lastCodeschemeId" : "ee5b376d-c60d-47f7-9c2a-22fe0538ae94",
+  "allVersions" : [ {
+    "id" : "ee5b376d-c60d-47f7-9c2a-22fe0538ae94",
+    "prefLabel" : {
+      "en" : "Regions 2022",
+      "fi" : "Maakunnat 2022",
+      "sv" : "Landskapen 2022"
+    },
+    "codeValue" : "maakunta_1_20220101",
+    "uri" : "http://uri.suomi.fi/codelist/jhs/maakunta_1_20220101",
+    "startDate" : "2022-01-01",
+    "endDate" : "2022-12-31",
+    "status" : "VALID"
+  }, {
+    "id" : "c8cd0b64-37a6-4aa8-bc72-dd620ebf1786",
+    "prefLabel" : {
+      "en" : "Regions 2021",
+      "fi" : "Maakunnat 2021",
+      "sv" : "Landskapen 2021"
+    },
+    "codeValue" : "maakunta_1_20210101",
+    "uri" : "http://uri.suomi.fi/codelist/jhs/maakunta_1_20210101",
+    "startDate" : "2021-01-01",
+    "endDate" : "2021-12-31",
+    "status" : "SUPERSEDED"
+  }, {
+    "id" : "977d7bd2-7580-48de-822b-22eb61bcdb8c",
+    "prefLabel" : {
+      "en" : "Regions 2020",
+      "fi" : "Maakunnat 2020",
+      "sv" : "Landskapen 2020"
+    },
+    "codeValue" : "maakunta_1_20200101",
+    "uri" : "http://uri.suomi.fi/codelist/jhs/maakunta_1_20200101",
+    "startDate" : "2020-01-01",
+    "endDate" : "2020-12-31",
+    "status" : "SUPERSEDED"
+  }, {
+    "id" : "2ccb6340-d136-4302-a091-523ffc2daba5",
+    "prefLabel" : {
+      "en" : "Regions 2019",
+      "fi" : "Maakunnat 2019",
+      "sv" : "Landskapen 2019"
+    },
+    "codeValue" : "maakunta_1_20190101",
+    "uri" : "http://uri.suomi.fi/codelist/jhs/maakunta_1_20190101",
+    "startDate" : "2019-01-01",
+    "endDate" : "2019-12-31",
+    "status" : "SUPERSEDED"
+  } ],
+  "organizations" : [ {
+    "id" : "88ce73b9-376c-4ff1-8c51-e4159b0af75c",
+    "url" : "http://www.stat.fi/",
+    "prefLabel" : {
+      "en" : "Statistics Finland",
+      "fi" : "Tilastokeskus",
+      "sv" : "Statistikcentralen"
+    },
+    "description" : {
+      "en" : "",
+      "fi" : "",
+      "sv" : ""
+    },
+    "removed" : false
+  } ],
+  "cumulative" : false,
+  "codeRegistry" : {
+    "id" : "a7c71027-2969-43f1-bc1d-efa944ef9e55",
+    "codeValue" : "jhs",
+    "uri" : "http://uri.suomi.fi/codelist/jhs",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs",
+    "prefLabel" : {
+      "en" : "JHS",
+      "fi" : "JHS",
+      "sv" : "JHS"
+    },
+    "created" : "2018-01-01T00:00:00.000Z",
+    "modified" : "2020-02-10T14:29:28.912Z",
+    "codeSchemesUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/"
+  },
+  "totalNrOfSearchHitsCodes" : 0,
+  "totalNrOfSearchHitsExtensions" : 0
+}

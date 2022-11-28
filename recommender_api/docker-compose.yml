@@ -1,0 +1,23 @@
+version: '3'
+services:
+  postgresql:
+    image: postgres:13
+    environment:
+      - POSTGRES_USER=service_recommender_test
+      - POSTGRES_PASSWORD=dummy
+      - POSTGRES_DB=service_recommender
+    ports:
+      - '5432:5432'
+  recommender-flyway:
+    image: flyway/flyway:8.4.3
+    depends_on:
+      - postgresql
+    environment:
+      FLYWAY_URL: 'jdbc:postgresql://postgresql:5432/service_recommender'
+      FLYWAY_USER: service_recommender_test
+      FLYWAY_PASSWORD: dummy
+      FLYWAY_LOCATIONS: 'filesystem:/flyway/sql, filesystem:/test_data'
+    volumes:
+      - $PWD/migrations/sql:/flyway/sql
+      - $PWD/tests/test_data:/test_data # also map test data directory so test data gets applied
+    command: -connectRetries=60 migrate

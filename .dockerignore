@@ -1,0 +1,8 @@
+venv
+FinBERT
+infra
+PTV
+**/build
+**/node_modules
+schemas/scripts/
+schemas/tsconfig.json

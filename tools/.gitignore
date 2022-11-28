@@ -1,0 +1,11 @@
+*.iml
+**/*~
+.idea
+
+.vscode/
+*.swp
+**/__pycache__
+venv/
+pyvenv.cfg
+
+.coverage

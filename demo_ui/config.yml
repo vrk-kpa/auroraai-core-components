@@ -1,0 +1,13 @@
+default:
+  region: eu-west-1
+  ui_proxy_host: service-recommender-api
+  ui_server_port: '3000'
+  ui_proxy_scheme: http
+  require_api_auth: 'true'
+local:
+  require_api_auth: 'false'
+  feature_flags: ui_search translate_api wellbeing_county
+localcluster:
+  ui_proxy_host: service-recommender-api:6000
+  require_api_auth: 'false'
+  feature_flags: ui_search translate_api wellbeing_county

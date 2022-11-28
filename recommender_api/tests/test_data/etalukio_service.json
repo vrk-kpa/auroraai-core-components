@@ -1,0 +1,586 @@
+{
+  "id": "3668d250-cd80-45c4-abcc-9b2d3a2b3e42",
+  "sourceId": null,
+  "generalDescriptionId": null,
+  "subType": null,
+  "type": "Service",
+  "fundingType": "PubliclyFunded",
+  "serviceNames": [
+    {
+      "language": "fi",
+      "value": "Etälukio",
+      "type": "AlternativeName"
+    },
+    {
+      "language": "fi",
+      "value": "Nettilukio aikuisille",
+      "type": "Name"
+    }
+  ],
+  "serviceChargeType": "FreeOfCharge",
+  "areaType": "Nationwide",
+  "areas": [],
+  "serviceDescriptions": [
+    {
+      "language": "fi",
+      "value": null,
+      "type": "ValidityTime"
+    },
+    {
+      "language": "fi",
+      "value": null,
+      "type": "ProcessingTime"
+    },
+    {
+      "language": "fi",
+      "value": "Hae Nettilukioon sähköisellä hakulomakkeella. Toimita lisäksi aikaisemmat koulutodistukset joko liittämällä todistustiedostot suoraan hakemukseen tai lähettämällä todistuskopiot postitse. Jos olet ollut aiemmin muissa lukioissa, tarvitsemme niistä erotodistukset. Mikäli sinulla on ammatillinen tutkinto, on hyvä lähettää myös tutkintotodistus. Muussa tapauksessa pyydämme lähettämään perusopetuksen päättötodistuksen. ",
+      "type": "UserInstruction"
+    },
+    {
+      "language": "fi",
+      "value": null,
+      "type": "ChargeTypeAdditionalInfo"
+    },
+    {
+      "language": "fi",
+      "value": "Aikuislukio verkko-opintoina.",
+      "type": "Summary"
+    },
+    {
+      "language": "fi",
+      "value": null,
+      "type": "DeadLine"
+    },
+    {
+      "language": "fi",
+      "value": "Nettilukiossa voit opiskella koko aikuislukion oppimäärän itsenäisenä verkko-opiskeluna omassa aikataulussasi. Opinnot voit aloittaa mihin aikaan vuodesta tahansa.\n\nNettilukiossa et ole sidoksissa lukukausiin tai lukion jaksoihin, vaan voit edetä oman aikataulusi ja suunnitelmasi mukaisesti. Jokaisella nettilukiolaisella on oma ohjaaja, joka auttaa opintojen suunnittelussa, tukee opintojen aikana ja jonka puoleen opiskelija voi kääntyä opintoihin liittyvissä kysymyksissä. Ohjaaja auttaa myös jatko-opiskelusuunnitelmissa ja uranvalinnan pohtimisessa.\n\nKaikki kurssit ovat verkossa saatavilla, joten voit opiskella mistä päin Suomea tai maailmaa tahansa. Nettilukiossa opiskelet Otavian kehittämässä Muikku-oppimisympäristössä, josta löytyvät myös sähköiset oppimateriaalit. Voit opiskella itsenäisesti suoritettavilla verkkokursseilla, ryhmäkursseilla tai tehdä ilmiöpohjaisia opintoja. Nettilukiossa osoitat osaamisesi tehtävillä ja oppimispäiväkirjalla, joten kokeita Nettilukiossa ei ole.",
+      "type": "Description"
+    }
+  ],
+  "languages": [
+    "fi"
+  ],
+  "serviceClasses": [
+    {
+      "name": [
+        {
+          "value": "Vuxen- och kompletteringsutbildning",
+          "language": "sv"
+        },
+        {
+          "value": "Adult and continuing education",
+          "language": "en"
+        },
+        {
+          "value": "Aikuis- ja täydennyskoulutus",
+          "language": "fi"
+        }
+      ],
+      "description": [
+        {
+          "value": "I denna serviceundergrupp behandlas fortsättnings- och kompletteringsutbildning för i första hand personer i arbetsför ålder som stöder utförandet av det nuvarande arbetet eller byte av yrke. Till gruppen hör former av vuxen- och kompletteringsutbildning, hur man söker till utbildningen, läroverk som ger utbildning och examensstrukturer. Även den vuxen- och kompletteringsutbildning som företaget erbjuder eller stöder för personalen hör till denna grupp.",
+          "language": "sv"
+        },
+        {
+          "value": "This service subclass mainly contains further and continuing education for working age citizens that supports them in working in their current jobs or in change of occupation situations. The class includes forms of adult and continuing education, applying for a place in education, institutions providing education and qualification structures. It also includes adult or continuing education a company can arrange to their personnel.",
+          "language": "en"
+        },
+        {
+          "value": "Tässä alapalveluluokassa käsitellään ensi sijassa työikäisten jatko- ja täydennyskoulutusta, joka tukee nykyisessä työssä toimimista tai ammatin vaihtamista. Luokkaan kuuluvat aikuis- ja täydennyskoulutuksen muodot, koulutukseen hakeutuminen, koulutusta antavat oppilaitokset ja tutkintorakenteet. Myös yrityksen henkilöstölleen tarjoama tai tukema aikuis- ja täydennyskoulutus kuuluu tähän.",
+          "language": "fi"
+        }
+      ],
+      "code": "P6.10",
+      "ontologyType": "ptvserclass",
+      "uri": "http://urn.fi/URN:NBN:fi:au:ptvl:v1070",
+      "parentId": "fd1bb60e-4206-4f0a-994f-8ffcb4ffaaa4",
+      "parentUri": "http://urn.fi/URN:NBN:fi:au:ptvl:v1060",
+      "newUri": "http://uri.suomi.fi/codelist/ptv/ptvserclass/code/P6.10",
+      "newParentUri": "http://uri.suomi.fi/codelist/ptv/ptvserclass/code/P6"
+    },
+    {
+      "name": [
+        {
+          "value": "Gymnasieutbildning",
+          "language": "sv"
+        },
+        {
+          "value": "General upper secondary education",
+          "language": "en"
+        },
+        {
+          "value": "Lukiokoulutus",
+          "language": "fi"
+        }
+      ],
+      "description": [
+        {
+          "value": "Till denna serviceundergrupp hör gymnasieutbildningens innehåll och syfte, hur man söker till gymnasieutbildningen, sätt att genomföra gymnasieutbildning samt studentexamen. Det ekonomiska stödet för studierna behandlas i sin egen serviceundergrupp.",
+          "language": "sv"
+        },
+        {
+          "value": "This service subclass contains the contents and objectives of general upper secondary education, applying for a place in general upper secondary education, methods of completing the education and the matriculation examination. Financial support for studies is included in its own subclass.",
+          "language": "en"
+        },
+        {
+          "value": "Tähän alapalveluluokkaan kuuluvat lukiokoulutuksen sisältö ja tarkoitus, lukiokoulutukseen hakeminen, lukion suorittamisen tavat ja ylioppilastutkinto. Opintojen taloudellinen tuki käsitellään omassa alapalveluluokassaan.",
+          "language": "fi"
+        }
+      ],
+      "code": "P6.8",
+      "ontologyType": "ptvserclass",
+      "uri": "http://urn.fi/URN:NBN:fi:au:ptvl:v1068",
+      "parentId": "fd1bb60e-4206-4f0a-994f-8ffcb4ffaaa4",
+      "parentUri": "http://urn.fi/URN:NBN:fi:au:ptvl:v1060",
+      "newUri": "http://uri.suomi.fi/codelist/ptv/ptvserclass/code/P6.8",
+      "newParentUri": "http://uri.suomi.fi/codelist/ptv/ptvserclass/code/P6"
+    },
+    {
+      "name": [
+        {
+          "value": "Studier utomlands",
+          "language": "sv"
+        },
+        {
+          "value": "Studying abroad",
+          "language": "en"
+        },
+        {
+          "value": "Opiskelu ulkomailla",
+          "language": "fi"
+        }
+      ],
+      "description": [
+        {
+          "value": "I denna serviceundergrupp behandlas genomförande av i första hand andra gradens studier och studier av högre nivå utomlands antingen genom utbytesprogram eller inom ramen för något annat förfarande. Till detta anknyter ansökningsförfaranden och godkännandet av examen som avlagts utomlands samt deras motsvarigheter i Finland.",
+          "language": "sv"
+        },
+        {
+          "value": "This service subclass primarily contains pursuing secondary and tertiary level studies abroad through either a student exchange scheme or some other procedure. It also includes the application procedures and the approval and comparability of qualifications obtained.",
+          "language": "en"
+        },
+        {
+          "value": "Tässä palvelualaluokassa käsitellään ensi sijassa toisen ja korkea-asteen opintojen suorittamista ulkomailla joko opiskelijavaihdossa tai muunlaisen menettelyn puitteissa. Tähän liittyvät hakumenettelyt ja ulkomailla suoritettujen tutkintojen hyväksyminen ja vastaavuudet Suomessa.",
+          "language": "fi"
+        }
+      ],
+      "code": "P6.13",
+      "ontologyType": "ptvserclass",
+      "uri": "http://urn.fi/URN:NBN:fi:au:ptvl:v1073",
+      "parentId": "fd1bb60e-4206-4f0a-994f-8ffcb4ffaaa4",
+      "parentUri": "http://urn.fi/URN:NBN:fi:au:ptvl:v1060",
+      "newUri": "http://uri.suomi.fi/codelist/ptv/ptvserclass/code/P6.13",
+      "newParentUri": "http://uri.suomi.fi/codelist/ptv/ptvserclass/code/P6"
+    },
+    {
+      "name": [
+        {
+          "value": "Utbildning",
+          "language": "sv"
+        },
+        {
+          "value": "Education and training",
+          "language": "en"
+        },
+        {
+          "value": "Koulutus",
+          "language": "fi"
+        }
+      ],
+      "description": [
+        {
+          "value": "I denna serviceundergrupp behandlas utbildningstjänster som omfattas av den allmänna läroplikten, andra gradens utbildningstjänster, utbildning av högre graden samt vuxen-, fortsättnings- och kompletteringsutbildning. Ekonomiskt stöd för studierna, studier utomlands och tjänster i samband med vetenskapligt arbete hör också till denna grupp.",
+          "language": "sv"
+        },
+        {
+          "value": "This service class contains education services within the scope of compulsory education, secondary level education and training services, higher education as well as adult, further and continuing education and training. Financial support for studies, studying abroad and services related to scientific work are also included in this class.",
+          "language": "en"
+        },
+        {
+          "value": "Tässä palveluluokassa käsitellään yleisen oppivelvollisuuden piirissä olevia koulutuspalveluja, toisen asteen koulutuspalveluja, korkea-asteen koulutusta sekä aikuis-, jatko- ja täydennyskoulutusta. Opintojen taloudellinen tuki, ulkomailla opiskeleminen ja tieteelliseen työhön kuuluvat palvelut kuuluvat myös tähän luokkaan.",
+          "language": "fi"
+        }
+      ],
+      "code": "P6",
+      "ontologyType": "ptvserclass",
+      "uri": "http://urn.fi/URN:NBN:fi:au:ptvl:v1060",
+      "parentId": null,
+      "parentUri": null,
+      "newUri": "http://uri.suomi.fi/codelist/ptv/ptvserclass/code/P6",
+      "newParentUri": null
+    }
+  ],
+  "ontologyTerms": [
+    {
+      "name": [
+        {
+          "value": "självstudier",
+          "language": "sv"
+        },
+        {
+          "value": "independent study",
+          "language": "en"
+        },
+        {
+          "value": "itseopiskelu",
+          "language": "fi"
+        }
+      ],
+      "code": null,
+      "ontologyType": "YSO",
+      "uri": "http://www.yso.fi/onto/koko/p7822",
+      "parentId": null,
+      "parentUri": "http://www.yso.fi/onto/koko/p32445"
+    },
+    {
+      "name": [
+        {
+          "value": null,
+          "language": "sv"
+        },
+        {
+          "value": null,
+          "language": "en"
+        },
+        {
+          "value": "etäkoulutus",
+          "language": "fi"
+        }
+      ],
+      "code": null,
+      "ontologyType": "TSR",
+      "uri": "http://www.yso.fi/onto/koko/p66612",
+      "parentId": null,
+      "parentUri": "http://www.yso.fi/onto/koko/p36950"
+    },
+    {
+      "name": [
+        {
+          "value": "inlärningsmiljö",
+          "language": "sv"
+        },
+        {
+          "value": "learning environment",
+          "language": "en"
+        },
+        {
+          "value": "oppimisympäristö",
+          "language": "fi"
+        }
+      ],
+      "code": null,
+      "ontologyType": "YSO",
+      "uri": "http://www.yso.fi/onto/koko/p30553",
+      "parentId": null,
+      "parentUri": "http://www.yso.fi/onto/koko/p36122"
+    },
+    {
+      "name": [
+        {
+          "value": "nätkurser",
+          "language": "sv"
+        },
+        {
+          "value": "online courses",
+          "language": "en"
+        },
+        {
+          "value": "verkkokurssit",
+          "language": "fi"
+        }
+      ],
+      "code": null,
+      "ontologyType": "YSO",
+      "uri": "http://www.yso.fi/onto/koko/p18628",
+      "parentId": null,
+      "parentUri": "http://www.yso.fi/onto/koko/p35542"
+    },
+    {
+      "name": [
+        {
+          "value": "vuxengymnasier",
+          "language": "sv"
+        },
+        {
+          "value": "general upper secondary schools for adults",
+          "language": "en"
+        },
+        {
+          "value": "aikuislukiot",
+          "language": "fi"
+        }
+      ],
+      "code": null,
+      "ontologyType": "YSO",
+      "uri": "http://www.yso.fi/onto/koko/p18118",
+      "parentId": null,
+      "parentUri": "http://www.yso.fi/onto/koko/p510"
+    },
+    {
+      "name": [
+        {
+          "value": "nätstudier",
+          "language": "sv"
+        },
+        {
+          "value": "online study",
+          "language": "en"
+        },
+        {
+          "value": "verkko-opiskelu",
+          "language": "fi"
+        }
+      ],
+      "code": null,
+      "ontologyType": "YSO",
+      "uri": "http://www.yso.fi/onto/koko/p10838",
+      "parentId": null,
+      "parentUri": "http://www.yso.fi/onto/koko/p32445"
+    },
+    {
+      "name": [
+        {
+          "value": "distansgymnasium",
+          "language": "sv"
+        },
+        {
+          "value": "distance general upper secondary school",
+          "language": "en"
+        },
+        {
+          "value": "etälukio",
+          "language": "fi"
+        }
+      ],
+      "code": null,
+      "ontologyType": "YSO",
+      "uri": "http://www.yso.fi/onto/koko/p8146",
+      "parentId": null,
+      "parentUri": "http://www.yso.fi/onto/koko/p510"
+    },
+    {
+      "name": [
+        {
+          "value": "gymnasieutbildning",
+          "language": "sv"
+        },
+        {
+          "value": "general upper secondary education",
+          "language": "en"
+        },
+        {
+          "value": "lukiokoulutus",
+          "language": "fi"
+        }
+      ],
+      "code": null,
+      "ontologyType": "JUPO",
+      "uri": "http://www.yso.fi/onto/koko/p61153",
+      "parentId": null,
+      "parentUri": "http://www.yso.fi/onto/koko/p15245"
+    },
+    {
+      "name": [
+        {
+          "value": "studier vid sidan av arbetet",
+          "language": "sv"
+        },
+        {
+          "value": "study alongside work",
+          "language": "en"
+        },
+        {
+          "value": "työn ohessa opiskelu",
+          "language": "fi"
+        }
+      ],
+      "code": null,
+      "ontologyType": "LIITO",
+      "uri": "http://www.yso.fi/onto/koko/p55918",
+      "parentId": null,
+      "parentUri": "http://www.yso.fi/onto/koko/p32445"
+    },
+    {
+      "name": [
+        {
+          "value": "distansstudier",
+          "language": "sv"
+        },
+        {
+          "value": "distance studies",
+          "language": "en"
+        },
+        {
+          "value": "etäopiskelu",
+          "language": "fi"
+        }
+      ],
+      "code": null,
+      "ontologyType": "YSO",
+      "uri": "http://www.yso.fi/onto/koko/p8533",
+      "parentId": null,
+      "parentUri": "http://www.yso.fi/onto/koko/p32445"
+    }
+  ],
+  "targetGroups": [
+    {
+      "name": [
+        {
+          "value": "Medborgare",
+          "language": "sv"
+        },
+        {
+          "value": "Citizens",
+          "language": "en"
+        },
+        {
+          "value": "Kansalaiset",
+          "language": "fi"
+        }
+      ],
+      "code": "KR1",
+      "ontologyType": "ptvkohderyhmat",
+      "uri": "http://urn.fi/URN:NBN:fi:au:ptvl:v2001",
+      "parentId": null,
+      "parentUri": null,
+      "newUri": "http://uri.suomi.fi/codelist/ptv/ptvkohderyhmat/code/KR1",
+      "newParentUri": null
+    }
+  ],
+  "lifeEvents": [],
+  "industrialClasses": [],
+  "legislation": [],
+  "keywords": [
+    {
+      "value": "etäopetus",
+      "language": "fi"
+    },
+    {
+      "value": "nettiopiskelu",
+      "language": "fi"
+    },
+    {
+      "value": "verkkolukio",
+      "language": "fi"
+    },
+    {
+      "value": "verkko-opinnot",
+      "language": "fi"
+    },
+    {
+      "value": "joustava lukio-opetus",
+      "language": "fi"
+    },
+    {
+      "value": "lukio verkossa",
+      "language": "fi"
+    }
+  ],
+  "requirements": [
+    {
+      "value": "Nettilukio on aikuislukio ja hakijan tulee olla vähintään 18-vuotias.",
+      "language": "fi"
+    }
+  ],
+  "serviceChannels": [
+    {
+      "serviceChannel": {
+        "id": "16afd0e8-f069-4ded-9967-f220107494db",
+        "name": "Nettilukion hakulomake"
+      },
+      "serviceChargeType": null,
+      "description": [
+        {
+          "language": "fi",
+          "value": "Sähköinen hakulomake, jolla voit hakea Nettilukioon.",
+          "type": "Description"
+        }
+      ],
+      "extraTypes": [],
+      "serviceHours": [],
+      "contactDetails": null,
+      "digitalAuthorizations": [],
+      "modified": "2018-02-26T06:18:56.156785"
+    },
+    {
+      "serviceChannel": {
+        "id": "961f1a02-0eb7-4b5d-9721-6b9f2d14ec6f",
+        "name": "Otavan Opisto / Otavia"
+      },
+      "serviceChargeType": null,
+      "description": [],
+      "extraTypes": [],
+      "serviceHours": [],
+      "contactDetails": null,
+      "digitalAuthorizations": [],
+      "modified": "2018-02-26T06:18:56.156785"
+    },
+    {
+      "serviceChannel": {
+        "id": "d5e5b0c9-47eb-45ec-a363-d39215e71aa4",
+        "name": "Nettilukio.fi"
+      },
+      "serviceChargeType": null,
+      "description": [],
+      "extraTypes": [],
+      "serviceHours": [],
+      "contactDetails": null,
+      "digitalAuthorizations": [],
+      "modified": "2018-02-26T06:18:56.156785"
+    }
+  ],
+  "organizations": [
+    {
+      "organization": {
+        "id": "cd8efa0a-44f3-4748-a667-6402242e327d",
+        "name": "Mikkelin kaupunki"
+      },
+      "roleType": "OtherResponsible",
+      "provisionType": null,
+      "additionalInformation": []
+    },
+    {
+      "organization": {
+        "id": "df0c2f24-d2bd-4ba7-bdcd-fcfc9f0d65a7",
+        "name": "Mikkelin kaupungin liikelaitos Otavia"
+      },
+      "roleType": "Responsible",
+      "provisionType": null,
+      "additionalInformation": []
+    },
+    {
+      "organization": {
+        "id": "cd8efa0a-44f3-4748-a667-6402242e327d",
+        "name": "Mikkelin kaupunki"
+      },
+      "roleType": "Producer",
+      "provisionType": "SelfProducedServices",
+      "additionalInformation": []
+    },
+    {
+      "organization": {
+        "id": "df0c2f24-d2bd-4ba7-bdcd-fcfc9f0d65a7",
+        "name": "Mikkelin kaupungin liikelaitos Otavia"
+      },
+      "roleType": "Producer",
+      "provisionType": "SelfProducedServices",
+      "additionalInformation": []
+    }
+  ],
+  "serviceVouchersInUse": false,
+  "serviceVouchers": [],
+  "serviceCollections": [
+    {
+      "id": "744c4b61-fde5-4d23-a844-cee5728b9119",
+      "name": [
+        {
+          "value": "Kaavoitus ja maankäyttö",
+          "language": "fi"
+        }
+      ]
+    }
+  ],
+  "publishingStatus": "Published",
+  "modified": "2020-04-22T09:35:58.293984",
+  "responsibleSoteOrganization": null
+}

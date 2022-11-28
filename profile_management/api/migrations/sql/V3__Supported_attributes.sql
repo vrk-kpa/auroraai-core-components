@@ -1,0 +1,1 @@
+ALTER TABLE "aurora_ai_service" ADD COLUMN "supported_attributes" varchar[] DEFAULT array[]::varchar[];

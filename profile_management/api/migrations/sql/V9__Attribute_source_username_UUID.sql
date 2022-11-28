@@ -1,0 +1,1 @@
+ALTER TABLE "attribute_source" ALTER COLUMN "username" TYPE uuid USING username::uuid;

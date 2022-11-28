@@ -1,0 +1,2030 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "AuroraAI core components API",
+    "description": "API endpoints implemented by AuroraAI core components",
+    "version": "0.0.1",
+    "contact": {
+      "name": "AuroraAI core components",
+      "url": "https://auroraai.fi",
+      "email": "auroraai@suomi.fi"
+    }
+  },
+  "servers": [
+    {
+      "url": "/",
+      "description": "AuroraAI core components"
+    }
+  ],
+  "paths": {
+    "/service-recommender/v1/recommend_service": {
+      "post": {
+        "summary": "Ask for service recommendations",
+        "operationId": "post-recommend_service",
+        "description": "Recommend services from PTV based on users input on 3X10D life situation meters. Recommendation results can be limited by filters specified in service_filters field. If all filter types are used, result set includes services that belong to ANY of the specified geographic areas AND to ANY of the specified service classes. For details on life situation meters see https://www.diak.fi/tyoelamapalvelut/kehittamistyokalut/3x10d/",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "example": {
+                "life_situation_meters": {
+                  "family": [
+                    8
+                  ],
+                  "finance": [
+                    9
+                  ],
+                  "friends": [
+                    3
+                  ],
+                  "health": [
+                    2
+                  ],
+                  "housing": [
+                    9
+                  ],
+                  "improvement_of_strengths": [
+                    5
+                  ],
+                  "life_satisfaction": [
+                    6
+                  ],
+                  "resilience": [
+                    7
+                  ],
+                  "self_esteem": [
+                    10
+                  ],
+                  "working_studying": [
+                    1
+                  ]
+                },
+                "service_filters": {
+                  "include_national_services": false,
+                  "municipality_codes": [
+                    "091",
+                    "638"
+                  ],
+                  "region_codes": [
+                    "02",
+                    "19"
+                  ],
+                  "hospital_district_codes": [
+                    "04",
+                    "12"
+                  ],
+                  "service_classes": [
+                    "http://uri.suomi.fi/codelist/ptv/ptvserclass2/code/P1.2",
+                    "http://uri.suomi.fi/codelist/ptv/ptvserclass2/code/P25.3"
+                  ],
+                  "target_groups": [
+                    "KR1"
+                  ],
+                  "service_collections": [
+                    "744c4b61-fde5-4d23-a844-cee5728b9119"
+                  ],
+                  "funding_type": ["PubliclyFunded"],
+                  "wellbeing_service_county_codes": [
+                    "02",
+                    "03"
+                  ]
+                },
+                "limit": 5,
+                "rerank": true,
+                "session_id": "xyz-123"
+              },
+              "schema": {
+                "$ref": "#/components/schemas/RecommendServiceInput"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "auroraai_recommendation_id": 93,
+                  "recommended_services": [
+                    {
+                      "charge_additional_info": "",
+                      "charge_type": "",
+                      "requirements": [],
+                      "service_channels": [
+                        {
+                          "service_name": "Paikallismuseoiden neuvonta",
+                          "address": "Pohjoisranta 4, 96200, Rovaniemi",
+                          "emails": [],
+                          "phone_numbers": [],
+                          "service_channel_description_summary": "Alueellinen vastuumuseo",
+                          "service_channel_id": "1d50cfb5-04f8-410a-83de-ff6208ac6b26",
+                          "service_channel_name": "Lapin maakuntamuseo",
+                          "service_channel_type": "ServiceLocation",
+                          "service_hours": [
+                            "Tuesday 08:00:00 - 16:00:00, Wednesday 08:00:00 - 16:00:00, Thursday 08:00:00 - 16:00:00"
+                          ],
+                          "location": {
+                            "latitude": "00.00",
+                            "longitude": "00.00"
+                          },
+                          "session_transfer": false,
+                          "web_pages": [
+                            "https://www.rovaniemi.fi/Vapaa-aika/Kulttuuriyksikot-ja-museot"
+                          ]
+                        }
+                      ],
+                      "service_description": "Neuvomme museokokoelmien tallentamiseen, luettelointiin ja säilyttämiseen, näyttelyiden suunnitteluun ja toteutukseen sekä museorakennusten kunnostamiseen liittyvissä asioissa. Paikallismuseot voivat hakea näihin tehtäviin Museovirastolta harkinnanvaraista avustusta. Neuvontaa annetaan myös yksityishenkilöiden omistamien kokoelmien hoitamiseen. \\n\\nMaakuntamuseo järjestää vuosittain museotapaamisen, jossa käsitellään museotyön ajankohtaisia asioita sekä kuullaan asiantuntijaluentoja. Tapaamisia on järjestetty eri paikkakunnilla ja samalla on päästy tutustumaan erilaisiin museokohteisiin.\\n\\nPaikallismuseoille tiedotetaan ajankohtaisista asioista sähköpostitse. ",
+                      "service_description_summary": "Lapin maakuntamuseo ohjaa ja neuvoo kuntien, yhdistysten ja säätiöiden omistamia ja yksityisiä museoita sekä edistää näiden välistä yhteistyötä.",
+                      "user_instruction": "Voit kysyä museosta sen toimialueen paikallismuseoista ja niiden kokoelmista. Alueen paikallismuseot voivat pyytää neuvoja ja ohjausta museonhoitoon liittyen. Ota yhteyttä neuvontatyötä tekevään amanuenssiin. ",
+                      "service_id": "42346c30-58ef-48f5-8c10-0cef5681652b",
+                      "service_name": "Lapin maakuntamuseon neuvontatyö paikallismuseoille",
+                      "responsible_organization": {
+                        "id": "38899ac0-9efe-425a-978e-f873c4819df9",
+                        "name": "Rovaniemen kaupunki"
+                      },
+                      "funding_type": "PubliclyFunded",
+                      "area_type": "LimitedType",
+                      "areas": [
+                        {
+                          "code": "19",
+                          "municipalities": [
+                            {
+                              "code": "698",
+                              "name": [
+                                {
+                                  "language": "sv",
+                                  "value": "Rovaniemi"
+                                },
+                                {
+                                  "language": "en",
+                                  "value": "Rovaniemi"
+                                },
+                                {
+                                  "language": "fi",
+                                  "value": "Rovaniemi"
+                                }
+                              ]
+                            },
+                            {
+                              "code": "890",
+                              "name": [
+                                {
+                                  "language": "sv",
+                                  "value": "Utsjoki"
+                                },
+                                {
+                                  "language": "en",
+                                  "value": "Utsjoki"
+                                },
+                                {
+                                  "language": "fi",
+                                  "value": "Utsjoki"
+                                }
+                              ]
+                            }
+                          ],
+                          "name": [
+                            {
+                              "language": "sv",
+                              "value": "Lappland"
+                            },
+                            {
+                              "language": "en",
+                              "value": "Lapland"
+                            },
+                            {
+                              "language": "fi",
+                              "value": "Lappi"
+                            }
+                          ],
+                          "type": "Region"
+                        }
+                      ],
+                      "similarity_score": 2.89905107,
+                      "rank": 1,
+                      "service_class_uris": [
+                        "http://uri.suomi.fi/codelist/ptv/ptvserclass2/code/P25.3"
+                      ]
+                    }
+                  ]
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/RecommendServiceOutput"
+                }
+              }
+            },
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "security": [
+          {
+            "basic_client_id_client_secret": []
+          }
+        ],
+        "tags": [
+          "Service recommendation"
+        ]
+      }
+    },
+    "/service-recommender/v1/text_search": {
+      "post": {
+        "summary": "Search services by freeform text.",
+        "operationId": "post-term-search",
+        "description": "Compares the input text against service descriptions in PTV and returns the most relevant services.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "example": {
+                "search_text": "nuorten työttömyys",
+                "service_filters": {
+                  "include_national_services": true,
+                  "municipality_codes": [
+                    "091",
+                    "638"
+                  ],
+                  "region_codes": [
+                    "02",
+                    "19"
+                  ],
+                  "hospital_district_codes": [
+                    "04",
+                    "12"
+                  ],
+                  "service_classes": [
+                    "http://uri.suomi.fi/codelist/ptv/ptvserclass2/code/P1.2",
+                    "http://uri.suomi.fi/codelist/ptv/ptvserclass2/code/P19"
+                  ],
+                  "target_groups": [
+                    "KR1"
+                  ],
+                  "service_collections": [
+                    "744c4b61-fde5-4d23-a844-cee5728b9119"
+                  ],
+                  "funding_type": [ "PubliclyFunded" ],
+                  "wellbeing_service_county_codes": [
+                    "02",
+                    "03"
+                  ]
+                },
+                "limit": 5,
+                "rerank": true
+              },
+              "schema": {
+                "$ref": "#/components/schemas/TextSearchInput"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "recommended_services": [
+                    {
+                      "charge_additional_info": "",
+                      "charge_type": "FreeOfCharge",
+                      "requirements": [
+                        "Hätätekstiviestin voi lähettää vain sellaisesta puhelinnumerosta, mikä on rekisteröity etukäteen. Ennakkorekisteröinti tehdään suomi.fi-sivustolla."
+                      ],
+                      "service_channels": [
+                        {
+                          "address": "",
+                          "emails": [],
+                          "phone_numbers": [
+                            "112",
+                            "112",
+                            "112"
+                          ],
+                          "service_channel_description_summary": "Suomessa on käytössä vain yksi hätänumero, 112. \nHätänumeroon 112 tulee soittaa aina kiireellisissä, todellisissa hätätilanteissa.",
+                          "service_channel_id": "c7cad442-1820-4854-8d40-48536e6d7fcd",
+                          "service_channel_name": "Hätänumero 112",
+                          "service_channel_type": "Phone",
+                          "service_hours": [
+                            "Aina avoinna"
+                          ],
+                          "location": {
+                            "latitude": "00.00",
+                            "longitude": "00.00"
+                          },
+                          "web_pages": []
+                        },
+                        {
+                          "address": "",
+                          "emails": [],
+                          "phone_numbers": [],
+                          "service_channel_description_summary": "Hätäilmoituksen voi tehdä tekstiviestillä hätänumeroon 112.",
+                          "service_channel_id": "8419a556-b19b-40c2-b7a3-03c36399ce5c",
+                          "service_channel_name": "Hätätekstiviesti numeroon 112",
+                          "service_channel_type": "Phone",
+                          "service_hours": [
+                            "Aina avoinna"
+                          ],
+                          "location": {
+                            "latitude": "00.00",
+                            "longitude": "00.00"
+                          },
+                          "web_pages": []
+                        }
+                      ],
+                      "service_description": "HÄTÄNUMERO 112\\nSuomessa on käytössä vain yksi hätänumero, 112. Hätänumeroon 112 tulee soittaa aina kiireellisissä, todellisissa hätätilanteissa hengen, terveyden, omaisuuden tai ympäristön ollessa uhattuna tai vaarassa, tai jos on syytä epäillä näin olevan. Hätäilmoituksen voi tarvittaessa tehdä tekstiviestillä hätänumeroon 112.",
+                      "service_description_summary": "Suomessa on käytössä vain yksi hätänumero, 112. Hätänumeroon 112 tulee soittaa aina kiireellisissä, todellisissa hätätilanteissa.",
+                      "user_instruction": "Milloin soitat 112?\n* Kun kohtaat hätätilanteen tai tarvitset kiireellisesti viranomaisapua paikalle.\n* Kun tiedät tai epäilet hengen, terveyden, omaisuuden tai ympäristön ollessa uhattuna tai vaarassa.",
+                      "service_id": "01a571b5-3eb9-4b49-a27e-ec8427737c5b",
+                      "area_type": "NationwideExceptAlandIslands",
+                      "areas": [],
+                      "service_name": "Hätäilmoituksen tekeminen",
+                      "responsible_organization": {
+                        "id": "eb46ae8b-e9cb-4f61-b393-811809da7856",
+                        "name": "Hätäkeskuslaitos"
+                      },
+                      "funding_type": "PubliclyFunded",
+                      "service_class_uris": [
+                        "http://uri.suomi.fi/codelist/ptv/ptvserclass2/code/P19",
+                        "http://uri.suomi.fi/codelist/ptv/ptvserclass2/code/P19.3"
+                      ],
+                      "similarity_score": 1.0,
+                      "rank": 1
+                    }
+                  ]
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/TextSearchOutput"
+                }
+              }
+            },
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Endpoint disabled in the specific environment"
+          }
+        },
+        "security": [
+          {
+            "basic_client_id_client_secret": []
+          }
+        ],
+        "tags": [
+          "Service recommendation"
+        ]
+      }
+    },
+    "/service-recommender/v1/recommendation_feedback": {
+      "post": {
+        "summary": "Give feedback for a recommendation",
+        "operationId": "post-recommendation_feedback",
+        "description": "Provide feedback to given service recommendations",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RecommendationFeedback"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "call successful"
+          }
+        },
+        "security": [
+          {
+            "basic_client_id_client_secret": []
+          }
+        ],
+        "tags": [
+          "Service recommendation"
+        ]
+      }
+    },
+    "/service-recommender/v1/session_attributes": {
+      "post": {
+        "summary": "Send session attributes to a recommended service",
+        "operationId": "post-session_attributes",
+        "description": "Send session attributes to make a session transfer to recommended service",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "example": {
+                "service_channel_id": "5894b8d5-a7be-47f2-8474-8f476a933e94",
+                "service_id": "07058248-f002-4897-b1d5-7df9aa734c55",
+                "auroraai_recommendation_id": 123,
+                "session_attributes": {
+                  "age": 20,
+                  "life_situation_meters": {
+                    "family": [
+                      8
+                    ],
+                    "finance": [
+                      9
+                    ],
+                    "friends": [
+                      3
+                    ],
+                    "health": [
+                      2
+                    ],
+                    "housing": [
+                      9
+                    ],
+                    "improvement_of_strengths": [
+                      5
+                    ],
+                    "life_satisfaction": [
+                      6
+                    ],
+                    "resilience": [
+                      7
+                    ],
+                    "self_esteem": [
+                      10
+                    ],
+                    "working_studying": [
+                      1
+                    ]
+                  },
+                  "municipality_code": "049"
+                }
+              },
+              "schema": {
+                "$ref": "#/components/schemas/PostSessionAttributesInput"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "text/html": {
+                "example": "https://example.com/?auroraai_access_token=b96e485b8d37dc7762df04b0ebb8a7cc67e4f456c9104b71f547ab2d6b8c6975"
+              }
+            },
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "security": [
+          {
+            "basic_client_id_client_secret": []
+          }
+        ],
+        "tags": [
+          "Service recommendation"
+        ]
+      },
+      "get": {
+        "summary": "Get session attributes",
+        "operationId": "get-session_attributes",
+        "description": "Get session attributes that were stored when recommendations were asked",
+        "parameters": [
+          {
+            "name": "access_token",
+            "description": "Token that grants access to the session attributes",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "life_situation_meters": {
+                    "family": [
+                      8
+                    ],
+                    "finance": [
+                      9
+                    ],
+                    "friends": [
+                      3
+                    ],
+                    "health": [
+                      2
+                    ],
+                    "housing": [
+                      9
+                    ],
+                    "improvement_of_strengths": [
+                      5
+                    ],
+                    "life_satisfaction": [
+                      6
+                    ],
+                    "resilience": [
+                      7
+                    ],
+                    "self_esteem": [
+                      10
+                    ],
+                    "working_studying": [
+                      1
+                    ]
+                  },
+                  "municipality_code": "091",
+                  "age": 20
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/UserAttributeValues"
+                }
+              }
+            },
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "tags": [
+          "Service recommendation"
+        ]
+      }
+    },
+    "/service-recommender/v1/translation/search_text": {
+      "post": {
+        "summary": "Experimental: Get a Finnish translation of a foreign language text.",
+        "operationId": "post-translation-search-text",
+        "description": "This endpoint can be used to translate a foreign language search query to Finnish. The Finnish translation can then be used in /text_search endpoint. Currently not available in production.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "example": {
+                "search_text": "youth unemployment",
+                "source_language": "en"
+              },
+              "schema": {
+                "properties": {
+                  "search_text": {
+                    "type": "string",
+                    "description": "The search query to be translated."
+                  },
+                  "source_language": {
+                    "type": "string",
+                    "description": "Language code indicating the source language for translation."
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "search_text": "nuorisotyöttömyys",
+                  "target_language": "fi"
+                },
+                "schema": {
+                  "properties": {
+                    "search_text": {
+                      "type": "string",
+                      "description": "Translated text"
+                    },
+                    "target_language": {
+                      "type": "string",
+                      "description": "Target language code (always fi)"
+                    }
+                  }
+                }
+              }
+            },
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Endpoint disabled in the specific environment"
+          }
+        },
+        "security": [
+          {
+            "basic_client_id_client_secret": []
+          }
+        ],
+        "tags": [
+          "Service recommendation"
+        ]
+      }
+    },
+    "/service-recommender/v1/translation/ptv_service": {
+      "post": {
+        "summary": "Experimental: Partially translate Finnish PTV data of a service to a foreign language.",
+        "operationId": "post-translation-ptv-service",
+        "description": "This endpoint can be used to translate a PTV service's name, summary and description from Finnish to the selected language. Also service channel names and descriptions are translated. Currently not available in production.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "example": {
+                "service_id": "01a571b5-3eb9-4b49-a27e-ec8427737c5b",
+                "target_language": "de"
+              },
+              "schema": {
+                "properties": {
+                  "service_id": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "PTV id of the service."
+                  },
+                  "target_language": {
+                    "type": "string",
+                    "description": "Language code for the translation target language."
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "target_language": "de",
+                  "service": {
+                    "service_id": "01a571b5-3eb9-4b49-a27e-ec8427737c5b",
+                    "service_name": "Eine Notfallerklärung abgeben",
+                    "service_name_orig": "Hätäilmoituksen tekeminen",
+                    "service_description": "NOTRUF NUMMER 112\nIn Finnland wird nur eine Notrufnummer verwendet, 112. Die Notrufnummer 112 sollte in dringenden, realen Notfällen jederzeit angerufen werden, wenn Leben, Gesundheit, Eigentum oder Umwelt bedroht oder gefährdet sind oder wenn Grund zu der Annahme besteht, dass dies der Fall ist. Bei Bedarf kann eine Notfallerklärung per SMS an die Notrufnummer 112 abgegeben werden. ",
+                    "service_description_orig": "HÄTÄNUMERO 112\nSuomessa on käytössä vain yksi hätänumero, 112. Hätänumeroon 112 tulee soittaa aina kiireellisissä, todellisissa hätätilanteissa hengen, terveyden, omaisuuden tai ympäristön ollessa uhattuna tai vaarassa, tai jos on syytä epäillä näin olevan. Hätäilmoituksen voi tarvittaessa tehdä tekstiviestillä hätänumeroon 112.",
+                    "service_description_summary": "In Finnland gibt es nur eine Notrufnummer, 112. Die Notrufnummer 112 sollte in dringenden, echten Notfällen jederzeit angerufen werden. ",
+                    "service_description_summary_orig": "Suomessa on käytössä vain yksi hätänumero, 112. Hätänumeroon 112 tulee soittaa aina kiireellisissä, todellisissa hätätilanteissa.",
+
+                    "service_channels": [
+                      {
+                        "service_channel_id": "c7cad442-1820-4854-8d40-48536e6d7fcd",
+                        "service_channel_name": "Notrufnummer 112",
+                        "service_channel_name_orig": "Hätänumero 112",
+                        "service_channel_description": "Rufen Sie in dringenden Fällen 112 an\n\nDie Notrufnummer 112 sollte in dringenden, realen Notfällen jederzeit angerufen werden, wenn Leben, Gesundheit, Eigentum oder Umwelt bedroht oder gefährdet sind oder wenn Grund zu der Annahme besteht, dass dies der Fall ist.\n\nWenn Sie 911 112 anrufen:\n• Beantworten Sie Fragen\n• gemäß den gegebenen Anweisungen handeln\n• Beenden Sie den Anruf nur, wenn Sie Ihre Berechtigung erhalten haben",
+                        "service_channel_description_orig": "Kiireellisessä tilanteessa soita 112\n\nHätänumeroon 112 tulee soittaa aina kiireellisissä, todellisissa hätätilanteissa hengen, terveyden, omaisuuden tai ympäristön ollessa uhattuna tai vaarassa, tai jos on syytä epäillä näin olevan.\n\nKun soitat hätänumeroon 112:\n• vastaa kysymyksiin\n• toimi annettujen ohjeiden mukaisesti\n• lopeta puhelu vasta, kun saat luvan",
+                        "service_channel_description_summary": "In Finnland gibt es nur eine Notrufnummer, 112. \nDie Notrufnummer 112 sollte in dringenden, echten Notfällen jederzeit angerufen werden. ",
+                        "service_channel_description_summary_orig": "Suomessa on käytössä vain yksi hätänumero, 112. \nHätänumeroon 112 tulee soittaa aina kiireellisissä, todellisissa hätätilanteissa.",
+                        "service_channel_type": "Phone",
+                        "service_hours": [
+                          "Aina avoinna"
+                        ],
+                        "address": "",
+                        "emails": [],
+                        "location": "",
+                        "phone_numbers": [
+                          "112",
+                          "112",
+                          "112"
+                        ],
+                        "web_pages": []
+                      },
+                      {
+                        "address": "",
+                        "emails": [],
+                        "location": "",
+                        "phone_numbers": [],
+                        "service_channel_description": "Eine Notfallbenachrichtigung per SMS machen\n\nDie Verwendung von Notfall-Textnachrichten richtet sich in erster Linie an Personen, die Sprache nicht hören oder produzieren können. \n\nIm Notfall sollten Sie nach Möglichkeit immer die 112 anrufen. Telefonieren ist eine technisch sicherere Option als SMS, da es bei Textnachrichten beispielsweise zu Verzögerungen bei der Weiterleitung kommen kann oder der Telefonspeicher voll ist.\n\nDer 911-Notfallhelfer fragt den Empfänger in Notfall-Textnachrichten nach denselben grundlegenden Informationen wie bei einem Notruf und führt eine gesetzlich vorgeschriebene Risikobewertung für die Weiterleitung von Unterstützung durch. Es lohnt sich, schnelle Hilfe zu gewährleisten, indem Sie bereits in der ersten Nachricht so viele Informationen wie möglich senden. \n\nNach der ersten Nachricht fragt der Notfallzentrale nach den erforderlichen zusätzlichen Informationen.\n",
+                        "service_channel_description_orig": "Hätäilmoituksen tekeminen tekstiviestillä\n\nHätätekstiviestien käyttö on suunnattu ensisijaisesti henkilöille, jotka eivät kuule tai pysty tuottamaan puhetta. \n\nHätätilanteessa 112:een kannattaa aina soittaa, jos se on mahdollista. Soitto on teknisesti varmempi vaihtoehto kuin tekstiviesti, sillä tekstiviesteissä voi esimerkiksi esiintyä välitysviiveitä tai puhelimen muisti voi olla täynnä.\n\nHätäkeskuspäivystäjä kysyy avuntarvitsijalta samat perustiedot hätätekstiviesteissä kuin hätäpuhelun aikana ja tekee lain mukaisen riskinarvion avun välittämisestä. Nopea avun saaminen kannattaa varmistaa lähettämällä mahdollisimman paljon tietoa jo ensimmäisessä viestissä. \n\nEnsimmäisen viestin jälkeen hätäkeskuspäivystäjä kysyy tarvittavia lisätietoja.\n",
+                        "service_channel_description_summary": "Notfallbenachrichtigung kann per SMS an 911 112 erfolgen. ",
+                        "service_channel_description_summary_orig": "Hätäilmoituksen voi tehdä tekstiviestillä hätänumeroon 112.",
+                        "service_channel_id": "8419a556-b19b-40c2-b7a3-03c36399ce5c",
+                        "service_channel_name": "Notfall-SMS an 112",
+                        "service_channel_name_orig": "Hätätekstiviesti numeroon 112",
+                        "service_channel_type": "Phone",
+                        "service_hours": [
+                          "Aina avoinna"
+                        ],
+                        "web_pages": []
+                      }
+                    ],
+                    "area_type": "NationwideExceptAlandIslands",
+                    "areas": [],
+                    "charge_additional_info": "",
+                    "charge_type": "FreeOfCharge",
+                    "requirements": [
+                      "Hätätekstiviestin voi lähettää vain..."
+                    ],
+                    "responsible_organization": {
+                      "id": "eb46ae8b-e9cb-4f61-b393-811809da7856",
+                      "name": "Hätäkeskuslaitos"
+                    },
+                    "service_class_uris": [
+                      "http://uri.suomi.fi/codelist/ptv/ptvserclass2/code/P19",
+                      "http://uri.suomi.fi/codelist/ptv/ptvserclass2/code/P19.3"
+                    ],
+                    "service_collections": [],
+                    "target_groups": [
+                      "KR1"
+                    ],
+                    "user_instruction": "Milloin soitat 112?\n* Kun kohtaat..."
+                  }
+                },
+                "schema": {
+                  "properties": {
+                    "service": {
+                      "description": "Service data from PTV where selected fields are translated. The schema shows only fields that differ from the recommendation API response format.",
+                      "properties": {
+                        "service_channels": {
+                          "type": "array",
+                          "items": {
+                            "properties": {
+                              "service_channel_name": {"type":  "string", "description": "Translated channel name."},
+                              "service_channel_name_orig": {"type":  "string", "description": "Original channel name."},
+                              "service_channel_description": {"type":  "string", "description": "Translated description."},
+                              "service_channel_description_orig": {"type":  "string", "description": "Original description."},
+                              "service_channel_description_summary": {"type":  "string", "description": "Translated summary."},
+                              "service_channel_description_summary_orig": {"type":  "string", "description": "Original summary"}
+                            }
+                          }
+                        },
+                        "service_name": {"type":  "string", "description": "Translated service name."},
+                        "service_name_orig": {"type":  "string", "description": "Original service name."},
+                        "service_description": {"type":  "string", "description": "Translated description."},
+                        "service_description_orig": {"type":  "string", "description": "Original description."},
+                        "service_description_summary": {"type":  "string", "description": "Translated summary."},
+                        "service_description_summary_orig": {"type":  "string", "description": "Original summary."}
+                      }
+                    },
+                    "target_language": {
+                      "type": "string",
+                      "description": "Language code of the translation target language."
+                    }
+                  }
+                }
+              }
+            },
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Endpoint disabled in the specific environment"
+          }
+        },
+        "security": [
+          {
+            "basic_client_id_client_secret": []
+          }
+        ],
+        "tags": [
+          "Service recommendation"
+        ]
+      }
+    },
+    "/profile-management/v1/user_attributes": {
+      "patch": {
+        "summary": "Add user attribute pointers",
+        "operationId": "patch-user_attributes",
+        "description": "Add pointers that the given attributes can be fetched from the calling service. ",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "example": [
+                "age",
+                "municipality_code",
+                "life_situation_meters"
+              ],
+              "schema": {
+                "$ref": "#/components/schemas/AttributeNames"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Call successful"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "security": [
+          {
+            "open_id_connect": []
+          }
+        ],
+        "tags": [
+          "Profile management"
+        ]
+      },
+      "delete": {
+        "summary": "Delete user attribute pointers",
+        "operationId": "delete-user_attributes",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "security": [
+          {
+            "basic_client_id_client_secret": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserAttributeNames"
+              }
+            }
+          }
+        },
+        "description": "Deletes user attribute pointers. This endpoint does not require a user access token, to allow the service to delete pointers after deactivation.",
+        "tags": [
+          "Profile management"
+        ]
+      }
+    },
+    "/profile-management/v1/user_attributes/all_authorized": {
+      "get": {
+        "summary": "Get all user attributes",
+        "operationId": "get-user_attributes",
+        "description": "Get all user attributes stored in the services of AuroraAI network",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "age": {
+                    "status": "SUCCESS",
+                    "value": 26
+                  },
+                  "life_situation_meters": {
+                    "status": "SUCCESS",
+                    "value": {
+                      "family": 1,
+                      "finance": 1,
+                      "friends": 1,
+                      "health": 1,
+                      "housing": 1,
+                      "improvement_of_strengths": 1,
+                      "life_satisfaction": 1,
+                      "resilience": 1,
+                      "self_esteem": 1,
+                      "working_studying": 1
+                    }
+                  },
+                  "municipality_code": {
+                    "status": "SUCCESS",
+                    "value": "176"
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/UserAttributeValues"
+                }
+              }
+            },
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "security": [
+          {
+            "open_id_connect": []
+          }
+        ],
+        "tags": [
+          "Profile management"
+        ]
+      }
+    },
+    "/profile-management/v1/user_attributes/{attribute_name}": {
+      "get": {
+        "summary": "Get user attribute by name",
+        "operationId": "get-user_attribute",
+        "description": "Get user attribute stored in the services of AuroraAI network by name",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "example": "life_situation_meters"
+            },
+            "in": "path",
+            "name": "attribute_name",
+            "description": "Attribute name",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "life_situation_meters": {
+                    "status": "SUCCESS",
+                    "value": {
+                      "family": 1,
+                      "finance": 1,
+                      "friends": 1,
+                      "health": 1,
+                      "housing": 1,
+                      "improvement_of_strengths": 1,
+                      "life_satisfaction": 1,
+                      "resilience": 1,
+                      "self_esteem": 1,
+                      "working_studying": 1
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/UserAttributeValues"
+                }
+              }
+            },
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "security": [
+          {
+            "open_id_connect": []
+          }
+        ],
+        "tags": [
+          "Profile management"
+        ]
+      }
+    },
+    "/oauth/.well-known/openid-configuration": {
+      "get": {
+        "summary": "Get OpenID Connect configuration",
+        "tags": [
+          "OAuth2.0"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "issuer": "https://example.com/oauth",
+                    "authorization_endpoint": "https://example.com/authorize",
+                    "token_endpoint": "https://example.com/oauth/token",
+                    "token_endpoint_auth_methods_supported": [
+                      "client_secret_basic"
+                    ],
+                    "jwks_uri": "https://example.com/oauth/.well-known/jwks.json",
+                    "response_types_supported": [
+                      "code"
+                    ],
+                    "response_modes_supported": [
+                      "query"
+                    ],
+                    "subject_types_supported": [
+                      "public"
+                    ],
+                    "id_token_signing_alg_values_supported": [
+                      "RS256"
+                    ],
+                    "userinfo_endpoint": "https://example.com/oauth/userinfo",
+                    "scopes_supported": [
+                      "age",
+                      "municipality_code",
+                      "store:municipality_code"
+                    ],
+                    "grant_types_supported": [
+                      "authorization_code"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-oauth-.well-known-openid-configuration",
+        "description": "Discovery URI for OpenID Connect configuration."
+      }
+    },
+    "/oauth/.well-known/jwks.json": {
+      "get": {
+        "summary": "Get JWK public keys",
+        "tags": [
+          "OAuth2.0"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "keys": [
+                      {
+                        "alg": "RS256",
+                        "e": "AQAB",
+                        "kid": "uWLXNoSzSc7iC6_lfKiHCw99f-G6NuAXN8_eaT3ySzs=",
+                        "kty": "RSA",
+                        "n": "7uVK2f-RHeKSzGDMKBYy2qwCuTG1KMB22lCZcm_cxzUqyPEPL4UqTOCCpmdwAX9iR6vrcj-Av-_Oae-ujCSaFrE68HTL8K8PgA64AF8z79-uMlb_aGC-r_1WN8KjJ3u3ArFDXJM0Dm08pDUprtqTsbAG19d8f14bqSKUDh6DBQ5WJVdmKXhxbfmfxJ7aqU72BcaQjGMri9g_04D-Zceg6kS-N4RN4VEIMq9Dw2QZrDZPfah7NJjLNjvVM5y28UBgjoJxp-p9KPWhGWLkS5LXo61_GUOAahyjQAWkoP3CI_WA8wSa-qBrWHYsJ2w4svuJenoOXDzrq7XEfYki7Ddhd5GKWjvnpf4gPc-nuUaHl2Rb2I9X6qEsiwfoCixVbjrPzuXmdtMOOtUr95rzmFeXqicwzHnKXk7uBm9UHCltBTffNTmbkGo8hngbTZYOJkwANX5OdDgd_wBFOMJl2p6jxWKHQITg9ewYIrI104MvBvp5qqrkCu66KdO-4WPeBO_XdoP5DGAdxxH13pGlknICX2gmLpyUMMW5r_E8I3-oFYUCfiEKvm44xQ_rbnHH-G5212lQIRavJ3c52qqd4HdBbWkkkGkUL_zq2Kep5AOF_EoVxpAgD7qS1Zr-Y1LKvp51NY-RBe72RSrp7Wp_27VYeAUhvMB3c6vi5GaawryqJMk",
+                        "use": "sig"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-oauth-.well-known-jwks.json",
+        "description": "Returns JWK public keys used for signing the returned tokens."
+      }
+    },
+    "/authorize": {
+      "get": {
+        "summary": "OAuth2.0 /authorize endpoint",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "operationId": "get-authorize",
+        "description": "Requests authorization for the client to the scopes. This endpoint is requested through a user's web browser. If the user is not logged in, it presents the login/sign up page. When the user is logged in, it presents the authorization page.",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "example": "code",
+              "enum": [
+                "code"
+              ]
+            },
+            "in": "query",
+            "name": "response_type",
+            "description": "should be always \"code\"",
+            "required": true
+          },
+          {
+            "schema": {
+              "type": "string",
+              "example": "865d6c47-90e7-4a7f-af26-c65f81bfbd3e",
+              "format": "uuid"
+            },
+            "in": "query",
+            "name": "client_id",
+            "required": true,
+            "description": "OAuth client_id of the service requesting authorization"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "example": "https://example.com/oauth/callback"
+            },
+            "in": "query",
+            "name": "redirect_uri",
+            "description": "URI where to redirect after the authorization, if not given, a default value will be used"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "default": "openid",
+              "example": "age store:age municipality_code"
+            },
+            "in": "query",
+            "name": "scope",
+            "description": "List of scopes to request authorization for. Given as a list of space-delimited, case-sensitive strings. Scope \"openid\" is always automatically authorized."
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "state",
+            "description": "Unique string to mitigate CSRF attacks. Should be verified to be the same when the redirect_uri is called."
+          }
+        ],
+        "tags": [
+          "OAuth2.0"
+        ]
+      }
+    },
+    "/oauth/token": {
+      "post": {
+        "summary": "OAuth2.0 /oauth/token endpoint",
+        "operationId": "post-oauth-token",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "access_token": {
+                      "type": "string"
+                    },
+                    "token_type": {
+                      "type": "string",
+                      "enum": [
+                        "bearer"
+                      ],
+                      "description": "always \"bearer\""
+                    },
+                    "expires_in": {
+                      "type": "integer",
+                      "description": "lifetime of the access token in seconds"
+                    },
+                    "refresh_token": {
+                      "type": "string",
+                      "description": "mandatory when grant_type is \"authorization_code\""
+                    },
+                    "scope": {
+                      "type": "string",
+                      "description": "scopes granted for the access token"
+                    },
+                    "id_token": {
+                      "type": "string",
+                      "description": "JWT id token of the subject"
+                    }
+                  },
+                  "required": [
+                    "access_token",
+                    "token_type",
+                    "expires_in",
+                    "scope",
+                    "id_token"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "description": "OAuth 2.0 token endpoint to request id, access and refresh tokens.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "grant_type": {
+                    "type": "string",
+                    "enum": [
+                      "authorization_code",
+                      "refresh_token"
+                    ],
+                    "description": "use \"authorization_code\" when getting the tokens for the first time, \"refresh_token\" afterwards"
+                  },
+                  "code": {
+                    "type": "string",
+                    "minLength": 1,
+                    "description": "mandatory when grant_type is \"authorization_code\""
+                  },
+                  "redirect_uri": {
+                    "type": "string",
+                    "description": "mandatory when grant_type is \"authorization code\"",
+                    "format": "uri"
+                  },
+                  "refresh_token": {
+                    "type": "string",
+                    "description": "mandatory when grant_type is \"refresh_token\"",
+                    "minLength": 1
+                  },
+                  "scope": {
+                    "type": "string",
+                    "description": "optionally reduce scope when grant_type is \"refresh_token\"",
+                    "example": "age store:municipality_code"
+                  }
+                },
+                "required": [
+                  "grant_type"
+                ]
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "basic_client_id_client_secret": []
+          }
+        ],
+        "tags": [
+          "OAuth2.0"
+        ]
+      }
+    },
+    "/oauth/revoke": {
+      "post": {
+        "summary": "OAuth2.0 /oauth/revoke endpoint",
+        "operationId": "post-oauth-revoke",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "description": "Revokes user's tokens associated with the given token (refresh or access token).",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "token": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "basic_client_id_client_secret": []
+          }
+        ],
+        "tags": [
+          "OAuth2.0"
+        ]
+      }
+    },
+    "/oauth/userinfo": {
+      "get": {
+        "summary": "Get claims about the authenticated end user",
+        "tags": [
+          "OAuth2.0"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "sub": {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    "scope": {
+                      "type": "string",
+                      "example": "openid age municipality_code"
+                    }
+                  },
+                  "required": [
+                    "sub",
+                    "scope"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-oauth-userinfo",
+        "security": [
+          {
+            "open_id_connect": []
+          }
+        ],
+        "description": "Return claims about the authenticated end user."
+      }
+    },
+    "/attributes-management/v1/schema": {
+      "get": {
+        "operationId": "attributes-management-get-full-schema",
+        "description": "Get JSON schema of all supported AuroraAI attributes.",
+        "summary": "Get JSON schema of all supported AuroraAI attributes.",
+        "tags": [
+          "Attributes management"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "definitions": {
+                      "properties": {
+                        "AuroraAIAttributes": {
+                          "$ref": "http://json-schema.org/draft-04/schema#"
+                        }
+                      },
+                      "required": [
+                        "AuroraAIAttributes"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "definitions"
+                  ]
+                },
+                "example": {
+                  "description": "Kuvaus AuroraAI-attribuuteista",
+                  "@id": "http://uri.suomi.fi/datamodel/ns/aurora-att#",
+                  "title": "AuroraAI-attribuutit",
+                  "modified": "Fri, 13 May 2022 09:57:22 GMT",
+                  "$schema": "http://json-schema.org/draft-04/schema#",
+                  "type": "object",
+                  "definitions": {
+                    "AuroraAIAttributes": {
+                      "title": "AuroraAI-attribuutit",
+                      "type": "object",
+                      "@id": "http://uri.suomi.fi/datamodel/ns/aurora-att#AuroraAIAttributes",
+                      "description": "Attribuutti, jota AuroraAI-suosittelijamoottori hyödyntää palvelusuositusten muodostamiseksi. Näitä ovat esimerkiksi 3x10d-elämäntilanneluokat.",
+                      "properties": {
+                        "age": {
+                          "@id": "http://uri.suomi.fi/datamodel/ns/aurora-att#age",
+                          "title": "Ikä",
+                          "description": "Käyttäjän ikä vuosina",
+                          "@type": "http://www.w3.org/2001/XMLSchema#integer",
+                          "type": "integer"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/attributes-management/v1/schema/{attribute_name}": {
+      "get": {
+        "operationId": "attributes-management-get-single-attribute-schema",
+        "description": "Get JSON schema of single AuroraAI attribute.",
+        "summary": "Get JSON schema of single AuroraAI attribute.",
+        "tags": [
+          "Attributes management"
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "example": "age"
+            },
+            "in": "path",
+            "name": "attribute_name",
+            "description": "Attribute name",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "http://json-schema.org/draft-04/schema#"
+                },
+                "example": {
+                  "@id": "http://uri.suomi.fi/datamodel/ns/aurora-att#age",
+                  "title": "Ikä",
+                  "description": "Käyttäjän ikä vuosina",
+                  "@type": "http://www.w3.org/2001/XMLSchema#integer",
+                  "type": "integer"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/attributes-management/v1/scopes": {
+      "get": {
+        "operationId": "attributes-management-get-scopes",
+        "description": "Get list of supported OAuth token scopes.",
+        "summary": "Get list of supported OAuth token scopes.",
+        "tags": [
+          "Attributes management"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "example": [
+                  "age",
+                  "store:age",
+                  "oauth"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/attributes-management/v1/datamodel": {
+      "get": {
+        "operationId": "attributes-management-get-datamodel",
+        "description": "Get the data model of AuroraAI attributes in JSON-LD format.",
+        "summary": "Get the data model of AuroraAI attributes in JSON-LD format.",
+        "tags": [
+          "Attributes management"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "@graph": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    }
+                  }
+                },
+                "example": "<No example. Try it out!>"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/attributes-management/v1/localisation": {
+      "get": {
+        "operationId": "attributes-management-get-full-localisation",
+        "description": "Get localisations for names and descriptions of all AuroraAI attributes.",
+        "summary": "Get localisations for names and descriptions of all AuroraAI attributes.",
+        "tags": [
+          "Attributes management"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": {
+                    "$ref": "#/components/schemas/AttributeLocalisation"
+                  }
+                },
+                "example": {
+                  "life_situation_meters": {
+                    "name": {
+                      "sv": "Livssituation",
+                      "fi": "3X10D-elämäntilannemittari"
+                    },
+                    "properties": {
+                      "friends": {
+                        "name": {
+                          "fi": "Ystävät",
+                          "sv": "Vänner"
+                        }
+                      }
+                    }
+                  },
+                  "age": {
+                    "name": {
+                      "sv": "Ålder",
+                      "fi": "Ikä"
+                    },
+                    "description": {
+                      "fi": "Käyttäjän ikä vuosina.",
+                      "sv": "Användarens ålder."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/attributes-management/v1/localisation/{attribute_name}": {
+      "get": {
+        "operationId": "attributes-management-get-localisation",
+        "description": "Get localisations for names and descriptions of single AuroraAI attribute.",
+        "summary": "Get localisations for names and descriptions of single AuroraAI attribute.",
+        "tags": [
+          "Attributes management"
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "example": "age"
+            },
+            "in": "path",
+            "name": "attribute_name",
+            "description": "Attribute name",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AttributeLocalisation"
+                },
+                "example": {
+                  "name": {
+                    "sv": "Ålder",
+                    "fi": "Ikä"
+                  },
+                  "description": {
+                    "fi": "Käyttäjän ikä vuosina.",
+                    "sv": "Användarens ålder."
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "TextSearchInput": {
+        "properties": {
+          "search_text": {
+            "description": "Text to search for",
+            "example": "nuorten työttömyys",
+            "type": "string"
+          },
+          "service_filters": {
+            "$ref": "#/components/schemas/ServiceFilters"
+          },
+          "limit": {
+            "type": "integer",
+            "example": 5,
+            "minimum": 1,
+            "maximum": 50,
+            "default": 5
+          },
+          "rerank": {
+            "description": "Setting this value to true reranks recommendations based on feedback from users. Set to false returns values in decreasing order of similarity. See the schema for TextSearchOutput.",
+            "type": "boolean",
+            "example": false,
+            "default": false
+          }
+        },
+        "required": [
+          "search_text"
+        ],
+        "type": "object"
+      },
+      "TextSearchOutput": {
+        "properties": {
+          "recommended_services": {
+            "description": "List of recommended services.",
+            "items": {
+              "$ref": "#/components/schemas/RecommendedService"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "auroraai_recommendation_id",
+          "recommended_services"
+        ],
+        "type": "object"
+      },
+      "RecommendServiceInput": {
+        "properties": {
+          "life_situation_meters": {
+            "$ref": "attributes.json#/properties/life_situation_meters"
+          },
+          "limit": {
+            "description": "Number of recommended services to return. Defaults to 5.",
+            "maximum": 50,
+            "minimum": 1,
+            "type": "integer"
+          },
+          "rerank": {
+            "description": "Setting this value to true reranks recommendations based on feedback from users. Set to false returns values in decreasing order of similarity. See the schema for RecommendServiceOutput.",
+            "type": "boolean",
+            "example": false,
+            "default": false
+          },
+          "service_filters": {
+            "$ref": "#/components/schemas/ServiceFilters"
+          },
+          "session_id": {
+            "description": "ID of the session",
+            "type": "string"
+          }
+        },
+        "required": [
+          "life_situation_meters"
+        ],
+        "type": "object"
+      },
+      "UserAttributeValues": {
+        "$ref": "attributes.json"
+      },
+      "UserAttributeNames": {
+        "type": "object",
+        "properties": {
+          "user_id": {
+            "description": "ID of the user whose the listed attributes are",
+            "type": "string"
+          },
+          "user_attributes": {
+            "$ref": "#/components/schemas/AttributeNames"
+          }
+        },
+        "required": [
+          "user_id",
+          "user_attributes"
+        ]
+      },
+      "PostSessionAttributesInput": {
+        "properties": {
+          "service_channel_id": {
+            "description": "Service channel id from PTV to which service send the attributes",
+            "type": "string"
+          },
+          "service_id": {
+            "description": "Optional. PTV service-id to define the session transfer target service. If the recommendation_id property is provided, then the service_id must be provided also.",
+            "type": "string"
+          },
+          "auroraai_recommendation_id": {
+            "description": "Optional. AuroraAI recommendation-id to define the recommendation query used to acquire the target service. If the recommendation_id property is provided, then the session-transfer link is returned as an AuroraAI redirect link to collect recommendation data. The service_id property must be provided with the recommendation_id.",
+            "type": "integer"
+          },
+          "session_attributes": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/UserAttributeValues"
+              }
+            ],
+            "description": "Attributes to send"
+          }
+        },
+        "required": [
+          "service_channel_id",
+          "session_attributes"
+        ],
+        "type": "object"
+      },
+      "RecommendServiceOutput": {
+        "properties": {
+          "auroraai_recommendation_id": {
+            "description": "Id to identify individual recommendation given by Aurora AI. This should be used when giving feedback on recommendations on service feedback endpoint.",
+            "type": "integer"
+          },
+          "recommended_services": {
+            "description": "List of recommended services.",
+            "items": {
+              "$ref": "#/components/schemas/RecommendedService"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "auroraai_recommendation_id",
+          "recommended_services"
+        ],
+        "type": "object"
+      },
+      "RecommendationFeedback": {
+        "properties": {
+          "auroraai_recommendation_id": {
+            "description": "Id to identify individual recommendation given by Aurora AI",
+            "type": "integer"
+          },
+          "feedback_score": {
+            "description": "Overall feedback from given recommendations. +1 for positive feedback, -1 for negative feedback",
+            "type": "integer",
+            "enum": [
+              -1,
+              1
+            ]
+          },
+          "service_feedbacks": {
+            "description": "Feedbacks from individual services as recommendation",
+            "items": {
+              "$ref": "#/components/schemas/ServiceFeedback"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "auroraai_recommendation_id"
+        ],
+        "type": "object"
+      },
+      "RecommendedService": {
+        "properties": {
+          "service_channels": {
+            "description": "Information about service channels for the service",
+            "items": {
+              "$ref": "#/components/schemas/ServiceChannel"
+            },
+            "type": "array"
+          },
+          "service_id": {
+            "description": "ID of the service in PTV.",
+            "type": "string"
+          },
+          "service_name": {
+            "description": "Name of the serivce.",
+            "type": "string"
+          },
+          "service_description": {
+            "description": "Full description of the service.",
+            "type": "string"
+          },
+          "service_description_summary": {
+            "description": "Short description of the service.",
+            "type": "string"
+          },
+          "user_instruction": {
+            "description": "Brief instructions for the usage of the service.",
+            "type": "string"
+          },
+          "responsible_organization": {
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string",
+                "format": "uuid"
+              }
+            }
+          },
+          "funding_type": {
+            "description": "Funding type as described in PTV. Possible values are: PubliclyFunded, MarketFunded.",
+            "type": "string"
+          },
+          "area_type": {
+            "description": "Area type as described in PTV. Possible values are: Nationwide, NationwideExceptAlandIslands or LimitedType.",
+            "type": "string"
+          },
+          "areas": {
+            "description": "Area details in the same format returned by PTV API.",
+            "type": "array",
+            "items": {
+              "$ref": "https://api.palvelutietovaranto.suomi.fi/swagger/v11/swagger.json#/components/schemas/VmOpenApiArea"
+            }
+          },
+          "similarity_score": {
+            "description": "Similarity measure on which the selection of services is based. Measures similarity between the life situation attributes supplied by the user, and data recorded in database for each service. Larger values indicate greater similarity.",
+            "type": "number"
+          },
+          "rank": {
+            "description": "A whole number (1, 2, 3, ..., limit) that expresses the rank of reranked recommendations based on user feedback, see schema for RecommendServiceInput.",
+            "type": "number"
+          },
+          "service_class_uris": {
+            "items": {
+              "type": "string",
+              "format": "uri"
+            }
+          }
+        },
+        "required": [
+          "service_id",
+          "service_name"
+        ],
+        "type": "object"
+      },
+      "ServiceChannel": {
+        "properties": {
+          "service_channel_description_summary": {
+            "description": "Service channel description summary",
+            "type": "string"
+          },
+          "service_channel_description": {
+            "description": "Service channel description",
+            "type": "string"
+          },
+          "service_channel_type": {
+            "description": "Type of the service channel.",
+            "type": "string"
+          },
+          "service_channel_id": {
+            "description": "ID of the service channel in PTV.",
+            "type": "string"
+          },
+          "service_name": {
+            "description": "Name of the service channel.",
+            "type": "string"
+          },
+          "session_transfer": {
+            "description": "Boolean flag indicating if the service channels supports AuroraAI session transfer.",
+            "type": "boolean"
+          },
+          "address": {
+            "description": "Address of the service channel",
+            "type": "string"
+          },
+          "emails": {
+            "description": "Email addresses of the service channel",
+            "type": "string"
+          },
+          "location": {
+            "description": "Location of the service channel",
+            "type": "string"
+          },
+          "phone_numbers": {
+            "description": "Phone numbers of the service channel",
+            "type": "string"
+          },
+          "service_hours": {
+            "description": "Service hours of the service channel",
+            "type": "string"
+          },
+          "web_pages": {
+            "description": "Web page URLs for the service channel",
+            "type": "string"
+          }
+        },
+        "required": [
+          "service_channel_id",
+          "service_name",
+          "session_transfer"
+        ],
+        "type": "object"
+      },
+      "ServiceFilters": {
+        "description": "Filters can be specified to limit the set of services that can be included in recommendation results. If all filter types are used, result set includes services that belong to any one of the specified geographic areas AND to any of the specified service classes.",
+        "properties": {
+          "include_national_services": {
+            "type": "boolean",
+            "description": "National services are included in recommendation results by default. Set this flag to 'false' to exclude them. National services are services that are available nationwide and not specific to some municipality."
+          },
+          "municipality_codes": {
+            "type": "array",
+            "description": "Recommendations are made from listed municipalities' services.",
+            "items": {
+              "$ref": "municipality_code.json"
+            }
+          },
+          "region_codes": {
+            "type": "array",
+            "description": "Recommendations are made from listed regions' (maakunta) services. Values are region codes as defined in https://www2.stat.fi/fi/luokitukset/maakunta/ Codes must be given in string format, including possible trailing zeros.",
+            "items": {
+              "type": "string",
+              "minLength": 2,
+              "maxLength": 2
+            }
+          },
+          "hospital_district_codes": {
+            "type": "array",
+            "description": "Recommendations are made from listed hospital districts' (sairaanhoitopiiri) services. Values are hospital district codes as defined in https://www2.stat.fi/fi/luokitukset/sairaanhoitop/ Codes must be given in string format, including possible trailing zeros.",
+            "items": {
+              "type": "string",
+              "minLength": 2,
+              "maxLength": 2
+            }
+          },
+          "service_classes": {
+            "description": "Limit recommendations to services that belong to any service class listed here. Array values must be service class URIs defined in https://koodistot.suomi.fi/codescheme;registryCode=ptv;schemeCode=ptvserclass2",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uri"
+            }
+          },
+          "target_groups": {
+            "description": "Limit recommendations to services that belong to any target group listed here.",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "service_collections": {
+            "description": "Limit recommendations to services that belong to any service collection listed here.",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "funding_type": {
+            "description": "Limit recommendations to services that belong to any funding type listed here.",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "wellbeing_service_county_codes": {
+            "description": "Recommendations are made from listed wellbeing service counties (hyvinvointialue) services. Values are wellbeing service county codes as defined in https://www.stat.fi/fi/luokitukset/hyvinvointialue/?code=04&name=Vantaan%20ja%20Keravan%20hyvinvointialue Codes must be given in string format, including possible trailing zeros.",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "ServiceFeedback": {
+        "properties": {
+          "feedback_score": {
+            "description": "Feedback from this specific service as a recommendation. +1 for positive feedback, -1 for negative feedback",
+            "type": "integer",
+            "enum": [
+              -1,
+              1
+            ]
+          },
+          "service_id": {
+            "description": "ID of the service in PTV as UUIDv4 identifier.",
+            "type": "string",
+            "example": "f325833f-1197-42ba-a89a-63672d7e0dd2",
+            "format": "uuid"
+          }
+        },
+        "required": [
+          "feedback_score",
+          "service_id"
+        ],
+        "type": "object"
+      },
+      "AttributeNames": {
+        "type": "array",
+        "title": "AttributeNames",
+        "description": "list of attribute names",
+        "x-examples": {},
+        "uniqueItems": true,
+        "minItems": 1,
+        "items": {
+          "type": "string"
+        }
+      },
+      "LocalisedString": {
+        "properties": {
+          "fi": {
+            "type": "string"
+          },
+          "sv": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "fi",
+          "sv"
+        ]
+      },
+      "AttributeLocalisation": {
+        "properties": {
+          "name": {
+            "$ref": "#/components/schemas/LocalisedString"
+          },
+          "description": {
+            "$ref": "#/components/schemas/LocalisedString"
+          },
+          "properties": {
+            "type": "object",
+            "description": "Localisations of nested attribute properties using the same schema."
+          }
+        },
+        "required": [
+          "name"
+        ]
+      }
+    },
+    "securitySchemes": {
+      "basic_client_id_client_secret": {
+        "type": "http",
+        "scheme": "basic",
+        "description": "Authenticate with client_id and client_secret"
+      },
+      "open_id_connect": {
+        "type": "openIdConnect",
+        "openIdConnectUrl": "/oauth/.well-known/openid-configuration"
+      }
+    }
+  },
+  "tags": [
+    {
+      "description": "For recommending services from PTV",
+      "name": "Service recommendation"
+    },
+    {
+      "description": "For using and managing user attribute pointers",
+      "name": "Profile management"
+    },
+    {
+      "description": "Endpoints used to perform standard OAuth2.0 operations",
+      "name": "OAuth2.0"
+    },
+    {
+      "description": "API to access information about AuroraAI attributes datamodel in Y-alusta",
+      "name": "Attributes management"
+    }
+  ]
+}

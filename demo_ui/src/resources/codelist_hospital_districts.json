@@ -1,0 +1,582 @@
+{
+  "id" : "5a0e6dda-8864-49cf-9c46-09f31cf376a8",
+  "codeValue" : "sairaanhoitop_1_20220101",
+  "uri" : "http://uri.suomi.fi/codelist/jhs/sairaanhoitop_1_20220101",
+  "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/sairaanhoitop_1_20220101",
+  "codesUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/sairaanhoitop_1_20220101/codes/",
+  "extensionsUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/sairaanhoitop_1_20220101/extensions/",
+  "codes" : [ {
+    "id" : "2c355513-c23f-49ad-a845-51ae4d629e41",
+    "codeValue" : "00",
+    "uri" : "http://uri.suomi.fi/codelist/jhs/sairaanhoitop_1_20220101/code/00",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/sairaanhoitop_1_20220101/codes/00",
+    "status" : "DRAFT",
+    "order" : 1,
+    "hierarchyLevel" : 1,
+    "startDate" : "2020-01-01",
+    "created" : "2022-01-03T15:03:10.093Z",
+    "modified" : "2022-01-03T15:03:10.093Z",
+    "prefLabel" : {
+      "en" : "Åland",
+      "fi" : "Ahvenanmaa",
+      "sv" : "Åland"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/sairaanhoitop_1_20220101/codes/00/members/"
+  }, {
+    "id" : "46ecb293-30fc-4a2b-a18d-5ee0d042a54d",
+    "codeValue" : "03",
+    "uri" : "http://uri.suomi.fi/codelist/jhs/sairaanhoitop_1_20220101/code/03",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/sairaanhoitop_1_20220101/codes/03",
+    "status" : "DRAFT",
+    "order" : 2,
+    "hierarchyLevel" : 1,
+    "startDate" : "2020-01-01",
+    "created" : "2022-01-03T15:03:10.093Z",
+    "modified" : "2022-01-03T15:03:10.093Z",
+    "prefLabel" : {
+      "en" : "Southwest Finland Hospital District",
+      "fi" : "Varsinais-Suomen SHP",
+      "sv" : "Egentliga Finlands SVD"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/sairaanhoitop_1_20220101/codes/03/members/"
+  }, {
+    "id" : "bd6e0bef-706c-4655-9ad1-7c193d3ae8d0",
+    "codeValue" : "04",
+    "uri" : "http://uri.suomi.fi/codelist/jhs/sairaanhoitop_1_20220101/code/04",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/sairaanhoitop_1_20220101/codes/04",
+    "status" : "DRAFT",
+    "order" : 3,
+    "hierarchyLevel" : 1,
+    "startDate" : "2020-01-01",
+    "created" : "2022-01-03T15:03:10.093Z",
+    "modified" : "2022-01-03T15:03:10.093Z",
+    "prefLabel" : {
+      "en" : "Satakunta Hospital District",
+      "fi" : "Satakunnan SHP",
+      "sv" : "Satakunta SVD"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/sairaanhoitop_1_20220101/codes/04/members/"
+  }, {
+    "id" : "4a3a12df-d364-47db-8a02-a533d4593881",
+    "codeValue" : "05",
+    "uri" : "http://uri.suomi.fi/codelist/jhs/sairaanhoitop_1_20220101/code/05",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/sairaanhoitop_1_20220101/codes/05",
+    "status" : "DRAFT",
+    "order" : 4,
+    "hierarchyLevel" : 1,
+    "startDate" : "2020-01-01",
+    "created" : "2022-01-03T15:03:10.093Z",
+    "modified" : "2022-01-03T15:03:10.093Z",
+    "prefLabel" : {
+      "en" : "Kanta-Häme Hospital District",
+      "fi" : "Kanta-Hämeen SHP",
+      "sv" : "Centrala Tavastlands SVD"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/sairaanhoitop_1_20220101/codes/05/members/"
+  }, {
+    "id" : "ef6b6218-d43a-4313-aa71-22a4f7ca1eec",
+    "codeValue" : "06",
+    "uri" : "http://uri.suomi.fi/codelist/jhs/sairaanhoitop_1_20220101/code/06",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/sairaanhoitop_1_20220101/codes/06",
+    "status" : "DRAFT",
+    "order" : 5,
+    "hierarchyLevel" : 1,
+    "startDate" : "2020-01-01",
+    "created" : "2022-01-03T15:03:10.093Z",
+    "modified" : "2022-01-03T15:03:10.093Z",
+    "prefLabel" : {
+      "en" : "Pirkanmaa Hospital District",
+      "fi" : "Pirkanmaan SHP",
+      "sv" : "Birkalands SVD"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/sairaanhoitop_1_20220101/codes/06/members/"
+  }, {
+    "id" : "afac2a9f-5a1c-4db6-9cf3-cf1ca2aa6517",
+    "codeValue" : "07",
+    "uri" : "http://uri.suomi.fi/codelist/jhs/sairaanhoitop_1_20220101/code/07",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/sairaanhoitop_1_20220101/codes/07",
+    "status" : "DRAFT",
+    "order" : 6,
+    "hierarchyLevel" : 1,
+    "startDate" : "2020-01-01",
+    "created" : "2022-01-03T15:03:10.093Z",
+    "modified" : "2022-01-03T15:03:10.093Z",
+    "prefLabel" : {
+      "en" : "Päijät-Häme Hospital District",
+      "fi" : "Päijät-Hämeen SHP",
+      "sv" : "Päijät-Häme SVD"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/sairaanhoitop_1_20220101/codes/07/members/"
+  }, {
+    "id" : "d102c189-ef07-4794-853a-caf45c2dea6e",
+    "codeValue" : "08",
+    "uri" : "http://uri.suomi.fi/codelist/jhs/sairaanhoitop_1_20220101/code/08",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/sairaanhoitop_1_20220101/codes/08",
+    "status" : "DRAFT",
+    "order" : 7,
+    "hierarchyLevel" : 1,
+    "startDate" : "2020-01-01",
+    "created" : "2022-01-03T15:03:10.093Z",
+    "modified" : "2022-01-03T15:03:10.093Z",
+    "prefLabel" : {
+      "en" : "Kymenlaakso Hospital District",
+      "fi" : "Kymenlaakson SHP",
+      "sv" : "Kymmenedalens SVD"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/sairaanhoitop_1_20220101/codes/08/members/"
+  }, {
+    "id" : "db27a3fa-30b4-4b1b-ad1d-782966ab9db2",
+    "codeValue" : "09",
+    "uri" : "http://uri.suomi.fi/codelist/jhs/sairaanhoitop_1_20220101/code/09",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/sairaanhoitop_1_20220101/codes/09",
+    "status" : "DRAFT",
+    "order" : 8,
+    "hierarchyLevel" : 1,
+    "startDate" : "2020-01-01",
+    "created" : "2022-01-03T15:03:10.093Z",
+    "modified" : "2022-01-03T15:03:10.093Z",
+    "prefLabel" : {
+      "en" : "South Karelia Hospital District",
+      "fi" : "Etelä-Karjalan SHP",
+      "sv" : "Södra Karelens SVD"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/sairaanhoitop_1_20220101/codes/09/members/"
+  }, {
+    "id" : "45e55aa2-b2b1-4887-9e18-28f51962ea22",
+    "codeValue" : "10",
+    "uri" : "http://uri.suomi.fi/codelist/jhs/sairaanhoitop_1_20220101/code/10",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/sairaanhoitop_1_20220101/codes/10",
+    "status" : "DRAFT",
+    "order" : 9,
+    "hierarchyLevel" : 1,
+    "startDate" : "2020-01-01",
+    "created" : "2022-01-03T15:03:10.093Z",
+    "modified" : "2022-01-03T15:03:10.093Z",
+    "prefLabel" : {
+      "en" : "South-Savo Hospital District",
+      "fi" : "Etelä-Savon SHP",
+      "sv" : "Södra Savolax SVD"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/sairaanhoitop_1_20220101/codes/10/members/"
+  }, {
+    "id" : "036066b9-7501-4641-bfc8-59ba0d18ff6b",
+    "codeValue" : "11",
+    "uri" : "http://uri.suomi.fi/codelist/jhs/sairaanhoitop_1_20220101/code/11",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/sairaanhoitop_1_20220101/codes/11",
+    "status" : "DRAFT",
+    "order" : 10,
+    "hierarchyLevel" : 1,
+    "startDate" : "2020-01-01",
+    "created" : "2022-01-03T15:03:10.093Z",
+    "modified" : "2022-01-03T15:03:10.093Z",
+    "prefLabel" : {
+      "en" : "Itä-Savo Hospital District",
+      "fi" : "Itä-Savon SHP",
+      "sv" : "Östra Savolax SVD"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/sairaanhoitop_1_20220101/codes/11/members/"
+  }, {
+    "id" : "75751049-ccd0-40c7-b23a-90af2b418676",
+    "codeValue" : "12",
+    "uri" : "http://uri.suomi.fi/codelist/jhs/sairaanhoitop_1_20220101/code/12",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/sairaanhoitop_1_20220101/codes/12",
+    "status" : "DRAFT",
+    "order" : 11,
+    "hierarchyLevel" : 1,
+    "startDate" : "2020-01-01",
+    "created" : "2022-01-03T15:03:10.093Z",
+    "modified" : "2022-01-03T15:03:10.093Z",
+    "prefLabel" : {
+      "en" : "North Karelia Hospital District",
+      "fi" : "Pohjois-Karjalan SHP",
+      "sv" : "Norra Karelens SVD"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/sairaanhoitop_1_20220101/codes/12/members/"
+  }, {
+    "id" : "ab2ffbef-dbe4-4dff-83e1-5006282debf9",
+    "codeValue" : "13",
+    "uri" : "http://uri.suomi.fi/codelist/jhs/sairaanhoitop_1_20220101/code/13",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/sairaanhoitop_1_20220101/codes/13",
+    "status" : "DRAFT",
+    "order" : 12,
+    "hierarchyLevel" : 1,
+    "startDate" : "2020-01-01",
+    "created" : "2022-01-03T15:03:10.093Z",
+    "modified" : "2022-01-03T15:03:10.093Z",
+    "prefLabel" : {
+      "en" : "North-Savo Hospital District",
+      "fi" : "Pohjois-Savon SHP",
+      "sv" : "Norra Savolax SVD"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/sairaanhoitop_1_20220101/codes/13/members/"
+  }, {
+    "id" : "2a03b517-78f2-49df-b5e9-23d10518fc85",
+    "codeValue" : "14",
+    "uri" : "http://uri.suomi.fi/codelist/jhs/sairaanhoitop_1_20220101/code/14",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/sairaanhoitop_1_20220101/codes/14",
+    "status" : "DRAFT",
+    "order" : 13,
+    "hierarchyLevel" : 1,
+    "startDate" : "2020-01-01",
+    "created" : "2022-01-03T15:03:10.093Z",
+    "modified" : "2022-01-03T15:03:10.093Z",
+    "prefLabel" : {
+      "en" : "Central Finland Hospital District",
+      "fi" : "Keski-Suomen SHP",
+      "sv" : "Mellersta Finlands SVD"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/sairaanhoitop_1_20220101/codes/14/members/"
+  }, {
+    "id" : "55e47adc-ed5f-4650-bc93-476f32480cf5",
+    "codeValue" : "15",
+    "uri" : "http://uri.suomi.fi/codelist/jhs/sairaanhoitop_1_20220101/code/15",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/sairaanhoitop_1_20220101/codes/15",
+    "status" : "DRAFT",
+    "order" : 14,
+    "hierarchyLevel" : 1,
+    "startDate" : "2020-01-01",
+    "created" : "2022-01-03T15:03:10.093Z",
+    "modified" : "2022-01-03T15:03:10.093Z",
+    "prefLabel" : {
+      "en" : "South Ostrobothnia Hospital District",
+      "fi" : "Etelä-Pohjanmaan SHP",
+      "sv" : "Syd-Österbottens SVD"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/sairaanhoitop_1_20220101/codes/15/members/"
+  }, {
+    "id" : "708a19d8-b36c-48c6-9bf0-d185898dc837",
+    "codeValue" : "16",
+    "uri" : "http://uri.suomi.fi/codelist/jhs/sairaanhoitop_1_20220101/code/16",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/sairaanhoitop_1_20220101/codes/16",
+    "status" : "DRAFT",
+    "order" : 15,
+    "hierarchyLevel" : 1,
+    "startDate" : "2020-01-01",
+    "created" : "2022-01-03T15:03:10.093Z",
+    "modified" : "2022-01-03T15:03:10.093Z",
+    "prefLabel" : {
+      "en" : "Vaasa Hospital District",
+      "fi" : "Vaasan SHP",
+      "sv" : "Vasa SVD"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/sairaanhoitop_1_20220101/codes/16/members/"
+  }, {
+    "id" : "d92db471-06d7-4794-9272-e7b2f6b25191",
+    "codeValue" : "17",
+    "uri" : "http://uri.suomi.fi/codelist/jhs/sairaanhoitop_1_20220101/code/17",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/sairaanhoitop_1_20220101/codes/17",
+    "status" : "DRAFT",
+    "order" : 16,
+    "hierarchyLevel" : 1,
+    "startDate" : "2020-01-01",
+    "created" : "2022-01-03T15:03:10.093Z",
+    "modified" : "2022-01-03T15:03:10.093Z",
+    "prefLabel" : {
+      "en" : "Central Ostrobothnia Hospital District",
+      "fi" : "Keski-Pohjanmaan SHP",
+      "sv" : "Mellersta Österbottens SVD"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/sairaanhoitop_1_20220101/codes/17/members/"
+  }, {
+    "id" : "e43e0268-69fb-41f3-8958-3c9b79afd3de",
+    "codeValue" : "18",
+    "uri" : "http://uri.suomi.fi/codelist/jhs/sairaanhoitop_1_20220101/code/18",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/sairaanhoitop_1_20220101/codes/18",
+    "status" : "DRAFT",
+    "order" : 17,
+    "hierarchyLevel" : 1,
+    "startDate" : "2020-01-01",
+    "created" : "2022-01-03T15:03:10.093Z",
+    "modified" : "2022-01-03T15:03:10.093Z",
+    "prefLabel" : {
+      "en" : "North Ostrobothnia Hospital District",
+      "fi" : "Pohjois-Pohjanmaan SHP",
+      "sv" : "Norra Österbottens SVD"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/sairaanhoitop_1_20220101/codes/18/members/"
+  }, {
+    "id" : "ce248683-3295-4b71-aba4-dbe78eb3369c",
+    "codeValue" : "19",
+    "uri" : "http://uri.suomi.fi/codelist/jhs/sairaanhoitop_1_20220101/code/19",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/sairaanhoitop_1_20220101/codes/19",
+    "status" : "DRAFT",
+    "order" : 18,
+    "hierarchyLevel" : 1,
+    "startDate" : "2020-01-01",
+    "created" : "2022-01-03T15:03:10.093Z",
+    "modified" : "2022-01-03T15:03:10.093Z",
+    "prefLabel" : {
+      "en" : "Kainuu Hospital District",
+      "fi" : "Kainuun SHP",
+      "sv" : "Kajanalands SVD"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/sairaanhoitop_1_20220101/codes/19/members/"
+  }, {
+    "id" : "ddbb1fe9-5e98-4749-a4bb-18272a0019de",
+    "codeValue" : "20",
+    "uri" : "http://uri.suomi.fi/codelist/jhs/sairaanhoitop_1_20220101/code/20",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/sairaanhoitop_1_20220101/codes/20",
+    "status" : "DRAFT",
+    "order" : 19,
+    "hierarchyLevel" : 1,
+    "startDate" : "2020-01-01",
+    "created" : "2022-01-03T15:03:10.093Z",
+    "modified" : "2022-01-03T15:03:10.093Z",
+    "prefLabel" : {
+      "en" : "Länsi-Pohja Hospital District",
+      "fi" : "Länsi-Pohjan SHP",
+      "sv" : "Länsi-Pohja SVD"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/sairaanhoitop_1_20220101/codes/20/members/"
+  }, {
+    "id" : "04683e01-97e1-4b61-aa8f-3309946dbf61",
+    "codeValue" : "21",
+    "uri" : "http://uri.suomi.fi/codelist/jhs/sairaanhoitop_1_20220101/code/21",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/sairaanhoitop_1_20220101/codes/21",
+    "status" : "DRAFT",
+    "order" : 20,
+    "hierarchyLevel" : 1,
+    "startDate" : "2020-01-01",
+    "created" : "2022-01-03T15:03:10.093Z",
+    "modified" : "2022-01-03T15:03:10.093Z",
+    "prefLabel" : {
+      "en" : "Lappi Hospital District",
+      "fi" : "Lapin SHP",
+      "sv" : "Lapplands SVD"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/sairaanhoitop_1_20220101/codes/21/members/"
+  }, {
+    "id" : "0f118120-3484-4920-9983-934e84062359",
+    "codeValue" : "25",
+    "uri" : "http://uri.suomi.fi/codelist/jhs/sairaanhoitop_1_20220101/code/25",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/sairaanhoitop_1_20220101/codes/25",
+    "status" : "DRAFT",
+    "order" : 21,
+    "hierarchyLevel" : 1,
+    "startDate" : "2020-01-01",
+    "created" : "2022-01-03T15:03:10.093Z",
+    "modified" : "2022-01-03T15:03:10.093Z",
+    "prefLabel" : {
+      "en" : "Helsinki and Uusimaa Hospital District",
+      "fi" : "Helsingin ja Uudenmaan SHP",
+      "sv" : "Helsingfors och Nylands SVD"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/sairaanhoitop_1_20220101/codes/25/members/"
+  } ],
+  "prefLabel" : {
+    "en" : "Hospital Districts 2022",
+    "fi" : "Sairaanhoitopiirit 2022",
+    "sv" : "Sjukvårdsdistrikten 2022"
+  },
+  "definition" : {
+    "en" : "The country is divided into hospital districts for the organisation of specialised health care. To organise specialised health care, each municipality must belong to some joint municipal authority for specialised health care.",
+    "fi" : "Maa on jaettu sairaanhoitopiireihin erikoissairaanhoidon järjestämistä varten. Erikoissairaanhoidon järjestämiseksi kunnan on kuuluttava johonkin sairaanhoitopiirin kuntayhtymään.",
+    "sv" : "Landet är uppdelat i sjukvårdsdistrikt för ordnande av specialiserad sjukvård. Kommunen ska höra till något sjukvårdsdistrikts samkommun för att ordna specialiserad sjukvård."
+  },
+  "description" : {
+    "en" : "On 1 January 1991, the central hospital and health care districts changed into hospital districts. The area of a hospital district is formed from the municipalities belonging to the joint municipal authority for specialised health care.\n\nThe Ministry of Social Affairs and Health is responsible for general planning, steering and monitoring of specialised health care, in regions the Regional State Administrative Agencies. The National Institute for Health and Welfare (THL) is the expert agency for specialised health care.\n\nThe joint municipal authority for specialised health care must attend to the reconciliation of specialised health care in its area and in collaboration with health centres, plan and develop specialised health care so that public health work and specialised health care form a functional whole.\n\nThe joint municipal authority for specialised health care provides the health centres in its area with the specialised health care services they need, which cannot be provided appropriately by health centres and is in charge of the supervision and quality control of laboratory and x-ray services, medical rehabilitation and other corresponding special services.\n\nThe joint municipal authority for specialised health care is also responsible for research, development and training in its area of responsibility. In addition to hospital districts, the country is divided into special areas of responsibility for the organisation of specialised level of health care.\n\nThe Government determines the special areas of responsibility so that each area has a hospital district in which area there is a university providing medical training.",
+    "fi" : "1.1.1991 Keskussairaala- ja sairaanhoitopiirit muuttuivat sairaanhoitopiireiksi. Sairaanhoitopiirin alue muodostuu sairaanhoitopiirin kuntayhtymään kuuluvista kunnista.\n\nErikoissairaanhoidon yleinen suunnittelu, ohjaus ja valvonta kuuluu sosiaali-\nja terveysministeriölle, alueella aluehallintovirastolle. Erikoissairaanhoidon asiantuntijavirastona toimii Terveyden ja hyvinvoinnin laitos, THL.\n\nSairaanhoitopiirin kuntainliiton tulee alueellaan huolehtia erikoissairaanhoitopalvelujen yhteensovittamisesta ja yhteistyössä terveyskeskusten kanssa suunnitella ja kehittää erikoissairaanhoitoa siten, että kansanterveystyö ja erikoissairaanhoito muodostavat toiminnallisen kokonaisuuden.\n\nSairaanhoitopiirin kuntainliiton tulee antaa alueensa terveyskeskuksille niiden tarvitsemia erikoissairaanhoidon palveluja, joita terveyskeskusten ei ole tarkoituksenmukaista tuottaa sekä vastata terveyskeskusten tuottamien laboratorio- ja röntgenpalvelujen, lääkinnällisen kuntoutuksen sekä muiden vastaavien erityispalvelujen kehittämisen ohjauksesta ja laadun valvonnasta. Lisäksi sairaanhoitopiirin kuntainliiton tulee alueellaan huolehtia tehtäväalaansa kohdistuvasta tutkimus-, kehittämis- ja koulutustoiminnasta.\n\nErityistason sairaanhoidon järjestämistä varten maa jaetaan sairaanhoitopiirien lisäksi erityisvastuualueisiin. Erityisvastuualueet määrää valtioneuvosto siten, että kuhunkin alueeseen kuuluu sellainen sairaanhoitopiiri, jonka alueella on lääkärikoulutusta antava yliopisto.",
+    "sv" : "1.1.1991 Centralsjukhus- och sjukvårdsdistrikten ändrades till sjukvårdsdistrik. Sjukvårdsdistriktets område utgörs av de kommuner som hör till sjukvårdsdistriktets samkommun.\n\nDen allmänna planeringen, styrningen och övervakningen av specialiserad sjukvård ankommer på Social- och hälsovårdsministeriet, inom området på regionförvaltningsverket.\n\nSakkunnigt ämbetsverk för den specialiserade sjukvården är Institutet för hälsa och välfärd, THL.\n\nSjukvårdsdistriktets kommunalförbund ska inom sitt område se till att de specialiserade sjukvårdstjänsterna samordnas och tillsammans med hälsocentralerna planera och utveckla den specialiserade sjukvården på så sätt att folkhälsoarbetet och den specialiserade sjukvården bildar en funktionell helhet.\n\nSjukvårdsdistriktet ska tillhandahålla hälsocentralerna inom sitt område de specialsjukvårdstjänster som dessa behöver och som det inte är ändamålsenligt för hälsocentralerna att producera samt ansvara för styrning av utvecklingen av och kvalitetskontrollen av hälsocentralernas laboratorie- och röntgentjänster, medicinska rehabilitering samt andra motsvarande specialtjänster.. Dessutom ska sjukvårdsdistriktets kommunalförbund sörja för områdets undersöknings-, utvecklings- och utbildningsverksamheten inom sitt uppgiftsområde.\n\nFör ordnande av högspecialiserad sjukvård indelas landet i specialupptagningsområden utöver i sjukvårdsdistrikt. Gällande specialupptagningsområdena bestämmer statsrådet att det till varje område hör ett sådant sjukvårdsdistrikt som har ett universitet som tillhandahåller läkarutbildning."
+  },
+  "changeNote" : {
+    "en" : "No changes on 1 January 2022\n\nChanges on 1 January 2021\n\nAs a consequence of the municipal merger (Honkajoki and Kankaanpää) the number of member municipalities of the Satakunta Hospital District diminished by one.\n\nNo changes on 1 January 2021\n\nNo changes on 1 January 2020\n\nChanges 1.1.2019\n\nThe English name of three hospital districts has changed:\n\nEtelä-Savo Hospital District > South Savo Hospital District\nPohjois-Savo Hospital District > North Savo Hospital District\nVarsinais-Suomi Hospital District > Southwest Finland Hospital District.\n\nOnly few changes in headings in 2019 version. Headings in alphabetical order (in Finnish)\n\nOn 1 January 2013, number 01 of the Helsinki and Uusimaa Hospital District was changed to 25. Jämsä and Kuhmoinen moved from the Central Finland Hospital District as member municipalities of the Pirkanmaa Hospital District at the beginning of 2013. Reisjärvi moved from the North Ostrobothnia Hospital District into a member municipality of the Central Ostrobothnia Hospital District at the beginning of 2013.\n\nOn 1 January 2010, Kiikoinen moved from the Satakunta Hospital District to the Pirkanmaa Hospital District.\n\nNB. The National Institute for Health and Welfare uses the code 25 for the Helsinki and Uusimaa Hospital District.\n\nThe code for Åland is 00. Åland forms a hospital district of its own that is not tied to the division of hospital districts administered by the Ministry of Social Affairs and Health.",
+    "fi" : "Ei muutoksia 1.1.2022\n\nMuutokset 1.1.2021\n\nKuntaliitoksen johdosta (Honkajoki liittyy Kankaanpäähän)  Satakunnan sairaanhoitopiirin jäsenkuntien määrä pienenee yhdellä.\n\nEi muutoksia 1.1.2020\n\nMuutokset 1.1.2019\n\nKolmen sairaanhoitopiirin englanninkielinen nimi on muuttunut:\n\nEtelä-Savo Hospital District > South Savo Hospital District\nPohjois-Savo Hospital District > North Savo Hospital District\nVarsinais-Suomi Hospital District > Southwest Finland Hospital District.\n\nNimikkeet aakkosjärjestyksessä (suomenkielisessä)\n1.1.2013\nHelsingin ja Uudenmaan sairaahoitopiirin numero 01 muuttunut - >25.\nJämsä ja Kuhmoinen siirtyvät Keski-Suomen sairaanhoitopiiristä Pirkanmaan sairaanhoitopiirin jäsenkunniksi vuoden 2013 alussa.\n\nReisjärvi siirtyy Pohjois-Pohjanmaan sairaanhoitopiiristä Keski-Pohjanmaan sairaanhoitopiirin jäsenkunnaksi vuoden 2013 alussa.\n\n1.1.2010 Kiikoinen muuttanut Satakunnan sairaanhoitopiiristä Pirkanmaan sairaanhoitopiiriin.\n\nHuom! THL käyttää Helsingin ja Uudenmaan SHP:stä koodia 25\n\nAhvenanmaan koodi on 00. Ahvenanmaa on oma sairaanhoitopiirinsä, joka ei ole sidoksissa sosiaali- ja terveysministeriön hallinnoiman sairaanhoitopiirijaon kanssa.",
+    "sv" : "Inga ändringar 1.1.2022\n\nFörändringar 1.1.2021\n\nSom en följd av kommunsammanslagningen (Honkajoki och Kankaanpää) minskar antalet medlemskommuner i Satakunta sjukvårdsdistrikt med en.\n\nInga ändringar 1.1.2020\n\nFörändringar 1.1.2019\n\nDet engelska namnet på tre sjukvårdsdistrikt har ändrats:\n\nEtelä-Savo Hospital District > South Savo Hospital District\nPohjois-Savo Hospital District > North Savo Hospital District\nVarsinais-Suomi Hospital District > Southwest Finland Hospital District\n\nI benämningar i alfabetisk ordning (den finskspråkiga).\n\n1.1.2013 numret på Helsingfors och Nylands sjukvårdsdistrikt ändrats från 01 -> 25. Jämsä och Kuhmoinen flyttar från Mellersta Finlands sjukvårdsdistrikt och blir medlemskommuner i Birkalands sjukvårdsdistrikt i början av år 2013.\n\nReisjärvi flyttar från Norra Österbottens sjukvårdsdistrikt och blir medlemmar i Mellersta Österbottens sjukvårdsdistrikt i början av år 2013.\n\n1.1.2010 Kiikoinen har flyttat från Satakunta sjukvårdsdistrikt till Birkalands sjukvårdsdistrikt.\n\nObs! THL använder kod 25 om Helsingfors och Nylands sjukvårdsdistrikt.\n\nÅland har koden 00. Åland har ett eget sjukvårdsdistrikt som är inte anknutet till indelningen av sjukvårdsdistrikt som administreras av social- och hälsovårdsministeriet."
+  },
+  "startDate" : "2022-01-01",
+  "endDate" : "2022-12-31",
+  "created" : "2022-01-03T15:03:09.973Z",
+  "modified" : "2022-01-03T15:08:26.014Z",
+  "statusModified" : "2022-01-03T15:08:25.727Z",
+  "status" : "VALID",
+  "version" : "1",
+  "governancePolicy" : "Kansallinen suositus (JHS)",
+  "infoDomains" : [ {
+    "id" : "0c1fcbb8-ebfa-4a94-8fc3-a18134d8e792",
+    "codeValue" : "P9",
+    "uri" : "http://uri.suomi.fi/codelist/jupo/serviceclassification/code/P9",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jupo/codeschemes/serviceclassification/codes/P9",
+    "status" : "VALID",
+    "order" : 95,
+    "hierarchyLevel" : 1,
+    "created" : "2018-01-01T00:00:00.000Z",
+    "modified" : "2018-01-01T00:00:00.000Z",
+    "prefLabel" : {
+      "en" : "General information and administrative services",
+      "fi" : "Yleiset tieto- ja hallintopalvelut",
+      "sv" : "Generella informations- ja förvaltningstjänster"
+    },
+    "description" : {
+      "fi" : "Tässä palveluluokassa käsitellään kansalaisille, yhteisöille ja toisille viranomaisille tarjottavia tieto-, hallinto- ja tukipalveluja, jotka sisällöltään voivat liittyä mihin aiheeseen tahansa ja joita ei tämän vuoksi voida sijoittaa julkisen palvelun luokituksen muihin aiheluokkiin."
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jupo/codeschemes/serviceclassification/codes/P9/members/"
+  } ],
+  "languageCodes" : [ {
+    "id" : "1cc15c8d-256e-4235-b1cc-071e5b750a08",
+    "codeValue" : "en",
+    "uri" : "http://uri.suomi.fi/codelist/interoperabilityplatform/languagecodes/code/en",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/interoperabilityplatform/codeschemes/languagecodes/codes/en",
+    "status" : "VALID",
+    "order" : 883,
+    "hierarchyLevel" : 1,
+    "created" : "2018-10-05T12:35:59.315Z",
+    "modified" : "2019-09-03T05:06:59.187Z",
+    "prefLabel" : {
+      "en" : "English",
+      "fi" : "englanti",
+      "sv" : "engelska"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/interoperabilityplatform/codeschemes/languagecodes/codes/en/members/"
+  }, {
+    "id" : "beda08b1-c3ac-4e82-af4b-cb269d36eaf9",
+    "codeValue" : "fi",
+    "uri" : "http://uri.suomi.fi/codelist/interoperabilityplatform/languagecodes/code/fi",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/interoperabilityplatform/codeschemes/languagecodes/codes/fi",
+    "status" : "VALID",
+    "order" : 1034,
+    "hierarchyLevel" : 1,
+    "created" : "2018-10-05T12:36:02.639Z",
+    "modified" : "2019-09-03T05:07:06.108Z",
+    "prefLabel" : {
+      "en" : "Finnish",
+      "fi" : "suomi",
+      "sv" : "finska"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/interoperabilityplatform/codeschemes/languagecodes/codes/fi/members/"
+  }, {
+    "id" : "931ea36d-b2e9-409b-bf86-87ff85708c75",
+    "codeValue" : "sv",
+    "uri" : "http://uri.suomi.fi/codelist/interoperabilityplatform/languagecodes/code/sv",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/interoperabilityplatform/codeschemes/languagecodes/codes/sv",
+    "status" : "VALID",
+    "order" : 1433,
+    "hierarchyLevel" : 1,
+    "created" : "2018-10-05T12:36:13.394Z",
+    "modified" : "2019-09-03T05:07:23.042Z",
+    "prefLabel" : {
+      "en" : "Swedish",
+      "fi" : "ruotsi",
+      "sv" : "svenska"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/interoperabilityplatform/codeschemes/languagecodes/codes/sv/members/"
+  } ],
+  "externalReferences" : [ {
+    "id" : "9a25f7fc-e4be-11e7-82ab-479f4f288376",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/externalreferences/9a25f7fc-e4be-11e7-82ab-479f4f288376",
+    "created" : "2018-01-01T00:00:00.000Z",
+    "modified" : "2018-01-01T00:00:00.000Z",
+    "href" : "https://creativecommons.org/licenses/by/4.0/",
+    "global" : true,
+    "title" : {
+      "en" : "Creative Commons Attribution 4.0 International (CC BY 4.0)",
+      "fi" : "Creative Commons Nimeä 4.0 Kansainvälinen (CC BY 4.0)",
+      "sv" : "Creative Commons Erkännande 4.0 Internationell (CC BY 4.0)"
+    },
+    "description" : {
+      "en" : "This code list is licensed under a Creative Commons Attribution 4.0 International License.",
+      "fi" : "Koodisto on lisensoitu Creative Commons Nimeä 4.0 Kansainvälinen -lisenssillä.",
+      "sv" : "Detta kodelist är licensierat under en Creative Commons Erkännande 4.0 Internationell Licens."
+    },
+    "propertyType" : {
+      "id" : "b568015e-e4be-11e7-97e2-e75d9bd2e46f",
+      "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/propertytypes/b568015e-e4be-11e7-97e2-e75d9bd2e46f",
+      "created" : "2018-01-01T00:00:00.000Z",
+      "modified" : "2021-04-21T13:24:08.208Z",
+      "context" : "ExternalReference",
+      "uri" : "http://purl.org/dc/terms/license/",
+      "localName" : "license",
+      "prefLabel" : {
+        "en" : "License",
+        "fi" : "Lisenssi",
+        "sv" : "Licens"
+      },
+      "definition" : {
+        "en" : "A legal document giving official permission to do something with the resource.",
+        "fi" : "Viittaus viralliseen lisenssidokumenttiin.",
+        "sv" : "Hänvisning till det officiella licensdokumentet."
+      }
+    }
+  } ],
+  "prevCodeschemeId" : "5f991471-f8de-4309-8156-5071037f86dd",
+  "lastCodeschemeId" : "5a0e6dda-8864-49cf-9c46-09f31cf376a8",
+  "allVersions" : [ {
+    "id" : "5a0e6dda-8864-49cf-9c46-09f31cf376a8",
+    "prefLabel" : {
+      "en" : "Hospital Districts 2022",
+      "fi" : "Sairaanhoitopiirit 2022",
+      "sv" : "Sjukvårdsdistrikten 2022"
+    },
+    "codeValue" : "sairaanhoitop_1_20220101",
+    "uri" : "http://uri.suomi.fi/codelist/jhs/sairaanhoitop_1_20220101",
+    "startDate" : "2022-01-01",
+    "endDate" : "2022-12-31",
+    "status" : "VALID"
+  }, {
+    "id" : "5f991471-f8de-4309-8156-5071037f86dd",
+    "prefLabel" : {
+      "en" : "Hospital Districts 2021",
+      "fi" : "Sairaanhoitopiirit 2021",
+      "sv" : "Sjukvårdsdistrikten 2021"
+    },
+    "codeValue" : "sairaanhoitop_1_20210101",
+    "uri" : "http://uri.suomi.fi/codelist/jhs/sairaanhoitop_1_20210101",
+    "startDate" : "2021-01-01",
+    "endDate" : "2021-12-31",
+    "status" : "SUPERSEDED"
+  }, {
+    "id" : "8f0938a9-4d11-48c9-a6f6-41a4fefa19db",
+    "prefLabel" : {
+      "en" : "Hospital Districts 2020",
+      "fi" : "Sairaanhoitopiirit 2020",
+      "sv" : "Sjukvårdsdistrikten 2020"
+    },
+    "codeValue" : "sairaanhoitop_1_20200101",
+    "uri" : "http://uri.suomi.fi/codelist/jhs/sairaanhoitop_1_20200101",
+    "startDate" : "2020-01-01",
+    "endDate" : "2020-12-31",
+    "status" : "SUPERSEDED"
+  }, {
+    "id" : "1a22c873-c7ce-4839-a5b7-28a49c08a282",
+    "prefLabel" : {
+      "en" : "Hospital Districts 2019",
+      "fi" : "Sairaanhoitopiirit 2019",
+      "sv" : "Sjukvårdsdistrikten 2019"
+    },
+    "codeValue" : "sairaanhoitop_1_20190101",
+    "uri" : "http://uri.suomi.fi/codelist/jhs/sairaanhoitop_1_20190101",
+    "startDate" : "2018-12-01",
+    "status" : "SUPERSEDED"
+  } ],
+  "organizations" : [ {
+    "id" : "88ce73b9-376c-4ff1-8c51-e4159b0af75c",
+    "url" : "http://www.stat.fi/",
+    "prefLabel" : {
+      "en" : "Statistics Finland",
+      "fi" : "Tilastokeskus",
+      "sv" : "Statistikcentralen"
+    },
+    "description" : {
+      "en" : "",
+      "fi" : "",
+      "sv" : ""
+    },
+    "removed" : false
+  } ],
+  "cumulative" : false,
+  "codeRegistry" : {
+    "id" : "a7c71027-2969-43f1-bc1d-efa944ef9e55",
+    "codeValue" : "jhs",
+    "uri" : "http://uri.suomi.fi/codelist/jhs",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs",
+    "prefLabel" : {
+      "en" : "JHS",
+      "fi" : "JHS",
+      "sv" : "JHS"
+    },
+    "created" : "2018-01-01T00:00:00.000Z",
+    "modified" : "2020-02-10T14:29:28.912Z",
+    "codeSchemesUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/"
+  },
+  "totalNrOfSearchHitsCodes" : 0,
+  "totalNrOfSearchHitsExtensions" : 0
+}

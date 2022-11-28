@@ -1,0 +1,563 @@
+{
+  "id" : "245f1805-beed-471f-a986-a8d7c25ebcd9",
+  "codeValue" : "hyvinvointialue_1_20211013",
+  "uri" : "http://uri.suomi.fi/codelist/jhs/hyvinvointialue_1_20211013",
+  "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/hyvinvointialue_1_20211013",
+  "codesUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/hyvinvointialue_1_20211013/codes/",
+  "extensionsUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/hyvinvointialue_1_20211013/extensions/",
+  "codes" : [ {
+    "id" : "f4673deb-6436-4acf-a7b4-ff5116a2cfcd",
+    "codeValue" : "01",
+    "uri" : "http://uri.suomi.fi/codelist/jhs/hyvinvointialue_1_20211013/code/01",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/hyvinvointialue_1_20211013/codes/01",
+    "status" : "VALID",
+    "order" : 1,
+    "hierarchyLevel" : 1,
+    "created" : "2021-12-02T13:13:30.499Z",
+    "modified" : "2021-12-02T15:15:21.007Z",
+    "statusModified" : "2021-12-02T15:14:24.095Z",
+    "prefLabel" : {
+      "en" : "East Uusimaa wellbeing services county",
+      "fi" : "Itä-Uudenmaan hyvinvointialue",
+      "sv" : "Östra Nylands välfärdsområde"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/hyvinvointialue_1_20211013/codes/01/members/"
+  }, {
+    "id" : "4108cba5-80db-4f68-b459-ecba5cd2f64a",
+    "codeValue" : "02",
+    "uri" : "http://uri.suomi.fi/codelist/jhs/hyvinvointialue_1_20211013/code/02",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/hyvinvointialue_1_20211013/codes/02",
+    "status" : "VALID",
+    "order" : 2,
+    "hierarchyLevel" : 1,
+    "created" : "2021-12-02T13:13:30.508Z",
+    "modified" : "2021-12-02T15:15:46.671Z",
+    "statusModified" : "2021-12-02T15:15:46.671Z",
+    "prefLabel" : {
+      "en" : "Central Uusimaa wellbeing services county",
+      "fi" : "Keski-Uudenmaan hyvinvointialue",
+      "sv" : "Mellersta Nylands välfärdsområde"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/hyvinvointialue_1_20211013/codes/02/members/"
+  }, {
+    "id" : "6ac9ebc8-a7b7-416e-9a89-54837ec73bfa",
+    "codeValue" : "03",
+    "uri" : "http://uri.suomi.fi/codelist/jhs/hyvinvointialue_1_20211013/code/03",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/hyvinvointialue_1_20211013/codes/03",
+    "status" : "VALID",
+    "order" : 3,
+    "hierarchyLevel" : 1,
+    "created" : "2021-12-02T13:13:30.518Z",
+    "modified" : "2021-12-02T15:16:09.477Z",
+    "statusModified" : "2021-12-02T15:16:09.477Z",
+    "prefLabel" : {
+      "en" : "West Uusimaa wellbeing services county",
+      "fi" : "Länsi-Uudenmaan hyvinvointialue",
+      "sv" : "Västra Nylands välfärdsområde"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/hyvinvointialue_1_20211013/codes/03/members/"
+  }, {
+    "id" : "cd41db98-f402-40a4-892f-6b724b44bc37",
+    "codeValue" : "04",
+    "uri" : "http://uri.suomi.fi/codelist/jhs/hyvinvointialue_1_20211013/code/04",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/hyvinvointialue_1_20211013/codes/04",
+    "status" : "VALID",
+    "order" : 4,
+    "hierarchyLevel" : 1,
+    "created" : "2021-12-02T13:13:30.529Z",
+    "modified" : "2021-12-02T15:16:36.104Z",
+    "statusModified" : "2021-12-02T15:16:36.104Z",
+    "prefLabel" : {
+      "en" : "Vantaa and Kerava wellbeing services county",
+      "fi" : "Vantaan ja Keravan hyvinvointialue",
+      "sv" : "Vanda och Kervo välfärdsområde"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/hyvinvointialue_1_20211013/codes/04/members/"
+  }, {
+    "id" : "281778c9-ea80-4b81-b6c5-2fb2fd6c1397",
+    "codeValue" : "05",
+    "uri" : "http://uri.suomi.fi/codelist/jhs/hyvinvointialue_1_20211013/code/05",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/hyvinvointialue_1_20211013/codes/05",
+    "status" : "VALID",
+    "order" : 5,
+    "hierarchyLevel" : 1,
+    "created" : "2021-12-02T13:13:30.538Z",
+    "modified" : "2021-12-02T15:16:59.207Z",
+    "statusModified" : "2021-12-02T15:16:59.207Z",
+    "prefLabel" : {
+      "en" : "Southwest Finland wellbeing services county",
+      "fi" : "Varsinais-Suomen hyvinvointialue",
+      "sv" : "Egentliga Finlands välfärdsområde"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/hyvinvointialue_1_20211013/codes/05/members/"
+  }, {
+    "id" : "caf7f33f-a10b-4bac-a913-b2a93e5ab4d7",
+    "codeValue" : "06",
+    "uri" : "http://uri.suomi.fi/codelist/jhs/hyvinvointialue_1_20211013/code/06",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/hyvinvointialue_1_20211013/codes/06",
+    "status" : "VALID",
+    "order" : 6,
+    "hierarchyLevel" : 1,
+    "created" : "2021-12-02T13:13:30.547Z",
+    "modified" : "2021-12-02T15:17:18.678Z",
+    "statusModified" : "2021-12-02T15:17:18.678Z",
+    "prefLabel" : {
+      "en" : "Satakunta wellbeing services county",
+      "fi" : "Satakunnan hyvinvointialue",
+      "sv" : "Satakunta välfärdsområde"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/hyvinvointialue_1_20211013/codes/06/members/"
+  }, {
+    "id" : "7af30691-2950-44fd-94cc-8429d70d5907",
+    "codeValue" : "07",
+    "uri" : "http://uri.suomi.fi/codelist/jhs/hyvinvointialue_1_20211013/code/07",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/hyvinvointialue_1_20211013/codes/07",
+    "status" : "VALID",
+    "order" : 7,
+    "hierarchyLevel" : 1,
+    "created" : "2021-12-02T13:13:30.557Z",
+    "modified" : "2021-12-02T15:17:39.433Z",
+    "statusModified" : "2021-12-02T15:17:39.433Z",
+    "prefLabel" : {
+      "en" : "Kanta-Häme wellbeing services county",
+      "fi" : "Kanta-Hämeen hyvinvointialue",
+      "sv" : "Egentliga Tavastlands välfärdsområde"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/hyvinvointialue_1_20211013/codes/07/members/"
+  }, {
+    "id" : "9d2a5192-ce50-48e4-b6d4-c9ded840edd1",
+    "codeValue" : "08",
+    "uri" : "http://uri.suomi.fi/codelist/jhs/hyvinvointialue_1_20211013/code/08",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/hyvinvointialue_1_20211013/codes/08",
+    "status" : "VALID",
+    "order" : 8,
+    "hierarchyLevel" : 1,
+    "created" : "2021-12-02T13:13:30.566Z",
+    "modified" : "2021-12-02T15:18:12.223Z",
+    "statusModified" : "2021-12-02T15:18:02.358Z",
+    "prefLabel" : {
+      "en" : "Pirkanmaa wellbeing services county",
+      "fi" : "Pirkanmaan hyvinvointialue",
+      "sv" : "Birkalands välfärdsområde"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/hyvinvointialue_1_20211013/codes/08/members/"
+  }, {
+    "id" : "dd65bae5-a3ad-4e22-b1a0-46bf034b8b4e",
+    "codeValue" : "09",
+    "uri" : "http://uri.suomi.fi/codelist/jhs/hyvinvointialue_1_20211013/code/09",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/hyvinvointialue_1_20211013/codes/09",
+    "status" : "VALID",
+    "order" : 9,
+    "hierarchyLevel" : 1,
+    "created" : "2021-12-02T13:13:30.574Z",
+    "modified" : "2021-12-02T15:18:33.717Z",
+    "statusModified" : "2021-12-02T15:18:33.717Z",
+    "prefLabel" : {
+      "en" : "Päijät-Häme wellbeing services county",
+      "fi" : "Päijät-Hämeen hyvinvointialue",
+      "sv" : "Päijänne-Tavastlands välfärdsområde"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/hyvinvointialue_1_20211013/codes/09/members/"
+  }, {
+    "id" : "0a2b14bb-e9d6-4d4b-aaf0-9eee252d295e",
+    "codeValue" : "10",
+    "uri" : "http://uri.suomi.fi/codelist/jhs/hyvinvointialue_1_20211013/code/10",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/hyvinvointialue_1_20211013/codes/10",
+    "status" : "VALID",
+    "order" : 10,
+    "hierarchyLevel" : 1,
+    "created" : "2021-12-02T13:13:30.583Z",
+    "modified" : "2021-12-02T15:18:57.209Z",
+    "statusModified" : "2021-12-02T15:18:57.209Z",
+    "prefLabel" : {
+      "en" : "Kymenlaakso wellbeing services county",
+      "fi" : "Kymenlaakson hyvinvointialue",
+      "sv" : "Kymmenedalens välfärdsområde"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/hyvinvointialue_1_20211013/codes/10/members/"
+  }, {
+    "id" : "7694f136-fd8e-49d5-9379-6c088924f845",
+    "codeValue" : "11",
+    "uri" : "http://uri.suomi.fi/codelist/jhs/hyvinvointialue_1_20211013/code/11",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/hyvinvointialue_1_20211013/codes/11",
+    "status" : "VALID",
+    "order" : 11,
+    "hierarchyLevel" : 1,
+    "created" : "2021-12-02T13:13:30.591Z",
+    "modified" : "2021-12-02T15:19:35.446Z",
+    "statusModified" : "2021-12-02T15:19:35.446Z",
+    "prefLabel" : {
+      "en" : "South Karelia wellbeing services county",
+      "fi" : "Etelä-Karjalan hyvinvointialue",
+      "sv" : "Södra Karelens välfärdsområde"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/hyvinvointialue_1_20211013/codes/11/members/"
+  }, {
+    "id" : "d8c3728a-9267-4596-909e-8ab6b3cc1485",
+    "codeValue" : "12",
+    "uri" : "http://uri.suomi.fi/codelist/jhs/hyvinvointialue_1_20211013/code/12",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/hyvinvointialue_1_20211013/codes/12",
+    "status" : "VALID",
+    "order" : 12,
+    "hierarchyLevel" : 1,
+    "created" : "2021-12-02T13:13:30.598Z",
+    "modified" : "2021-12-02T15:19:57.696Z",
+    "statusModified" : "2021-12-02T15:19:57.696Z",
+    "prefLabel" : {
+      "en" : "South Savo wellbeing services county",
+      "fi" : "Etelä-Savon hyvinvointialue",
+      "sv" : "Södra Savolax välfärdsområde"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/hyvinvointialue_1_20211013/codes/12/members/"
+  }, {
+    "id" : "311b8e17-e2d4-4560-a255-ce8532b1ec65",
+    "codeValue" : "13",
+    "uri" : "http://uri.suomi.fi/codelist/jhs/hyvinvointialue_1_20211013/code/13",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/hyvinvointialue_1_20211013/codes/13",
+    "status" : "VALID",
+    "order" : 13,
+    "hierarchyLevel" : 1,
+    "created" : "2021-12-02T13:13:30.604Z",
+    "modified" : "2021-12-02T15:20:27.121Z",
+    "statusModified" : "2021-12-02T15:20:27.121Z",
+    "prefLabel" : {
+      "en" : "North Savo wellbeing services county",
+      "fi" : "Pohjois-Savon hyvinvointialue",
+      "sv" : "Norra Savolax välfärdsområde"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/hyvinvointialue_1_20211013/codes/13/members/"
+  }, {
+    "id" : "2983d1fb-068a-4b4d-911e-429aea0a7b29",
+    "codeValue" : "14",
+    "uri" : "http://uri.suomi.fi/codelist/jhs/hyvinvointialue_1_20211013/code/14",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/hyvinvointialue_1_20211013/codes/14",
+    "status" : "VALID",
+    "order" : 14,
+    "hierarchyLevel" : 1,
+    "created" : "2021-12-02T13:13:30.611Z",
+    "modified" : "2021-12-02T15:20:52.496Z",
+    "statusModified" : "2021-12-02T15:20:52.496Z",
+    "prefLabel" : {
+      "en" : "North Karelia wellbeing services county",
+      "fi" : "Pohjois-Karjalan hyvinvointialue",
+      "sv" : "Norra Karelens välfärdsområde"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/hyvinvointialue_1_20211013/codes/14/members/"
+  }, {
+    "id" : "61052f15-d6ea-44ff-a76f-12ff32d23996",
+    "codeValue" : "15",
+    "uri" : "http://uri.suomi.fi/codelist/jhs/hyvinvointialue_1_20211013/code/15",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/hyvinvointialue_1_20211013/codes/15",
+    "status" : "VALID",
+    "order" : 15,
+    "hierarchyLevel" : 1,
+    "created" : "2021-12-02T13:13:30.618Z",
+    "modified" : "2021-12-02T15:21:14.744Z",
+    "statusModified" : "2021-12-02T15:21:14.744Z",
+    "prefLabel" : {
+      "en" : "Central Finland wellbeing services county",
+      "fi" : "Keski-Suomen hyvinvointialue",
+      "sv" : "Mellersta Finlands välfärdsområde"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/hyvinvointialue_1_20211013/codes/15/members/"
+  }, {
+    "id" : "639171a5-71b8-4f1a-9f0c-a03647d528c3",
+    "codeValue" : "16",
+    "uri" : "http://uri.suomi.fi/codelist/jhs/hyvinvointialue_1_20211013/code/16",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/hyvinvointialue_1_20211013/codes/16",
+    "status" : "VALID",
+    "order" : 16,
+    "hierarchyLevel" : 1,
+    "created" : "2021-12-02T13:13:30.625Z",
+    "modified" : "2021-12-02T15:21:59.530Z",
+    "statusModified" : "2021-12-02T15:21:59.530Z",
+    "prefLabel" : {
+      "en" : "South Ostrobothnia wellbeing services county",
+      "fi" : "Etelä-Pohjanmaan hyvinvointialue",
+      "sv" : "Södra Österbottens välfärdsområde"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/hyvinvointialue_1_20211013/codes/16/members/"
+  }, {
+    "id" : "29b93d45-5985-41cb-ae30-30f1451c8a8e",
+    "codeValue" : "17",
+    "uri" : "http://uri.suomi.fi/codelist/jhs/hyvinvointialue_1_20211013/code/17",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/hyvinvointialue_1_20211013/codes/17",
+    "status" : "VALID",
+    "order" : 17,
+    "hierarchyLevel" : 1,
+    "created" : "2021-12-02T13:13:30.632Z",
+    "modified" : "2021-12-02T15:22:23.612Z",
+    "statusModified" : "2021-12-02T15:22:23.612Z",
+    "prefLabel" : {
+      "en" : "Ostrobothnia wellbeing services county",
+      "fi" : "Pohjanmaan hyvinvointialue",
+      "sv" : "Österbottens välfärdsområde"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/hyvinvointialue_1_20211013/codes/17/members/"
+  }, {
+    "id" : "4cef16ec-8181-4f1a-948a-8cc46ee9dc56",
+    "codeValue" : "18",
+    "uri" : "http://uri.suomi.fi/codelist/jhs/hyvinvointialue_1_20211013/code/18",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/hyvinvointialue_1_20211013/codes/18",
+    "status" : "VALID",
+    "order" : 18,
+    "hierarchyLevel" : 1,
+    "created" : "2021-12-02T13:13:30.638Z",
+    "modified" : "2021-12-02T15:22:53.248Z",
+    "statusModified" : "2021-12-02T15:22:53.248Z",
+    "prefLabel" : {
+      "en" : "Central Ostrobothnia wellbeing services county",
+      "fi" : "Keski-Pohjanmaan hyvinvointialue",
+      "sv" : "Mellersta Österbottens välfärdsområde"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/hyvinvointialue_1_20211013/codes/18/members/"
+  }, {
+    "id" : "58b6786f-fef4-4802-9bd2-8e60baa6383e",
+    "codeValue" : "19",
+    "uri" : "http://uri.suomi.fi/codelist/jhs/hyvinvointialue_1_20211013/code/19",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/hyvinvointialue_1_20211013/codes/19",
+    "status" : "VALID",
+    "order" : 19,
+    "hierarchyLevel" : 1,
+    "created" : "2021-12-02T13:13:30.645Z",
+    "modified" : "2021-12-02T15:23:15.923Z",
+    "statusModified" : "2021-12-02T15:23:15.923Z",
+    "prefLabel" : {
+      "en" : "North Ostrobothnia wellbeing services county",
+      "fi" : "Pohjois-Pohjanmaan hyvinvointialue",
+      "sv" : "Norra Österbottens välfärdsområde"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/hyvinvointialue_1_20211013/codes/19/members/"
+  }, {
+    "id" : "ba952220-d899-447d-a07a-980716f4a68c",
+    "codeValue" : "20",
+    "uri" : "http://uri.suomi.fi/codelist/jhs/hyvinvointialue_1_20211013/code/20",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/hyvinvointialue_1_20211013/codes/20",
+    "status" : "VALID",
+    "order" : 20,
+    "hierarchyLevel" : 1,
+    "created" : "2021-12-02T13:13:30.651Z",
+    "modified" : "2021-12-02T15:23:38.238Z",
+    "statusModified" : "2021-12-02T15:23:38.238Z",
+    "prefLabel" : {
+      "en" : "Kainuu wellbeing services county",
+      "fi" : "Kainuun hyvinvointialue",
+      "sv" : "Kajanalands välfärdsområde"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/hyvinvointialue_1_20211013/codes/20/members/"
+  }, {
+    "id" : "a42748c7-ae69-42e3-9a9b-42923630a344",
+    "codeValue" : "21",
+    "uri" : "http://uri.suomi.fi/codelist/jhs/hyvinvointialue_1_20211013/code/21",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/hyvinvointialue_1_20211013/codes/21",
+    "status" : "VALID",
+    "order" : 21,
+    "hierarchyLevel" : 1,
+    "created" : "2021-12-02T13:13:30.658Z",
+    "modified" : "2021-12-02T15:24:01.623Z",
+    "statusModified" : "2021-12-02T15:24:01.623Z",
+    "prefLabel" : {
+      "en" : "Lapland wellbeing services county",
+      "fi" : "Lapin hyvinvointialue",
+      "sv" : "Lapplands välfärdsområde"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/hyvinvointialue_1_20211013/codes/21/members/"
+  }, {
+    "id" : "d2c4fe8b-a9b8-40e8-bcb0-460acb475bf3",
+    "codeValue" : "90",
+    "uri" : "http://uri.suomi.fi/codelist/jhs/hyvinvointialue_1_20211013/code/90",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/hyvinvointialue_1_20211013/codes/90",
+    "status" : "VALID",
+    "order" : 22,
+    "hierarchyLevel" : 1,
+    "created" : "2021-12-02T13:13:30.665Z",
+    "modified" : "2021-12-02T15:24:25.932Z",
+    "statusModified" : "2021-12-02T15:24:25.932Z",
+    "prefLabel" : {
+      "en" : "City of Helsinki",
+      "fi" : "Helsingin kaupunki",
+      "sv" : "Helsingfors stad"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/hyvinvointialue_1_20211013/codes/90/members/"
+  }, {
+    "id" : "1b26bde4-1b1d-42d0-a3cb-ebd476577abf",
+    "codeValue" : "91",
+    "uri" : "http://uri.suomi.fi/codelist/jhs/hyvinvointialue_1_20211013/code/91",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/hyvinvointialue_1_20211013/codes/91",
+    "status" : "VALID",
+    "order" : 23,
+    "hierarchyLevel" : 1,
+    "created" : "2021-12-02T13:13:30.672Z",
+    "modified" : "2021-12-02T15:24:46.811Z",
+    "statusModified" : "2021-12-02T15:24:46.811Z",
+    "prefLabel" : {
+      "en" : "Åland",
+      "fi" : "Ahvenanmaa",
+      "sv" : "Åland"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/hyvinvointialue_1_20211013/codes/91/members/"
+  } ],
+  "prefLabel" : {
+    "en" : "Wellbeing services counties and the City of Helsinki and Åland 2021",
+    "fi" : "Hyvinvointialueet sekä Helsingin kaupunki ja Ahvenanmaa 2021",
+    "sv" : "Välfärdsområdena samt Helsingfors stad och Åland 2021"
+  },
+  "description" : {
+    "en" : "A wellbeing services county is a public corporation separate from municipalities and the state that is responsible for organising healthcare, social welfare and rescue services in the county concerned.\n\nThe classification of wellbeing services counties comprises 21 wellbeing services counties and the City of Helsinki and Åland. The City of Helsinki and Åland do not form a specific wellbeing services county, but they are included in the classification due to regional coverage. The City of Helsinki and Åland are responsible for organising healthcare, social welfare and rescue services in their areas.\n\nThe classification can be used to describe the structure of wellbeing services counties and in what way healthcare, social welfare and rescue services are organised in different counties. In statistics production, the classification of wellbeing services counties will be used for the first time in the county elections to be organised in 2022.\n\nStatistics Finland has prepared the classification in cooperation with the National Research and Development Centre for Welfare and the Digital and Population Data Services Agency.\n\nAct on implementing the reform concerning healthcare, social welfare and rescue services and the enforcement of the legislation relating to it, 616/2021.",
+    "fi" : "Hyvinvointialue on kunnista ja valtiosta erillinen julkisoikeudellinen yhteisö, joka vastaa alueellaan väestön sosiaali- ja terveydenhuollon sekä pelastustoimen järjestämisestä. \n\nHyvinvointialueluokitus koostuu 21 hyvinvointialueesta sekä Helsingin kaupungista ja Ahvenanmaasta. Helsingin kaupunki ja Ahvenanmaa eivät muodosta omaa hyvinvointialuetta, mutta ovat mukana luokituksessa alueellisen kattavuuden vuoksi. Helsingin kaupunki ja Ahvenanmaa huolehtivat alueellaan sosiaali- ja terveydenhuollon sekä pelastustoimen järjestämisestä. \n\nLuokituksen avulla voidaan kuvata muun muassa hyvinvointialueiden rakennetta ja miten eri alueilla sosiaali- ja terveydenhuolto sekä pelastustoimi on järjestetty. Tilastotuotannossa hyvinvointialueluokitusta käytetään ensimmäisen kerran vuonna 2022 järjestettävissä aluevaaleissa.\n\nTilastokeskus on valmistellut luokituksen yhteistyössä Terveyden ja hyvinvoinnin laitoksen (THL) ja Digi- ja väestötietoviraston (DVV) kanssa. (fi)\n\nLaki sosiaali- ja terveydenhuoltoa ja pelastustoimea koskevan uudistuksen toimeenpanosta ja sitä koskevan lainsäädännön voimaanpanosta, 616/2021.",
+    "sv" : "Välfärdsområdet är ett offentligrättsligt samfund som är fristående från kommunerna och staten och som inom sitt område ansvarar för ordnandet av befolkningens social- och hälsovård samt räddningsväsendet.\n\nIndelningen i välfärdsområden består av 21 välfärdsområden samt Helsingfors stad och Åland. Helsingfors stad och Åland bildar inga egna välfärdsområden, men är med i indelningen för den geografiska täckningens skull. Helsingfors stad och Åland sörjer för ordnandet av social- och hälsovården samt räddningsväsendet inom sina områden.\n\nMed hjälp av indelningen kan man beskriva bland annat välfärdsområdenas struktur och hur social- och hälsovården samt räddningsväsendet har ordnats i olika områden. I statistikproduktionen används välfärdsområdesindelningen för första gången i välfärdsområdesvalet år 2022.\n\nStatistikcentralen har berett indelningen i samarbete med Institutet för hälsa och välfärd (THL) och Myndigheten för digitalisering och befolkningsdata.\n\nLag om genomförande av reformen av social- och hälsovården och räddningsväsendet och om införande av den lagstiftning som gäller reformen, 616/2021."
+  },
+  "startDate" : "2021-10-13",
+  "created" : "2021-12-02T13:13:30.342Z",
+  "modified" : "2021-12-07T16:30:49.580Z",
+  "contentModified" : "2021-12-02T15:24:46.811Z",
+  "statusModified" : "2021-12-02T15:28:19.461Z",
+  "status" : "VALID",
+  "version" : "1",
+  "source" : "https://finlex.fi/fi/laki/alkup/2021/20210616",
+  "infoDomains" : [ {
+    "id" : "0c1fcbb8-ebfa-4a94-8fc3-a18134d8e792",
+    "codeValue" : "P9",
+    "uri" : "http://uri.suomi.fi/codelist/jupo/serviceclassification/code/P9",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jupo/codeschemes/serviceclassification/codes/P9",
+    "status" : "VALID",
+    "order" : 95,
+    "hierarchyLevel" : 1,
+    "created" : "2018-01-01T00:00:00.000Z",
+    "modified" : "2018-01-01T00:00:00.000Z",
+    "prefLabel" : {
+      "en" : "General information and administrative services",
+      "fi" : "Yleiset tieto- ja hallintopalvelut",
+      "sv" : "Generella informations- ja förvaltningstjänster"
+    },
+    "description" : {
+      "fi" : "Tässä palveluluokassa käsitellään kansalaisille, yhteisöille ja toisille viranomaisille tarjottavia tieto-, hallinto- ja tukipalveluja, jotka sisällöltään voivat liittyä mihin aiheeseen tahansa ja joita ei tämän vuoksi voida sijoittaa julkisen palvelun luokituksen muihin aiheluokkiin."
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jupo/codeschemes/serviceclassification/codes/P9/members/"
+  } ],
+  "languageCodes" : [ {
+    "id" : "931ea36d-b2e9-409b-bf86-87ff85708c75",
+    "codeValue" : "sv",
+    "uri" : "http://uri.suomi.fi/codelist/interoperabilityplatform/languagecodes/code/sv",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/interoperabilityplatform/codeschemes/languagecodes/codes/sv",
+    "status" : "VALID",
+    "order" : 1433,
+    "hierarchyLevel" : 1,
+    "created" : "2018-10-05T12:36:13.394Z",
+    "modified" : "2019-09-03T05:07:23.042Z",
+    "prefLabel" : {
+      "en" : "Swedish",
+      "fi" : "ruotsi",
+      "sv" : "svenska"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/interoperabilityplatform/codeschemes/languagecodes/codes/sv/members/"
+  }, {
+    "id" : "beda08b1-c3ac-4e82-af4b-cb269d36eaf9",
+    "codeValue" : "fi",
+    "uri" : "http://uri.suomi.fi/codelist/interoperabilityplatform/languagecodes/code/fi",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/interoperabilityplatform/codeschemes/languagecodes/codes/fi",
+    "status" : "VALID",
+    "order" : 1034,
+    "hierarchyLevel" : 1,
+    "created" : "2018-10-05T12:36:02.639Z",
+    "modified" : "2019-09-03T05:07:06.108Z",
+    "prefLabel" : {
+      "en" : "Finnish",
+      "fi" : "suomi",
+      "sv" : "finska"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/interoperabilityplatform/codeschemes/languagecodes/codes/fi/members/"
+  }, {
+    "id" : "1cc15c8d-256e-4235-b1cc-071e5b750a08",
+    "codeValue" : "en",
+    "uri" : "http://uri.suomi.fi/codelist/interoperabilityplatform/languagecodes/code/en",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/interoperabilityplatform/codeschemes/languagecodes/codes/en",
+    "status" : "VALID",
+    "order" : 883,
+    "hierarchyLevel" : 1,
+    "created" : "2018-10-05T12:35:59.315Z",
+    "modified" : "2019-09-03T05:06:59.187Z",
+    "prefLabel" : {
+      "en" : "English",
+      "fi" : "englanti",
+      "sv" : "engelska"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/interoperabilityplatform/codeschemes/languagecodes/codes/en/members/"
+  } ],
+  "externalReferences" : [ {
+    "id" : "79434532-25e5-4822-b6dd-ff3a22d9b43f",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/externalreferences/79434532-25e5-4822-b6dd-ff3a22d9b43f",
+    "created" : "2021-12-02T14:59:39.024Z",
+    "modified" : "2021-12-07T16:30:49.606Z",
+    "href" : "https://finlex.fi/fi/laki/alkup/2021/20210616",
+    "global" : false,
+    "title" : {
+      "fi" : "https://finlex.fi/fi/laki/alkup/2021/20210616"
+    },
+    "propertyType" : {
+      "id" : "a807461e-e4be-11e7-9cf2-bf74dc97e66b",
+      "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/propertytypes/a807461e-e4be-11e7-9cf2-bf74dc97e66b",
+      "created" : "2018-01-01T00:00:00.000Z",
+      "modified" : "2021-04-21T13:24:08.376Z",
+      "context" : "ExternalReference",
+      "uri" : "http://purl.org/dc/terms/instructionalMethod/",
+      "localName" : "instructions",
+      "prefLabel" : {
+        "en" : "Instructions",
+        "fi" : "Käyttöohje",
+        "sv" : "Bruksanvisning"
+      },
+      "definition" : {
+        "en" : "Reference to a document that describes a process that is used to engender knowledge, attitudes, and skills.",
+        "fi" : "Viittaus käyttöohjeeseen jossa on kuvattu koodiston ja koodien käyttötarkoitus.",
+        "sv" : "Hänvisning till bruksanvisningen som beskriver syftet med kodlistor och koder."
+      }
+    }
+  } ],
+  "organizations" : [ {
+    "id" : "88ce73b9-376c-4ff1-8c51-e4159b0af75c",
+    "url" : "http://www.stat.fi/",
+    "prefLabel" : {
+      "en" : "Statistics Finland",
+      "fi" : "Tilastokeskus",
+      "sv" : "Statistikcentralen"
+    },
+    "description" : {
+      "en" : "",
+      "fi" : "",
+      "sv" : ""
+    },
+    "removed" : false
+  }, {
+    "id" : "d9c76d52-03d3-4480-8c2c-b66e6d9c57f2",
+    "url" : "http://dvv.fi",
+    "prefLabel" : {
+      "en" : "Digital and Population Data Services Agency",
+      "fi" : "Digi- ja väestötietovirasto",
+      "sv" : "Myndigheten för digitalisering och befolkningsdata"
+    },
+    "description" : {
+      "en" : "",
+      "fi" : "",
+      "sv" : ""
+    },
+    "removed" : false
+  } ],
+  "cumulative" : false,
+  "codeRegistry" : {
+    "id" : "a7c71027-2969-43f1-bc1d-efa944ef9e55",
+    "codeValue" : "jhs",
+    "uri" : "http://uri.suomi.fi/codelist/jhs",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs",
+    "prefLabel" : {
+      "en" : "JHS",
+      "fi" : "JHS",
+      "sv" : "JHS"
+    },
+    "created" : "2018-01-01T00:00:00.000Z",
+    "modified" : "2020-02-10T14:29:28.912Z",
+    "codeSchemesUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jhs/codeschemes/"
+  },
+  "totalNrOfSearchHitsCodes" : 0,
+  "totalNrOfSearchHitsExtensions" : 0
+}

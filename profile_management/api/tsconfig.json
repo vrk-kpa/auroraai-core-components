@@ -1,0 +1,22 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "rootDirs": ["./src", "./tests"],
+    "outDir": "./dist",
+    "composite": true,
+    "resolveJsonModule": true
+  },
+
+  "references": [{
+    "path": "../shared/tsconfig.json"
+  }],
+
+  "include": [
+    "src/**/*",
+    "tests/constants.ts",
+    "tests/mockData/*",
+
+    "__mocks__/*",
+    "src/i18n.json"
+  ]
+}

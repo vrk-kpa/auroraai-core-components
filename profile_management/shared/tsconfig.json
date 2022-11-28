@@ -1,0 +1,13 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "rootDir": ".",
+    "outDir": ".",
+    "composite": true,
+    "declaration": true,
+    "resolveJsonModule": true
+  },
+  "references": [
+    { "path": "../../schemas" }
+  ]
+}

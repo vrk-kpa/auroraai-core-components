@@ -1,0 +1,81 @@
+export const mockLifeSituationMetersSchema = {
+    "@id": "http://uri.suomi.fi/datamodel/ns/aurora-att#life_situation_meters",
+    title: "life_situation_meters",
+    "@type": "@id",
+    type: "object",
+    description:
+      "3x10D on DIAKin tutkijoiden kehittämä elämäntilannemittari, jonka avulla on mahdollista kartoittaa nuoren elämäntilannetta.\nVähintään yhdelle attribuutille on annettava arvo suosituksien saamiseksi. Yksittäiselle attribuutille voidaan antaa useita arvoja.",
+    properties: {
+      working_studying: {
+        "@id": "http://uri.suomi.fi/datamodel/ns/aurora-att#working_studying",
+        title: "Opiskelu ja työ",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        type: "array",
+        items: { type: "integer" },
+      },
+      family: {
+        "@id": "http://uri.suomi.fi/datamodel/ns/aurora-att#family",
+        title: "Perhe",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        type: "array",
+        items: { type: "integer" },
+      },
+      friends: {
+        "@id": "http://uri.suomi.fi/datamodel/ns/aurora-att#friends",
+        title: "Ystävät",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        type: "array",
+        items: { type: "integer" },
+      },
+      health: {
+        "@id": "http://uri.suomi.fi/datamodel/ns/aurora-att#health",
+        title: "Terveys",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        type: "array",
+        items: { type: "integer" },
+      },
+      improvement_of_strengths: {
+        "@id":
+          "http://uri.suomi.fi/datamodel/ns/aurora-att#improvement_of_strengths",
+        title: "Itsensä kehittäminen",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        type: "array",
+        items: { type: "integer" },
+      },
+      housing: {
+        "@id": "http://uri.suomi.fi/datamodel/ns/aurora-att#housing",
+        title: "Asuminen",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        type: "array",
+        items: { type: "integer" },
+      },
+      finance: {
+        "@id": "http://uri.suomi.fi/datamodel/ns/aurora-att#finance",
+        title: "Raha-asiat",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        type: "array",
+        items: { type: "integer" },
+      },
+      resilience: {
+        "@id": "http://uri.suomi.fi/datamodel/ns/aurora-att#resilience",
+        title: "Vaikeuksien voittaminen",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        type: "array",
+        items: { type: "integer" },
+      },
+      life_satisfaction: {
+        "@id": "http://uri.suomi.fi/datamodel/ns/aurora-att#life_satisfaction",
+        title: "Tyytyväisyys elämään",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        type: "array",
+        items: { type: "integer" },
+      },
+      self_esteem: {
+        "@id": "http://uri.suomi.fi/datamodel/ns/aurora-att#self_esteem",
+        title: "Itsetunto",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        type: "array",
+        items: { type: "integer" },
+      },
+    },
+  }

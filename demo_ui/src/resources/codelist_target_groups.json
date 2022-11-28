@@ -1,0 +1,689 @@
+{
+  "id" : "fc177556-5c92-4778-bb02-cf9a84bbbde9",
+  "codeValue" : "ptvkohderyhmat",
+  "uri" : "http://uri.suomi.fi/codelist/ptv/ptvkohderyhmat",
+  "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/ptv/codeschemes/ptvkohderyhmat",
+  "codesUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/ptv/codeschemes/ptvkohderyhmat/codes/",
+  "extensionsUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/ptv/codeschemes/ptvkohderyhmat/extensions/",
+  "codes" : [ {
+    "id" : "dc2a6468-90c4-4949-bd09-5d5cf39790e7",
+    "codeValue" : "KR1",
+    "uri" : "http://uri.suomi.fi/codelist/ptv/ptvkohderyhmat/code/KR1",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/ptv/codeschemes/ptvkohderyhmat/codes/KR1",
+    "status" : "VALID",
+    "order" : 1,
+    "hierarchyLevel" : 1,
+    "created" : "2020-07-16T09:31:53.013Z",
+    "modified" : "2020-07-16T09:31:53.013Z",
+    "prefLabel" : {
+      "en" : "Citizens",
+      "fi" : "Kansalaiset",
+      "sv" : "Medborgare"
+    },
+    "shortName" : "Kansalaiset",
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/ptv/codeschemes/ptvkohderyhmat/codes/KR1/members/"
+  }, {
+    "id" : "c4ce91f1-d65b-45c1-a6b6-ec876799f7ed",
+    "codeValue" : "KR1.1",
+    "uri" : "http://uri.suomi.fi/codelist/ptv/ptvkohderyhmat/code/KR1.1",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/ptv/codeschemes/ptvkohderyhmat/codes/KR1.1",
+    "status" : "VALID",
+    "order" : 2,
+    "hierarchyLevel" : 2,
+    "created" : "2020-07-16T09:31:53.013Z",
+    "modified" : "2020-07-16T09:31:53.013Z",
+    "prefLabel" : {
+      "en" : "Seniors",
+      "fi" : "Ikäihmiset",
+      "sv" : "De äldre"
+    },
+    "shortName" : "Ikäihmiset",
+    "broaderCode" : {
+      "id" : "dc2a6468-90c4-4949-bd09-5d5cf39790e7",
+      "codeValue" : "KR1",
+      "uri" : "http://uri.suomi.fi/codelist/ptv/ptvkohderyhmat/code/KR1",
+      "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/ptv/codeschemes/ptvkohderyhmat/codes/KR1",
+      "status" : "VALID",
+      "order" : 1,
+      "hierarchyLevel" : 1,
+      "created" : "2020-07-16T09:31:53.013Z",
+      "modified" : "2020-07-16T09:31:53.013Z",
+      "prefLabel" : {
+        "en" : "Citizens",
+        "fi" : "Kansalaiset",
+        "sv" : "Medborgare"
+      },
+      "shortName" : "Kansalaiset",
+      "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/ptv/codeschemes/ptvkohderyhmat/codes/KR1/members/"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/ptv/codeschemes/ptvkohderyhmat/codes/KR1.1/members/"
+  }, {
+    "id" : "de201fce-6407-4ea1-a728-25699b7e740b",
+    "codeValue" : "KR2",
+    "uri" : "http://uri.suomi.fi/codelist/ptv/ptvkohderyhmat/code/KR2",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/ptv/codeschemes/ptvkohderyhmat/codes/KR2",
+    "status" : "VALID",
+    "order" : 3,
+    "hierarchyLevel" : 1,
+    "created" : "2020-07-16T09:31:53.013Z",
+    "modified" : "2020-07-16T09:31:53.013Z",
+    "prefLabel" : {
+      "en" : "Businesses and non-government organizations",
+      "fi" : "Yritykset ja yhteisöt",
+      "sv" : "Företag och samfund "
+    },
+    "shortName" : "Yritykset ja yhteisöt",
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/ptv/codeschemes/ptvkohderyhmat/codes/KR2/members/"
+  }, {
+    "id" : "d56454e3-2bf4-4bcf-a416-c888ccef2d2a",
+    "codeValue" : "KR2.1",
+    "uri" : "http://uri.suomi.fi/codelist/ptv/ptvkohderyhmat/code/KR2.1",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/ptv/codeschemes/ptvkohderyhmat/codes/KR2.1",
+    "status" : "VALID",
+    "order" : 4,
+    "hierarchyLevel" : 2,
+    "created" : "2020-07-16T09:31:53.013Z",
+    "modified" : "2020-07-16T09:31:53.013Z",
+    "prefLabel" : {
+      "en" : "Businesses going international",
+      "fi" : "Kansainvälistyvät yritykset",
+      "sv" : "Internationalisering av företag"
+    },
+    "shortName" : "Kansainvälistyvät yritykset",
+    "broaderCode" : {
+      "id" : "de201fce-6407-4ea1-a728-25699b7e740b",
+      "codeValue" : "KR2",
+      "uri" : "http://uri.suomi.fi/codelist/ptv/ptvkohderyhmat/code/KR2",
+      "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/ptv/codeschemes/ptvkohderyhmat/codes/KR2",
+      "status" : "VALID",
+      "order" : 3,
+      "hierarchyLevel" : 1,
+      "created" : "2020-07-16T09:31:53.013Z",
+      "modified" : "2020-07-16T09:31:53.013Z",
+      "prefLabel" : {
+        "en" : "Businesses and non-government organizations",
+        "fi" : "Yritykset ja yhteisöt",
+        "sv" : "Företag och samfund "
+      },
+      "shortName" : "Yritykset ja yhteisöt",
+      "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/ptv/codeschemes/ptvkohderyhmat/codes/KR2/members/"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/ptv/codeschemes/ptvkohderyhmat/codes/KR2.1/members/"
+  }, {
+    "id" : "9c7c0278-5cd5-4650-8d60-f6f589e58b03",
+    "codeValue" : "KR1.2",
+    "uri" : "http://uri.suomi.fi/codelist/ptv/ptvkohderyhmat/code/KR1.2",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/ptv/codeschemes/ptvkohderyhmat/codes/KR1.2",
+    "status" : "VALID",
+    "order" : 5,
+    "hierarchyLevel" : 2,
+    "created" : "2020-07-16T09:31:53.013Z",
+    "modified" : "2020-07-16T09:31:53.013Z",
+    "prefLabel" : {
+      "en" : "Children and families with children",
+      "fi" : "Lapset ja lapsiperheet",
+      "sv" : "Barn och barnfamiljer"
+    },
+    "shortName" : "Lapset ja lapsiperheet",
+    "broaderCode" : {
+      "id" : "dc2a6468-90c4-4949-bd09-5d5cf39790e7",
+      "codeValue" : "KR1",
+      "uri" : "http://uri.suomi.fi/codelist/ptv/ptvkohderyhmat/code/KR1",
+      "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/ptv/codeschemes/ptvkohderyhmat/codes/KR1",
+      "status" : "VALID",
+      "order" : 1,
+      "hierarchyLevel" : 1,
+      "created" : "2020-07-16T09:31:53.013Z",
+      "modified" : "2020-07-16T09:31:53.013Z",
+      "prefLabel" : {
+        "en" : "Citizens",
+        "fi" : "Kansalaiset",
+        "sv" : "Medborgare"
+      },
+      "shortName" : "Kansalaiset",
+      "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/ptv/codeschemes/ptvkohderyhmat/codes/KR1/members/"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/ptv/codeschemes/ptvkohderyhmat/codes/KR1.2/members/"
+  }, {
+    "id" : "aba91791-b642-4244-9936-194651fa3f88",
+    "codeValue" : "KR1.3",
+    "uri" : "http://uri.suomi.fi/codelist/ptv/ptvkohderyhmat/code/KR1.3",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/ptv/codeschemes/ptvkohderyhmat/codes/KR1.3",
+    "status" : "VALID",
+    "order" : 6,
+    "hierarchyLevel" : 2,
+    "created" : "2020-07-16T09:31:53.013Z",
+    "modified" : "2020-07-16T09:31:53.013Z",
+    "prefLabel" : {
+      "en" : "Young people",
+      "fi" : "Nuoret",
+      "sv" : "De unga"
+    },
+    "shortName" : "Nuoret",
+    "broaderCode" : {
+      "id" : "dc2a6468-90c4-4949-bd09-5d5cf39790e7",
+      "codeValue" : "KR1",
+      "uri" : "http://uri.suomi.fi/codelist/ptv/ptvkohderyhmat/code/KR1",
+      "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/ptv/codeschemes/ptvkohderyhmat/codes/KR1",
+      "status" : "VALID",
+      "order" : 1,
+      "hierarchyLevel" : 1,
+      "created" : "2020-07-16T09:31:53.013Z",
+      "modified" : "2020-07-16T09:31:53.013Z",
+      "prefLabel" : {
+        "en" : "Citizens",
+        "fi" : "Kansalaiset",
+        "sv" : "Medborgare"
+      },
+      "shortName" : "Kansalaiset",
+      "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/ptv/codeschemes/ptvkohderyhmat/codes/KR1/members/"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/ptv/codeschemes/ptvkohderyhmat/codes/KR1.3/members/"
+  }, {
+    "id" : "d937cf86-f573-4c1a-9aba-aa4a9e11768e",
+    "codeValue" : "KR1.4",
+    "uri" : "http://uri.suomi.fi/codelist/ptv/ptvkohderyhmat/code/KR1.4",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/ptv/codeschemes/ptvkohderyhmat/codes/KR1.4",
+    "status" : "VALID",
+    "order" : 7,
+    "hierarchyLevel" : 2,
+    "created" : "2020-07-16T09:31:53.013Z",
+    "modified" : "2020-07-16T09:31:53.013Z",
+    "prefLabel" : {
+      "en" : "People with long-term illnesses",
+      "fi" : "Pitkäaikaissairaat",
+      "sv" : "Långtidssjuka"
+    },
+    "shortName" : "Pitkäaikaissairaat",
+    "broaderCode" : {
+      "id" : "dc2a6468-90c4-4949-bd09-5d5cf39790e7",
+      "codeValue" : "KR1",
+      "uri" : "http://uri.suomi.fi/codelist/ptv/ptvkohderyhmat/code/KR1",
+      "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/ptv/codeschemes/ptvkohderyhmat/codes/KR1",
+      "status" : "VALID",
+      "order" : 1,
+      "hierarchyLevel" : 1,
+      "created" : "2020-07-16T09:31:53.013Z",
+      "modified" : "2020-07-16T09:31:53.013Z",
+      "prefLabel" : {
+        "en" : "Citizens",
+        "fi" : "Kansalaiset",
+        "sv" : "Medborgare"
+      },
+      "shortName" : "Kansalaiset",
+      "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/ptv/codeschemes/ptvkohderyhmat/codes/KR1/members/"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/ptv/codeschemes/ptvkohderyhmat/codes/KR1.4/members/"
+  }, {
+    "id" : "3696f409-d94b-4eb1-9462-a7f902e0a745",
+    "codeValue" : "KR1.5",
+    "uri" : "http://uri.suomi.fi/codelist/ptv/ptvkohderyhmat/code/KR1.5",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/ptv/codeschemes/ptvkohderyhmat/codes/KR1.5",
+    "status" : "VALID",
+    "order" : 8,
+    "hierarchyLevel" : 2,
+    "created" : "2020-07-16T09:31:53.013Z",
+    "modified" : "2020-07-16T09:31:53.013Z",
+    "prefLabel" : {
+      "en" : "Expatriate Finns",
+      "fi" : "Ulkosuomalaiset",
+      "sv" : "Utlandsfinländare"
+    },
+    "shortName" : "Ulkosuomalaiset",
+    "broaderCode" : {
+      "id" : "dc2a6468-90c4-4949-bd09-5d5cf39790e7",
+      "codeValue" : "KR1",
+      "uri" : "http://uri.suomi.fi/codelist/ptv/ptvkohderyhmat/code/KR1",
+      "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/ptv/codeschemes/ptvkohderyhmat/codes/KR1",
+      "status" : "VALID",
+      "order" : 1,
+      "hierarchyLevel" : 1,
+      "created" : "2020-07-16T09:31:53.013Z",
+      "modified" : "2020-07-16T09:31:53.013Z",
+      "prefLabel" : {
+        "en" : "Citizens",
+        "fi" : "Kansalaiset",
+        "sv" : "Medborgare"
+      },
+      "shortName" : "Kansalaiset",
+      "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/ptv/codeschemes/ptvkohderyhmat/codes/KR1/members/"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/ptv/codeschemes/ptvkohderyhmat/codes/KR1.5/members/"
+  }, {
+    "id" : "c5c472c4-286c-4353-8421-7fbb3c3009cd",
+    "codeValue" : "KR1.6",
+    "uri" : "http://uri.suomi.fi/codelist/ptv/ptvkohderyhmat/code/KR1.6",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/ptv/codeschemes/ptvkohderyhmat/codes/KR1.6",
+    "status" : "VALID",
+    "order" : 9,
+    "hierarchyLevel" : 2,
+    "created" : "2020-07-16T09:31:53.013Z",
+    "modified" : "2020-07-16T09:31:53.013Z",
+    "prefLabel" : {
+      "en" : "Disabled people",
+      "fi" : "Vammaiset",
+      "sv" : "Handikappade"
+    },
+    "shortName" : "Vammaiset",
+    "broaderCode" : {
+      "id" : "dc2a6468-90c4-4949-bd09-5d5cf39790e7",
+      "codeValue" : "KR1",
+      "uri" : "http://uri.suomi.fi/codelist/ptv/ptvkohderyhmat/code/KR1",
+      "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/ptv/codeschemes/ptvkohderyhmat/codes/KR1",
+      "status" : "VALID",
+      "order" : 1,
+      "hierarchyLevel" : 1,
+      "created" : "2020-07-16T09:31:53.013Z",
+      "modified" : "2020-07-16T09:31:53.013Z",
+      "prefLabel" : {
+        "en" : "Citizens",
+        "fi" : "Kansalaiset",
+        "sv" : "Medborgare"
+      },
+      "shortName" : "Kansalaiset",
+      "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/ptv/codeschemes/ptvkohderyhmat/codes/KR1/members/"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/ptv/codeschemes/ptvkohderyhmat/codes/KR1.6/members/"
+  }, {
+    "id" : "85d16a9b-7f63-48a8-aa4e-4dd1185cd318",
+    "codeValue" : "KR2.2",
+    "uri" : "http://uri.suomi.fi/codelist/ptv/ptvkohderyhmat/code/KR2.2",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/ptv/codeschemes/ptvkohderyhmat/codes/KR2.2",
+    "status" : "VALID",
+    "order" : 10,
+    "hierarchyLevel" : 2,
+    "created" : "2020-07-16T09:31:53.013Z",
+    "modified" : "2020-07-16T09:31:53.013Z",
+    "prefLabel" : {
+      "en" : "Inventors",
+      "fi" : "Keksijät",
+      "sv" : "Uppfinnare"
+    },
+    "shortName" : "Keksijät",
+    "broaderCode" : {
+      "id" : "de201fce-6407-4ea1-a728-25699b7e740b",
+      "codeValue" : "KR2",
+      "uri" : "http://uri.suomi.fi/codelist/ptv/ptvkohderyhmat/code/KR2",
+      "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/ptv/codeschemes/ptvkohderyhmat/codes/KR2",
+      "status" : "VALID",
+      "order" : 3,
+      "hierarchyLevel" : 1,
+      "created" : "2020-07-16T09:31:53.013Z",
+      "modified" : "2020-07-16T09:31:53.013Z",
+      "prefLabel" : {
+        "en" : "Businesses and non-government organizations",
+        "fi" : "Yritykset ja yhteisöt",
+        "sv" : "Företag och samfund "
+      },
+      "shortName" : "Yritykset ja yhteisöt",
+      "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/ptv/codeschemes/ptvkohderyhmat/codes/KR2/members/"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/ptv/codeschemes/ptvkohderyhmat/codes/KR2.2/members/"
+  }, {
+    "id" : "2c30fbec-1015-4e74-89bf-1303c47b09ce",
+    "codeValue" : "KR2.3",
+    "uri" : "http://uri.suomi.fi/codelist/ptv/ptvkohderyhmat/code/KR2.3",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/ptv/codeschemes/ptvkohderyhmat/codes/KR2.3",
+    "status" : "VALID",
+    "order" : 11,
+    "hierarchyLevel" : 2,
+    "created" : "2020-07-16T09:31:53.013Z",
+    "modified" : "2020-07-16T09:31:53.013Z",
+    "prefLabel" : {
+      "en" : "Businesses operating in the domestic (Finnish) market",
+      "fi" : "Kotimarkkinoilla toimivat yritykset",
+      "sv" : "Företag på den inhemska marknaden"
+    },
+    "shortName" : "Kotimarkkinoilla toimivat yritykset",
+    "broaderCode" : {
+      "id" : "de201fce-6407-4ea1-a728-25699b7e740b",
+      "codeValue" : "KR2",
+      "uri" : "http://uri.suomi.fi/codelist/ptv/ptvkohderyhmat/code/KR2",
+      "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/ptv/codeschemes/ptvkohderyhmat/codes/KR2",
+      "status" : "VALID",
+      "order" : 3,
+      "hierarchyLevel" : 1,
+      "created" : "2020-07-16T09:31:53.013Z",
+      "modified" : "2020-07-16T09:31:53.013Z",
+      "prefLabel" : {
+        "en" : "Businesses and non-government organizations",
+        "fi" : "Yritykset ja yhteisöt",
+        "sv" : "Företag och samfund "
+      },
+      "shortName" : "Yritykset ja yhteisöt",
+      "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/ptv/codeschemes/ptvkohderyhmat/codes/KR2/members/"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/ptv/codeschemes/ptvkohderyhmat/codes/KR2.3/members/"
+  }, {
+    "id" : "632c7f9a-3f0b-4a68-b392-9f71ba9aeacd",
+    "codeValue" : "KR2.4",
+    "uri" : "http://uri.suomi.fi/codelist/ptv/ptvkohderyhmat/code/KR2.4",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/ptv/codeschemes/ptvkohderyhmat/codes/KR2.4",
+    "status" : "VALID",
+    "order" : 12,
+    "hierarchyLevel" : 2,
+    "created" : "2020-07-16T09:31:53.013Z",
+    "modified" : "2020-07-16T09:31:53.013Z",
+    "prefLabel" : {
+      "en" : "Foreign entrepreneurs in Finland",
+      "fi" : "Suomeen ulkomailta tulevat yrittäjät",
+      "sv" : "Utländska entreprenörer i Finland"
+    },
+    "shortName" : "Suomeen ulkomailta tulevat yrittäjät",
+    "broaderCode" : {
+      "id" : "de201fce-6407-4ea1-a728-25699b7e740b",
+      "codeValue" : "KR2",
+      "uri" : "http://uri.suomi.fi/codelist/ptv/ptvkohderyhmat/code/KR2",
+      "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/ptv/codeschemes/ptvkohderyhmat/codes/KR2",
+      "status" : "VALID",
+      "order" : 3,
+      "hierarchyLevel" : 1,
+      "created" : "2020-07-16T09:31:53.013Z",
+      "modified" : "2020-07-16T09:31:53.013Z",
+      "prefLabel" : {
+        "en" : "Businesses and non-government organizations",
+        "fi" : "Yritykset ja yhteisöt",
+        "sv" : "Företag och samfund "
+      },
+      "shortName" : "Yritykset ja yhteisöt",
+      "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/ptv/codeschemes/ptvkohderyhmat/codes/KR2/members/"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/ptv/codeschemes/ptvkohderyhmat/codes/KR2.4/members/"
+  }, {
+    "id" : "d06221cd-2440-43a5-b1a6-e323d819de31",
+    "codeValue" : "KR2.5",
+    "uri" : "http://uri.suomi.fi/codelist/ptv/ptvkohderyhmat/code/KR2.5",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/ptv/codeschemes/ptvkohderyhmat/codes/KR2.5",
+    "status" : "VALID",
+    "order" : 13,
+    "hierarchyLevel" : 2,
+    "created" : "2020-07-16T09:31:53.013Z",
+    "modified" : "2020-07-16T09:31:53.013Z",
+    "prefLabel" : {
+      "en" : "Large companies",
+      "fi" : "Suuryritykset",
+      "sv" : "Storföretag"
+    },
+    "shortName" : "Suuryritykset",
+    "broaderCode" : {
+      "id" : "de201fce-6407-4ea1-a728-25699b7e740b",
+      "codeValue" : "KR2",
+      "uri" : "http://uri.suomi.fi/codelist/ptv/ptvkohderyhmat/code/KR2",
+      "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/ptv/codeschemes/ptvkohderyhmat/codes/KR2",
+      "status" : "VALID",
+      "order" : 3,
+      "hierarchyLevel" : 1,
+      "created" : "2020-07-16T09:31:53.013Z",
+      "modified" : "2020-07-16T09:31:53.013Z",
+      "prefLabel" : {
+        "en" : "Businesses and non-government organizations",
+        "fi" : "Yritykset ja yhteisöt",
+        "sv" : "Företag och samfund "
+      },
+      "shortName" : "Yritykset ja yhteisöt",
+      "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/ptv/codeschemes/ptvkohderyhmat/codes/KR2/members/"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/ptv/codeschemes/ptvkohderyhmat/codes/KR2.5/members/"
+  }, {
+    "id" : "d9973782-81d3-4525-bc68-eb21b90c6f47",
+    "codeValue" : "KR2.6",
+    "uri" : "http://uri.suomi.fi/codelist/ptv/ptvkohderyhmat/code/KR2.6",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/ptv/codeschemes/ptvkohderyhmat/codes/KR2.6",
+    "status" : "VALID",
+    "order" : 14,
+    "hierarchyLevel" : 2,
+    "created" : "2020-07-16T09:31:53.013Z",
+    "modified" : "2020-07-16T09:31:53.013Z",
+    "prefLabel" : {
+      "en" : "Employers",
+      "fi" : "Työnantajat",
+      "sv" : "Arbetsgivare"
+    },
+    "shortName" : "Työnantajat",
+    "broaderCode" : {
+      "id" : "de201fce-6407-4ea1-a728-25699b7e740b",
+      "codeValue" : "KR2",
+      "uri" : "http://uri.suomi.fi/codelist/ptv/ptvkohderyhmat/code/KR2",
+      "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/ptv/codeschemes/ptvkohderyhmat/codes/KR2",
+      "status" : "VALID",
+      "order" : 3,
+      "hierarchyLevel" : 1,
+      "created" : "2020-07-16T09:31:53.013Z",
+      "modified" : "2020-07-16T09:31:53.013Z",
+      "prefLabel" : {
+        "en" : "Businesses and non-government organizations",
+        "fi" : "Yritykset ja yhteisöt",
+        "sv" : "Företag och samfund "
+      },
+      "shortName" : "Yritykset ja yhteisöt",
+      "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/ptv/codeschemes/ptvkohderyhmat/codes/KR2/members/"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/ptv/codeschemes/ptvkohderyhmat/codes/KR2.6/members/"
+  }, {
+    "id" : "99167f9a-0b11-4a7b-a662-716007c2dce9",
+    "codeValue" : "KR2.7",
+    "uri" : "http://uri.suomi.fi/codelist/ptv/ptvkohderyhmat/code/KR2.7",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/ptv/codeschemes/ptvkohderyhmat/codes/KR2.7",
+    "status" : "VALID",
+    "order" : 15,
+    "hierarchyLevel" : 2,
+    "created" : "2020-07-16T09:31:53.013Z",
+    "modified" : "2020-07-16T09:31:53.013Z",
+    "prefLabel" : {
+      "en" : "Non-government organizations",
+      "fi" : "Yhdistykset ja järjestöt",
+      "sv" : "Föreningar och organisationer"
+    },
+    "shortName" : "Yhdistykset ja järjestöt",
+    "broaderCode" : {
+      "id" : "de201fce-6407-4ea1-a728-25699b7e740b",
+      "codeValue" : "KR2",
+      "uri" : "http://uri.suomi.fi/codelist/ptv/ptvkohderyhmat/code/KR2",
+      "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/ptv/codeschemes/ptvkohderyhmat/codes/KR2",
+      "status" : "VALID",
+      "order" : 3,
+      "hierarchyLevel" : 1,
+      "created" : "2020-07-16T09:31:53.013Z",
+      "modified" : "2020-07-16T09:31:53.013Z",
+      "prefLabel" : {
+        "en" : "Businesses and non-government organizations",
+        "fi" : "Yritykset ja yhteisöt",
+        "sv" : "Företag och samfund "
+      },
+      "shortName" : "Yritykset ja yhteisöt",
+      "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/ptv/codeschemes/ptvkohderyhmat/codes/KR2/members/"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/ptv/codeschemes/ptvkohderyhmat/codes/KR2.7/members/"
+  }, {
+    "id" : "a5917daf-0f7f-48ab-9204-1e5982f26d81",
+    "codeValue" : "KR2.8",
+    "uri" : "http://uri.suomi.fi/codelist/ptv/ptvkohderyhmat/code/KR2.8",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/ptv/codeschemes/ptvkohderyhmat/codes/KR2.8",
+    "status" : "VALID",
+    "order" : 16,
+    "hierarchyLevel" : 2,
+    "created" : "2020-07-16T09:31:53.013Z",
+    "modified" : "2020-07-16T09:31:53.013Z",
+    "prefLabel" : {
+      "en" : "Finnish startups",
+      "fi" : "Yrityksen perustajat kotimaassa",
+      "sv" : "Inhemska företagsgrundare"
+    },
+    "shortName" : "Yrityksen perustajat kotimaassa",
+    "broaderCode" : {
+      "id" : "de201fce-6407-4ea1-a728-25699b7e740b",
+      "codeValue" : "KR2",
+      "uri" : "http://uri.suomi.fi/codelist/ptv/ptvkohderyhmat/code/KR2",
+      "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/ptv/codeschemes/ptvkohderyhmat/codes/KR2",
+      "status" : "VALID",
+      "order" : 3,
+      "hierarchyLevel" : 1,
+      "created" : "2020-07-16T09:31:53.013Z",
+      "modified" : "2020-07-16T09:31:53.013Z",
+      "prefLabel" : {
+        "en" : "Businesses and non-government organizations",
+        "fi" : "Yritykset ja yhteisöt",
+        "sv" : "Företag och samfund "
+      },
+      "shortName" : "Yritykset ja yhteisöt",
+      "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/ptv/codeschemes/ptvkohderyhmat/codes/KR2/members/"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/ptv/codeschemes/ptvkohderyhmat/codes/KR2.8/members/"
+  }, {
+    "id" : "1cb6c97a-9ebf-48a8-ba6b-790dfa41440d",
+    "codeValue" : "KR3",
+    "uri" : "http://uri.suomi.fi/codelist/ptv/ptvkohderyhmat/code/KR3",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/ptv/codeschemes/ptvkohderyhmat/codes/KR3",
+    "status" : "VALID",
+    "order" : 17,
+    "hierarchyLevel" : 1,
+    "created" : "2020-07-16T09:32:39.181Z",
+    "modified" : "2020-07-16T09:33:43.448Z",
+    "statusModified" : "2020-07-16T09:32:39.181Z",
+    "prefLabel" : {
+      "en" : "Authorities",
+      "fi" : "Viranomaiset",
+      "sv" : "Myndigheter"
+    },
+    "description" : {
+      "fi" : "Palvelutietovarantoon kuvattavalle palvelulle valitaan Viranomaiset-kohderyhmä, kun palvelun halutaan näkyvän viranomaisen palvelunäkymässä. Saman palvelun voi kytkeä myös Kansalaiset- ja/tai Yritykset-kohderyhmiin, jos palvelun halutaan näkyvän myös näissä palvelunäkymän versioissa.",
+      "sv" : ""
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/ptv/codeschemes/ptvkohderyhmat/codes/KR3/members/"
+  } ],
+  "prefLabel" : {
+    "en" : "Classification of public services target groups ",
+    "fi" : "Julkisten palvelujen kohderyhmäluokat"
+  },
+  "description" : {
+    "fi" : "Julkisten palvelujen kohderyhmäluokat"
+  },
+  "created" : "2020-07-16T09:31:52.954Z",
+  "modified" : "2020-07-16T09:34:09.860Z",
+  "contentModified" : "2020-07-16T09:33:43.448Z",
+  "statusModified" : "2020-07-16T09:34:09.692Z",
+  "status" : "VALID",
+  "infoDomains" : [ {
+    "id" : "0c1fcbb8-ebfa-4a94-8fc3-a18134d8e792",
+    "codeValue" : "P9",
+    "uri" : "http://uri.suomi.fi/codelist/jupo/serviceclassification/code/P9",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jupo/codeschemes/serviceclassification/codes/P9",
+    "status" : "VALID",
+    "order" : 95,
+    "hierarchyLevel" : 1,
+    "created" : "2018-01-01T00:00:00.000Z",
+    "modified" : "2018-01-01T00:00:00.000Z",
+    "prefLabel" : {
+      "en" : "General information and administrative services",
+      "fi" : "Yleiset tieto- ja hallintopalvelut",
+      "sv" : "Generella informations- ja förvaltningstjänster"
+    },
+    "description" : {
+      "fi" : "Tässä palveluluokassa käsitellään kansalaisille, yhteisöille ja toisille viranomaisille tarjottavia tieto-, hallinto- ja tukipalveluja, jotka sisällöltään voivat liittyä mihin aiheeseen tahansa ja joita ei tämän vuoksi voida sijoittaa julkisen palvelun luokituksen muihin aiheluokkiin."
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/jupo/codeschemes/serviceclassification/codes/P9/members/"
+  } ],
+  "languageCodes" : [ {
+    "id" : "931ea36d-b2e9-409b-bf86-87ff85708c75",
+    "codeValue" : "sv",
+    "uri" : "http://uri.suomi.fi/codelist/interoperabilityplatform/languagecodes/code/sv",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/interoperabilityplatform/codeschemes/languagecodes/codes/sv",
+    "status" : "VALID",
+    "order" : 1433,
+    "hierarchyLevel" : 1,
+    "created" : "2018-10-05T12:36:13.394Z",
+    "modified" : "2019-09-03T05:07:23.042Z",
+    "prefLabel" : {
+      "en" : "Swedish",
+      "fi" : "ruotsi",
+      "sv" : "svenska"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/interoperabilityplatform/codeschemes/languagecodes/codes/sv/members/"
+  }, {
+    "id" : "1cc15c8d-256e-4235-b1cc-071e5b750a08",
+    "codeValue" : "en",
+    "uri" : "http://uri.suomi.fi/codelist/interoperabilityplatform/languagecodes/code/en",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/interoperabilityplatform/codeschemes/languagecodes/codes/en",
+    "status" : "VALID",
+    "order" : 883,
+    "hierarchyLevel" : 1,
+    "created" : "2018-10-05T12:35:59.315Z",
+    "modified" : "2019-09-03T05:06:59.187Z",
+    "prefLabel" : {
+      "en" : "English",
+      "fi" : "englanti",
+      "sv" : "engelska"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/interoperabilityplatform/codeschemes/languagecodes/codes/en/members/"
+  }, {
+    "id" : "beda08b1-c3ac-4e82-af4b-cb269d36eaf9",
+    "codeValue" : "fi",
+    "uri" : "http://uri.suomi.fi/codelist/interoperabilityplatform/languagecodes/code/fi",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/interoperabilityplatform/codeschemes/languagecodes/codes/fi",
+    "status" : "VALID",
+    "order" : 1034,
+    "hierarchyLevel" : 1,
+    "created" : "2018-10-05T12:36:02.639Z",
+    "modified" : "2019-09-03T05:07:06.108Z",
+    "prefLabel" : {
+      "en" : "Finnish",
+      "fi" : "suomi",
+      "sv" : "finska"
+    },
+    "membersUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/interoperabilityplatform/codeschemes/languagecodes/codes/fi/members/"
+  } ],
+  "prevCodeschemeId" : "d5652fa5-0d75-4da3-b2d9-525df8ab9e89",
+  "lastCodeschemeId" : "fc177556-5c92-4778-bb02-cf9a84bbbde9",
+  "allVersions" : [ {
+    "id" : "fc177556-5c92-4778-bb02-cf9a84bbbde9",
+    "prefLabel" : {
+      "en" : "Classification of public services target groups ",
+      "fi" : "Julkisten palvelujen kohderyhmäluokat"
+    },
+    "codeValue" : "ptvkohderyhmat",
+    "uri" : "http://uri.suomi.fi/codelist/ptv/ptvkohderyhmat",
+    "status" : "VALID"
+  }, {
+    "id" : "d5652fa5-0d75-4da3-b2d9-525df8ab9e89",
+    "prefLabel" : {
+      "en" : "Classification of public services target groups ",
+      "fi" : "Julkisten palvelujen kohderyhmäluokat"
+    },
+    "codeValue" : "ptvkohder",
+    "uri" : "http://uri.suomi.fi/codelist/ptv/ptvkohder",
+    "status" : "SUPERSEDED"
+  } ],
+  "organizations" : [ {
+    "id" : "d9c76d52-03d3-4480-8c2c-b66e6d9c57f2",
+    "url" : "http://dvv.fi",
+    "prefLabel" : {
+      "en" : "Digital and Population Data Services Agency",
+      "fi" : "Digi- ja väestötietovirasto",
+      "sv" : "Myndigheten för digitalisering och befolkningsdata"
+    },
+    "description" : {
+      "en" : "",
+      "fi" : "",
+      "sv" : ""
+    },
+    "removed" : false
+  } ],
+  "cumulative" : false,
+  "codeRegistry" : {
+    "id" : "f8eef039-af5d-46b6-9933-5e1e6831fcea",
+    "codeValue" : "ptv",
+    "uri" : "http://uri.suomi.fi/codelist/ptv",
+    "url" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/ptv",
+    "prefLabel" : {
+      "fi" : "Palvelutietovaranto"
+    },
+    "description" : {
+      "fi" : "Palvelutietovaranto on julkishallinnon yhteinen tietovaranto palveluista ja niihin liittyvistä asiointikanavista, kuten verkkopalveluista, puhelinpalveluista ja toimipisteistä."
+    },
+    "created" : "2020-02-26T16:25:36.224Z",
+    "modified" : "2020-02-26T16:32:17.386Z",
+    "codeSchemesUrl" : "https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries/ptv/codeschemes/"
+  },
+  "totalNrOfSearchHitsCodes" : 0,
+  "totalNrOfSearchHitsExtensions" : 0
+}

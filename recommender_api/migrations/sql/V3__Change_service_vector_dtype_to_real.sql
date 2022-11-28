@@ -1,0 +1,10 @@
+ALTER TABLE service_recommender.service_vectors ALTER COLUMN health TYPE real;
+ALTER TABLE service_recommender.service_vectors ALTER COLUMN resilience TYPE real;
+ALTER TABLE service_recommender.service_vectors ALTER COLUMN housing TYPE real;
+ALTER TABLE service_recommender.service_vectors ALTER COLUMN working_studying TYPE real;
+ALTER TABLE service_recommender.service_vectors ALTER COLUMN family TYPE real;
+ALTER TABLE service_recommender.service_vectors ALTER COLUMN friends TYPE real;
+ALTER TABLE service_recommender.service_vectors ALTER COLUMN finance TYPE real;
+ALTER TABLE service_recommender.service_vectors ALTER COLUMN improvement_of_strengths TYPE real;
+ALTER TABLE service_recommender.service_vectors ALTER COLUMN self_esteem TYPE real;
+ALTER TABLE service_recommender.service_vectors ALTER COLUMN life_satisfaction TYPE real;

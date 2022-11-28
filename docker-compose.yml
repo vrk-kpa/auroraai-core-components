@@ -1,0 +1,227 @@
+version: "3"
+services:
+  router:
+    image: nginx
+    depends_on:
+      - api-doc
+      - service-recommender-api
+      - profile-management-api
+      - profile-management-ui
+      - attributes-management
+      - mock-service-1
+      - mock-service-2
+      - demo-ui
+      - translation
+    ports:
+      - 8080:8080
+    volumes:
+      - $PWD/docker-compose-router-nginx.conf:/etc/nginx/nginx.conf:ro
+
+  api-doc:
+    build:
+      context: .
+      dockerfile: api_doc/api_doc.Dockerfile
+
+  service-recommender-api:
+    build:
+      context: .
+      dockerfile: recommender_api/api.dev.Dockerfile
+
+    # by default serve the app through flask dev server
+    command: ["-m", "recommender_api.debug_main"]
+
+    # uncomment to serve the app through gunicorn
+    # command: [ "/app/recommender_api/start_gunicorn.py", "debug_main:run(True)" ]
+
+    environment:
+      ENVIRONMENT: localcluster
+      GUNICORN_CMD_ARGS: "--config /app/recommender_api/gunicorn_conf.py"
+      AWS_REGION: "${AWS_REGION-}"
+      AWS_ACCESS_KEY_ID: "${AWS_ACCESS_KEY_ID-}"
+      AWS_SECRET_ACCESS_KEY: "${AWS_SECRET_ACCESS_KEY-}"
+      AWS_SESSION_TOKEN: "${AWS_SESSION_TOKEN-}"
+      AWS_SECURITY_TOKEN: "${AWS_SECURITY_TOKEN-}"
+    depends_on:
+      - service-recommender-flyway
+      - profile-management-api
+    volumes:
+      - $PWD/fasttext:/app/fasttext:ro
+  service-recommender-db:
+    image: postgres:13
+    environment:
+      POSTGRES_DB: service_recommender
+      POSTGRES_PASSWORD: dummy
+      POSTGRES_USER: service_recommender_test
+    ports:
+      - "${SERVICE_RECOMMENDER_POSTGRES_PORT-5432}:5432" # for connecting with host clients
+  service-recommender-flyway:
+    image: flyway/flyway:8.4.3
+    depends_on:
+      - service-recommender-db
+    environment:
+      FLYWAY_URL: "jdbc:postgresql://service-recommender-db:5432/service_recommender"
+      FLYWAY_USER: service_recommender_test
+      FLYWAY_PASSWORD: dummy
+      FLYWAY_LOCATIONS: "filesystem:/flyway/sql, filesystem:/test_data"
+    volumes:
+      - $PWD/recommender_api/migrations/sql:/flyway/sql
+      - $PWD/recommender_api/tests/test_data:/test_data # also map test data directory so test data gets applied
+    command: migrate
+
+  profile-management-api:
+    build:
+      context: .
+      dockerfile: profile_management/profile.api.Dockerfile_dev
+    environment:
+      ENVIRONMENT: localcluster
+      PROFILE_MANAGEMENT_COOKIE_PASSWORD: atleast32charslongdummycookiepassword
+    depends_on:
+      - profile-management-flyway
+    volumes:
+      - ./profile_management/api:/builder/api
+      - /builder/node_modules
+
+  profile-management-db:
+    image: postgres:13
+    ports:
+      - "${PROFILE_MANAGEMENT_POSTGRES_PORT-7001}:5432" # for connecting with host clients
+    environment:
+      POSTGRES_DB: "${PROFILE_MANAGEMENT_POSTGRES_DB-profile_management}"
+      POSTGRES_PASSWORD: "${PROFILE_MANAGEMENT_POSTGRES_PASSWORD-admin}"
+  profile-management-flyway:
+    image: flyway/flyway:8.4.3
+    depends_on:
+      - profile-management-db
+    environment:
+      FLYWAY_URL: "jdbc:postgresql://profile-management-db:5432/${PROFILE_MANAGEMENT_POSTGRES_DB-profile_management}"
+      FLYWAY_USER: "postgres"
+      FLYWAY_PASSWORD: "${PROFILE_MANAGEMENT_POSTGRES_PASSWORD-admin}"
+      FLYWAY_LOCATIONS: "filesystem:/flyway/sql, filesystem:/flyway/test_sql"
+      FLYWAY_PLACEHOLDERS_BASEURL: "http://localhost:8080"
+      FLYWAY_PLACEHOLDERS_LOADBALANCER: "http://router:8080"
+    volumes:
+      - $PWD/profile_management/api/migrations/sql:/flyway/sql
+      - $PWD/profile_management/api/migrations/test_sql:/flyway/test_sql # add test data
+    command: migrate
+
+  profile-management-ui:
+    build:
+      context: .
+      dockerfile: profile_management/profile.ui.Dockerfile_dev
+    environment:
+      ENVIRONMENT: localcluster
+    volumes:
+      - ./profile_management/ui:/builder/ui
+      - /builder/node_modules
+
+  attributes-management:
+    build:
+      context: .
+      dockerfile: attributes_management/attributes_management.dev.Dockerfile
+    environment:
+      ENVIRONMENT: localcluster
+    depends_on:
+      - profile-management-flyway
+    volumes:
+      - ./attributes_management:/builder
+      - /builder/node_modules
+
+  mock-service-1:
+    build:
+      context: .
+      dockerfile: mock_service/mock_service.Dockerfile_dev
+    environment:
+      ENVIRONMENT: localcluster
+      MOCK_INSTANCE: 1
+    volumes:
+      - ./mock_service:/builder
+      - /builder/node_modules
+
+  mock-service-2:
+    build:
+      context: .
+      dockerfile: mock_service/mock_service.Dockerfile_dev
+    environment:
+      ENVIRONMENT: localcluster
+      MOCK_INSTANCE: 2
+    volumes:
+      - ./mock_service:/builder
+      - /builder/node_modules
+
+  demo-ui:
+    build:
+      context: .
+      dockerfile: demo_ui/ui.Dockerfile
+    environment:
+      ENVIRONMENT: localcluster
+
+  translation:
+    build:
+      context: .
+      dockerfile: translation/translation.Dockerfile
+    environment:
+      ENVIRONMENT: localcluster
+
+  ####
+  #  load-ptv-data profile
+  ####
+
+  # This migration removes all data rows from the local recommender database, but leaves the table schema intact.
+  # Currently used by the ptv-data-loader service to delete the test-data from the db before loading in the PTV data.
+  service-recommender-flyway-clean:
+    profiles:
+      - "load-ptv-data"
+      - "load-ptv-data-debug"
+    image: flyway/flyway:8.4.3
+    environment:
+      FLYWAY_URL: "jdbc:postgresql://service-recommender-db:5432/service_recommender"
+      FLYWAY_USER: service_recommender_test
+      FLYWAY_PASSWORD: dummy
+      FLYWAY_LOCATIONS: "filesystem:/migrations"
+    volumes:
+      - $PWD/recommender_api/tests/migrations/:/migrations
+    depends_on:
+      - service-recommender-db
+    command: migrate
+
+  ptv-data-loader:
+    profiles:
+      - "load-ptv-data"
+
+    build:
+      context: .
+      dockerfile: recommender_api/api.dev.Dockerfile
+    command: ["-m", "ptv_data_loader.data_loader"]
+    environment:
+      ENVIRONMENT: localcluster
+      AWS_REGION: "${AWS_REGION-}"
+      AWS_ACCESS_KEY_ID: "${AWS_ACCESS_KEY_ID-}"
+      AWS_SECRET_ACCESS_KEY: "${AWS_SECRET_ACCESS_KEY-}"
+      AWS_SESSION_TOKEN: "${AWS_SESSION_TOKEN-}"
+      AWS_SECURITY_TOKEN: "${AWS_SECURITY_TOKEN-}"
+      DATA_LOADER_MODE: "${DATA_LOADER_MODE-}"
+    depends_on:
+      - service-recommender-api
+      - service-recommender-flyway-clean
+
+  # This service can be used to load the PTV data from dev environment S3 to the service-recommender-db running
+  # in docker compose. As it loads data from S3, it requires AWS credentials. Simplest way is to run it with:
+  # aws-vault exec dvv-suomiai-dev -- docker compose --profile load-ptv-data-debug up ptv-data-loader-debug
+  ptv-data-loader-debug:
+    profiles:
+      - "load-ptv-data-debug"
+    build:
+      context: .
+      dockerfile: recommender_api/api.dev.Dockerfile
+    command: ["-m", "ptv_data_loader.debug_data_loader"]
+    environment:
+      ENVIRONMENT: localcluster
+      AWS_REGION: "${AWS_REGION-}"
+      AWS_ACCESS_KEY_ID: "${AWS_ACCESS_KEY_ID-}"
+      AWS_SECRET_ACCESS_KEY: "${AWS_SECRET_ACCESS_KEY-}"
+      AWS_SESSION_TOKEN: "${AWS_SESSION_TOKEN-}"
+      AWS_SECURITY_TOKEN: "${AWS_SECURITY_TOKEN-}"
+      DATA_LOADER_MODE: "full-run"
+    depends_on:
+      - service-recommender-api
+      - service-recommender-flyway-clean

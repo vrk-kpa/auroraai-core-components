@@ -1,0 +1,28 @@
+FROM public.ecr.aws/docker/library/node:16.15.1-bullseye
+RUN useradd -r -u 1001 -g root nonroot
+COPY locale/ /locale
+WORKDIR /builder
+
+COPY profile_management/tsconfig.json tsconfig.json
+
+COPY profile_management/.yarn/ .yarn
+COPY .npmrc .npmrc
+COPY profile_management/package.json package.json
+COPY profile_management/yarn.lock yarn.lock
+COPY profile_management/.yarnrc .yarnrc
+COPY profile_management/build_i18n.js build_i18n.js
+COPY profile_management/api/src/i18n.json api/src/i18n.json
+
+COPY profile_management/shared/ ./shared
+COPY schemas/ /schemas
+
+# Build translations needed by the API
+RUN node build_i18n.js
+
+COPY profile_management/api/package.json api/package.json
+
+RUN yarn install
+
+COPY profile_management/config.yml ./config.yml
+
+CMD yarn workspace profile-management-api dev

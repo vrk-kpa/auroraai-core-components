@@ -1,0 +1,7 @@
+venv
+.idea
+.vscode
+.pytest_cache
+demo_ui
+.git
+.mypy_cache

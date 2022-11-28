@@ -1,0 +1,1420 @@
+{
+  "id": "961f1a02-0eb7-4b5d-9721-6b9f2d14ec6f",
+  "sourceId": null,
+  "oid": null,
+  "serviceChannelType": "ServiceLocation",
+  "organizationId": "df0c2f24-d2bd-4ba7-bdcd-fcfc9f0d65a7",
+  "serviceChannelNames": [
+    {
+      "language": "fi",
+      "value": "Otavan Opisto / Otavia",
+      "type": "Name"
+    }
+  ],
+  "displayNameType": [
+    {
+      "type": "Name",
+      "language": "fi"
+    }
+  ],
+  "serviceChannelDescriptions": [
+    {
+      "language": "fi",
+      "value": "Otavan Opiston kampus sijaitsee Otavassa, Mikkelissä.",
+      "type": "Summary"
+    },
+    {
+      "language": "fi",
+      "value": "Otavan Opiston kampus sijaitsee 5-tien varressa 13 km Mikkelistä etelään. Kampuksen alueella on päärakennuksen lisäksi ruokala ja asuntola. Otavan Opisto on vuonna 1892 perustettu kansanopisto, joka järjestää vapaan sivistystyön koulutuksia, kuten lyhytkursseja ja pitkiä linjoja sekä valtionavun ulkopuolisia koulutuksia. Otavan Opistolla on myös internaattimuotoinen aikuislukio sekä oikeus järjestää vapaan sivistystyön koulutuksia etäopetuksena.\n\nOtavan Opisto on osa Mikkelin kaupungin liikelaitos Otaviaa. Otavian erityisosaamista ovat perusopetuksen ja lukiokoulutuksen etäopetus ja verkkopedagogiikka, monikulttuuristen ryhmien opetus sekä vapaan sivistystyön koulutukset. Otavia tarjoaa koulutusta ja koulutuksen kehittämiseen liittyviä palveluita alueellisesti, valtakunnallisesti ja globaalisti.",
+      "type": "Description"
+    }
+  ],
+  "areaType": "LimitedType",
+  "areas": [
+    {
+      "type": "Municipality",
+      "code": null,
+      "name": null,
+      "municipalities": [
+        {
+          "code": "491",
+          "name": [
+            {
+              "value": "S:t Michel",
+              "language": "sv"
+            },
+            {
+              "value": "Mikkeli",
+              "language": "en"
+            },
+            {
+              "value": "Mikkeli",
+              "language": "fi"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "phoneNumbers": [
+    {
+      "type": "Phone",
+      "additionalInformation": "Opintoasiainvastaava",
+      "serviceChargeType": "Chargeable",
+      "chargeDescription": null,
+      "prefixNumber": "+358",
+      "isFinnishServiceNumber": false,
+      "number": "447943552",
+      "language": "fi"
+    },
+    {
+      "type": "Phone",
+      "additionalInformation": null,
+      "serviceChargeType": "Chargeable",
+      "chargeDescription": null,
+      "prefixNumber": "+358",
+      "isFinnishServiceNumber": false,
+      "number": "447943565",
+      "language": "fi"
+    }
+  ],
+  "emails": [
+    {
+      "value": "info@otavia.fi",
+      "language": "fi"
+    },
+    {
+      "value": "nettilukio@otavia.fi",
+      "language": "fi"
+    },
+    {
+      "value": "nettiperuskoulu@otavia.fi",
+      "language": "fi"
+    },
+    {
+      "value": "aineopiskelu@otavia.fi",
+      "language": "fi"
+    },
+    {
+      "value": "kurssit@otavanopisto.fi",
+      "language": "fi"
+    },
+    {
+      "value": "maahanmuuttajakoulutukset@otavanopisto.fi",
+      "language": "fi"
+    },
+    {
+      "value": "aikuislukio@otavanopisto.fi",
+      "language": "fi"
+    }
+  ],
+  "languages": [
+    "fi",
+    "en"
+  ],
+  "webPages": [
+    {
+      "url": "http://www.otavanopisto.fi/",
+      "value": "Otavan Opiston verkkosivut",
+      "language": "fi"
+    },
+    {
+      "url": "http://www.nettilukio.fi",
+      "value": "Nettilukion verkkosivut",
+      "language": "fi"
+    },
+    {
+      "url": "http://www.nettiperuskoulu.fi",
+      "value": "Nettiperuskoulun verkkosivut",
+      "language": "fi"
+    },
+    {
+      "url": "http://aineopiskelu.otavanopisto.fi/aineopiskelu_etusivu",
+      "value": "Otavian aineopiskelun verkkosivut",
+      "language": "fi"
+    }
+  ],
+  "addresses": [
+    {
+      "type": "Location",
+      "subType": "Single",
+      "postOfficeBoxAddress": null,
+      "streetAddress": {
+        "street": [
+          {
+            "value": "Otavantie",
+            "language": "fi"
+          },
+          {
+            "value": "Otavantie",
+            "language": "sv"
+          },
+          {
+            "value": "Otavantie",
+            "language": "en"
+          },
+          {
+            "value": "Otavantie",
+            "language": "se"
+          },
+          {
+            "value": "Otavantie",
+            "language": "smn"
+          },
+          {
+            "value": "Otavantie",
+            "language": "sms"
+          }
+        ],
+        "streetNumber": "2 B",
+        "postalCode": "50670",
+        "postOffice": [
+          {
+            "value": "OTAVA",
+            "language": "se"
+          },
+          {
+            "value": "OTAVA",
+            "language": "smn"
+          },
+          {
+            "value": "OTAVA",
+            "language": "sv"
+          },
+          {
+            "value": "OTAVA",
+            "language": "sms"
+          },
+          {
+            "value": "OTAVA",
+            "language": "en"
+          },
+          {
+            "value": "OTAVA",
+            "language": "fi"
+          }
+        ],
+        "municipality": {
+          "code": "491",
+          "name": [
+            {
+              "value": "S:t Michel",
+              "language": "sv"
+            },
+            {
+              "value": "Mikkeli",
+              "language": "en"
+            },
+            {
+              "value": "Mikkeli",
+              "language": "fi"
+            }
+          ]
+        },
+        "additionalInformation": [],
+        "latitude": "6834688",
+        "longitude": "503879",
+        "coordinateState": "EnteredByUser"
+      },
+      "otherAddress": null,
+      "locationAbroad": null,
+      "entrances": [
+        {
+          "name": [],
+          "isMainEntrance": true,
+          "coordinates": {
+            "latitude": "6834688.027",
+            "longitude": "503879.049"
+          },
+          "contactInfo": {
+            "phone": null,
+            "email": null,
+            "url": null
+          },
+          "accessibilitySentences": [
+            {
+              "sentenceGroup": [
+                {
+                  "value": "Rutten till huvudingången",
+                  "language": "sv"
+                },
+                {
+                  "value": "The route to the main entrance",
+                  "language": "en"
+                },
+                {
+                  "value": "Reitti pääsisäänkäynnille",
+                  "language": "fi"
+                }
+              ],
+              "sentences": [
+                {
+                  "sentence": [
+                    {
+                      "value": "Bilplatsen för rörelsehindrade ligger utomhus under 10 m från ingången. Parkeringsrutans bredd är minst 3,6 m.",
+                      "language": "sv"
+                    },
+                    {
+                      "value": "The accessible parking space is located outdoors under 10 m from the entrance. The width of the parking space is at least 3.6 m.",
+                      "language": "en"
+                    },
+                    {
+                      "value": "Liikkumisesteisten 1 autopaikka sijaitsee ulkona alle 10 m sisäänkäynnistä. Pysäköintiruudun leveys on vähintään 3,6 m.",
+                      "language": "fi"
+                    }
+                  ]
+                },
+                {
+                  "sentence": [
+                    {
+                      "value": "Hållplatsen för skjutstrafik ligger i närheten av ingången, på en plats varifrån det är lätt att ta sig till trottoaren.",
+                      "language": "sv"
+                    },
+                    {
+                      "value": "The pick-up and drop-off area is located in the vicinity of the entrance, giving easy access to the pavement.",
+                      "language": "en"
+                    },
+                    {
+                      "value": "Saattoliikenteen pysähtymispaikka sijaitsee sisäänkäynnin läheisyydessä (etäisyys enintään 5 metriä), josta sisäänkäynnille pääsee siirtymään sujuvasti.",
+                      "language": "fi"
+                    }
+                  ]
+                },
+                {
+                  "sentence": [
+                    {
+                      "value": "Rutten till ingången är mjuk samt belyst.",
+                      "language": "sv"
+                    },
+                    {
+                      "value": "The route to the entrance is soft and illuminated.",
+                      "language": "en"
+                    },
+                    {
+                      "value": "Kulkureitti sisäänkäynnille on pehmeä sekä valaistu.",
+                      "language": "fi"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "sentenceGroup": [
+                {
+                  "value": "Huvudingången",
+                  "language": "sv"
+                },
+                {
+                  "value": "The main entrance",
+                  "language": "en"
+                },
+                {
+                  "value": "Pääsisäänkäynti",
+                  "language": "fi"
+                }
+              ],
+              "sentences": [
+                {
+                  "sentence": [
+                    {
+                      "value": "Ingången är lätt att urskilja och belyst. Ingången har ett tak.",
+                      "language": "sv"
+                    },
+                    {
+                      "value": "The entrance stands out clearly and is illuminated. There is a canopy above the entrance.",
+                      "language": "en"
+                    },
+                    {
+                      "value": "Sisäänkäynti erottuu selkeästi ja on valaistu. Sisäänkäynnin yläpuolella on katos.",
+                      "language": "fi"
+                    }
+                  ]
+                },
+                {
+                  "sentence": [
+                    {
+                      "value": "Dörrarna vid ingången är lätta att urskilja. Utanför dörren finns tillräckligt med fritt utrymme för att röra sig t.ex. med rullstol. Dörren är lätt att öppna för hand.",
+                      "language": "sv"
+                    },
+                    {
+                      "value": "The doors connected to the entrance stand out clearly. Outside the door there is sufficient room for moving e.g. with a wheelchair. The door opens easily manually.",
+                      "language": "en"
+                    },
+                    {
+                      "value": "Sisäänkäynnin ovet erottuvat selkeästi. Oven ulkopuolella on riittävästi vapaata tilaa liikkumiselle esim. pyörätuolin kanssa. Ovi avautuu käsin helposti.",
+                      "language": "fi"
+                    }
+                  ]
+                },
+                {
+                  "sentence": [
+                    {
+                      "value": "Vid ingången finns trösklar som är över 2 cm höga.",
+                      "language": "sv"
+                    },
+                    {
+                      "value": "The entrance has thresholds over 2 cm high.",
+                      "language": "en"
+                    },
+                    {
+                      "value": "Sisäänkäynnin yhteydessä on yli 2 cm korkeita kynnyksiä.",
+                      "language": "fi"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "sentenceGroup": [
+                {
+                  "value": "I lokalen",
+                  "language": "sv"
+                },
+                {
+                  "value": "In the facility",
+                  "language": "en"
+                },
+                {
+                  "value": "Sisätilat",
+                  "language": "fi"
+                }
+              ],
+              "sentences": [
+                {
+                  "sentence": [
+                    {
+                      "value": "Verksamhetsstället har 3 våningsplan.",
+                      "language": "sv"
+                    },
+                    {
+                      "value": "The customer service point has 3 floors.",
+                      "language": "en"
+                    },
+                    {
+                      "value": "Toimipisteessä on 3 kerrosta.",
+                      "language": "fi"
+                    }
+                  ]
+                },
+                {
+                  "sentence": [
+                    {
+                      "value": "I lokalen finns trösklar som är över 2 cm höga.",
+                      "language": "sv"
+                    },
+                    {
+                      "value": "The facility has thresholds over 2 cm high.",
+                      "language": "en"
+                    },
+                    {
+                      "value": "Tilassa on yli 2 cm korkeita kynnyksiä.",
+                      "language": "fi"
+                    }
+                  ]
+                },
+                {
+                  "sentence": [
+                    {
+                      "value": "Dörrarna i lokalen är lätta att urskilja.",
+                      "language": "sv"
+                    },
+                    {
+                      "value": "The doors in the facility stand out clearly.",
+                      "language": "en"
+                    },
+                    {
+                      "value": "Sisätilojen ovet erottuvat selkeästi.",
+                      "language": "fi"
+                    }
+                  ]
+                },
+                {
+                  "sentence": [
+                    {
+                      "value": "I verksamhetsstället finns en tillgänglig toalett på plan 1.",
+                      "language": "sv"
+                    },
+                    {
+                      "value": "The facility has an accessible toilet on floor 1.",
+                      "language": "en"
+                    },
+                    {
+                      "value": "Toimipisteessä on esteetön wc kerroksessa 1.",
+                      "language": "fi"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "country": "FI"
+    }
+  ],
+  "serviceHours": [
+    {
+      "serviceHourType": "DaysOfTheWeek",
+      "validFrom": null,
+      "validTo": null,
+      "isClosed": false,
+      "validForNow": true,
+      "isAlwaysOpen": false,
+      "isReservation": false,
+      "additionalInformation": [
+        {
+          "value": null,
+          "language": "fi"
+        }
+      ],
+      "openingHour": [
+        {
+          "dayFrom": "Monday",
+          "dayTo": "",
+          "from": "08:00:00",
+          "to": "16:00:00"
+        },
+        {
+          "dayFrom": "Tuesday",
+          "dayTo": "",
+          "from": "08:00:00",
+          "to": "16:00:00"
+        },
+        {
+          "dayFrom": "Wednesday",
+          "dayTo": "",
+          "from": "08:00:00",
+          "to": "16:00:00"
+        },
+        {
+          "dayFrom": "Thursday",
+          "dayTo": "",
+          "from": "08:00:00",
+          "to": "16:00:00"
+        },
+        {
+          "dayFrom": "Friday",
+          "dayTo": "",
+          "from": "08:00:00",
+          "to": "16:00:00"
+        }
+      ]
+    }
+  ],
+  "services": [
+    {
+      "service": {
+        "id": "2afc11a0-f7f3-4a5f-8585-be246bb2a5ea",
+        "name": "Otavian aineopiskelu"
+      },
+      "serviceChargeType": null,
+      "description": [],
+      "extraTypes": [],
+      "serviceHours": [],
+      "contactDetails": null,
+      "digitalAuthorizations": [],
+      "modified": "2018-02-26T06:18:08.828676"
+    },
+    {
+      "service": {
+        "id": "3668d250-cd80-45c4-abcc-9b2d3a2b3e42",
+        "name": "Nettilukio aikuisille"
+      },
+      "serviceChargeType": null,
+      "description": [],
+      "extraTypes": [],
+      "serviceHours": [],
+      "contactDetails": null,
+      "digitalAuthorizations": [],
+      "modified": "2018-02-26T06:18:56.156785"
+    },
+    {
+      "service": {
+        "id": "d78c9764-5cb7-41da-bd52-2f0fcd5e0b6c",
+        "name": "Monikulttuurinen perusopetus: Aikuisten perusopetuksen päättövaihe"
+      },
+      "serviceChargeType": null,
+      "description": [],
+      "extraTypes": [],
+      "serviceHours": [],
+      "contactDetails": null,
+      "digitalAuthorizations": [],
+      "modified": "2017-10-18T12:20:59.897116"
+    },
+    {
+      "service": {
+        "id": "904afe53-a428-41ce-9132-5301462e488d",
+        "name": "Otavan Opiston aikuislukio"
+      },
+      "serviceChargeType": null,
+      "description": [],
+      "extraTypes": [],
+      "serviceHours": [],
+      "contactDetails": null,
+      "digitalAuthorizations": [],
+      "modified": "2018-02-26T06:22:05.091176"
+    },
+    {
+      "service": {
+        "id": "c53df08b-90d3-4491-afc1-9a3886a9e51f",
+        "name": "Monikulttuurinen perusopetus: Aikuisten perusopetuksen alkuvaihe"
+      },
+      "serviceChargeType": null,
+      "description": [],
+      "extraTypes": [],
+      "serviceHours": [],
+      "contactDetails": null,
+      "digitalAuthorizations": [],
+      "modified": "2017-11-14T06:41:04.036601"
+    },
+    {
+      "service": {
+        "id": "d03600d5-5a54-4f13-a1ac-3c0604194330",
+        "name": "Vapaan sivistystyön koulutukset Otavan Opistossa"
+      },
+      "serviceChargeType": null,
+      "description": [],
+      "extraTypes": [],
+      "serviceHours": [],
+      "contactDetails": null,
+      "digitalAuthorizations": [],
+      "modified": "2018-02-26T08:48:11.574412"
+    },
+    {
+      "service": {
+        "id": "d4c733f1-9693-4cd2-8c21-54617cac1e44",
+        "name": "Lukiokoulutus"
+      },
+      "serviceChargeType": null,
+      "description": [],
+      "extraTypes": [],
+      "serviceHours": [],
+      "contactDetails": null,
+      "digitalAuthorizations": [],
+      "modified": "2017-11-03T11:50:50.406612"
+    },
+    {
+      "service": {
+        "id": "e2b26c46-95ef-4b32-9f41-00e51cda443b",
+        "name": "Nettiperuskoulu aikuisille"
+      },
+      "serviceChargeType": null,
+      "description": [],
+      "extraTypes": [],
+      "serviceHours": [],
+      "contactDetails": null,
+      "digitalAuthorizations": [],
+      "modified": "2017-10-18T12:21:27.583535"
+    }
+  ],
+  "publishingStatus": "Published",
+  "modified": "2020-04-22T09:45:14.154795",
+  "responsibleSoteOrganization": null,
+  "ontologyTerms": [
+    {
+      "name": [
+        {
+          "value": null,
+          "language": "sv"
+        },
+        {
+          "value": null,
+          "language": "en"
+        },
+        {
+          "value": "lähiopetus",
+          "language": "fi"
+        }
+      ],
+      "code": null,
+      "ontologyType": "TSR",
+      "uri": "http://www.yso.fi/onto/koko/p68616",
+      "parentId": null,
+      "parentUri": "http://www.yso.fi/onto/koko/p33827",
+      "newUri": null,
+      "newParentUri": null
+    },
+    {
+      "name": [
+        {
+          "value": "att studera",
+          "language": "sv"
+        },
+        {
+          "value": "study",
+          "language": "en"
+        },
+        {
+          "value": "opiskelu",
+          "language": "fi"
+        }
+      ],
+      "code": null,
+      "ontologyType": "YSO",
+      "uri": "http://www.yso.fi/onto/koko/p32445",
+      "parentId": null,
+      "parentUri": "http://www.yso.fi/onto/koko/p37089",
+      "newUri": null,
+      "newParentUri": null
+    },
+    {
+      "name": [
+        {
+          "value": "gymnasieutbildning på finska",
+          "language": "sv"
+        },
+        {
+          "value": "Finnish-language general upper secondary education",
+          "language": "en"
+        },
+        {
+          "value": "suomenkielinen lukiokoulutus",
+          "language": "fi"
+        }
+      ],
+      "code": null,
+      "ontologyType": "JUPO",
+      "uri": "http://www.yso.fi/onto/koko/p75706",
+      "parentId": null,
+      "parentUri": "http://www.yso.fi/onto/koko/p61153",
+      "newUri": null,
+      "newParentUri": null
+    },
+    {
+      "name": [
+        {
+          "value": "vuxengymnasier",
+          "language": "sv"
+        },
+        {
+          "value": "general upper secondary schools for adults",
+          "language": "en"
+        },
+        {
+          "value": "aikuislukiot",
+          "language": "fi"
+        }
+      ],
+      "code": null,
+      "ontologyType": "YSO",
+      "uri": "http://www.yso.fi/onto/koko/p18118",
+      "parentId": null,
+      "parentUri": "http://www.yso.fi/onto/koko/p510",
+      "newUri": null,
+      "newParentUri": null
+    },
+    {
+      "name": [
+        {
+          "value": "gymnasiet",
+          "language": "sv"
+        },
+        {
+          "value": "general upper secondary school",
+          "language": "en"
+        },
+        {
+          "value": "lukio",
+          "language": "fi"
+        }
+      ],
+      "code": null,
+      "ontologyType": "YSO",
+      "uri": "http://www.yso.fi/onto/koko/p510",
+      "parentId": null,
+      "parentUri": "http://www.yso.fi/onto/koko/p10901",
+      "newUri": null,
+      "newParentUri": null
+    },
+    {
+      "name": [
+        {
+          "value": "flerformsstudier",
+          "language": "sv"
+        },
+        {
+          "value": "multi-modal studying",
+          "language": "en"
+        },
+        {
+          "value": "monimuoto-opiskelu",
+          "language": "fi"
+        }
+      ],
+      "code": null,
+      "ontologyType": "YSO",
+      "uri": "http://www.yso.fi/onto/koko/p14781",
+      "parentId": null,
+      "parentUri": "http://www.yso.fi/onto/koko/p32445",
+      "newUri": null,
+      "newParentUri": null
+    },
+    {
+      "name": [
+        {
+          "value": "nätstudier",
+          "language": "sv"
+        },
+        {
+          "value": "online study",
+          "language": "en"
+        },
+        {
+          "value": "verkko-opiskelu",
+          "language": "fi"
+        }
+      ],
+      "code": null,
+      "ontologyType": "YSO",
+      "uri": "http://www.yso.fi/onto/koko/p10838",
+      "parentId": null,
+      "parentUri": "http://www.yso.fi/onto/koko/p32445",
+      "newUri": null,
+      "newParentUri": null
+    },
+    {
+      "name": [
+        {
+          "value": "gymnasieutbildning",
+          "language": "sv"
+        },
+        {
+          "value": "general upper secondary education",
+          "language": "en"
+        },
+        {
+          "value": "lukiokoulutus",
+          "language": "fi"
+        }
+      ],
+      "code": null,
+      "ontologyType": "JUPO",
+      "uri": "http://www.yso.fi/onto/koko/p61153",
+      "parentId": null,
+      "parentUri": "http://www.yso.fi/onto/koko/p15245",
+      "newUri": null,
+      "newParentUri": null
+    },
+    {
+      "name": [
+        {
+          "value": "folkhögskolor",
+          "language": "sv"
+        },
+        {
+          "value": "folk high schools",
+          "language": "en"
+        },
+        {
+          "value": "kansanopistot",
+          "language": "fi"
+        }
+      ],
+      "code": null,
+      "ontologyType": "YSO",
+      "uri": "http://www.yso.fi/onto/koko/p32159",
+      "parentId": null,
+      "parentUri": "http://www.yso.fi/onto/koko/p32084",
+      "newUri": null,
+      "newParentUri": null
+    },
+    {
+      "name": [
+        {
+          "value": "förberedande utbildning för invandrare",
+          "language": "sv"
+        },
+        {
+          "value": "preparatory education and training for immigrants",
+          "language": "en"
+        },
+        {
+          "value": "maahanmuuttajien valmistava koulutus",
+          "language": "fi"
+        }
+      ],
+      "code": null,
+      "ontologyType": "JUPO",
+      "uri": "http://www.yso.fi/onto/koko/p65970",
+      "parentId": null,
+      "parentUri": "http://www.yso.fi/onto/koko/p36950",
+      "newUri": null,
+      "newParentUri": null
+    },
+    {
+      "name": [
+        {
+          "value": "undervisning av personer med invandrarbakgrund",
+          "language": "sv"
+        },
+        {
+          "value": "teaching for 1st and 2nd generation immigrants",
+          "language": "en"
+        },
+        {
+          "value": "maahanmuuttajataustaisten opetus",
+          "language": "fi"
+        }
+      ],
+      "code": null,
+      "ontologyType": "JUPO",
+      "uri": "http://www.yso.fi/onto/koko/p67995",
+      "parentId": null,
+      "parentUri": "http://www.yso.fi/onto/koko/p33827",
+      "newUri": null,
+      "newParentUri": null
+    },
+    {
+      "name": [
+        {
+          "value": "invandrare",
+          "language": "sv"
+        },
+        {
+          "value": "migrants",
+          "language": "en"
+        },
+        {
+          "value": "maahanmuuttajat",
+          "language": "fi"
+        }
+      ],
+      "code": null,
+      "ontologyType": "JUPO",
+      "uri": "http://www.yso.fi/onto/koko/p30529",
+      "parentId": null,
+      "parentUri": "http://www.yso.fi/onto/koko/p34096;http://www.yso.fi/onto/koko/p37018",
+      "newUri": null,
+      "newParentUri": null
+    },
+    {
+      "name": [
+        {
+          "value": "grundskolan",
+          "language": "sv"
+        },
+        {
+          "value": "comprehensive school",
+          "language": "en"
+        },
+        {
+          "value": "peruskoulu",
+          "language": "fi"
+        }
+      ],
+      "code": null,
+      "ontologyType": "YSO",
+      "uri": "http://www.yso.fi/onto/koko/p14592",
+      "parentId": null,
+      "parentUri": "http://www.yso.fi/onto/koko/p48279",
+      "newUri": null,
+      "newParentUri": null
+    },
+    {
+      "name": [
+        {
+          "value": "grundutbildning för vuxna",
+          "language": "sv"
+        },
+        {
+          "value": "adult basic education",
+          "language": "en"
+        },
+        {
+          "value": "aikuisten peruskoulutus (peruskoulutus)",
+          "language": "fi"
+        }
+      ],
+      "code": null,
+      "ontologyType": "JUPO",
+      "uri": "http://www.yso.fi/onto/koko/p75798",
+      "parentId": null,
+      "parentUri": "http://www.yso.fi/onto/koko/p13790",
+      "newUri": null,
+      "newParentUri": null
+    },
+    {
+      "name": [
+        {
+          "value": "avgångsbetyg",
+          "language": "sv"
+        },
+        {
+          "value": "school leaving certificates",
+          "language": "en"
+        },
+        {
+          "value": "päättötodistukset",
+          "language": "fi"
+        }
+      ],
+      "code": null,
+      "ontologyType": "YSO",
+      "uri": "http://www.yso.fi/onto/koko/p52192",
+      "parentId": null,
+      "parentUri": "http://www.yso.fi/onto/koko/p86090",
+      "newUri": null,
+      "newParentUri": null
+    },
+    {
+      "name": [
+        {
+          "value": "grundläggande vuxenutbildning",
+          "language": "sv"
+        },
+        {
+          "value": "adult basic education",
+          "language": "en"
+        },
+        {
+          "value": "aikuisten peruskoulutus (aikuiskoulutus)",
+          "language": "fi"
+        }
+      ],
+      "code": null,
+      "ontologyType": "TERO",
+      "uri": "http://www.yso.fi/onto/koko/p55403",
+      "parentId": null,
+      "parentUri": "http://www.yso.fi/onto/koko/p34876",
+      "newUri": null,
+      "newParentUri": null
+    },
+    {
+      "name": [
+        {
+          "value": "vuxenutbildning",
+          "language": "sv"
+        },
+        {
+          "value": "adult education",
+          "language": "en"
+        },
+        {
+          "value": "aikuiskoulutus",
+          "language": "fi"
+        }
+      ],
+      "code": null,
+      "ontologyType": "JUPO",
+      "uri": "http://www.yso.fi/onto/koko/p34876",
+      "parentId": null,
+      "parentUri": "http://www.yso.fi/onto/koko/p36950;http://www.yso.fi/onto/koko/p17845",
+      "newUri": null,
+      "newParentUri": null
+    },
+    {
+      "name": [
+        {
+          "value": "grundutbildning",
+          "language": "sv"
+        },
+        {
+          "value": "basic education",
+          "language": "en"
+        },
+        {
+          "value": "peruskoulutus",
+          "language": "fi"
+        }
+      ],
+      "code": null,
+      "ontologyType": "YSO",
+      "uri": "http://www.yso.fi/onto/koko/p13790",
+      "parentId": null,
+      "parentUri": "http://www.yso.fi/onto/koko/p36950",
+      "newUri": null,
+      "newParentUri": null
+    },
+    {
+      "name": [
+        {
+          "value": "distansstudier",
+          "language": "sv"
+        },
+        {
+          "value": "distance studies",
+          "language": "en"
+        },
+        {
+          "value": "etäopiskelu",
+          "language": "fi"
+        }
+      ],
+      "code": null,
+      "ontologyType": "YSO",
+      "uri": "http://www.yso.fi/onto/koko/p8533",
+      "parentId": null,
+      "parentUri": "http://www.yso.fi/onto/koko/p32445",
+      "newUri": null,
+      "newParentUri": null
+    },
+    {
+      "name": [
+        {
+          "value": "finska",
+          "language": "sv"
+        },
+        {
+          "value": "Finnish language",
+          "language": "en"
+        },
+        {
+          "value": "suomen kieli",
+          "language": "fi"
+        }
+      ],
+      "code": null,
+      "ontologyType": "YSO",
+      "uri": "http://www.yso.fi/onto/koko/p8395",
+      "parentId": null,
+      "parentUri": "http://www.yso.fi/onto/koko/p7320",
+      "newUri": null,
+      "newParentUri": null
+    },
+    {
+      "name": [
+        {
+          "value": "självstudier",
+          "language": "sv"
+        },
+        {
+          "value": "independent study",
+          "language": "en"
+        },
+        {
+          "value": "itseopiskelu",
+          "language": "fi"
+        }
+      ],
+      "code": null,
+      "ontologyType": "YSO",
+      "uri": "http://www.yso.fi/onto/koko/p7822",
+      "parentId": null,
+      "parentUri": "http://www.yso.fi/onto/koko/p32445",
+      "newUri": null,
+      "newParentUri": null
+    },
+    {
+      "name": [
+        {
+          "value": null,
+          "language": "sv"
+        },
+        {
+          "value": null,
+          "language": "en"
+        },
+        {
+          "value": "etäkoulutus",
+          "language": "fi"
+        }
+      ],
+      "code": null,
+      "ontologyType": "TSR",
+      "uri": "http://www.yso.fi/onto/koko/p66612",
+      "parentId": null,
+      "parentUri": "http://www.yso.fi/onto/koko/p36950",
+      "newUri": null,
+      "newParentUri": null
+    },
+    {
+      "name": [
+        {
+          "value": "inlärningsmiljö",
+          "language": "sv"
+        },
+        {
+          "value": "learning environment",
+          "language": "en"
+        },
+        {
+          "value": "oppimisympäristö",
+          "language": "fi"
+        }
+      ],
+      "code": null,
+      "ontologyType": "YSO",
+      "uri": "http://www.yso.fi/onto/koko/p30553",
+      "parentId": null,
+      "parentUri": "http://www.yso.fi/onto/koko/p36122",
+      "newUri": null,
+      "newParentUri": null
+    },
+    {
+      "name": [
+        {
+          "value": "nätkurser",
+          "language": "sv"
+        },
+        {
+          "value": "online courses",
+          "language": "en"
+        },
+        {
+          "value": "verkkokurssit",
+          "language": "fi"
+        }
+      ],
+      "code": null,
+      "ontologyType": "YSO",
+      "uri": "http://www.yso.fi/onto/koko/p18628",
+      "parentId": null,
+      "parentUri": "http://www.yso.fi/onto/koko/p35542",
+      "newUri": null,
+      "newParentUri": null
+    },
+    {
+      "name": [
+        {
+          "value": "distansgymnasium",
+          "language": "sv"
+        },
+        {
+          "value": "distance general upper secondary school",
+          "language": "en"
+        },
+        {
+          "value": "etälukio",
+          "language": "fi"
+        }
+      ],
+      "code": null,
+      "ontologyType": "YSO",
+      "uri": "http://www.yso.fi/onto/koko/p8146",
+      "parentId": null,
+      "parentUri": "http://www.yso.fi/onto/koko/p510",
+      "newUri": null,
+      "newParentUri": null
+    },
+    {
+      "name": [
+        {
+          "value": "studier vid sidan av arbetet",
+          "language": "sv"
+        },
+        {
+          "value": "study alongside work",
+          "language": "en"
+        },
+        {
+          "value": "työn ohessa opiskelu",
+          "language": "fi"
+        }
+      ],
+      "code": null,
+      "ontologyType": "LIITO",
+      "uri": "http://www.yso.fi/onto/koko/p55918",
+      "parentId": null,
+      "parentUri": "http://www.yso.fi/onto/koko/p32445",
+      "newUri": null,
+      "newParentUri": null
+    },
+    {
+      "name": [
+        {
+          "value": "tilläggsutbildning",
+          "language": "sv"
+        },
+        {
+          "value": "further training and education",
+          "language": "en"
+        },
+        {
+          "value": "ammatillinen lisäkoulutus",
+          "language": "fi"
+        }
+      ],
+      "code": null,
+      "ontologyType": "JUPO",
+      "uri": "http://www.yso.fi/onto/koko/p68312",
+      "parentId": null,
+      "parentUri": "http://www.yso.fi/onto/koko/p13621",
+      "newUri": null,
+      "newParentUri": null
+    },
+    {
+      "name": [
+        {
+          "value": "pedagogik (undervisning)",
+          "language": "sv"
+        },
+        {
+          "value": "pedagogy",
+          "language": "en"
+        },
+        {
+          "value": "pedagogiikka",
+          "language": "fi"
+        }
+      ],
+      "code": null,
+      "ontologyType": "YSO",
+      "uri": "http://www.yso.fi/onto/koko/p33078",
+      "parentId": null,
+      "parentUri": "http://www.yso.fi/onto/koko/p33605",
+      "newUri": null,
+      "newParentUri": null
+    },
+    {
+      "name": [
+        {
+          "value": "vuxenpedagogik",
+          "language": "sv"
+        },
+        {
+          "value": "adult pedagogy",
+          "language": "en"
+        },
+        {
+          "value": "aikuiskasvatus",
+          "language": "fi"
+        }
+      ],
+      "code": null,
+      "ontologyType": "YSO",
+      "uri": "http://www.yso.fi/onto/koko/p17845",
+      "parentId": null,
+      "parentUri": "http://www.yso.fi/onto/koko/p30840",
+      "newUri": null,
+      "newParentUri": null
+    },
+    {
+      "name": [
+        {
+          "value": "pedagogik (vetenskaper)",
+          "language": "sv"
+        },
+        {
+          "value": "educational science",
+          "language": "en"
+        },
+        {
+          "value": "kasvatustiede",
+          "language": "fi"
+        }
+      ],
+      "code": null,
+      "ontologyType": "YSO",
+      "uri": "http://www.yso.fi/onto/koko/p33605",
+      "parentId": null,
+      "parentUri": "http://www.yso.fi/onto/koko/p34820",
+      "newUri": null,
+      "newParentUri": null
+    },
+    {
+      "name": [
+        {
+          "value": "kurser",
+          "language": "sv"
+        },
+        {
+          "value": "courses (societal objects)",
+          "language": "en"
+        },
+        {
+          "value": "kurssit",
+          "language": "fi"
+        }
+      ],
+      "code": null,
+      "ontologyType": "JUPO",
+      "uri": "http://www.yso.fi/onto/koko/p35542",
+      "parentId": null,
+      "parentUri": "http://www.yso.fi/onto/koko/p34032",
+      "newUri": null,
+      "newParentUri": null
+    },
+    {
+      "name": [
+        {
+          "value": "fritt bildningsarbete",
+          "language": "sv"
+        },
+        {
+          "value": "non-formal adult education",
+          "language": "en"
+        },
+        {
+          "value": "vapaa sivistystyö",
+          "language": "fi"
+        }
+      ],
+      "code": null,
+      "ontologyType": "JUPO",
+      "uri": "http://www.yso.fi/onto/koko/p5141",
+      "parentId": null,
+      "parentUri": "http://www.yso.fi/onto/koko/p36950;http://www.yso.fi/onto/koko/p17845",
+      "newUri": null,
+      "newParentUri": null
+    },
+    {
+      "name": [
+        {
+          "value": "nätundervisning",
+          "language": "sv"
+        },
+        {
+          "value": "online teaching",
+          "language": "en"
+        },
+        {
+          "value": "verkko-opetus",
+          "language": "fi"
+        }
+      ],
+      "code": null,
+      "ontologyType": "YSO",
+      "uri": "http://www.yso.fi/onto/koko/p6144",
+      "parentId": null,
+      "parentUri": "http://www.yso.fi/onto/koko/p15903",
+      "newUri": null,
+      "newParentUri": null
+    },
+    {
+      "name": [
+        {
+          "value": "distansundervisning",
+          "language": "sv"
+        },
+        {
+          "value": "distance teaching",
+          "language": "en"
+        },
+        {
+          "value": "etäopetus",
+          "language": "fi"
+        }
+      ],
+      "code": null,
+      "ontologyType": "YSO",
+      "uri": "http://www.yso.fi/onto/koko/p15903",
+      "parentId": null,
+      "parentUri": "http://www.yso.fi/onto/koko/p33827",
+      "newUri": null,
+      "newParentUri": null
+    },
+    {
+      "name": [
+        {
+          "value": "kvällsstudier",
+          "language": "sv"
+        },
+        {
+          "value": "evening study",
+          "language": "en"
+        },
+        {
+          "value": "iltaopiskelu",
+          "language": "fi"
+        }
+      ],
+      "code": null,
+      "ontologyType": "YSO",
+      "uri": "http://www.yso.fi/onto/koko/p1270",
+      "parentId": null,
+      "parentUri": "http://www.yso.fi/onto/koko/p32445",
+      "newUri": null,
+      "newParentUri": null
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+**
+!/demo_ui/
+/demo_ui/build/
+/demo_ui/node_modules/
+!/resources/
+!config.yml
+.venv
+.git
+.mypy_cache
+.env

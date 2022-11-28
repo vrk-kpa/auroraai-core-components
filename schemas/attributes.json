@@ -1,0 +1,138 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "attributes.json",
+  "title": "Attributes",
+  "description": "An object of attributes and their corresponding values",
+  "type": "object",
+  "minProperties": 1,
+  "additionalProperties": false,
+  "properties": {
+    "age": {
+      "description": "The person's age",
+      "type": "integer",
+      "maximum": 200,
+      "minimum": 0
+    },
+    "tampere_demo_flag": {
+      "description": "Boolean type test attribute for Tampere demo case.",
+      "type": "boolean"
+    },
+    "municipality_code": {
+      "$ref": "municipality_code.json"
+    },
+    "life_situation_meters": {
+      "description": "The person's life situation meters as defined by 3X10D",
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": false,
+      "properties": {
+        "family": {
+          "description": "Perhe",
+          "items": {
+            "maximum": 10,
+            "minimum": 0,
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        "finance": {
+          "description": "Raha-asiat",
+          "items": {
+            "maximum": 10,
+            "minimum": 0,
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        "friends": {
+          "description": "Yst\u00e4v\u00e4t",
+          "items": {
+            "maximum": 10,
+            "minimum": 0,
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        "health": {
+          "description": "Terveys",
+          "items": {
+            "maximum": 10,
+            "minimum": 0,
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        "housing": {
+          "description": "Asuminen",
+          "items": {
+            "maximum": 10,
+            "minimum": 0,
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        "improvement_of_strengths": {
+          "description": "Itsens\u00e4 kehitt\u00e4minen",
+          "items": {
+            "maximum": 10,
+            "minimum": 0,
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        "life_satisfaction": {
+          "description": "Tyytyv\u00e4isyys el\u00e4m\u00e4\u00e4n",
+          "items": {
+            "maximum": 10,
+            "minimum": 0,
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        "resilience": {
+          "description": "Vaikeuksien voittaminen",
+          "items": {
+            "maximum": 10,
+            "minimum": 0,
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        "self_esteem": {
+          "description": "Itsetunto",
+          "items": {
+            "maximum": 10,
+            "minimum": 0,
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        "working_studying": {
+          "description": "Opiskelu tai ty\u00f6",
+          "items": {
+            "maximum": 10,
+            "minimum": 0,
+            "type": "integer"
+          },
+          "type": "array"
+        }
+      }
+    }
+  },
+  "example": {
+    "life_situation_meters": {
+      "family": [8],
+      "finance": [9],
+      "friends": [3],
+      "health": [2],
+      "housing": [9],
+      "improvement_of_strengths": [5],
+      "life_satisfaction": [6],
+      "resilience": [7],
+      "self_esteem": [10],
+      "working_studying": [1]
+    },
+    "municipality_code": "091",
+    "age": 20
+  }
+}

@@ -1,0 +1,57 @@
+INSERT INTO aurora_ai_service (id, ptv_service_channel_id, session_transfer_receivable_attributes,
+                               provider, name, description, type, location, link, data_provider_url,
+                               allowed_scopes, allowed_redirect_uris, default_redirect_uri,
+                               oauth_client_secret)
+VALUES
+    -- Mock service 1, local attributes only
+    (E'708cfe6c-a099-47fc-b77e-102957a6b696', E'f4eda39d-92ba-40cd-ae4a-a524e586969f',
+     E'{age,life_situation_meters}', E'(Palveluntarjoaja Mock1,Tjänsteleverantör Mock1,Provider Mock1)',
+     E'("Testipalvelu 1","Testtjänst 1","Test service 1")',
+     E'("Testipalvelun 1 kuvaus.","Beskrivning av testtjänst 1.","Description of test service 1.")',
+     1, E'-1',
+     E'(${baseurl}/mock-services/1/oauth-home,${baseurl}/mock-services/1/sv/oauth-home,${baseurl}/mock-services/1/oauth-home)',
+     E'${loadbalancer}/mock-services/1',
+     E'{store:age,store:municipality_code,life_situation_meters}',
+     E'{${baseurl}/mock-services/1/oauth/callback/auroraai,${baseurl}/mock-services/1/oauth/callback/auroraai/sv}',
+     E'${baseurl}/mock-services/1/oauth/callback/auroraai',
+     crypt('mock-service-api-key', gen_salt('bf'))),
+
+    -- Mock service 2, attributes from AuroraAI network only
+    (E'263e4888-5f72-4400-83ec-2261843c1b05', E'97e162ca-dfa5-46b6-8bfc-bb347464c214',
+     E'{age,life_situation_meters}', E'(Palveluntarjoaja Mock2,Tjänsteleverantör Mock2,Provider Mock2)',
+     E'("Testipalvelu 2","Testtjänst 2","Test service 2")',
+     E'("Testipalvelun 2 kuvaus.","Beskrivning av testtjänst 2.","Description of test service 2.")',
+     1, E'-1',
+     E'(${baseurl}/mock-services/2/oauth-home,${baseurl}/mock-services/2/sv/oauth-home,${baseurl}/mock-services/2/oauth-home)',
+     E'${loadbalancer}/mock-services/2',
+     E'{store:life_situation_meters,age,municipality_code}',
+     E'{${baseurl}/mock-services/2/oauth/callback/auroraai,${baseurl}/mock-services/2/oauth/callback/auroraai/sv}',
+     E'${baseurl}/mock-services/2/oauth/callback/auroraai',
+     crypt('mock-service-api-key', gen_salt('bf'))),
+
+    -- Demo UI
+    (E'00c09f50-d382-4c17-b241-4d9bd543e24d', E'ecc18666-5402-420e-a86e-fa0520567883',
+     E'{}', E'(Demo UI, Demo UI, Demo UI)',
+     E'("Demo UI","Demo UI","Demo UI")',
+     E'("Demo UI","Demo UI","Demo UI")',
+     1, E'-1',
+     E'("","","")',
+     E'',
+     E'{}',
+     E'{}',
+     E'',
+     crypt('demo-ui-client-secret', gen_salt('bf')))
+
+ON CONFLICT (ptv_service_channel_id) DO UPDATE SET id                                     = excluded.id,
+                                                   session_transfer_receivable_attributes = excluded.session_transfer_receivable_attributes,
+                                                   provider                               = excluded.provider,
+                                                   name                                   = excluded.name,
+                                                   description                            = excluded.description,
+                                                   type                                   = excluded.type,
+                                                   location                               = excluded.location,
+                                                   link                                   = excluded.link,
+                                                   data_provider_url                      = excluded.data_provider_url,
+                                                   allowed_scopes                         = excluded.allowed_scopes,
+                                                   allowed_redirect_uris                  = excluded.allowed_redirect_uris,
+                                                   default_redirect_uri                   = excluded.default_redirect_uri,
+                                                   oauth_client_secret                    = excluded.oauth_client_secret;

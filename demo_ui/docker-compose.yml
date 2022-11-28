@@ -1,0 +1,24 @@
+version: '3'
+services:
+  ui-local:
+    build:
+      context: ..
+      dockerfile: demo_ui/ui.Dockerfile
+    environment:
+      ENVIRONMENT: local
+    ports:
+      - 3000:3000
+  ui-aws-dev:
+    build:
+      context: ..
+      dockerfile: demo_ui/ui.Dockerfile
+    environment:
+      ENVIRONMENT: dev
+      AWS_PROFILE: '${AWS_PROFILE:-}'
+      AWS_ACCESS_KEY_ID: '${AWS_ACCESS_KEY_ID:-}'
+      AWS_SECRET_ACCESS_KEY: '${AWS_SECRET_ACCESS_KEY:-}'
+      AWS_REGION: '${AWS_REGION:-}'
+      AWS_DEFAULT_REGION: '${AWS_DEFAULT_REGION:-}'
+      AWS_SESSION_TOKEN: '${AWS_SESSION_TOKEN:-}'
+    ports:
+      - 3000:3000
