@@ -30,7 +30,7 @@ default:
   wellbeing_service_county_codes_file: resources/wellbeing_service_county_codes.csv
   municipality_to_wellbeing_service_county_codes_mapping_file: resources/municipality_to_wellbeing_service_county_codes.csv
   services_key: services.json.xz
-  service_vector_key: services_extended_20221122.csv
+  service_vector_key: services_extended_20220607.csv
   service_channels_key: service_channels.json.xz
   use_service_locations: 'true'
   load_fasttext_from_s3: 'true'
