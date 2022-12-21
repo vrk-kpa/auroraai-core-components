@@ -1,7 +1,7 @@
 from os.path import dirname, join, realpath
 
-from tools.config import config
-from tools.logger import log
+from recommender_api.tools.config import config
+from recommender_api.tools.logger import log
 from recommender_api import main
 
 
@@ -9,7 +9,7 @@ DB_HOST_ROUTING, DB_PORT, DB_USER, DB_NAME, REGION = config['db_host_routing'], 
     config['db_api_user'], \
     config['db_name'], config['region']
 MOCK_APIKEY = 'abcd'
-LOCAL_FASTTEXT_PATH = join(dirname(realpath(__file__)), '../fasttext')
+LOCAL_FASTTEXT_PATH = join(dirname(realpath(__file__)), 'fasttext')
 
 
 def run(gunicorn=False):

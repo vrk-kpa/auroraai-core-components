@@ -1,7 +1,7 @@
 from typing import Any, Dict, List, Optional, Tuple
 
-from tools.config import config
-from tools.logger import log
+from recommender_api.tools.config import config
+from recommender_api.tools.logger import log
 
 MOCK_SERVICE_ID = '999'
 MOCK_SERVICE_URL = f'{config["service_host"]}/mock-service/service'

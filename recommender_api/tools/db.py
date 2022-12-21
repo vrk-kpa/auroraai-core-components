@@ -37,7 +37,7 @@ def db_connection(db_endpoint_address: str, db_auth_endpoint: str, db_name: str,
         auth_token_port = port
 
     environment = os.getenv('ENVIRONMENT')
-    if environment in ('local', 'localcluster', 'localunittest'):
+    if environment in ('local', 'localcluster', 'localunittest', 'ci'):
         pwd = config['db_password']
     else:
         pwd = auth_token(db_auth_endpoint, auth_token_port, user, region)

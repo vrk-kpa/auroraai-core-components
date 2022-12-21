@@ -7,12 +7,12 @@ import boto3
 
 from flask import Flask
 
-import recommender_api.ft as ft
+from recommender_api import ft
 from recommender_api.blueprints.blueprints import recommendation_blueprint
 from recommender_api.db import reset_db_connection_pool
 
-from tools.config import config, env
-from tools.logger import log, LogOperationName
+from recommender_api.tools.config import config, env
+from recommender_api.tools.logger import log, LogOperationName
 
 
 def create_app(fasttext_path=''):
@@ -42,7 +42,9 @@ def create_utility_endpoints(app):
 
 
 def load_fasttext_embeddings(path):
-    with open(f'{path}/{config["fasttext_embeddings_file"]}', 'rb') as embeddings_file:
+    with open(
+            f'{path}/{config["fasttext_embeddings_file"]}', 'rb'
+        ) as embeddings_file:
         return pickle.load(embeddings_file)
 
 

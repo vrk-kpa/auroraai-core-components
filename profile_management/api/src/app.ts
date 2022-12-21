@@ -23,6 +23,7 @@ app.use(loggerMiddleware)
 
 app.use(cors())
 app.use(helmet.noSniff())
+app.use(helmet.hsts())
 app.use(
   helmet.frameguard({
     action: "DENY",

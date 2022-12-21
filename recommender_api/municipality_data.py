@@ -1,9 +1,10 @@
 import csv
 import json
 from itertools import islice
+from pathlib import Path
 from typing import List, Set, Dict
 
-from tools.config import config
+from recommender_api.tools.config import config
 
 
 MOCK_SERVICE_MUNICIPALITY = '000'  # Non-existing municipality
@@ -39,7 +40,8 @@ class MunicipalityData:
 
     @staticmethod
     def _parse_municipality_mappings(filename: str) -> Dict[str, List[str]]:
-        with open(filename, encoding='cp1252') as file:
+        path = Path(__file__).parent.parent / filename
+        with path.open(encoding='cp1252') as file:
             csvreader = csv.reader(file, delimiter=';')
             mappings: Dict[str, List[str]] = {}
 
@@ -53,7 +55,8 @@ class MunicipalityData:
 
     @staticmethod
     def _parse_municipality_codes(filename) -> Set[str]:
-        with open(filename) as file:
+        path = Path(__file__).parent.parent / filename
+        with path.open() as file:
             municipality_codes = json.load(file)
         return set(municipality_codes.keys())
 

@@ -3,7 +3,7 @@ from urllib.parse import urlparse, parse_qs, urlunparse, urlencode
 
 from werkzeug.datastructures import HeaderSet
 
-from tools.config import config
+from recommender_api.tools.config import config
 from recommender_api import main
 from recommender_api.tests.test_data.api_test_constants import FASTTEXT_PATH, VALID_HEADERS, ATTRIBUTE_URL
 

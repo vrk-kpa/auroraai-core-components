@@ -7,7 +7,7 @@ import yaml
 
 
 DEFAULT_YAML_ROOT = 'default'
-CONFIG_FILE_NAME = os.path.join(os.getcwd(), 'recommender_api/config.yml')
+CONFIG_FILE_NAME = 'config.yml'
 
 """
 Usage in code, e.g.
@@ -31,9 +31,9 @@ def _current_env_config_with_defaults(config_path: str = None, env: str = None) 
         -> Tuple[Dict[str, Any], Dict[str, Any], str]:
 
     if not config_path:
-        config_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), CONFIG_FILE_NAME)
+        config_path = os.path.join(os.getcwd(), 'recommender_api')
 
-    with open(config_path) as f:
+    with open(os.path.join(config_path, CONFIG_FILE_NAME)) as f:
         config_all_envs = yaml.load(f, Loader=yaml.FullLoader)
 
     global_defaults = config_all_envs[DEFAULT_YAML_ROOT]  # type: Dict[str, Any]

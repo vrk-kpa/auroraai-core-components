@@ -74,14 +74,25 @@ export const LearningTool = ({ featureFlags }: { featureFlags: string[] }) => {
   const visibleLocationFilters = getVisibleFilters(initialFilters, featureFlags)
 
   const [filters, setFilters] = useRecoilState<FiltersState>(learningFiltersState)
-  const { locationFiltersSelected, includeNationalServices, locationFilters, fundingType } = filters
+  const {
+    locationFiltersSelected,
+    includeNationalServices,
+    locationFilters,
+    fundingType,
+    rerank,
+    onlyNationalServices,
+  } = filters
 
   const setLocationFiltersSelected = (selectedFilters: LocationFilterVariant[]) => {
-    setFilters({ ...filters, locationFiltersSelected: selectedFilters })
+    setFilters((f) => ({ ...f, locationFiltersSelected: selectedFilters }))
   }
 
-  const setIncludeNationalServices = (include: boolean) => {
-    setFilters({ ...filters, includeNationalServices: include })
+  const setIncludeNationalServices = (value: boolean) => {
+    setFilters((f) => ({ ...f, includeNationalServices: value }))
+  }
+
+  const setOnlyNationalServices = (value: boolean) => {
+    setFilters((f) => ({ ...f, onlyNationalServices: value }))
   }
 
   const activeLocationFilters = (type: LocationFilterVariant) => {
@@ -89,19 +100,23 @@ export const LearningTool = ({ featureFlags }: { featureFlags: string[] }) => {
   }
 
   const setLocationFilter = (type: LocationFilterVariant, items: string[]) => {
-    setFilters({ ...filters, locationFilters: { ...locationFilters, [type]: items } })
+    setFilters((f) => ({ ...f, locationFilters: { ...f.locationFilters, [type]: items } }))
   }
 
   const setTargetGroups = (items: string[]) => {
-    setFilters({ ...filters, targetGroupFilters: items })
+    setFilters((f) => ({ ...f, targetGroupFilters: items }))
   }
 
   const setServicecClasses = (items: PTVServiceClass[]) => {
-    setFilters({ ...filters, serviceClassFilters: items })
+    setFilters((f) => ({ ...f, serviceClassFilters: items }))
   }
 
   const setFundingType = (items: string[]) => {
-    setFilters({ ...filters, fundingType: items })
+    setFilters((f) => ({ ...f, fundingType: items }))
+  }
+
+  const setRerank = (value: boolean) => {
+    setFilters((f) => ({ ...f, rerank: value }))
   }
 
   const checkMeters = (meters: Partial<Meters>) => {
@@ -118,7 +133,8 @@ export const LearningTool = ({ featureFlags }: { featureFlags: string[] }) => {
         const response = await fetchRecommendations(
           sessionID,
           meters,
-          includeNationalServices,
+          onlyNationalServices ? undefined : includeNationalServices,
+          onlyNationalServices,
           getSelectedFilters(filters, 'municipalities'),
           getSelectedFilters(filters, 'region'),
           getSelectedFilters(filters, 'hospitalDistrict'),
@@ -126,6 +142,7 @@ export const LearningTool = ({ featureFlags }: { featureFlags: string[] }) => {
           getSelectedServiceClasses(filters),
           getSelectedTargetGroups(filters),
           getSelectedFundingType(filters),
+          rerank,
         )
 
         const data: RecommendServiceResponseDto = await response.json()
@@ -154,6 +171,7 @@ export const LearningTool = ({ featureFlags }: { featureFlags: string[] }) => {
         sessionID,
         meters,
         includeNationalServices,
+        onlyNationalServices,
         getSelectedFilters(filters, 'municipalities'),
         getSelectedFilters(filters, 'region'),
         getSelectedFilters(filters, 'hospitalDistrict'),
@@ -189,6 +207,8 @@ export const LearningTool = ({ featureFlags }: { featureFlags: string[] }) => {
                 selectFilters={(items: LocationFilterVariant[]) => setLocationFiltersSelected(items)}
                 includeNationalServices={includeNationalServices}
                 setIncludeNationalServices={(value: boolean) => setIncludeNationalServices(value)}
+                onlyNationalServices={onlyNationalServices}
+                setOnlyNationalServices={(value: boolean) => setOnlyNationalServices(value)}
                 locationFilters={(type: LocationFilterVariant) => activeLocationFilters(type)}
                 setLocationFilters={(type: LocationFilterVariant, values: string[]) => setLocationFilter(type, values)}
               />
@@ -227,6 +247,8 @@ export const LearningTool = ({ featureFlags }: { featureFlags: string[] }) => {
               <OtherFilters
                 selectedFundingType={fundingType}
                 setSelectedFundingType={(items: string[]) => setFundingType(items)}
+                rerank={rerank}
+                setRerank={(value: boolean) => setRerank(value)}
               />
             </ExpanderContent>
           </Expander>

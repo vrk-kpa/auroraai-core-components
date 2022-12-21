@@ -37,7 +37,7 @@
     "eslint": "7.26.0",
     "io-ts-reporters": "2.0.0",
     "jest": "27.0.4",
-    "nodemon": "2.0.16",
+    "nodemon": "2.0.20",
     "prettier": "2.6.2",
     "supertest": "6.2.3",
     "ts-jest": "27.0.3",

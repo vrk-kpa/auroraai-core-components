@@ -11,6 +11,7 @@ import { pseudoRandomBytes } from "crypto"
 import { JWT } from "jose"
 import { StatusCodes, ReasonPhrases } from "http-status-codes"
 import urljoin from "url-join"
+import helmet from "helmet"
 
 const MemoryStore = createMemoryStore(session)
 
@@ -110,6 +111,14 @@ const auroraAIClient = new auroraAIIssuer.Client({
 })
 
 const app = express()
+app.use(helmet.noSniff())
+app.use(helmet.hsts())
+app.use(
+    helmet.frameguard({
+        action: "deny",
+    })
+)
+app.use(helmet.hidePoweredBy())
 
 const sessionStore = new MemoryStore({ checkPeriod: 86400000 })
 

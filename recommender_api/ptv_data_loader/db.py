@@ -5,9 +5,9 @@ from typing import Any, Dict, List, Optional, Union
 from psycopg2.extras import execute_values, Json, DictCursor
 import pandas as pd
 
-from tools.db import db_connection, db_endpoint
-from tools.config import config
-from tools.logger import log
+from recommender_api.tools.db import db_connection, db_endpoint
+from recommender_api.tools.config import config
+from recommender_api.tools.logger import log
 
 
 (

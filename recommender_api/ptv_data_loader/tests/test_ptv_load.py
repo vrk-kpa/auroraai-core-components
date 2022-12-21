@@ -6,10 +6,10 @@ import boto3
 import botocore
 from moto import mock_s3
 
-from ptv_data_loader.data_loader import load_services_from_s3
-from ptv_data_loader.db import load_services_to_db, importable_data
-from tools.config import config
-from tools.logger import log
+from recommender_api.ptv_data_loader.data_loader import load_services_from_s3
+from recommender_api.ptv_data_loader.db import load_services_to_db, importable_data
+from recommender_api.tools.config import config
+from recommender_api.tools.logger import log
 
 TEST_DB_PASSWORD, TEST_HOST = config['db_password'], config['db_host_routing']
 
@@ -132,19 +132,3 @@ class TestPTVDataLoad(unittest.TestCase):
             with patch('tools.db.auth_token', new=mock_auth_token):
                 load_services_to_db(services)
 
-   # def test_load_service_vector_excel(self):
-   #     log.debug(f'Testing loading  and cleaning excel data from mock S3')
-   #     services = load_service_vector_excel(BUCKET, SERVICE_VECTOR_KEY)
-   #
-   #     # Remove last 2 services from "PTV data" to test cleanup:
-   #     ptv_service_ids = set(services.drop(services.tail(2).index).iloc[:, 0])
-   #     services = clean_service_vector_excel(services, ptv_service_ids)
-   #  
-   #     assert set(services.iloc[:, 0]) - ptv_service_ids == set()
-   #
-   #     print(services.head())
-   #
-   #     log.debug(f'Test loading service vectors to postgre DB')
-   #     with patch('botocore.client.BaseClient._make_api_call', new=mock_rds_describe_db_instances):
-   #         with patch('tools.db.auth_token', new=mock_auth_token):
-   #             load_service_vectors_to_db(services)

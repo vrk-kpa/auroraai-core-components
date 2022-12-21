@@ -27,6 +27,7 @@ export const constructRecommendationPayload = (
   session_id: string,
   meters: Meters,
   include_national_services?: boolean,
+  only_national_services?: boolean,
   municipality_codes?: string[],
   region_codes?: string[],
   hospital_district_codes?: string[],
@@ -34,6 +35,7 @@ export const constructRecommendationPayload = (
   service_classes?: string[],
   target_groups?: string[],
   funding_type?: string[],
+  rerank?: boolean,
   limit: number = 10,
 ) => {
   return {
@@ -41,6 +43,7 @@ export const constructRecommendationPayload = (
     life_situation_meters: mapObjIndexed((v) => [v], meters),
     service_filters: {
       include_national_services,
+      only_national_services,
       municipality_codes,
       region_codes,
       hospital_district_codes,
@@ -49,7 +52,9 @@ export const constructRecommendationPayload = (
       target_groups,
       funding_type,
     },
+
     limit,
+    rerank,
   } as RecommendServiceRequestDto
 }
 
@@ -57,6 +62,7 @@ export const fetchRecommendations = (
   session_id: string,
   meters: Meters,
   include_national_services?: boolean,
+  only_national_services?: boolean,
   municipality_codes?: string[],
   region_codes?: string[],
   hospital_district_codes?: string[],
@@ -64,12 +70,14 @@ export const fetchRecommendations = (
   service_classes?: string[],
   target_groups?: string[],
   funding_type?: string[],
+  rerank?: boolean,
   limit: number = 10,
 ) => {
   const payload = constructRecommendationPayload(
     session_id,
     meters,
     include_national_services,
+    only_national_services,
     municipality_codes,
     region_codes,
     hospital_district_codes,
@@ -77,6 +85,7 @@ export const fetchRecommendations = (
     service_classes,
     target_groups,
     funding_type,
+    rerank,
     limit,
   )
   return fetch(`${BASE_URL}/service-recommender/v1/recommend_service`, {
@@ -102,6 +111,7 @@ export const fetchTextSearch = (
   session_id: string,
   searchQuery: string,
   include_national_services?: boolean,
+  only_national_services?: boolean,
   municipality_codes?: string[],
   region_codes?: string[],
   hospital_district_codes?: string[],
@@ -109,11 +119,13 @@ export const fetchTextSearch = (
   service_classes?: string[],
   target_groups?: string[],
   funding_type?: string[],
+  rerank?: boolean,
 ) => {
   const payload: TextSearchServiceRequestDto = {
     search_text: searchQuery.trim(),
     service_filters: {
       include_national_services,
+      only_national_services,
       municipality_codes,
       region_codes,
       hospital_district_codes,
@@ -122,6 +134,7 @@ export const fetchTextSearch = (
       target_groups,
       funding_type,
     },
+    rerank: rerank,
   }
   return fetch(`${BASE_URL}/service-recommender/v1/text_search`, {
     method: 'POST',

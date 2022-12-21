@@ -28,4 +28,3 @@ def get_secret(secret_name: str, secrets_manager_client: BaseClient = None) -> D
         return json.loads(secret)
     except ValueError:
         return {'value': secret}
-

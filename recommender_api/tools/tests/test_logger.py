@@ -4,7 +4,7 @@ import sys
 from multiprocessing import Pool
 import time
 
-from tools.logger import log
+from recommender_api.tools.logger import log
 
 
 def set_test_stream():
@@ -21,7 +21,7 @@ def test_debug_log(capfd):
     log.debug('foobar')
     out, err = capfd.readouterr()
     output = json.loads(err)
-    assert output['logs']['messages'][0] == 'foobar'
+    assert output['debugMessage'] == 'foobar'
 
 
 def test_error_logging_from_threads(capfd):

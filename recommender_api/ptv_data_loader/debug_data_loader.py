@@ -5,8 +5,8 @@ import os
 from unittest.mock import patch
 
 import boto3
-from tools.config import config
-from tools.logger import log
+from recommender_api.tools.config import config
+from recommender_api.tools.logger import log
 
 from . import data_loader
 

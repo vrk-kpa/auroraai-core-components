@@ -1,7 +1,7 @@
-import json
 import csv
-from tools.config import config
+from recommender_api.tools.config import config
 from itertools import islice
+from pathlib import Path
 from typing import List, Set, Dict
 
 CSV_ROWS_TO_SKIP = 1
@@ -21,10 +21,11 @@ class WellbeingServiceCountyCodes :
         return [municipality for county in county_codes for municipality in self.municipality_mappings[county]]
 
     @staticmethod
-    def _parse_wellbeing_service_county_codes_file(filename: str) -> Dict[str, List[str]]:
-        with open(filename, encoding='cp1252') as file:
+    def _parse_wellbeing_service_county_codes_file(filename: str) -> Dict[str, str]:
+        path = Path(__file__).parent.parent / filename
+        with path.open(encoding='cp1252') as file:
             csvreader = csv.reader(file, delimiter=';')
-            mappings: Dict[str, List[str]] = {}
+            mappings: Dict[str, str] = {}
 
             for row in islice(csvreader, CSV_ROWS_TO_SKIP, None):
                 if len(row) != CSV_COLUMNS:
@@ -37,7 +38,8 @@ class WellbeingServiceCountyCodes :
 
     @staticmethod
     def _parse_municipality_mappings(filename: str) -> Dict[str, List[str]]:
-        with open(filename, encoding='cp1252') as file:
+        path = Path(__file__).parent.parent / filename
+        with path.open(encoding='cp1252') as file:
             csvreader = csv.reader(file, delimiter=';')
             mappings: Dict[str, List[str]] = {}
 

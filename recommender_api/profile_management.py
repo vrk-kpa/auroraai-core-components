@@ -2,8 +2,8 @@ from typing import Any, Dict, List
 
 import requests
 
-from tools.config import config
-from tools.utils import get_secret
+from recommender_api.tools.config import config
+from recommender_api.tools.utils import get_secret
 
 profile_management_url = config['profile_management_api_url']
 

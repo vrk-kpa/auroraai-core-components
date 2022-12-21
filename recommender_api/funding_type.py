@@ -1,9 +1,11 @@
 import json
-from tools.config import config
+from recommender_api.tools.config import config
+from pathlib import Path
 
 
 def load_funding_types():
-    with open(config['funding_type_file']) as file:
+    path = Path(__file__).parent.parent / config['funding_type_file']
+    with path.open() as file:
         return json.load(file)
 
 

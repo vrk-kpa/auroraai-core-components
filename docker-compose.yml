@@ -191,7 +191,7 @@ services:
     build:
       context: .
       dockerfile: recommender_api/api.dev.Dockerfile
-    command: ["-m", "ptv_data_loader.data_loader"]
+    command: ["-m", "recommender_api.ptv_data_loader.data_loader"]
     environment:
       ENVIRONMENT: localcluster
       AWS_REGION: "${AWS_REGION-}"

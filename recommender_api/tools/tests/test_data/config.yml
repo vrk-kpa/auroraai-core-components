@@ -1,0 +1,3 @@
+default:
+  param1: param1_default
+  param2: param2_default

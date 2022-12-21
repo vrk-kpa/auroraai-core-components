@@ -3,7 +3,7 @@ from typing import List
 import boto3
 import botocore
 from werkzeug.exceptions import InternalServerError
-from tools.logger import log
+from recommender_api.tools.logger import log
 
 
 def translate_service_information(service, source_language, target_language):

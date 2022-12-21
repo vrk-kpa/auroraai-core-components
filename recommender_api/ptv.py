@@ -2,8 +2,8 @@ import json
 import requests
 from typing import Any, Dict, Generator, List, Optional, Set, Union
 
-from tools.config import config
-from tools.logger import log
+from recommender_api.tools.config import config
+from recommender_api.tools.logger import log
 
 from recommender_api.mock_session_service import search_mock_service_channel
 from .db import get_services_ptv_data, get_service_channels_ptv_data

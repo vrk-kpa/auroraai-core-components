@@ -3,7 +3,7 @@ apispec-webframeworks==0.5.2
 attrs==21.4.0
 boto3==1.21.2
 botocore==1.24.2
-certifi==2021.10.8
+certifi==2022.12.7
 cffi==1.15.0
 click==8.0.3
 cryptography==38.0.3
@@ -18,7 +18,7 @@ idna==3.3
 itsdangerous==2.1.0
 Jinja2==3.0.3
 jmespath==0.10.0
-joblib==1.1.1
+joblib==1.2.0
 jsonschema==4.4.0
 lz4==4.0.0
 MarkupSafe==2.1.0
@@ -51,14 +51,14 @@ six==1.16.0
 tokenizers==0.11.5
 toml==0.10.2
 tomli==2.0.1
-torch==1.10.2
+torch==1.13.1
 tqdm==4.62.3
 transformers==4.24.0
 typing_extensions==4.1.1
 urllib3==1.26.8
 Werkzeug==2.1.1
 wrapt==1.13.3
-xgboost==1.6.1
+xgboost==1.7.1
 xlrd==2.0.1
 xmltodict==0.12.0
 zope.event==4.5.0

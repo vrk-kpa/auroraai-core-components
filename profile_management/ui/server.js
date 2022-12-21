@@ -9,6 +9,7 @@ const handle = nextApp.getRequestHandler()
 
 nextApp.prepare().then(() => {
   const expressApp = express()
+  expressApp.disable("x-powered-by")
   expressApp.use("/healthcheck", healthcheck())
 
   expressApp.all("*", (req, res) => handle(req, res))

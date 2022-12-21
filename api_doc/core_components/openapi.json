@@ -59,6 +59,7 @@
                   ]
                 },
                 "service_filters": {
+                  "only_national_services": false,
                   "include_national_services": false,
                   "municipality_codes": [
                     "091",
@@ -240,6 +241,7 @@
               "example": {
                 "search_text": "nuorten työttömyys",
                 "service_filters": {
+                  "only_national_services": false,
                   "include_national_services": true,
                   "municipality_codes": [
                     "091",
@@ -1864,9 +1866,13 @@
       "ServiceFilters": {
         "description": "Filters can be specified to limit the set of services that can be included in recommendation results. If all filter types are used, result set includes services that belong to any one of the specified geographic areas AND to any of the specified service classes.",
         "properties": {
+          "only_national_services": {
+            "type": "boolean",
+            "description": "National services are services that are available nationwide and not specific to some municipality. Set this value to true to filter only national services in service recommendations. When this flag is set to true other area filters (municipality_codes, region_codes, hospital_district_codes, wellbeing_service_county_codes) are not allowed in the request. Default value: false"
+          },
           "include_national_services": {
             "type": "boolean",
-            "description": "National services are included in recommendation results by default. Set this flag to 'false' to exclude them. National services are services that are available nationwide and not specific to some municipality."
+            "description": "National services are services that are available nationwide and not specific to some municipality. Set this value to false to exclude national services from service recommendations. Default value: true"
           },
           "municipality_codes": {
             "type": "array",

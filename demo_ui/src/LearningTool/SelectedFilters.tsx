@@ -6,7 +6,6 @@ import { Question } from '../Questions/Questions'
 import { FiltersState, learningFiltersState, localeState, metersState } from '../state/global'
 import { attributes } from './AttributesFilter'
 import {
-  FundingType,
   fundingTypeFilters,
   hospitalDistricts,
   LocationFilterVariant,
@@ -48,7 +47,14 @@ export const SelectedFilters = () => {
 
   const [filters, setFilters] = useRecoilState<FiltersState>(learningFiltersState)
 
-  const { includeNationalServices, locationFilters, targetGroupFilters, serviceClassFilters, fundingType } = filters
+  const {
+    includeNationalServices,
+    onlyNationalServices,
+    locationFilters,
+    targetGroupFilters,
+    serviceClassFilters,
+    fundingType,
+  } = filters
 
   const municipalities = locationFilters['municipalities']
   const selectedRegions = locationFilters['region']
@@ -56,17 +62,18 @@ export const SelectedFilters = () => {
   const selectedWellbeingCounties = locationFilters['wellbeingCounty']
 
   const setLocationFilter = (type: LocationFilterVariant, items: string[]) => {
-    setFilters({ ...filters, locationFilters: { ...locationFilters, [type]: items } })
+    setFilters((f) => ({ ...f, locationFilters: { ...f.locationFilters, [type]: items } }))
   }
 
-  const setIncludeNationalServices = (include: boolean) => {
-    setFilters({ ...filters, includeNationalServices: include })
+  const resetNationalServicesFilters = () => {
+    setFilters((f) => ({ ...f, includeNationalServices: false, onlyNationalServices: false }))
   }
 
   const resetFilters = () => {
     setMeters({})
     setFilters({
       includeNationalServices: false,
+      onlyNationalServices: false,
       locationFiltersSelected: [],
       locationFilters: {
         municipalities: [],
@@ -77,6 +84,7 @@ export const SelectedFilters = () => {
       serviceClassFilters: [],
       targetGroupFilters: [],
       fundingType: [],
+      rerank: false,
     })
   }
 
@@ -108,8 +116,8 @@ export const SelectedFilters = () => {
           </div>
 
           <div>
-            {includeNationalServices && (
-              <Chip removable actionLabel='remove-attribute' onClick={() => setIncludeNationalServices(false)}>
+            {(includeNationalServices || onlyNationalServices) && (
+              <Chip removable actionLabel='remove-attribute' onClick={() => resetNationalServicesFilters()}>
                 Valtakunnalliset palvelut
               </Chip>
             )}

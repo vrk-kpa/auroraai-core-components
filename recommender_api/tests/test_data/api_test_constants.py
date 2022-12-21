@@ -1,8 +1,8 @@
 import pandas as pd
 import numpy as np
 
-FASTTEXT_PATH = "fasttext"
-XGBOOST_PATH = "xgboost"
+FASTTEXT_PATH = "recommender_api/fasttext"
+XGBOOST_PATH = "recommender_api/xgboost"
 
 AUTHORIZATION_HEADER_NAME = 'Authorization'
 VALID_AUTHORIZATION = 'Basic YWJjZDphYmNk'

@@ -190,6 +190,44 @@ def test_text_search_input_accepts_include_national_services_true():
         })
 
 
+def test_text_search_input_accepts_only_national_services_true():
+    TextSearchInput().load({
+        "search_text": "testi",
+        "service_filters": {"only_national_services": True}
+    })
+
+
+def test_text_search_input_accepts_only_national_services_false_with_other_area_filters():
+    TextSearchInput().load({
+        "search_text": "testi",
+        "service_filters": {
+            "only_national_services": False,
+            "municipality_codes": ["091"]
+        }
+    })
+
+
+def test_text_search_input_accepts_only_national_services_true_with_non_area_filters():
+    TextSearchInput().load({
+        "search_text": "testi",
+        "service_filters": {
+            "only_national_services": True,
+            "funding_type": ["PubliclyFunded"]
+        }
+    })
+
+
+def test_text_search_rejects_only_national_services_with_other_area_filters():
+    with pytest.raises(ValidationError):
+        TextSearchInput().load({
+            "search_text": "testi",
+            "service_filters": {
+                "only_national_services": True,
+                "municipality_codes": ["091"]
+            }
+        })
+
+
 def test_post_attributes_management_input_accepts_channel_id_and_attributes():
     PostSessionAttributesInput().load({
         "service_channel_id": "582fc45e-0a2b-412d-ac42-626c7c928569",

@@ -11,8 +11,8 @@ from numpy.linalg import norm
 
 from rank_bm25 import BM25Okapi
 
-from tools.logger import log
-from tools.config import config
+from recommender_api.tools.logger import log
+from recommender_api.tools.config import config
 
 from recommender_api.db import get_service_vectors, get_filtered_service_ids, \
     get_service_class_names, get_service_descriptions, \
@@ -57,14 +57,14 @@ CHANNEL_TYPE_FOR_SESSION_ID = 'EChannel'
 ERROR_NO_VECTORS = 'No service vectors found with given input.'
 
 RERANKER_FEATURES = [
-    'bm25_score',
     'calling_service',
-    'prev_neg_feedback_service',
-    'prev_pos_feedback_service',
-    'prev_redirects_service',
     'request_path',
     'service_class_name',
-    'similarity'
+    'similarity',
+    'bm25_score',
+    'prev_redirects_service',
+    'prev_pos_feedback_service',
+    'prev_neg_feedback_service'
 ]
 
 RERANKER_DTYPE = {
@@ -96,6 +96,7 @@ def _filter_fast_text_embeddings(
         embeddings: Dict[str,  Union[List, np.ndarray]],
         municipality_codes: List[str],
         include_national: bool,
+        only_national: bool,
         service_classes: List[str],
         target_groups: List[str],
         service_collections: List[str],
@@ -104,6 +105,7 @@ def _filter_fast_text_embeddings(
     service_ids_from_db = set(get_filtered_service_ids(  # type: ignore
         municipality_codes,
         include_national,
+        only_national,
         service_classes,
         target_groups,
         service_collections,
@@ -223,6 +225,7 @@ def text_search_in_ptv(
         ptv_embeddings,
         params.municipality_codes,
         params.include_national_services,
+        params.only_national_services,
         params.service_classes,
         params.target_groups,
         params.service_collections,
@@ -329,6 +332,7 @@ def recommend(params: Recommender3x10dParameters,
         service_vectors = get_service_vectors(
             params.municipality_codes,
             params.include_national_services,
+            params.only_national_services,
             params.service_classes,
             params.target_groups,
             params.service_collections,

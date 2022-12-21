@@ -1,9 +1,11 @@
 import json
-from tools.config import config
+from pathlib import Path
+from recommender_api.tools.config import config
 
 
 def load_target_groups():
-    with open(config['target_group_file']) as file:
+    path = Path(__file__).parent.parent / config['target_group_file']
+    with path.open() as file:
         return json.load(file)
 
 

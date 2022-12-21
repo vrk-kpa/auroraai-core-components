@@ -25,7 +25,7 @@ each microservice and links to more detailed documentation can be found in the s
 READMEs listed below:
 
 - [service-recommender-api](recommender_api/README.md)
-- [ptv-data-loader](ptv_data_loader/README.md)
+- [ptv-data-loader](recommender_api/ptv_data_loader/README.md)
 - [profile-management](profile_management/README.md)
 - [attributes-management](attributes_management/README.md)
 - [api-doc](api_doc/README.md)

@@ -14,6 +14,7 @@ const app: Express = express()
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(helmet.hidePoweredBy())
+app.use(helmet.hsts())
 app.use(helmet.noSniff())
 app.use(
   helmet.frameguard({

@@ -1,12 +1,23 @@
-import { Checkbox, Block, Text } from 'suomifi-ui-components'
+import styled from 'styled-components'
+import { Checkbox, Block, Text, suomifiDesignTokens } from 'suomifi-ui-components'
 import { FundingType, fundingTypeFilters } from '../types'
+
+export const RerankContainer = styled.div`
+  margin-top: ${suomifiDesignTokens.spacing.s};
+  margin-bottom: ${suomifiDesignTokens.spacing.s};
+  display: flex;
+`
 
 const OtherFilters = ({
   selectedFundingType,
   setSelectedFundingType,
+  rerank,
+  setRerank,
 }: {
   selectedFundingType: string[]
   setSelectedFundingType: (items: string[]) => void
+  rerank: boolean
+  setRerank: (value: boolean) => void
 }) => {
   const isFundingTypeSelected = (fundingType: FundingType) => {
     return selectedFundingType?.includes(fundingType)
@@ -20,6 +31,13 @@ const OtherFilters = ({
 
   return (
     <>
+      <RerankContainer>
+        <Block>
+          <Checkbox id='rerank-checkbox' onClick={({ checkboxState }) => setRerank(checkboxState)} checked={rerank}>
+            Järjestä suosittelut käytön mukaan
+          </Checkbox>
+        </Block>
+      </RerankContainer>
       <Block>
         <Text variant='bold'>Rahoitustyyppi</Text>
 

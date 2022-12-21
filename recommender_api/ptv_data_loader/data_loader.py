@@ -12,8 +12,8 @@ import more_itertools
 import boto3
 
 
-from tools.config import config
-from tools.logger import log, LogOperationName
+from recommender_api.tools.config import config
+from recommender_api.tools.logger import log, LogOperationName
 
 from .db import (
     delete_service_channel_data_from_db,

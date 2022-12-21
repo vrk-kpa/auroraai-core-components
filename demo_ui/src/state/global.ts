@@ -55,9 +55,11 @@ export type FiltersState = {
   locationFilters: Record<LocationFilterVariant, string[]>
   locationFiltersSelected: LocationFilterVariant[]
   includeNationalServices: boolean
+  onlyNationalServices: boolean
   serviceClassFilters: PTVServiceClass[]
   targetGroupFilters: string[]
   fundingType: string[]
+  rerank: boolean
 }
 
 export const demoFiltersState = atom<FiltersState>({
@@ -71,9 +73,11 @@ export const demoFiltersState = atom<FiltersState>({
     },
     locationFiltersSelected: [],
     includeNationalServices: false,
+    onlyNationalServices: false,
     serviceClassFilters: [],
     targetGroupFilters: defaultTargetGroups,
     fundingType: [],
+    rerank: false,
   },
 })
 
@@ -88,9 +92,11 @@ export const learningFiltersState = atom<FiltersState>({
     },
     locationFiltersSelected: [],
     includeNationalServices: false,
+    onlyNationalServices: false,
     serviceClassFilters: [],
     targetGroupFilters: defaultTargetGroups,
     fundingType: [],
+    rerank: false,
   },
 })
 
@@ -110,9 +116,11 @@ export const termSearchFiltersState = atom<FiltersState>({
     },
     locationFiltersSelected: [],
     includeNationalServices: false,
+    onlyNationalServices: false,
     serviceClassFilters: [],
     targetGroupFilters: defaultTargetGroups,
     fundingType: [],
+    rerank: false,
   },
 })
 

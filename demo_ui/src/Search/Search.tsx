@@ -75,7 +75,7 @@ export const Search: FC<Props> = ({ featureFlags }) => {
   const [filters, setFilters] = useRecoilState<FiltersState>(termSearchFiltersState)
   const [translationLanguage, setTranslationLanguage] = useRecoilState(translationLanguageState)
 
-  const { includeNationalServices } = filters
+  const { includeNationalServices, onlyNationalServices, rerank } = filters
 
   const handleSearchTextTranslation = async (searchTerm: string, language: string): Promise<string> => {
     const response = await fetchSearchTextTranslation(searchTerm, language)
@@ -99,7 +99,8 @@ export const Search: FC<Props> = ({ featureFlags }) => {
       const response = await fetchTextSearch(
         sessionID,
         finalSearchTerm,
-        includeNationalServices,
+        onlyNationalServices ? undefined : includeNationalServices,
+        onlyNationalServices,
         getSelectedFilters(filters, 'municipalities'),
         getSelectedFilters(filters, 'region'),
         getSelectedFilters(filters, 'hospitalDistrict'),
@@ -107,6 +108,7 @@ export const Search: FC<Props> = ({ featureFlags }) => {
         getSelectedServiceClasses(filters),
         getSelectedTargetGroups(filters),
         getSelectedFundingType(filters),
+        rerank,
       )
 
       if (response.ok) {

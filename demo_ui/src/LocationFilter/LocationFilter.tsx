@@ -1,5 +1,5 @@
 import { Fragment, useState } from 'react'
-import { Checkbox, Text } from 'suomifi-ui-components'
+import { Block, Checkbox, RadioButton, Text } from 'suomifi-ui-components'
 import HospitalDistrictFilter from './HospitalDistrictFilter'
 import MunicipalitiesFilter from './MunicipalitiesFilter'
 import RegionFilter from './RegionFilter'
@@ -14,6 +14,8 @@ const LocationFilter = ({
   selectFilters,
   includeNationalServices,
   setIncludeNationalServices,
+  onlyNationalServices,
+  setOnlyNationalServices,
   locationFilters,
   setLocationFilters,
 }: {
@@ -22,6 +24,8 @@ const LocationFilter = ({
   selectFilters: (items: LocationFilterVariant[]) => void
   includeNationalServices: boolean
   setIncludeNationalServices: (value: boolean) => void
+  onlyNationalServices: boolean
+  setOnlyNationalServices: (value: boolean) => void
   locationFilters: (type: LocationFilterVariant) => string[]
   setLocationFilters: (type: LocationFilterVariant, values: string[]) => void
 }) => {
@@ -37,28 +41,50 @@ const LocationFilter = ({
     }
   }
 
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.value === 'only-national-services') {
+      setOnlyNationalServices(true)
+      setIncludeNationalServices(false)
+      setSpecifyLocation(false)
+      resetLocationFilters()
+      selectFilters([])
+    }
+    if (event.target.value === 'specify-location') {
+      setOnlyNationalServices(false)
+      setSpecifyLocation(true)
+    }
+  }
+
+  const resetLocationFilters = () => {
+    setLocationFilters('municipalities', [])
+    setLocationFilters('region', [])
+    setLocationFilters('wellbeingCounty', [])
+    setLocationFilters('hospitalDistrict', [])
+  }
+
   return (
     <>
       <div style={{ marginBottom: '10px' }}>
-        <Checkbox
-          id={`national-services-checkbox`}
-          onClick={({ checkboxState }) => setIncludeNationalServices(checkboxState)}
-          checked={includeNationalServices}
-        >
-          Valtakunnalliset palvelut
-        </Checkbox>
-        <Checkbox
-          id={`specify-location-checkbox`}
-          onClick={({ checkboxState }) => setSpecifyLocation(checkboxState)}
-          checked={specifyLocation || filtersSelected.length > 0}
-        >
-          Tarkennettu aluehaku
-        </Checkbox>
+        <fieldset style={{ border: 'none', padding: 0 }}>
+          <RadioButton value='only-national-services' checked={onlyNationalServices} onChange={handleChange}>
+            Vain valtakunnalliset palvelut
+          </RadioButton>
+          <RadioButton value='specify-location' checked={specifyLocation} onChange={handleChange}>
+            Tarkennettu aluehaku
+          </RadioButton>
+        </fieldset>
       </div>
 
       {(specifyLocation || filtersSelected.length > 0) && (
-        <div>
-          <Text variant='bold'>Valitse alue</Text>
+        <Block margin='s'>
+          <Checkbox
+            id={`include-national-services-checkbox`}
+            onClick={({ checkboxState }) => setIncludeNationalServices(checkboxState)}
+            checked={includeNationalServices}
+          >
+            Sisällytä valtakunnalliset palvelut
+          </Checkbox>
+          <Text>Valitse alue</Text>
 
           {filters &&
             filters.map((item) => (
@@ -107,7 +133,7 @@ const LocationFilter = ({
               </Fragment>
             )
           })}
-        </div>
+        </Block>
       )}
     </>
   )

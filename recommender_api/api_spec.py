@@ -5,8 +5,8 @@ from apispec.ext.marshmallow import MarshmallowPlugin
 from apispec_webframeworks.flask import FlaskPlugin
 from marshmallow import Schema, fields, validate, validates_schema, ValidationError, post_load
 
-from tools.config import config
-from tools.logger import log
+from recommender_api.tools.config import config
+from recommender_api.tools.logger import log
 
 from .recommender_input import Recommender3x10dParameters, RecommenderTextSearchParameters
 from .service_classes import valid_service_classes
@@ -17,14 +17,21 @@ from .ptv import get_service_collections_from_ptv
 from .wellbeing_service_county_codes import wellbeing_service_county_codes
 
 PTV_SERVICE_LIST_URL = config['ptv_url_prefix'] + \
-    config['ptv_service_list_url_suffix']
+                       config['ptv_service_list_url_suffix']
 PTV_SERVICE_CHANNEL_LIST_URL = config['ptv_url_prefix'] + \
-    config['ptv_service_channel_list_url_suffix']
+                               config['ptv_service_channel_list_url_suffix']
 
 SCALE_DESCRIPTION = 'in scale from 0 to 10'
 VALID_FEEDBACK_SCORES = [-1, 1]
 VALID_LANGUAGES = ['en', 'de', 'fr', 'et', 'da', 'no', 'uk', 'ru', 'fi', 'sv']
 
+AREA_FILTERS = [
+    "include_national_services",
+    "municipality_codes",
+    "region_codes",
+    "hospital_district_codes",
+    "wellbeing_service_county_codes"
+]
 
 # Create an APISpec
 spec = APISpec(
@@ -106,11 +113,26 @@ class ServiceFiltersSchema(Schema):
                 raise ValidationError(
                     "Invalid service collection IDs provided.")
 
+    @validates_schema
+    # pylint: disable=R0201
+    def validate_no_other_area_filters_with_only_national(self, data, **_):
+        if data.get('only_national_services'):
+            for area_filter in AREA_FILTERS:
+                if data.get(area_filter) is not None:
+                    raise ValidationError(f'only_national_services selected. {area_filter} not allowed.')
+
     include_national_services = StrictBoolean(
         description="Select if national services are included recommendation results. Defaults to 'true'."
                     "If set to 'false', only services matching the area filters are recommended.",
         required=False,
         default=True
+    )
+
+    only_national_services = StrictBoolean(
+        description="Select if national services only included at recommendation results. Defaults to 'false'."
+                    "If set to 'true', only nationwide services recommended.",
+        required=False,
+        default=False
     )
 
     municipality_codes = fields.List(
@@ -178,7 +200,6 @@ class ServiceFiltersSchema(Schema):
         default=False
     )
 
-    
     funding_type = fields.List(
         fields.String(
             description="Funding type of service",
@@ -196,7 +217,7 @@ class ServiceFiltersSchema(Schema):
         ),
         required=False,
         validate=validate.Length(1, len(wellbeing_service_county_codes.valid_county_codes))
-    )    
+    )
 
 
 class LifeSituationMeterInput(Schema):

@@ -10,9 +10,9 @@ import re
 import pytest
 from unittest.mock import patch
 
-from tools.config import config
-from tools.logger import log
-from tools.db import db_connection, db_endpoint
+from recommender_api.tools.config import config
+from recommender_api.tools.logger import log
+from recommender_api.tools.db import db_connection, db_endpoint
 
 from recommender_api import main
 from recommender_api.tests.test_data.api_test_constants import CORRECT_INPUT, FEEDBACK_TEST_DATA, \

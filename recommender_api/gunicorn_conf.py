@@ -1,12 +1,12 @@
 # pylint: skip-file
 # From https://github.com/tiangolo/meinheld-gunicorn-docker/blob/master/docker-images/gunicorn_conf.py
 import gunicorn.workers.base
-import tools.config
+import tools
 
 from gunicorn import glogging
 from tools.logger import AuroraAiJsonFormatter
 
-from tools.logger import log
+from recommender_api.tools.logger import log
 
 
 class AaiGunicornLogger(glogging.Logger):

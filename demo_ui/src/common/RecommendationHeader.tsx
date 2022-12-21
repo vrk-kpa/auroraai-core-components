@@ -44,22 +44,41 @@ const isNationalService = (s: RecommendedService) => {
   return s.area_type === 'Nationwide'
 }
 
+const isNationalExceptAlandIslandsService = (s: RecommendedService) => {
+    return s.area_type === 'NationwideExceptAlandIslands'
+}
+
 const isRegionalService = (s: RecommendedService) => {
   return s.area_type === 'LimitedType'
 }
 
 const getMunicipalitiesInfo = (s: RecommendedService, locale: Language) => {
-  let municipalities: Municipality[] = []
+    let municipalities: Municipality[] = []
 
-  s.areas.forEach((item) => {
-    municipalities = municipalities.concat(item.municipalities)
-  })
-  return municipalities.length > 1
-    ? `${municipalities.length} kuntaa`
-    : municipalities.length === 1
-    ? municipalities[0].name.find((v) => v.language === locale)?.value
-    : ''
+    s.areas.forEach((item) => {
+        municipalities = municipalities.concat(item.municipalities)
+    })
+    return municipalities.length > 1
+        ? `${municipalities.length} kuntaa`
+        : municipalities.length === 1
+            ? municipalities[0].name.find((v) => v.language === locale)?.value
+            : ''
 }
+
+const AreaTypeInfo = ({ service}: { service: RecommendedService }) => {
+    const [locale] = useRecoilState(localeState)
+    return (
+        <>{isNationalService(service) ? (
+            <Chip>Valtakunnallinen</Chip>
+        ) : isNationalExceptAlandIslandsService(service) ? (
+            <Chip>Valtakunnallinen (pl. Ahvenanmaa) </Chip>
+        ) : (
+            isRegionalService(service) && <Chip> {getMunicipalitiesInfo(service, locale)}</Chip>
+        )
+
+        }
+        </>)
+}   
 
 export const RecommendationHeader = ({
   service,
@@ -69,20 +88,17 @@ export const RecommendationHeader = ({
   service: RecommendedService
   setService?: Dispatch<SetStateAction<RecommendedService>> | undefined
   showSimilarity?: boolean
-}) => {
-  const [locale] = useRecoilState(localeState)
+    }) => {
+
   return (
     <TitleContainer>
       <div className='name'>
         <ResponsibleOrganizationContainer>{service.responsible_organization?.name}</ResponsibleOrganizationContainer>
         <span>{service.service_name}</span>
       </div>
-      <div className='details'>
-        {isNationalService(service) ? (
-          <Chip>Valtakunnallinen</Chip>
-        ) : (
-          isRegionalService(service) && <Chip> {getMunicipalitiesInfo(service, locale)}</Chip>
-        )}
+          <div className='details'>
+              <AreaTypeInfo service={service}/>
+       
         {showSimilarity && service.similarity_score && (
           <Similarity>{service?.similarity_score.toLocaleString(undefined, { maximumFractionDigits: 4 })}</Similarity>
         )}

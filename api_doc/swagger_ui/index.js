@@ -5,6 +5,8 @@ const env = process.env.ENVIRONMENT
 
 const app = express()
 
+app.disable('x-powered-by');
+
 if(env !== "prod"){
   app.use("/api-doc/auroraai-service/", express.static(path.join("dist", "auroraai_service")))
 }

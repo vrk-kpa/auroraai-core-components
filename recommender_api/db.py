@@ -10,16 +10,15 @@ from psycopg2.pool import SimpleConnectionPool
 
 import pandas as pd
 
-from tools.config import config, env
-from tools.db import db_connection_pool_aws, db_connection_pool_classic
-from tools.logger import log
+from recommender_api.tools.config import config, env
+from recommender_api.tools.db import db_connection_pool_aws, db_connection_pool_classic
+from recommender_api.tools.logger import log
 
 from recommender_api.search_text_filter import filter_social_security_numbers
 
 DB_HOST_ROUTING, DB_PORT, DB_USER, DB_PASSWORD, DB_NAME, REGION = \
     config['db_host_routing'], config['db_port'], config['db_api_user'], \
     config.get('db_password'), config['db_name'], config['region']
-
 
 CONN_POOL: Optional[SimpleConnectionPool] = None
 
@@ -138,6 +137,7 @@ def _build_target_group_filter_sql(skip: bool):
         """
     )
 
+
 def _build_funding_type_filter(skip: bool):
     if skip:
         return sql.SQL("TRUE")
@@ -145,6 +145,7 @@ def _build_funding_type_filter(skip: bool):
     return sql.SQL(
         "(service_data->>'fundingType' IN %(funding_type)s)"
     )
+
 
 def _build_service_collection_filter(skip: bool):
     return sql.SQL("") if skip else sql.SQL(
@@ -156,7 +157,10 @@ def _build_service_collection_filter(skip: bool):
     )
 
 
-def _build_municipality_filter_sql(municipality_codes: List[str], include_national: bool):
+def _build_municipality_filter_sql(municipality_codes: List[str], include_national: bool, only_national: bool):
+    if only_national:
+        return sql.SQL("(area_type LIKE 'Nationwide%%')")
+
     if not municipality_codes and not include_national:
         return sql.SQL("(area_type NOT LIKE 'Nationwide%%')")
 
@@ -172,29 +176,30 @@ def _build_municipality_filter_sql(municipality_codes: List[str], include_nation
 def build_sql_filter_queries(
         municipality_codes: List[str],
         include_national: bool,
+        only_national: bool,
         service_classes: List[str],
         target_groups: List[str],
         service_collections: List[str],
         funding_type: List[str],
 ) -> Dict[str, str]:
     return {
-        'municipality_filter': _build_municipality_filter_sql(municipality_codes, include_national),
-        'service_class_filter':_build_service_classes_filter_sql(skip=(service_classes == [])),
-        'target_group_filter':_build_target_group_filter_sql(skip=(target_groups == [])),
-        'service_collection_filter':_build_service_collection_filter(skip=(service_collections == [])),
-        'funding_type_filter':_build_funding_type_filter(skip=(funding_type == [] or not funding_type)),
+        'municipality_filter': _build_municipality_filter_sql(municipality_codes, include_national, only_national),
+        'service_class_filter': _build_service_classes_filter_sql(skip=(service_classes == [])),
+        'target_group_filter': _build_target_group_filter_sql(skip=(target_groups == [])),
+        'service_collection_filter': _build_service_collection_filter(skip=(service_collections == [])),
+        'funding_type_filter': _build_funding_type_filter(skip=(funding_type == [] or not funding_type)),
     }
 
 
 def get_filtered_service_ids(
         municipality_codes: List[str],
         include_national: bool,
+        only_national: bool,
         service_classes: List[str],
         target_groups: List[str],
         service_collections: List[str],
         funding_type: List[str],
 ) -> List[str]:
-
     db_query = sql.SQL("""
         SELECT DISTINCT service_id
         FROM service_recommender.service
@@ -204,6 +209,7 @@ def get_filtered_service_ids(
         **build_sql_filter_queries(
             municipality_codes,
             include_national,
+            only_national,
             service_classes,
             target_groups,
             service_collections,
@@ -218,6 +224,7 @@ def get_filtered_service_ids(
                 'service_classes': tuple(service_classes),
                 'municipality_codes': municipality_codes,
                 'include_national': include_national,
+                'only_national': only_national,
                 'target_groups': tuple(target_groups),
                 'service_collections': tuple(service_collections),
                 'funding_type': tuple(funding_type)
@@ -231,6 +238,7 @@ def get_filtered_service_ids(
 def get_service_vectors(
         municipality_codes: List[str],
         include_national: bool,
+        only_national: bool,
         service_classes: List[str],
         target_groups: List[str],
         service_collections: List[str],
@@ -246,6 +254,7 @@ def get_service_vectors(
         **build_sql_filter_queries(
             municipality_codes,
             include_national,
+            only_national,
             service_classes,
             target_groups,
             service_collections,
@@ -260,6 +269,7 @@ def get_service_vectors(
                 'service_classes': tuple(service_classes),
                 'municipality_codes': municipality_codes,
                 'include_national': include_national,
+                'only_national': only_national,
                 'target_groups': tuple(target_groups),
                 'service_collections': tuple(service_collections),
                 'funding_type': tuple(funding_type)
@@ -414,7 +424,6 @@ def store_feedback(recommendation_id: int, feedback_score: Optional[int] = None,
 
 
 def get_service_class_names(service_ids: List[str]) -> Dict[str, str]:
-
     db_query = sql.SQL("""
         SELECT DISTINCT service_id, service_class_name
         FROM service_recommender.service
@@ -428,13 +437,12 @@ def get_service_class_names(service_ids: List[str]) -> Dict[str, str]:
                 'service_ids': tuple(service_ids),
             }
         )
-        service_class_names = {item[0]:item[1] for item in cur.fetchall()}
+        service_class_names = {item[0]: item[1] for item in cur.fetchall()}
 
     return service_class_names
 
 
 def get_service_descriptions(service_ids: List[str]) -> Dict[str, Dict[str, str]]:
-
     db_query = sql.SQL("""
         SELECT DISTINCT service_id, description, description_summary, user_instruction
         FROM service_recommender.service

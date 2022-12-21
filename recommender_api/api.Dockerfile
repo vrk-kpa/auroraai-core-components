@@ -4,18 +4,18 @@ FROM public.ecr.aws/docker/library/python:3.9-slim-bullseye AS builder
 RUN apt-get update
 RUN apt-get -y install libpq-dev build-essential
 
-COPY .wheel_cache /app/.wheel_cache
+COPY ./recommender_api /app/recommender_api/
 WORKDIR /app
 
 # install requirements from cache if possible
-COPY requirements.txt /app/
-RUN python -m pip --default-timeout=1000 wheel --wheel-dir .wheel_cache -r requirements.txt
-RUN python -m pip --default-timeout=1000 install --no-index --find-links=.wheel_cache -r requirements.txt -t /pythonlibs
+COPY ./recommender_api/requirements.txt /app/recommender_api/
+RUN python -m pip --default-timeout=1000 \
+    wheel --wheel-dir ./recommender_api/.wheel_cache -r ./recommender_api/requirements.txt
+RUN python -m pip --default-timeout=1000 \
+    install --no-index --find-links=./recommender_api/.wheel_cache \
+    -r ./recommender_api/requirements.txt -t ./recommender_api/pythonlibs
 
-# install tools deps from cache if possible
-COPY tools /tools
-RUN python -m pip --default-timeout=1000 wheel --wheel-dir .wheel_cache /tools
-RUN python -m pip --default-timeout=1000 install --no-index --find-links=.wheel_cache /tools -t /pythonlibs
+RUN rm -Rf ./recommender_api/.wheel_cache
 
 
 FROM public.ecr.aws/docker/library/python:3.9-slim-bullseye
@@ -29,18 +29,11 @@ ARG DRONE_COMMIT_SHA=_
 ARG DRONE_BUILD_NUMBER=_
 
 # Add the project sources
-COPY ./recommender_api /app/recommender_api/
-COPY ptv_data_loader /app/ptv_data_loader/
+COPY --from=builder /app/recommender_api /app/recommender_api/
 COPY resources /app/resources
-
-# Add the xgboost model file
-COPY ./xgboost /app/xgboost/
 
 # Copy flask start script to runtime image
 COPY --from=builder /usr/local/bin/ /mylib/
-
-# Copy python libs from builder
-COPY --from=builder /pythonlibs /pythonlibs
 
 WORKDIR /app
 
@@ -49,7 +42,7 @@ ENV BUILD_BRANCH=$DRONE_BRANCH
 ENV BUILD_COMMIT_SHA=$DRONE_COMMIT_SHA
 ENV BUILD_NUMBER=$DRONE_BUILD_NUMBER
 
-ENV PYTHONPATH=/pythonlibs
+ENV PYTHONPATH=/app/recommender_api/pythonlibs
 ENV AWS_DEFAULT_REGION eu-west-1
 
 # Use a nonroot user

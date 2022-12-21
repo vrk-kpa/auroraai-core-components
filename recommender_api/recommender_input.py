@@ -25,6 +25,8 @@ class RecommenderParameters:
                 
         self.include_national_services = filters.get(
             'include_national_services', True)
+        self.only_national_services = filters.get(
+            'only_national_services', False)
         self.target_groups: List[str] = filters.get('target_groups', [])
         self.service_collections: List[str] = filters.get(
             'service_collections', [])

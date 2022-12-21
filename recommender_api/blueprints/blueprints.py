@@ -19,8 +19,8 @@ from recommender_api.ptv import get_service_channel_web_pages, get_format_servic
 from recommender_api.service_recommender import text_search_in_ptv, set_redirect_urls, create_redirect_link
 from recommender_api.translation import translate_service_information, translate_text
 
-from tools.config import config
-from tools.logger import log
+from recommender_api.tools.config import config
+from recommender_api.tools.logger import log
 
 
 recommendation_blueprint = Blueprint(
@@ -97,7 +97,7 @@ def _init_xgboost(app):
         try:
             log.debug("Init XGBoost model.")
             booster = XGBRanker()
-            booster.load_model(f'xgboost/{config["xgboost_model_file"]}')
+            booster.load_model(f'recommender_api/xgboost/{config["xgboost_model_file"]}')
             app.xgboost_model = booster
         except (ValueError, FileNotFoundError, TypeError) as e:
             raise InternalServerError("Failed to load XGBoost model.") from e

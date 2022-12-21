@@ -37,13 +37,21 @@ const SelectedContainer = styled.div`
 export const SelectedFilters = () => {
   const [filters, setFilters] = useRecoilState<FiltersState>(termSearchFiltersState)
 
-  const { includeNationalServices, locationFilters, targetGroupFilters, serviceClassFilters, fundingType } = filters
+  const {
+    includeNationalServices,
+    onlyNationalServices,
+    locationFilters,
+    targetGroupFilters,
+    serviceClassFilters,
+    fundingType,
+  } = filters
 
   const [locale] = useRecoilState(localeState)
 
   const resetFilters = () => {
     setFilters({
       includeNationalServices: false,
+      onlyNationalServices: false,
       locationFiltersSelected: [],
       locationFilters: {
         municipalities: [],
@@ -54,6 +62,7 @@ export const SelectedFilters = () => {
       serviceClassFilters: [],
       targetGroupFilters: [],
       fundingType: [],
+      rerank: false,
     })
   }
 
@@ -73,7 +82,7 @@ export const SelectedFilters = () => {
       </div>
 
       <div>
-        {includeNationalServices && <Chip>Valtakunnalliset palvelut</Chip>}
+        {(includeNationalServices || onlyNationalServices) && <Chip>Valtakunnalliset palvelut</Chip>}
         {fundingType.map((item) => (
           <Chip>{fundingTypeFilters.find((it) => it.type === item)?.name}</Chip>
         ))}
