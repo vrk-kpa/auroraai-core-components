@@ -1,4 +1,5 @@
 import logging
+import warnings
 from uuid import UUID, uuid4
 from contextlib import contextmanager
 from contextvars import ContextVar
@@ -74,6 +75,7 @@ class LogOperationName(Enum):
     SERVER_START = "serverStart"
     API_CALL = "apiCall"
     MESSAGE = "message"
+    WARNING = "warning"
 
     def __str__(self):
         return str(self.value)
@@ -263,3 +265,20 @@ def init_logging_lib():
     requests_logger.addHandler(RequestsLogHandler())
     requests_logger.propagate = False
 
+
+def format_warnings_to_json(msg, category, filename, lineno, line=None):
+    category_name = category.__name__ if category else "Warning"
+
+    entry = {
+        'type': 'technical',
+        'operationName': LogOperationName.WARNING,
+        'timestamp': datetime.utcnow().isoformat(),
+        'errors': [f"{category_name}: {msg} in {filename} line {lineno}. Line: {line}"]
+    }
+
+    record = logging.LogRecord(category_name, logging.WARNING, filename, lineno, entry, None, None)
+
+    return f"{AuroraAiJsonFormatter().format(record)}\n"
+
+
+warnings.formatwarning = format_warnings_to_json

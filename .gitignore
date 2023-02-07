@@ -1,5 +1,6 @@
 *.iml
 **/*~
+**/.DS_Store
 .idea
 .vscode/
 *.swp
@@ -7,6 +8,7 @@
 venv/
 recommender_api/tools/build/
 recommender_api/tools/tools.egg-info/
+recommender_api/ptv_data_loader/tests/test_data/services.json.xz
 pyvenv.cfg
 PTV
 FinBERT
@@ -19,6 +21,7 @@ recommender_api/.wheel_cache
 gopath
 !gopath/.gitkeep
 .npm
+.npmrc
 .drone.yml
 .coverage
 .terraform-test
@@ -26,11 +29,14 @@ gopath
 # We only need locale/af in the version control since translations are kept on Transifex
 locale/*
 !locale/af
+!locale/README.md
 /tests/robotframework/robot_test_results/*.png
 /tests/robotframework/robot_test_results/*.html
 /tests/robotframework/robot_test_results/*.xml
 kubeconfig*
 infra/terraform/modules/zulip-alerts/build/zulip-notify-lambda.zip
+infra/terraform/modules/db-dump/build/db-dump-lambda.zip
+infra/terraform/modules/db-dump/db-dump-lambda/node_modules/
 
 npm-license-report.txt
 python-license-report.txt

@@ -30,7 +30,7 @@ type Props = {
 }
 
 export const App: FC<Props> = ({ config }) => {
-  const [step, setStep] = useState<Step>('questionnaire')
+  useState<Step>('questionnaire')
 
   return (
     <RecoilRoot>

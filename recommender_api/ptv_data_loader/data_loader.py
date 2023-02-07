@@ -1,23 +1,21 @@
 import os
+import sys
 import urllib.parse
 import io
 import json
 from typing import Dict, Any, Set, List
 import lzma
 import math
-from enum import Enum
 import pandas as pd
 import requests
 import more_itertools
 import boto3
 
-
+from recommender_api.ptv_data_loader.constants import PTVPublishState
 from recommender_api.tools.config import config
 from recommender_api.tools.logger import log, LogOperationName
 
 from .db import (
-    delete_service_channel_data_from_db,
-    delete_service_data_from_db,
     load_services_to_db,
     load_service_vectors_to_db,
     load_service_channels_to_db,
@@ -25,28 +23,18 @@ from .db import (
     get_latest_ptv_fetch_timestamp,
     get_service_data_from_db,
     get_service_channel_data_from_db,
+    flag_archived_services_in_db
 )
 
 PTV_SERVICE_URL = config['ptv_url_prefix'] + config['ptv_service_url_suffix']
-PTV_SERVICE_LIST_URL = config['ptv_url_prefix'] + \
-    config['ptv_service_list_url_suffix']
-PTV_SERVICE_CHANNEL_URL = (
-    config['ptv_url_prefix'] + config['ptv_service_channel_url_suffix']
-)
-PTV_SERVICE_CHANNEL_LIST_URL = (
-    config['ptv_url_prefix'] + config['ptv_service_channel_list_url_suffix']
-)
+PTV_SERVICE_LIST_URL = config['ptv_url_prefix'] + config['ptv_service_list_url_suffix']
+PTV_SERVICE_CHANNEL_URL = config['ptv_url_prefix'] + config['ptv_service_channel_url_suffix']
+PTV_SERVICE_CHANNEL_LIST_URL = config['ptv_url_prefix'] + config['ptv_service_channel_list_url_suffix']
 
 SERVICES_BUCKET = config['services_bucket']
 SERVICES_KEY = config['services_key']
 SERVICE_CHANNELS_KEY = config['service_channels_key']
 SERVICE_VECTOR_KEY = config['service_vector_key']
-
-
-class PTVPublishState(Enum):
-    PUBLISHED = 'Published'
-    ARCHIVED = 'Archived'
-    WITHDRAWN = 'Withdrawn'
 
 
 class PTVServiceIDMismatch(Exception):
@@ -63,21 +51,6 @@ class PTVAPIException(Exception):
 
 class ServicesMismatch(Exception):
     pass
-
-
-def load_s3_file(path: str) -> bytes:
-    parsed_path = urllib.parse.urlparse(path)
-    bucket, key = parsed_path.netloc, parsed_path.path[1:]
-    s3_client = boto3.client('s3')
-    if not s3_client:
-        s3_client = boto3.client('s3')
-    return s3_client.get_object(Bucket=bucket, Key=key)['Body'].read()
-
-
-def load_services_from_s3(path: str) -> Dict[str, Dict[str, Any]]:
-    bytes_data = lzma.decompress(load_s3_file(path))
-    services = json.loads(bytes_data.decode())
-    return services
 
 
 def export_data_to_s3(services: Dict[str, Any], service_channels: Dict[str, Any]):
@@ -111,15 +84,21 @@ def ptv_paginate(n_pages: int, url: str, start_date: str, status: PTVPublishStat
     return ids
 
 
-def fetch_ptv_services(start_date: str) -> Dict[str, Dict[str, Any]]:
+def fetch_ptv_services(
+        start_date: str,
+        publish_state: PTVPublishState = PTVPublishState.PUBLISHED
+) -> Dict[str, Dict[str, Any]]:
     log.debug('Fetching service information')
-    service_ids = fetch_service_ids(start_date)
+    service_ids = fetch_service_ids(start_date, publish_state)
     return fetch_service_infos(service_ids)
 
 
-def fetch_ptv_service_channels(start_date: str) -> List[dict]:
+def fetch_ptv_service_channels(
+        start_date: str,
+        publish_state: PTVPublishState = PTVPublishState.PUBLISHED
+) -> List[dict]:
     log.debug('Fetching service channel information')
-    service_channel_ids = fetch_ptv_service_channel_ids(start_date)
+    service_channel_ids = fetch_ptv_service_channel_ids(start_date, publish_state)
     return fetch_service_channel_datas(service_channel_ids)
 
 
@@ -141,9 +120,11 @@ def fetch_service_channel_datas(service_channel_ids: Set[str]) -> List[dict]:
 
     for idx, item_ids in enumerate(more_itertools.chunked(service_channel_ids, max_supported_request_id_count)):
         log.debug(f'Fetching service channel data from PTV ' \
-            f'(set {idx + 1} / {math.ceil(len(service_channel_ids) / max_supported_request_id_count)})')
+                  f'(set {idx + 1} / {math.ceil(len(service_channel_ids) / max_supported_request_id_count)})')
+
         resp = requests.get(PTV_SERVICE_CHANNEL_LIST_URL, params={
-                            'guids': ','.join(item_ids)}, timeout=120)
+            'guids': ','.join(item_ids)}, timeout=120)
+
         if resp.status_code != 200:
             log.technical.error(
                 f'Error reading Service channels from PTV. '
@@ -165,11 +146,14 @@ def fetch_service_infos(service_ids: Set[str]) -> Dict[str, Dict[str, Any]]:
     # This is slow
     service_infos: Dict[str, Dict[str, Any]] = {}
     max_supported_request_id_count = 99
+
     for idx, item_ids in enumerate(more_itertools.chunked(service_ids, max_supported_request_id_count)):
         log.debug(f'Fetching service data from PTV ' \
-            f'(set {idx + 1} / {math.ceil(len(service_ids) / max_supported_request_id_count)})')
+                  f'(set {idx + 1} / {math.ceil(len(service_ids) / max_supported_request_id_count)})')
+
         resp = requests.get(PTV_SERVICE_LIST_URL, params={
-                            'guids': ','.join(item_ids)}, timeout=120)
+            'guids': ','.join(item_ids)}, timeout=120)
+
         if resp.status_code != 200:
             log.technical.error(
                 f'Error reading Services from PTV. '
@@ -219,7 +203,7 @@ def load_service_vector_csv(bucket, file_path):
 
 
 def clean_service_vector_csv(
-    service_vectors: pd.DataFrame, service_ids: Set[str]
+        service_vectors: pd.DataFrame, service_ids: Set[str]
 ) -> pd.DataFrame:
     log.debug('Generating service vectors')
     service_vectors = service_vectors[service_vectors['id'].notna()]
@@ -303,26 +287,24 @@ def remove_duplicates(items: List[dict], key: str):
     return result
 
 
-def remove_archived_service_data(start_date: str):
-    log.debug('Removing services in archived/withdrawn state from database')
+def flag_archived_service_data(start_date: str):
+    log.debug('Flagging services in archived/withdrawn state in database')
 
     services: List = []
     services.extend(fetch_service_ids(start_date, PTVPublishState.ARCHIVED))
     services.extend(fetch_service_ids(start_date, PTVPublishState.WITHDRAWN))
     log.debug(f'No. of archived/withdrawn services: {len(services)}')
-    delete_service_data_from_db(services)
 
     service_channels: List = []
-    service_channels.extend(fetch_ptv_service_channel_ids(
-        start_date, PTVPublishState.ARCHIVED))
-    service_channels.extend(fetch_ptv_service_channel_ids(
-        start_date, PTVPublishState.WITHDRAWN))
-    log.debug(
-        f'No. of archived/withdrawn service channels: {len(service_channels)}')
-    delete_service_channel_data_from_db(service_channels)
+    service_channels.extend(fetch_ptv_service_channel_ids(start_date, PTVPublishState.ARCHIVED))
+    service_channels.extend(fetch_ptv_service_channel_ids(start_date, PTVPublishState.WITHDRAWN))
+    log.debug(f'No. of archived/withdrawn service channels: {len(service_channels)}')
+    flag_archived_services_in_db(services, service_channels)
 
 
 def main():
+    exit_code = 0
+
     with log.open():
         try:
             log.technical.info(
@@ -339,32 +321,37 @@ def main():
                 last_ptv_fetch = get_latest_ptv_fetch_timestamp()
                 log.debug(f'Previous fetch from PTV: {last_ptv_fetch}')
 
-            services = fetch_ptv_services(last_ptv_fetch)
+            services = fetch_ptv_services(last_ptv_fetch, PTVPublishState.PUBLISHED)
+
             log.debug(f'{len(services)} services fetched from PTV')
             load_services_to_db(services)
 
-            service_channels = fetch_ptv_service_channels(last_ptv_fetch)
-            log.debug(
-                f'{len(service_channels)} service channels fetched from PTV')
+            service_channels = fetch_ptv_service_channels(last_ptv_fetch, PTVPublishState.PUBLISHED)
+
+            log.debug(f'{len(service_channels)} service channels fetched from PTV')
             load_service_channels_to_db(service_channels)
 
-            remove_archived_service_data(last_ptv_fetch)
+            flag_archived_service_data(last_ptv_fetch)
 
-            all_services = get_service_data_from_db()
-            all_service_channels = get_service_channel_data_from_db()
+            published_services = get_service_data_from_db()
+            published_service_channels = get_service_channel_data_from_db()
 
             service_vectors = clean_service_vector_csv(
                 load_service_vector_csv(SERVICES_BUCKET, SERVICE_VECTOR_KEY),
-                set(all_services.keys()),
+                set(published_services.keys()),
             )
             load_service_vectors_to_db(service_vectors)
 
-            export_data_to_s3(all_services, all_service_channels)
+            export_data_to_s3(published_services, published_service_channels)
             add_ptv_fetch_timestamp_to_db()
 
             log.debug('Finished')
+
         except Exception as error:
             log.technical.error(str(error))
+            exit_code = 1
+
+    sys.exit(exit_code)
 
 
 if __name__ == '__main__':

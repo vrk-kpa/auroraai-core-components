@@ -20,7 +20,7 @@ export const meters = [
   'life_satisfaction',
 ] as const
 
-export type Meter = typeof meters[number]
+export type Meter = (typeof meters)[number]
 export type Meters = { [meter in Meter]: number }
 
 export const constructRecommendationPayload = (
@@ -31,7 +31,7 @@ export const constructRecommendationPayload = (
   municipality_codes?: string[],
   region_codes?: string[],
   hospital_district_codes?: string[],
-  wellbeing_county_codes?: string[],
+  wellbeing_service_county_codes?: string[],
   service_classes?: string[],
   target_groups?: string[],
   funding_type?: string[],
@@ -47,7 +47,7 @@ export const constructRecommendationPayload = (
       municipality_codes,
       region_codes,
       hospital_district_codes,
-      wellbeing_county_codes,
+      wellbeing_service_county_codes,
       service_classes,
       target_groups,
       funding_type,
@@ -66,7 +66,7 @@ export const fetchRecommendations = (
   municipality_codes?: string[],
   region_codes?: string[],
   hospital_district_codes?: string[],
-  wellbeing_county_codes?: string[],
+  wellbeing_service_county_codes?: string[],
   service_classes?: string[],
   target_groups?: string[],
   funding_type?: string[],
@@ -81,7 +81,7 @@ export const fetchRecommendations = (
     municipality_codes,
     region_codes,
     hospital_district_codes,
-    wellbeing_county_codes,
+    wellbeing_service_county_codes,
     service_classes,
     target_groups,
     funding_type,
@@ -115,7 +115,7 @@ export const fetchTextSearch = (
   municipality_codes?: string[],
   region_codes?: string[],
   hospital_district_codes?: string[],
-  wellbeing_county_codes?: string[],
+  wellbeing_service_county_codes?: string[],
   service_classes?: string[],
   target_groups?: string[],
   funding_type?: string[],
@@ -129,7 +129,7 @@ export const fetchTextSearch = (
       municipality_codes,
       region_codes,
       hospital_district_codes,
-      wellbeing_county_codes,
+      wellbeing_service_county_codes,
       service_classes,
       target_groups,
       funding_type,
@@ -165,13 +165,6 @@ export const fetchServiceTranslation = (serviceId: string, language: string) => 
     body: JSON.stringify(payload),
     headers: { 'Content-Type': 'application/json' },
   })
-}
-
-export const fetchFeatureFlags = () => {
-  const featureFlagPromise = fetch(`${UI_BASE_URL}/config`, {
-    method: 'GET',
-  })
-  return featureFlagPromise.then((response) => response.json()).then((json) => json.featureFlags.split(' '))
 }
 
 export const fetchConfig = async () => {

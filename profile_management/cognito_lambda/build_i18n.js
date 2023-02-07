@@ -7,7 +7,9 @@ const sourceLanguage = require(path.join(
   "../../locale/af/profileManagementUI.json"
 ))
 const locales = fs
-  .readdirSync(path.join(__dirname, "../../locale"))
+  .readdirSync(path.join(__dirname, "../../locale"), { withFileTypes: true })
+  .filter((dirent) => dirent.isDirectory())
+  .map((dirent) => dirent.name)
   .filter((locale) => locale !== "af")
 const otherLanguages = locales.map((locale) =>
   require(path.join(

@@ -1,7 +1,6 @@
-venv
-FinBERT
+**/venv
+recommender_api/fasttext
 infra
-PTV
 **/build
 **/node_modules
 schemas/scripts/

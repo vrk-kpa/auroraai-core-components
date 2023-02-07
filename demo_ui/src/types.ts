@@ -51,28 +51,28 @@ export type HospitalDistrict = {
 }
 
 export type WellbeingCounty = {
-    id: string
-    codeValue: string
-    uri: string
-    order: string
-    hierarchyLevel: number
-    prefLabel: Record<string, string>
+  id: string
+  codeValue: string
+  uri: string
+  order: string
+  hierarchyLevel: number
+  prefLabel: Record<string, string>
 }
 
 export type PTVEntity = {
-    id: string
-    codeValue: string
-    uri: string
-    url: string
-    status: string
-    order: number
-    hierarchyLevel: number
-    created: string
-    modified: string
-    prefLabel: Record<Language, string>
-    description?: Record<Language, string>
-    broaderCode?: PTVEntity
-    membersUrl: string
+  id: string
+  codeValue: string
+  uri: string
+  url: string
+  status: string
+  order: number
+  hierarchyLevel: number
+  created: string
+  modified: string
+  prefLabel: Record<Language, string>
+  description?: Record<Language, string>
+  broaderCode?: PTVEntity
+  membersUrl: string
 }
 
 export const ptvServiceClasses: PTVServiceClass[] = Object.values(ptvServiceClassesResource['codes'])
@@ -96,17 +96,16 @@ export type LocationFilterType = {
 
 export type FundingType = 'PubliclyFunded' | 'MarketFunded'
 export type FundingTypeFilter = {
-    type: FundingType
-    name: string
+  type: FundingType
+  name: string
 }
-
 
 export type Language = 'fi' | 'sv' | 'en'
 export type RecommendationFilter = 'location' | 'service_class' | 'target_group' | 'other'
 export type Step = 'questionnaire' | 'recommendations'
 export type Config = {
-    environment: string
-    featureFlags: string[]
+  environment: string
+  featureFlags: string[]
 }
 
 export const municipalitiesFilter: LocationFilterType = { type: 'municipalities', name: 'Kunta' }

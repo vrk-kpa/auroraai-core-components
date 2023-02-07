@@ -7,6 +7,7 @@ insert into
         area_type,
         service_class_name,
         description,
+        archived,
         service_data
     )
 values
@@ -18,7 +19,8 @@ values
         'Municipality',
         'Nimi1',
         'Taideopetukseen liittyvä palvelu.',
-        '{"id": "d64476db-f2df-4699-bb6a-1bfae007577a", "serviceNames": [{"language": "fi", "value": "Taideopetus kulttuurikeskuksissa", "type": "Name"}], "targetGroups": [{"code": "KR1"}], "serviceCollections": [{"id": "744c4b61-fde5-4d23-a844-cee5728b9119","name": [{"value": "Kaavoitus ja maankäyttö","language": "fi"}]}], "serviceChannels": [{"serviceChannel": {"id": "8e41462f-87e8-41d5-a14a-727b680f781c"}}, {"serviceChannel": {"id": "f283c2dc-8223-408a-8a73-1d62489e1f58"}}, {"serviceChannel": {"id": "fadd4cc4-4a00-4002-afb1-bbcfacdde5c1"}}, {"serviceChannel": {"id": "d589d34d-7dc1-4e25-af7b-dfd2ee9bf062"}}]}' :: jsonb
+        false,
+        '{"id": "d64476db-f2df-4699-bb6a-1bfae007577a", "serviceNames": [{"language": "fi", "value": "Taideopetus kulttuurikeskuksissa", "type": "Name"}], "targetGroups": [{"code": "KR1"}], "serviceCollections": [{"id": "744c4b61-fde5-4d23-a844-cee5728b9119","name": [{"value": "Kaavoitus ja maankäyttö","language": "fi"}]}], "serviceChannels": [{"serviceChannel": {"id": "8e41462f-87e8-41d5-a14a-727b680f781c"}}, {"serviceChannel": {"id": "f283c2dc-8223-408a-8a73-1d62489e1f58"}}, {"serviceChannel": {"id": "fadd4cc4-4a00-4002-afb1-bbcfacdde5c1"}}, {"serviceChannel": {"id": "d589d34d-7dc1-4e25-af7b-dfd2ee9bf062"}}, {"serviceChannel": {"id": "1d3699e9-fb45-4b35-b7a2-bcc1322d939b"}}]}' :: jsonb
     ),
     (
         'e7df7411-64ef-48ef-ad5f-eebacde480e2',
@@ -28,6 +30,7 @@ values
         'Municipality',
         'Nimi2',
         'Harrastukset on ihmiselle hyväksi.',
+        false,
         '{"id": "e7df7411-64ef-48ef-ad5f-eebacde480e2", "serviceNames": [{"language": "fi", "value": "Harrastustoiminta", "type": "Name"}], "serviceChannels": []}' :: jsonb
     ),
     (
@@ -38,6 +41,7 @@ values
         'Nationwide',
         'Nimi3',
         'Työnhakuun on hyvä valmentautua.',
+        false,
         '{"id": "6c415cf0-827d-47d0-86e4-866100bc86a8", "serviceNames": [{"language": "fi", "value": "Työnhakuvalmennus", "type": "Name"}], "serviceChannels": []}' :: jsonb
     ),
     (
@@ -48,6 +52,7 @@ values
         'Nationwide',
         'Nimi4',
         'Vaikka et olisi kansanedustaja, voit osallistua päätöksentekoon ja vaikuttaa!',
+        false,
         '{"id": "07058248-f002-4897-b1d5-7df9aa734c55", "serviceNames": [{"language": "fi", "value": "Osallistu päätöksentekoon ja lainvalmisteluun", "type": "Name"}], "serviceChannels": [{"serviceChannel": {"id": "8e41462f-87e8-41d5-a14a-727b680f781c"}}]}' :: jsonb
     ),
     (
@@ -58,6 +63,7 @@ values
         'Municipality',
         'Nimi5',
         'Tämän palvelu kuvaus on lyhykäinen.',
+        false,
         '{"id": "b9e2ff7d-3d18-476d-94e0-4a818f1136d6", "serviceNames": [{"language": "fi", "value": "Palvelu luokassa 5.3", "type": "Name"}], "serviceChannels": [], "fundingType": "MarketFunded", "serviceClasses": [{"newUri": "http://uri.suomi.fi/codelist/ptv/ptvserclass2/code/P5.3", "newParentUri": "http://uri.suomi.fi/codelist/ptv/ptvserclass2/code/P5"}]}' :: jsonb
     ),
     (
@@ -68,7 +74,19 @@ values
         'Municipality',
         'Nimi6',
         'Tämä palvelu kuuluu useampaan eri luokkaan.',
+        false,
         '{"id": "909e5065-ad9d-40f5-a54d-58c88b2f6bfc", "serviceNames": [{"language": "fi", "value": "Palvelu luokissa 5.1 ja 10.2", "type": "Name"}], "organizations": [{"organization": {"id": "7d38c671-98cd-4feb-8248-cc6a09f9e01c", "name": "Test organization"}, "roleType": "Responsible"}], "serviceChannels": [], "serviceClasses": [{"newUri": "http://uri.suomi.fi/codelist/ptv/ptvserclass2/code/P5.1", "newParentUri": "http://uri.suomi.fi/codelist/ptv/ptvserclass2/code/P5"}, {"newUri": "http://uri.suomi.fi/codelist/ptv/ptvserclass2/code/P10.2", "newParentUri": "http://uri.suomi.fi/codelist/ptv/ptvserclass2/code/P10"}]}' :: jsonb
+    ),
+    (
+        'd65dbaf8-6ece-4985-b358-6ab5ecaba0e7',
+        'arkistoitu/poistettu palvelu, jota ei saa suositella',
+        'testi',
+        '638',
+        'Municipality',
+        'Nimi6',
+        'Tämä palvelu kuuluu useampaan eri luokkaan.',
+        true,
+        '{"id": "d65dbaf8-6ece-4985-b358-6ab5ecaba0e7", "serviceNames": [{"language": "fi", "value": "Palvelu luokissa 5.1 ja 10.2", "type": "Name"}], "organizations": [{"organization": {"id": "7d38c671-98cd-4feb-8248-cc6a09f9e01c", "name": "Test organization"}, "roleType": "Responsible"}], "serviceChannels": [], "serviceClasses": [{"newUri": "http://uri.suomi.fi/codelist/ptv/ptvserclass2/code/P5.1", "newParentUri": "http://uri.suomi.fi/codelist/ptv/ptvserclass2/code/P5"}, {"newUri": "http://uri.suomi.fi/codelist/ptv/ptvserclass2/code/P10.2", "newParentUri": "http://uri.suomi.fi/codelist/ptv/ptvserclass2/code/P10"}]}' :: jsonb
     ),
     (
         '811c88b7-74db-414c-bbce-9735c9feb14a',
@@ -78,27 +96,37 @@ values
         'Nationwide',
         'Nimi7',
         'Tämä on kansallinen palvelu, ja se luokitellaan kuuluvaksi useampaan ryhmään.',
+        false,
         '{"id": "811c88b7-74db-414c-bbce-9735c9feb14a", "serviceNames": [{"language": "fi", "value": "Kansallinen palvelu luokissa 4.1 ja 10.2", "type": "Name"}], "fundingType": "PubliclyFunded", "serviceChannels": [], "serviceClasses": [{"newUri": "http://uri.suomi.fi/codelist/ptv/ptvserclass2/code/P4.1", "newParentUri": "http://uri.suomi.fi/codelist/ptv/ptvserclass2/code/P4"}, {"newUri": "http://uri.suomi.fi/codelist/ptv/ptvserclass2/code/P10.2", "newParentUri": "http://uri.suomi.fi/codelist/ptv/ptvserclass2/code/P10"}]}' :: jsonb
     );
 
 insert into
-    service_recommender.service_channel(service_channel_id, service_channel_data)
+    service_recommender.service_channel(service_channel_id, archived, service_channel_data)
 values
     (
         '8e41462f-87e8-41d5-a14a-727b680f781c',
+        false,
         '{"id": "8e41462f-87e8-41d5-a14a-727b680f781c", "serviceChannelNames": [{"language": "fi", "value": "channel_name1", "type": "Name"}], "serviceChannelDescriptions": [{"language": "fi", "value": "channel 1 description summary", "type": "Summary"}, {"language": "fi", "value": "channel 1 description", "type": "Description"}], "webPages": []}' :: jsonb
     ),
     (
         'f283c2dc-8223-408a-8a73-1d62489e1f58',
+        false,
         '{"id": "f283c2dc-8223-408a-8a73-1d62489e1f58", "serviceChannelNames": [{"language": "fi", "value": "channel_name2", "type": "Name"}], "serviceChannelDescriptions": [{"language": "fi", "value": "channel 2 description summary", "type": "Summary"}, {"language": "fi", "value": "channel 2 description", "type": "Description"}], "webPages": [{"url": "url2", "value": null, "language": "fi"}], "serviceChannelType": "EChannel"}' :: jsonb
     ),
     (
         'fadd4cc4-4a00-4002-afb1-bbcfacdde5c1',
+        false,
         '{"id": "fadd4cc4-4a00-4002-afb1-bbcfacdde5c1", "serviceChannelNames": [{"language": "fi", "value": "channel_name3", "type": "Name"}], "serviceChannelDescriptions": [{"language": "fi", "value": "channel 3 description summary", "type": "Summary"}, {"language": "fi", "value": "channel 3 description", "type": "Description"}], "webPages": [], "serviceChannelType": "Phone"}' :: jsonb
     ),
     (
         'd589d34d-7dc1-4e25-af7b-dfd2ee9bf062',
+        false,
         '{"id": "d589d34d-7dc1-4e25-af7b-dfd2ee9bf062", "serviceChannelNames": [{"language": "fi", "value": "channel_name2", "type": "Name"}], "serviceChannelDescriptions": [{"language": "fi", "value": "channel 4 description summary", "type": "Summary"}, {"language": "fi", "value": "channel 4 description", "type": "Description"}], "webPages": [{"url": "url4", "value": null, "language": "fi"}], "serviceChannelType": "PrintableForm"}' :: jsonb
+    ),
+    (
+        '1d3699e9-fb45-4b35-b7a2-bcc1322d939b',
+        true,
+        '{"id": "1d3699e9-fb45-4b35-b7a2-bcc1322d939b", "serviceChannelNames": [{"language": "fi", "value": "channel_name2", "type": "Name"}], "serviceChannelDescriptions": [{"language": "fi", "value": "archived channel", "type": "Summary"}, {"language": "fi", "value": "archived!", "type": "Description"}], "webPages": [{"url": "url4", "value": null, "language": "fi"}], "serviceChannelType": "PrintableForm"}' :: jsonb
     );
 
 insert into

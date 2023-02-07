@@ -1,0 +1,340 @@
+{
+  "6c00d407-d3fd-4c7e-a373-57be9f3b2cff": {
+    "id": "6c00d407-d3fd-4c7e-a373-57be9f3b2cff",
+    "sourceId": null,
+    "generalDescriptionId": "9403ae40-861d-4a86-ae23-44f4bfc9f572",
+    "subType": null,
+    "type": "Service",
+    "fundingType": "PubliclyFunded",
+    "serviceNames": [
+      {
+        "language": "fi",
+        "value": "Yksilöllistetty oppimäärä",
+        "type": "Name"
+      }
+    ],
+    "serviceChargeType": null,
+    "areaType": "LimitedType",
+    "areas": [
+      {
+        "type": "Municipality",
+        "code": null,
+        "name": null,
+        "municipalities": [
+          {
+            "code": "426",
+            "name": [
+              {
+                "value": "Liperi",
+                "language": "sv"
+              },
+              {
+                "value": "Liperi",
+                "language": "en"
+              },
+              {
+                "value": "Liperi",
+                "language": "fi"
+              }
+            ]
+          },
+          {
+            "code": "123",
+            "name": [
+              {
+                "value": "Tohmajärvi",
+                "language": "sv"
+              },
+              {
+                "value": "Tohmajärvi",
+                "language": "en"
+              },
+              {
+                "value": "Tohmajärvi",
+                "language": "fi"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "serviceDescriptions": [
+      {
+        "language": "fi",
+        "value": "Liperin koulut noudattavat erityisopetuksen suhteen opetussuunnitelmaa. Erityisoppilaat integroidaan mahdollisuuksien mukaan yleisopetuksen ryhmiin. Oppimäärää voidaan yksilöllistää, jos opiskelijalla ei ole edellytyksiä suoriutua perusopetuksen jonkin oppiaineen oppimäärästä hyväksytysti.",
+        "type": "Description"
+      },
+      {
+        "language": "fi",
+        "value": "Oppimäärää voidaan yksilöllistää, jos opiskelijalla ei ole edellytyksiä suoriutua perusopetuksen jonkin oppiaineen oppimäärästä hyväksytysti.",
+        "type": "Summary"
+      },
+      {
+        "language": "fi",
+        "value": null,
+        "type": "ValidityTime"
+      },
+      {
+        "language": "fi",
+        "value": "Oppimäärän yksilöllistämisestä sovitaan yksilöllisesti omassa koulussa. Koulun rehtori hakee yksilöllistämisen hallintopäätöstä hyvinvointipalveluiden esimieheltä.\n",
+        "type": "UserInstruction"
+      },
+      {
+        "language": "fi",
+        "value": null,
+        "type": "ChargeTypeAdditionalInfo"
+      },
+      {
+        "language": "fi",
+        "value": null,
+        "type": "DeadLine"
+      },
+      {
+        "language": "fi",
+        "value": null,
+        "type": "ProcessingTime"
+      }
+    ],
+    "languages": [
+      "fi"
+    ],
+    "serviceClasses": [
+      {
+        "name": [
+          {
+            "value": "Grundläggande utbildning",
+            "language": "sv"
+          },
+          {
+            "value": "Basic education",
+            "language": "en"
+          },
+          {
+            "value": "Perusopetus",
+            "language": "fi"
+          }
+        ],
+        "description": [
+          {
+            "value": "Till denna serviceundergrupp hör både den egentliga grundläggande utbildningen med innehåll och mål samt direkta tjänster som erbjuds i anslutning till grundläggande utbildningen och för att stöda den, t.ex. skoltransporter, skolmat och assistanstjänster. Till denna grupp hör också ärenden i anslutning till avläggande av grundläggande utbildning utomlands i enlighet med den finska grundläggande utbildningen.",
+            "language": "sv"
+          },
+          {
+            "value": "This service subclass contains basic education itself with its contents and objectives as well as the services offered directly in connection with and in support of basic education, for example school transport, school lunches and an assistant’s services. The class also includes issues related to completing abroad a basic education that is in line with the Finnish basic education.",
+            "language": "en"
+          },
+          {
+            "value": "Tähän palvelualaluokkaan kuuluvat sekä varsinainen perusopetus sisältöineen ja tavoitteineen sekä perusopetuksen yhteydessä ja sen tukemiseksi välittömästi tarjottavat palvelut, esimerkiksi koulukuljetukset, kouluruokailu ja avustajapalvelut. Tähän luokkaan kuuluvat myös Suomen perusopetuksen mukaisen peruskoulutuksen ulkomailla suorittamiseen liittyvät asiat.",
+            "language": "fi"
+          }
+        ],
+        "code": "P6.2",
+        "ontologyType": "PTVL",
+        "uri": "http://urn.fi/URN:NBN:fi:au:ptvl:v1062",
+        "parentId": "fd1bb60e-4206-4f0a-994f-8ffcb4ffaaa4",
+        "parentUri": "http://urn.fi/URN:NBN:fi:au:ptvl:v1060",
+        "newUri": null,
+        "newParentUri": null
+      }
+    ],
+    "ontologyTerms": [
+      {
+        "name": [
+          {
+            "value": "grundskolan",
+            "language": "sv"
+          },
+          {
+            "value": "comprehensive school",
+            "language": "en"
+          },
+          {
+            "value": "peruskoulu",
+            "language": "fi"
+          }
+        ],
+        "code": null,
+        "ontologyType": "YSO",
+        "uri": "http://www.yso.fi/onto/koko/p14592",
+        "parentId": null,
+        "parentUri": "http://www.yso.fi/onto/koko/p48279",
+        "newUri": null,
+        "newParentUri": null
+      },
+      {
+        "name": [
+          {
+            "value": "grundläggande utbildning",
+            "language": "sv"
+          },
+          {
+            "value": "basic education",
+            "language": "en"
+          },
+          {
+            "value": "perusopetus",
+            "language": "fi"
+          }
+        ],
+        "code": null,
+        "ontologyType": "JUPO",
+        "uri": "http://www.yso.fi/onto/koko/p1275",
+        "parentId": null,
+        "parentUri": "http://www.yso.fi/onto/koko/p36950;http://www.yso.fi/onto/koko/p33827",
+        "newUri": null,
+        "newParentUri": null
+      }
+    ],
+    "targetGroups": [
+      {
+        "name": [
+          {
+            "value": "Barn och barnfamiljer",
+            "language": "sv"
+          },
+          {
+            "value": "Children and families with children",
+            "language": "en"
+          },
+          {
+            "value": "Lapset ja lapsiperheet",
+            "language": "fi"
+          }
+        ],
+        "code": "KR1.2",
+        "ontologyType": "ptvkohderyhmat",
+        "uri": "http://urn.fi/URN:NBN:fi:au:ptvl:v2003",
+        "parentId": "daff1fb9-9394-49b5-b033-d1d1c7005ab6",
+        "parentUri": "http://urn.fi/URN:NBN:fi:au:ptvl:v2001",
+        "newUri": "http://uri.suomi.fi/codelist/ptv/ptvkohderyhmat/code/KR1.2",
+        "newParentUri": "http://uri.suomi.fi/codelist/ptv/ptvkohderyhmat/code/KR1"
+      },
+      {
+        "name": [
+          {
+            "value": "Medborgare",
+            "language": "sv"
+          },
+          {
+            "value": "Citizens",
+            "language": "en"
+          },
+          {
+            "value": "Kansalaiset",
+            "language": "fi"
+          }
+        ],
+        "code": "KR1",
+        "ontologyType": "ptvkohderyhmat",
+        "uri": "http://urn.fi/URN:NBN:fi:au:ptvl:v2001",
+        "parentId": null,
+        "parentUri": null,
+        "newUri": "http://uri.suomi.fi/codelist/ptv/ptvkohderyhmat/code/KR1",
+        "newParentUri": null
+      }
+    ],
+    "lifeEvents": [],
+    "industrialClasses": [],
+    "legislation": [],
+    "keywords": [],
+    "requirements": [
+      {
+        "value": "Oppimäärän yksilöllistäminen edellyttää, että oppilaan koulunkäynnistä tehdään pedagoginen selvitys, joka sisältää arvion oppilaan erityisen tuen tarpeesta.\n",
+        "language": "fi"
+      }
+    ],
+    "serviceChannels": [
+      {
+        "serviceChannel": {
+          "id": "8e4a8e8a-2edf-464b-9b43-c5805c332e06",
+          "name": "Liperin koulu"
+        },
+        "serviceChargeType": null,
+        "description": [],
+        "extraTypes": [],
+        "serviceHours": [],
+        "contactDetails": null,
+        "digitalAuthorizations": [],
+        "modified": "2017-05-19T10:15:52.373877"
+      },
+      {
+        "serviceChannel": {
+          "id": "1f3e096a-d281-45cc-a3f3-5feed5c514a7",
+          "name": "Viinijärven koulu"
+        },
+        "serviceChargeType": null,
+        "description": [],
+        "extraTypes": [],
+        "serviceHours": [],
+        "contactDetails": null,
+        "digitalAuthorizations": [],
+        "modified": "2017-05-25T07:22:12.025504"
+      },
+      {
+        "serviceChannel": {
+          "id": "7602ee7f-20bb-4379-b994-3e217bebbe07",
+          "name": "Salokylän koulu"
+        },
+        "serviceChargeType": null,
+        "description": [],
+        "extraTypes": [],
+        "serviceHours": [],
+        "contactDetails": null,
+        "digitalAuthorizations": [],
+        "modified": "2017-05-25T07:22:12.025504"
+      },
+      {
+        "serviceChannel": {
+          "id": "b167f0f7-83f4-4251-a253-bb1643623a78",
+          "name": "Mattisenlahden koulu"
+        },
+        "serviceChargeType": null,
+        "description": [],
+        "extraTypes": [],
+        "serviceHours": [],
+        "contactDetails": null,
+        "digitalAuthorizations": [],
+        "modified": "2017-05-25T07:22:12.025504"
+      },
+      {
+        "serviceChannel": {
+          "id": "d353a0ef-4672-4eda-a8ed-fbfcba1a776f",
+          "name": "Ylämyllyn koulu"
+        },
+        "serviceChargeType": null,
+        "description": [],
+        "extraTypes": [],
+        "serviceHours": [],
+        "contactDetails": null,
+        "digitalAuthorizations": [],
+        "modified": "2017-05-25T07:22:12.025504"
+      }
+    ],
+    "organizations": [
+      {
+        "organization": {
+          "id": "a6e72986-0d23-4d4b-8619-b49fa0c5baa3",
+          "name": "Liperin kunta"
+        },
+        "roleType": "Responsible",
+        "provisionType": null,
+        "additionalInformation": []
+      },
+      {
+        "organization": {
+          "id": "a6e72986-0d23-4d4b-8619-b49fa0c5baa3",
+          "name": "Liperin kunta"
+        },
+        "roleType": "Producer",
+        "provisionType": "SelfProducedServices",
+        "additionalInformation": []
+      }
+    ],
+    "serviceVouchersInUse": false,
+    "serviceVouchers": [],
+    "serviceCollections": [],
+    "publishingStatus": "Published",
+    "modified": "2019-11-18T12:46:30.211131",
+    "responsibleSoteOrganization": null
+  }
+  }

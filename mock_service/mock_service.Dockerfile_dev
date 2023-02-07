@@ -1,17 +1,15 @@
 FROM public.ecr.aws/docker/library/node:16.15.1-bullseye
-WORKDIR /builder
 
-COPY mock_service/.yarn/ .yarn
+WORKDIR /builder
 
 COPY mock_service/package.json package.json
 COPY mock_service/yarn.lock yarn.lock
 COPY mock_service/.yarnrc .yarnrc
 COPY .npmrc .npmrc
 
-COPY .yarn/cache .yarn/cache
-
 RUN yarn install --immutable
-CMD yarn run dev
+RUN rm .npmrc
 
+CMD yarn run dev
 
 

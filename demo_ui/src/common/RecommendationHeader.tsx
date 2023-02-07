@@ -2,10 +2,10 @@ import { useRecoilState } from 'recoil'
 import styled from 'styled-components'
 import { Chip, suomifiDesignTokens } from 'suomifi-ui-components'
 import { Municipality, RecommendedService } from '../dto/RecommendServiceResponseDto'
-import {TranslateButton} from "../TranslateButton/TranslateButton"
+import { TranslateButton } from '../TranslateButton/TranslateButton'
 import { localeState } from '../state/global'
 import { Language } from '../types'
-import {Dispatch, SetStateAction} from "react";
+import { Dispatch, SetStateAction } from 'react'
 
 const TitleContainer = styled.div`
   display: flex;
@@ -45,7 +45,7 @@ const isNationalService = (s: RecommendedService) => {
 }
 
 const isNationalExceptAlandIslandsService = (s: RecommendedService) => {
-    return s.area_type === 'NationwideExceptAlandIslands'
+  return s.area_type === 'NationwideExceptAlandIslands'
 }
 
 const isRegionalService = (s: RecommendedService) => {
@@ -53,32 +53,32 @@ const isRegionalService = (s: RecommendedService) => {
 }
 
 const getMunicipalitiesInfo = (s: RecommendedService, locale: Language) => {
-    let municipalities: Municipality[] = []
+  let municipalities: Municipality[] = []
 
-    s.areas.forEach((item) => {
-        municipalities = municipalities.concat(item.municipalities)
-    })
-    return municipalities.length > 1
-        ? `${municipalities.length} kuntaa`
-        : municipalities.length === 1
-            ? municipalities[0].name.find((v) => v.language === locale)?.value
-            : ''
+  s.areas.forEach((item) => {
+    municipalities = municipalities.concat(item.municipalities)
+  })
+  return municipalities.length > 1
+    ? `${municipalities.length} kuntaa`
+    : municipalities.length === 1
+    ? municipalities[0].name.find((v) => v.language === locale)?.value
+    : ''
 }
 
-const AreaTypeInfo = ({ service}: { service: RecommendedService }) => {
-    const [locale] = useRecoilState(localeState)
-    return (
-        <>{isNationalService(service) ? (
-            <Chip>Valtakunnallinen</Chip>
-        ) : isNationalExceptAlandIslandsService(service) ? (
-            <Chip>Valtakunnallinen (pl. Ahvenanmaa) </Chip>
-        ) : (
-            isRegionalService(service) && <Chip> {getMunicipalitiesInfo(service, locale)}</Chip>
-        )
-
-        }
-        </>)
-}   
+const AreaTypeInfo = ({ service }: { service: RecommendedService }) => {
+  const [locale] = useRecoilState(localeState)
+  return (
+    <>
+      {isNationalService(service) ? (
+        <Chip>Valtakunnallinen</Chip>
+      ) : isNationalExceptAlandIslandsService(service) ? (
+        <Chip>Valtakunnallinen (pl. Ahvenanmaa) </Chip>
+      ) : (
+        isRegionalService(service) && <Chip> {getMunicipalitiesInfo(service, locale)}</Chip>
+      )}
+    </>
+  )
+}
 
 export const RecommendationHeader = ({
   service,
@@ -88,26 +88,26 @@ export const RecommendationHeader = ({
   service: RecommendedService
   setService?: Dispatch<SetStateAction<RecommendedService>> | undefined
   showSimilarity?: boolean
-    }) => {
-
+}) => {
   return (
     <TitleContainer>
       <div className='name'>
         <ResponsibleOrganizationContainer>{service.responsible_organization?.name}</ResponsibleOrganizationContainer>
         <span>{service.service_name}</span>
       </div>
-          <div className='details'>
-              <AreaTypeInfo service={service}/>
-       
+      <div className='details'>
+        <AreaTypeInfo service={service} />
+
         {showSimilarity && service.similarity_score && (
           <Similarity>{service?.similarity_score.toLocaleString(undefined, { maximumFractionDigits: 4 })}</Similarity>
         )}
       </div>
       <div className='details'>
-        {typeof setService === 'undefined'
-          ? <></>
-          : <TranslateButton serviceId={service.service_id} setService={setService}/>
-        }
+        {typeof setService === 'undefined' ? (
+          <></>
+        ) : (
+          <TranslateButton serviceId={service.service_id} setService={setService} />
+        )}
       </div>
     </TitleContainer>
   )

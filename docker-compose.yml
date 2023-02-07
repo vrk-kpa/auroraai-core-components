@@ -45,7 +45,7 @@ services:
       - service-recommender-flyway
       - profile-management-api
     volumes:
-      - $PWD/fasttext:/app/fasttext:ro
+      - $PWD/recommender_api/fasttext:/app/recommender_api/fasttext:ro
   service-recommender-db:
     image: postgres:13
     environment:
@@ -213,7 +213,7 @@ services:
     build:
       context: .
       dockerfile: recommender_api/api.dev.Dockerfile
-    command: ["-m", "ptv_data_loader.debug_data_loader"]
+    command: ["-m", "recommender_api.ptv_data_loader.debug_data_loader"]
     environment:
       ENVIRONMENT: localcluster
       AWS_REGION: "${AWS_REGION-}"

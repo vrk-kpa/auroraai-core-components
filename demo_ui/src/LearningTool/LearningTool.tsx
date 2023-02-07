@@ -31,13 +31,7 @@ import { SessionInfo } from '../SessionInfo/SessionInfo'
 import { ServiceRecommendations } from './ServiceRecommendations'
 import { SelectedFilters } from './SelectedFilters'
 import LocationFilter from '../LocationFilter/LocationFilter'
-import {
-  hospitalDistrictFilter,
-  municipalitiesFilter,
-  regionFilter,
-  LocationFilterVariant,
-  PTVServiceClass,
-} from '../types'
+import { LocationFilterVariant, PTVServiceClass } from '../types'
 import TargetGroupFilter from '../TargetGroupFilter/TargetGroupFilter'
 import {
   getSelectedFilters,
@@ -69,9 +63,7 @@ export const LearningTool = ({ featureFlags }: { featureFlags: string[] }) => {
   const [meters, ___] = useRecoilState(metersState)
   const [____, setAttributes] = useRecoilState(attributesState)
 
-  const initialFilters = [municipalitiesFilter, regionFilter, hospitalDistrictFilter]
-
-  const visibleLocationFilters = getVisibleFilters(initialFilters, featureFlags)
+  const visibleLocationFilters = getVisibleFilters(featureFlags)
 
   const [filters, setFilters] = useRecoilState<FiltersState>(learningFiltersState)
   const {

@@ -5,10 +5,6 @@ FROM public.ecr.aws/docker/library/python:3.9-slim-bullseye
 RUN apt-get update
 RUN apt-get -y install postgresql-client libpq-dev curl build-essential
 
-# Install Rust compiler needed to build Tokenizers package
-RUN curl https://sh.rustup.rs -sSf | bash -s -- -y
-ENV PATH="/root/.cargo/bin:${PATH}"
-
 # Copy cached wheel packages (see make service_recommender_setup)
 COPY ./recommender_api/.wheel_cache /app/recommender_api/.wheel_cache
 WORKDIR /app

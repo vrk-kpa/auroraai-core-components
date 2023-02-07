@@ -1,3 +1,4 @@
+import json
 import unittest
 import os
 from mock import patch
@@ -6,7 +7,6 @@ import boto3
 import botocore
 from moto import mock_s3
 
-from recommender_api.ptv_data_loader.data_loader import load_services_from_s3
 from recommender_api.ptv_data_loader.db import load_services_to_db, importable_data
 from recommender_api.tools.config import config
 from recommender_api.tools.logger import log
@@ -14,7 +14,8 @@ from recommender_api.tools.logger import log
 TEST_DB_PASSWORD, TEST_HOST = config['db_password'], config['db_host_routing']
 
 BASEDIR = os.path.dirname(os.path.realpath(__file__))
-SERVICES_MOCK_PATH = f"{BASEDIR}/test_data/services.json.xz"
+SERVICES_MOCK_PATH = f"{BASEDIR}/test_data/services.json"
+
 SERVICE_VECTOR_MOCK_PATH = f"{BASEDIR}/test_data/services_national_mikkeli_turku_oulu.xlsx"
 SERVICE_VECTOR_KEY = f'services_national_mikkeli_turku_oulu.xlsx'
 
@@ -55,7 +56,8 @@ EXPECTED_SERVICES = [{'service_id': '6c00d407-d3fd-4c7e-a373-57be9f3b2cff',
                       'service_channels': 'Liperin koulu Viinijärven koulu Salokylän koulu Mattisenlahden koulu '
                                           'Ylämyllyn koulu',
                       'municipality_codes': '426 123',
-                      'municipality_names': 'Liperi Tohmajärvi'
+                      'municipality_names': 'Liperi Tohmajärvi',
+                      'archived': False
                       }]
 
 # pylint: disable=W0212
@@ -81,26 +83,38 @@ def mock_auth_token(_, __, ___, ____):
     return TEST_DB_PASSWORD
 
 
+def load_test_data():
+    with open(SERVICES_MOCK_PATH, 'r', encoding="utf-8") as in_file:
+        return json.loads(in_file.read())
+
+
 @mock_s3
 class TestPTVDataLoad(unittest.TestCase):
     def setUp(self):
-        client = boto3.client('s3', region_name=REGION,
-                              aws_access_key_id="fake_access_key", aws_secret_access_key="fake_secret_key")
+        client = boto3.client(
+            's3',
+            region_name=REGION,
+            aws_access_key_id="fake_access_key",
+            aws_secret_access_key="fake_secret_key"
+        )
 
         # Validate that the bucket doesn't exist yet
         try:
-            s3_resouce = boto3.resource('s3', region_name=REGION,
-                                        aws_access_key_id='fake_access_key', aws_secret_access_key='fake_secret_key')
+            s3_resouce = boto3.resource(
+                's3',
+                region_name=REGION,
+                aws_access_key_id='fake_access_key',
+                aws_secret_access_key='fake_secret_key'
+            )
             s3_resouce.meta.client.head_bucket(Bucket=BUCKET)
         except botocore.exceptions.ClientError:
             pass
         else:
-            err = "{bucket} should not exist.".format(bucket=BUCKET)
+            err = f"{BUCKET} should not exist."
             raise EnvironmentError(err)
 
         # Create mock bucket and put test data inside
         client.create_bucket(Bucket=BUCKET, CreateBucketConfiguration={'LocationConstraint': REGION})
-        client.upload_file(Filename=SERVICES_MOCK_PATH, Bucket=BUCKET, Key=KEY)
         client.upload_file(Filename=SERVICE_VECTOR_MOCK_PATH, Bucket=BUCKET, Key=SERVICE_VECTOR_KEY)
 
     def tearDown(self):
@@ -114,7 +128,7 @@ class TestPTVDataLoad(unittest.TestCase):
 
     def test_load_ptv(self):
         log.debug(f'Testing loading PTV data from mock S3')
-        services = load_services_from_s3(f's3://{BUCKET}/{KEY}')
+        services = load_test_data()
         # drop raw data as its hard to compare
         services = {id_: {k: v for k, v in service.items() if k != 'service_data'}
                     for id_, service in services.items()}
@@ -131,4 +145,3 @@ class TestPTVDataLoad(unittest.TestCase):
         with patch('botocore.client.BaseClient._make_api_call', new=mock_rds_describe_db_instances):
             with patch('tools.db.auth_token', new=mock_auth_token):
                 load_services_to_db(services)
-

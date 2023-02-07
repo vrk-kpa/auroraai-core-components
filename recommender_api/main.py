@@ -2,7 +2,6 @@ import os
 import pickle
 from pathlib import Path
 
-import transformers
 import boto3
 
 from flask import Flask
@@ -53,10 +52,6 @@ def init_fasttext(app, path):
         path = config['fasttext_download_dir']
 
     log.technical.info('fasttextPath', path)
-
-    # let the tools.logger module handle all logging
-    transformers.logging.disable_default_handler()
-    transformers.logging.enable_propagation()
 
     app.fasttext_embeddings = load_fasttext_embeddings(path)
     app.fasttext_model = ft.load_model(f'{path}/{config["fasttext_model_file"]}')

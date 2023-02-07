@@ -3,14 +3,7 @@ import { suomifiDesignTokens } from 'suomifi-ui-components'
 import { FiltersState } from '../state/global'
 import styled from 'styled-components'
 import LocationFilter from '../LocationFilter/LocationFilter'
-import {
-  hospitalDistrictFilter,
-  LocationFilterVariant,
-  municipalitiesFilter,
-  PTVServiceClass,
-  RecommendationFilter,
-  regionFilter,
-} from '../types'
+import { LocationFilterVariant, PTVServiceClass, RecommendationFilter } from '../types'
 import { useState } from 'react'
 import { FiltersSelectionContainer } from './FiltersSelectionContainer'
 import PTVClassFilter from '../PTVClassFilter/PTVClassFilter'
@@ -34,9 +27,7 @@ export const FilterSelection = ({
 }) => {
   const [activeFilter, setActiveFilter] = useState<RecommendationFilter>('location')
 
-  const initialFilters = [municipalitiesFilter, regionFilter, hospitalDistrictFilter]
-
-  const visibleLocationFilters = getVisibleFilters(initialFilters, featureFlags)
+  const visibleLocationFilters = getVisibleFilters(featureFlags)
 
   const {
     locationFiltersSelected,

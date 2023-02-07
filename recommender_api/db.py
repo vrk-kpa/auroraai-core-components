@@ -204,7 +204,9 @@ def get_filtered_service_ids(
         SELECT DISTINCT service_id
         FROM service_recommender.service
         {service_class_filter} {target_group_filter} {service_collection_filter} 
-        WHERE {municipality_filter} AND {funding_type_filter};
+        WHERE {municipality_filter} 
+          AND {funding_type_filter} 
+          AND (NOT archived);
     """).format(
         **build_sql_filter_queries(
             municipality_codes,
@@ -248,7 +250,10 @@ def get_service_vectors(
         SELECT DISTINCT vector.*
         FROM service_recommender.service_vectors vector
         INNER JOIN service_recommender.service service
-        ON service.service_id = vector.service_id AND {municipality_filter} AND {funding_type_filter}
+        ON service.service_id = vector.service_id 
+          AND (NOT service.archived) 
+          AND {municipality_filter} 
+          AND {funding_type_filter}
         {service_class_filter} {target_group_filter} {service_collection_filter} 
     """).format(
         **build_sql_filter_queries(
@@ -299,7 +304,7 @@ def _select_jsonb_where_id_in_list(
     if not id_list:
         return []
 
-    db_query = sql.SQL("SELECT {data_column} FROM service_recommender.{table} WHERE {id_column} IN %(id_list)s").format(
+    db_query = sql.SQL("SELECT {data_column} FROM service_recommender.{table} WHERE {id_column} IN %(id_list)s AND NOT archived").format(
         data_column=sql.Identifier(data_column),
         table=sql.Identifier(table),
         id_column=sql.Identifier(id_column)

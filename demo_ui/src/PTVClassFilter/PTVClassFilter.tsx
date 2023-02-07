@@ -49,7 +49,6 @@ const PTVClassFilter = ({
   selectedPTVServiceClasses: PTVServiceClass[]
   setSelectedPTVServiceClasses: (items: PTVServiceClass[]) => void
 }) => {
-  
   const [locale] = useRecoilState(localeState)
 
   //search field

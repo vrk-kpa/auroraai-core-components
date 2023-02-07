@@ -1,8 +1,13 @@
 import json
 import logging
 import sys
+import warnings
+from datetime import datetime
 from multiprocessing import Pool
 import time
+
+import flask
+import pytest
 
 from recommender_api.tools.logger import log
 
@@ -22,6 +27,19 @@ def test_debug_log(capfd):
     out, err = capfd.readouterr()
     output = json.loads(err)
     assert output['debugMessage'] == 'foobar'
+
+
+def test_very_long_log_entry(capfd):
+    set_test_stream()
+
+    request = flask.Request.from_values(data=("foo" * 900000), query_string="")
+
+    with log.open():
+        log.audit.request(request)
+
+    out, err = capfd.readouterr()
+    parse_logs(err)  # this should not raise any errors
+
 
 
 def test_error_logging_from_threads(capfd):
@@ -62,6 +80,21 @@ def test_capturing_3rd_party_logs(capfd):
     assert len(errors) == 2
     assert errors[0] == "<class 'ValueError'>: bar"
     assert errors[1].startswith("Stack (most recent call last):")
+
+
+@pytest.mark.skipif(
+    "no:warnings" not in sys.argv,
+    reason="Run pytest with '-p no:warnings' to diasable warning capture and test warning formatting."
+)
+def test_warning_format(capfd):
+    warnings.warn("The ice, is gonna BREAK!", category=UserWarning)
+
+    _, stderr = capfd.readouterr()
+    __, tech_logs = parse_logs(stderr)
+
+    assert tech_logs[0]['errors'][0].startswith('UserWarning: The ice')
+    assert tech_logs[0]['operationName'] == 'warning'
+    assert datetime.fromisoformat(tech_logs[0]['timestamp']).date() == datetime.today().date()
 
 
 def logging_task(error_code):

@@ -54,11 +54,11 @@ def mock_import_channels():
 def run():
     print(os.getenv('ENVIRONMENT', 'dev'))
     print(config)
-    with patch('tools.db.auth_token', new=mock_auth_token):
-        with patch('ptv_data_loader.data_loader.fetch_ptv_services', return_value=mock_import_services()):
-            with patch('ptv_data_loader.data_loader.fetch_ptv_service_channels', return_value=mock_import_channels()):
-                with patch('ptv_data_loader.data_loader.export_data_to_s3', return_value={}):
-                    with patch('ptv_data_loader.data_loader.remove_archived_service_data', return_value={}):
+    with patch('recommender_api.tools.db.auth_token', new=mock_auth_token):
+        with patch('recommender_api.ptv_data_loader.data_loader.fetch_ptv_services', return_value=mock_import_services()):
+            with patch('recommender_api.ptv_data_loader.data_loader.fetch_ptv_service_channels', return_value=mock_import_channels()):
+                with patch('recommender_api.ptv_data_loader.data_loader.export_data_to_s3', return_value={}):
+                    with patch('recommender_api.ptv_data_loader.data_loader.remove_archived_service_data', return_value={}):
                             data_loader.main()
 
 

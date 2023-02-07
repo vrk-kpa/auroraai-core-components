@@ -5,6 +5,7 @@ from typing import Any, Dict, List, Optional, Union
 from psycopg2.extras import execute_values, Json, DictCursor
 import pandas as pd
 
+from recommender_api.ptv_data_loader.constants import PTVPublishState
 from recommender_api.tools.db import db_connection, db_endpoint
 from recommender_api.tools.config import config
 from recommender_api.tools.logger import log
@@ -113,50 +114,25 @@ def importable_data(
     prepared_data = [
         {
             'service_id': id_,
-            # 'generalDescriptionId': service.get('generalDescriptionId', ''),
             'service_type': service.get('type'),
-            # areas[] -> name[] ->  value (language == fi & type == Name)
             'areas_type': get_areas_type(service),
             'area_type': service.get('areaType', ''),
-            # serviceNames[] -> value (language == fi & type == Name)
             'service_name': get_list_helper(service, 'serviceNames', 'Name'),
-            # serviceDescriptions[] -> value (language == fi, type == Summary)
-            'description_summary': get_list_helper(
-                service, 'serviceDescriptions', 'Summary'
-            ),
-            # serviceDescriptions[] -> value (language == fi &  type = Description)
-            'description': get_list_helper(
-                service, 'serviceDescriptions', 'Description'
-            ),
-            # serviceDescriptions[] -> value (language == fi &  type = UserInstruction)
-            'user_instruction': get_list_helper(
-                service, 'serviceDescriptions', 'UserInstruction'
-            ),
+            'description_summary': get_list_helper(service, 'serviceDescriptions', 'Summary'),
+            'description': get_list_helper(service, 'serviceDescriptions', 'Description'),
+            'user_instruction': get_list_helper(service, 'serviceDescriptions', 'UserInstruction'),
             'service_charge_type': service.get('serviceChargeType'),
-            # serviceDescriptions[] -> value (language == fi &  type = ChargeTypeAdditionalInfo)
-            'charge_type_additional_info': get_list_helper(
-                service, 'serviceDescriptions', 'ChargeTypeAdditionalInfo'
-            ),
-            # targetGroups[] -> name[] -> value (language == fi)
+            'charge_type_additional_info': get_list_helper(service, 'serviceDescriptions', 'ChargeTypeAdditionalInfo'),
             'target_groups': get_nested_helper(service, 'targetGroups', 'name'),
-            # serviceClasses[] -> name[] -> value (language == fi)
             'service_class_name': get_nested_helper(service, 'serviceClasses', 'name'),
-            # serviceClasses[] -> description[] -> value(language == fi)
-            'service_class_description': get_nested_helper(
-                service, 'serviceClasses', 'description'
-            ),
-            # ontologyTerms[] -> name[] -> value (language == fi)
+            'service_class_description': get_nested_helper(service, 'serviceClasses', 'description'),
             'ontology_terms': get_nested_helper(service, 'ontologyTerms', 'name'),
-            # lifeEvents[] -> name[] -> value (language == fi)
             'life_events': get_nested_helper(service, 'lifeEvents', 'name'),
-            # industrialClasses[] -> name[] -> value (language == fi)
-            'industrial_classes': get_nested_helper(
-                service, 'industrialClasses', 'name'
-            ),
-            # serviceChannels[] -> serviceChannel -> name
+            'industrial_classes': get_nested_helper(service, 'industrialClasses', 'name'),
             'service_channels': get_service_channels(service),
             'municipality_codes': get_municipality_codes(service),
             'municipality_names': get_municipality_names(service),
+            'archived': service.get('publishingStatus') != PTVPublishState.PUBLISHED.value,
             'service_data': Json(service),
         }
         for id_, service in services.items()
@@ -244,24 +220,27 @@ def load_service_channels_to_db(service_channels: List[Dict[str, Any]]):
         ) as conn:
 
             log.technical.database(db_endpoint_address, DB_PORT, DB_NAME)
-            columns = ['service_channel_id', 'service_channel_data']
+
+            values = [
+                (
+                    service_channel['id'],
+                    service_channel.get('publishingStatus') != PTVPublishState.PUBLISHED.value,
+                    json.dumps(service_channel)
+                ) for service_channel in service_channels
+            ]
+
+            query = """
+                INSERT INTO  service_recommender.service_channel
+                    (service_channel_id, archived, service_channel_data)
+                VALUES %s
+                ON CONFLICT (service_channel_id) 
+                    DO UPDATE SET 
+                        (archived, service_channel_data) = 
+                        (excluded.archived, excluded.service_channel_data);
+            """
 
             with conn.cursor(cursor_factory=LoggingDictCursor) as cur:
-                query = (
-                    f'INSERT INTO {SERVICE_CHANNELS_DB_TABLE}'
-                    + ' (service_channel_id, service_channel_data) VALUES %s'
-                    + f' ON CONFLICT (service_channel_id) DO UPDATE SET {build_conflict_statement(columns)}'
-                )
-
-                values = map(
-                    lambda service_channel: [
-                        service_channel['id'],
-                        json.dumps(service_channel),
-                    ],
-                    service_channels,
-                )
-
-                execute_values(cur, query, list(values))
+                execute_values(cur, query, values)
 
             conn.commit()
 
@@ -332,7 +311,7 @@ def get_service_data_from_db():
         log.technical.database(db_endpoint_address, DB_PORT, DB_NAME)
 
         with conn.cursor(cursor_factory=LoggingDictCursor) as cur:
-            cur.execute('SELECT service_data FROM service_recommender.service')
+            cur.execute('SELECT service_data FROM service_recommender.service WHERE NOT archived')
             data = [data[0] for data in cur.fetchall()]
             services = {service['id']: service for service in data}
         return services
@@ -355,7 +334,7 @@ def get_service_channel_data_from_db():
 
         with conn.cursor(cursor_factory=LoggingDictCursor) as cur:
             cur.execute(
-                'SELECT service_channel_data FROM service_recommender.service_channel'
+                'SELECT service_channel_data FROM service_recommender.service_channel WHERE NOT archived'
             )
             data = [data[0] for data in cur.fetchall()]
             service_channels = {
@@ -364,7 +343,7 @@ def get_service_channel_data_from_db():
         return service_channels
 
 
-def delete_service_data_from_db(service_ids: List[str]):
+def flag_archived_services_in_db(service_ids: List[str], service_channel_ids: List[str]):
     if service_ids:
         db_endpoint_address = (
             DB_HOST_ROUTING if DB_HOST_ROUTING != '' else db_endpoint(DB_NAME, REGION)
@@ -381,32 +360,14 @@ def delete_service_data_from_db(service_ids: List[str]):
             log.technical.database(db_endpoint_address, DB_PORT, DB_NAME)
 
             with conn.cursor(cursor_factory=LoggingDictCursor) as cur:
-                query = 'DELETE from service_recommender.service WHERE service_id IN %(services)s'
+                query = 'UPDATE service_recommender.service SET archived = true WHERE service_id IN %(services)s'
                 cur.execute(query, {'services': tuple(service_ids)})
 
-                query = 'DELETE from service_recommender.service_vectors WHERE service_id IN %(services)s'
-                cur.execute(query, {'services': tuple(service_ids)})
-            conn.commit()
-
-
-def delete_service_channel_data_from_db(service_channel_ids: List[str]):
-    if service_channel_ids:
-        db_endpoint_address = (
-            DB_HOST_ROUTING if DB_HOST_ROUTING != '' else db_endpoint(DB_NAME, REGION)
-        )
-        with db_connection(
-            db_endpoint_address=db_endpoint_address,
-            db_auth_endpoint=db_endpoint_address,
-            db_name=DB_NAME,
-            port=DB_PORT,
-            user=DB_USER,
-            region=REGION,
-        ) as conn:
-
-            log.technical.database(db_endpoint_address, DB_PORT, DB_NAME)
-
-            with conn.cursor(cursor_factory=LoggingDictCursor) as cur:
-                query = 'DELETE from service_recommender.service_channel WHERE ' \
-                        'service_channel_id IN %(service_channels)s'
+                query = """
+                    UPDATE service_recommender.service_channel 
+                    SET archived = true 
+                    WHERE service_channel_id IN %(service_channels)s
+                """
                 cur.execute(query, {'service_channels': tuple(service_channel_ids)})
+
             conn.commit()

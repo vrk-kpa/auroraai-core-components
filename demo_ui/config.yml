@@ -6,8 +6,8 @@ default:
   require_api_auth: 'true'
 local:
   require_api_auth: 'false'
-  feature_flags: ui_search translate_api wellbeing_county
+  feature_flags: ui_search translate_api
 localcluster:
   ui_proxy_host: service-recommender-api:6000
   require_api_auth: 'false'
-  feature_flags: ui_search translate_api wellbeing_county
+  feature_flags: ui_search translate_api

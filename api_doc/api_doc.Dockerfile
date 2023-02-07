@@ -1,5 +1,7 @@
 FROM public.ecr.aws/docker/library/node:16.15.1-bullseye AS node_builder
-RUN mkdir /builder
+
+RUN mkdir -p /builder/swagger_ui
+COPY .npmrc /builder/swagger_ui/.npmrc
 COPY api_doc/swagger_ui /builder/swagger_ui
 COPY api_doc/core_components/ /builder/core_components
 COPY api_doc/auroraai_service/ /builder/auroraai_service

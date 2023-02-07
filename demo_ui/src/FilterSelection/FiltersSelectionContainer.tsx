@@ -35,8 +35,8 @@ type Filter = {
 const filters: Filter[] = [
   { type: 'location', name: 'Alue' },
   { type: 'service_class', name: 'Palveluluokka' },
-    { type: 'target_group', name: 'Kohderyhmä' },
-    { type: 'other', name: 'Muu' },
+  { type: 'target_group', name: 'Kohderyhmä' },
+  { type: 'other', name: 'Muu' },
 ]
 
 type Props = {

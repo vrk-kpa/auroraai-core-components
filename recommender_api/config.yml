@@ -30,15 +30,15 @@ default:
   wellbeing_service_county_codes_file: resources/wellbeing_service_county_codes.csv
   municipality_to_wellbeing_service_county_codes_mapping_file: resources/municipality_to_wellbeing_service_county_codes.csv
   services_key: services.json.xz
-  service_vector_key: services_extended_20221122.csv
+  service_vector_key: 3x10d_labels/services_extended_20230202.csv
   service_channels_key: service_channels.json.xz
   use_service_locations: 'true'
   load_fasttext_from_s3: 'true'
   fasttext_download_dir: /tmp/aai-fasttext-download
   fasttext_s3_directory: fasttext
-  fasttext_model_file: 2022-06-07-ptv.bin
-  fasttext_embeddings_file: 2022-06-07-ptv-embeddings.pkl
-  xgboost_model_file: 2022-09-20-xgb-reranker.json
+  fasttext_model_file: 2023-01-31-ptv.bin
+  fasttext_embeddings_file: 2023-01-31-ptv-embeddings.pkl
+  xgboost_model_file: 2023-02-03-xgb-reranker.json
   ptv_sentence_embeddings_path: embeddings/sentence_embeddings.pkl.npy
   ptv_term_embeddings_path: embeddings/ptv_term_embeddings.pkl.npy
   feature_flags: ui_search attributes_metadata_api translate_api

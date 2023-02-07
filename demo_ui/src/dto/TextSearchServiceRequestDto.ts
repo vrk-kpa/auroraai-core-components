@@ -6,7 +6,7 @@ export type TextSearchServiceRequestDto = {
     municipality_codes?: string[]
     region_codes?: string[]
     hospital_district_codes?: string[]
-    wellbeing_county_codes?: string[]
+    wellbeing_service_county_codes?: string[]
     service_classes?: string[]
     target_groups?: string[]
     funding_type?: string[]
