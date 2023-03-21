@@ -17,7 +17,7 @@ from recommender_api.api_spec import \
 from recommender_api.profile_management import ProfileManagementApiError
 from recommender_api.ptv import get_service_channel_web_pages, get_format_service_data
 from recommender_api.service_recommender import text_search_in_ptv, set_redirect_urls, create_redirect_link
-from recommender_api.translation import translate_service_information, translate_text
+from recommender_api.translation import translate_service_information, translate_text, localised_fields_present
 
 from recommender_api.tools.config import config
 from recommender_api.tools.logger import log
@@ -276,16 +276,23 @@ def translate_ptv_service():
 
     service_id: str = req_data['service_id']
     target_language: str = req_data['target_language']
+
     try:
-        service_data = get_format_service_data([service_id])[0]
+        translated_service = get_format_service_data([service_id], target_language)[0]
     except IndexError:
         return 'Service not found', 404
 
-    translated_service = translate_service_information(service_data, 'fi', target_language)
+    ptv_translation_found = localised_fields_present(translated_service)
+
+    if not ptv_translation_found:
+        service_data = get_format_service_data([service_id], 'fi')[0]
+        translated_service = translate_service_information(service_data, 'fi', target_language)
+
+    translated_service['machine_translated'] = not ptv_translation_found
 
     return jsonify({
         "target_language": target_language,
-        "service": translated_service
+        "service": translated_service,
     })
 
 

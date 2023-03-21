@@ -123,7 +123,7 @@ export const SelectedFilters = () => {
             )}
 
             {fundingType.map((item) => (
-              <Chip removable actionLabel='remove-attribute' onClick={() => removeFundingType(item)}>
+              <Chip removable actionLabel='remove-attribute' onClick={() => removeFundingType(item)} key={item}>
                 {fundingTypeFilters.find((it) => it.type === item)?.name}
               </Chip>
             ))}

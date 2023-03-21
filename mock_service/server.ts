@@ -1,4 +1,4 @@
-import express, { Response, urlencoded } from "express"
+import express, { Response } from "express"
 import { Request } from "express"
 import { config } from "./config"
 import path from "path"
@@ -8,8 +8,9 @@ import createMemoryStore from "memorystore"
 import municipalities from "./src/municipalities.json"
 import { Issuer } from "openid-client"
 import { pseudoRandomBytes } from "crypto"
-import { JWT } from "jose"
 import { StatusCodes, ReasonPhrases } from "http-status-codes"
+import {createRemoteJWKSet, jwtVerify} from "jose"
+
 import urljoin from "url-join"
 import helmet from "helmet"
 
@@ -17,6 +18,8 @@ const MemoryStore = createMemoryStore(session)
 
 const clientSecret = "mock-service-api-key"
 const oauthHost = `${config.profile_management_api_url}/oauth`
+
+const jwksUri = `${oauthHost}/.well-known/jwks.json`
 
 const mockInstanceNumber = parseInt(process.env.MOCK_INSTANCE as string) ?? 1
 const instanceConfig =
@@ -90,7 +93,7 @@ const auroraAIIssuer = new Issuer({
   token_endpoint: `${oauthHost}/token`,
   token_endpoint_auth_methods_supported: ["client_secret_basic"],
   revocation_endpoint: `${oauthHost}/revoke`,
-  jwks_uri: `${oauthHost}/.well-known/jwks.json`,
+  jwks_uri: jwksUri,
   response_types_supported: ["code"],
   response_modes_supported: ["query"],
   subject_types_supported: ["public"],
@@ -155,7 +158,7 @@ const jwtParserMiddleware = async (
   res: express.Response,
   next: Function
 ) => {
-  const jwks = await auroraAIIssuer.keystore()
+  const jwks = createRemoteJWKSet(new URL(jwksUri))
 
   const [authType, authCreds] = (req.headers.authorization ?? "").split(" ")
 
@@ -171,10 +174,12 @@ const jwtParserMiddleware = async (
     : host
 
   try {
-    const { scope, sub } = JWT.verify(authCreds, jwks, {
+    const jwtVerifyResult = await jwtVerify(authCreds, jwks, {
       issuer: auroraAIIssuer.metadata.issuer,
       audience,
-    }) as { scope: string; sub: string }
+    })
+
+    const { scope, sub } = jwtVerifyResult.payload as { scope: string; sub: string }
 
     req.jwt = { attributes: scope.split(" "), sub }
   } catch (e) {

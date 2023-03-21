@@ -254,7 +254,7 @@ def init_logging_lib():
     root_logger = logging.getLogger()
     if handler_name not in [handler.name for handler in root_logger.handlers]:
         root_logger.setLevel(config['log_level'].upper())
-        formatter = AuroraAiJsonFormatter()
+        formatter = AuroraAiJsonFormatter(json_ensure_ascii=False)
         log_handler = AuroraAiLogHandler()
         log_handler.setFormatter(formatter)
         log_handler.name = handler_name

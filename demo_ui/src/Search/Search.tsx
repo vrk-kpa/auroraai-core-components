@@ -68,7 +68,7 @@ export const Search: FC<Props> = ({ featureFlags }) => {
 
   const [isFetchingSearch, setIsFetchingSearch] = useRecoilState(isFetchingSearchState)
   const [termSearchResults, setTermSearchResults] = useRecoilState(termSearchResultsState)
-  const [_, setRecommendationID] = useRecoilState(recommendationIDState)
+  const [, setRecommendationID] = useRecoilState(recommendationIDState)
 
   const [sessionID] = useRecoilState(sessionIDState)
 
@@ -149,7 +149,9 @@ export const Search: FC<Props> = ({ featureFlags }) => {
             onChange={(value) => setTranslationLanguage(value)}
           >
             {Object.keys(supportedLanguages).map((lang) => (
-              <DropdownItem value={supportedLanguages[lang]}>{lang}</DropdownItem>
+              <DropdownItem key={lang} value={supportedLanguages[lang]}>
+                {lang}
+              </DropdownItem>
             ))}
           </Dropdown>
         )}

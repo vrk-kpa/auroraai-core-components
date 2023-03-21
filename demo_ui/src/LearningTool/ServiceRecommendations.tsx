@@ -27,7 +27,7 @@ export const ServiceRecommendations = ({ recommendationId }: { recommendationId:
 
           {recommendationId &&
             recommendedServices?.map((service) => (
-              <RecommendedServiceBox service={service} recommendationId={recommendationId} />
+              <RecommendedServiceBox key={service.service_id} service={service} recommendationId={recommendationId} />
             ))}
         </>
       ) : (

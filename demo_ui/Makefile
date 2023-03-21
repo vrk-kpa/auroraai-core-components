@@ -25,7 +25,6 @@ demo_ui_test: ## Run tests for UI
 	cd $(UI_DIR)
 	yarn run test
 
-demo_ui_build: export PUBLIC_URL = .
 demo_ui_build: demo_ui_resources ## Create UI production build
 	cd $(UI_DIR)
 	yarn run build

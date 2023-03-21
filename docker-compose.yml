@@ -5,6 +5,7 @@ services:
     depends_on:
       - api-doc
       - service-recommender-api
+      - service-recommender-flyway
       - profile-management-api
       - profile-management-ui
       - attributes-management
@@ -42,7 +43,6 @@ services:
       AWS_SESSION_TOKEN: "${AWS_SESSION_TOKEN-}"
       AWS_SECURITY_TOKEN: "${AWS_SECURITY_TOKEN-}"
     depends_on:
-      - service-recommender-flyway
       - profile-management-api
     volumes:
       - $PWD/recommender_api/fasttext:/app/recommender_api/fasttext:ro
@@ -151,9 +151,18 @@ services:
   demo-ui:
     build:
       context: .
-      dockerfile: demo_ui/ui.Dockerfile
+      dockerfile: demo_ui/ui.dev.Dockerfile
     environment:
       ENVIRONMENT: localcluster
+    ports:
+      - 1235:1235
+    volumes:
+      - ./demo_ui:/ui
+      - /ui/node_modules
+      - /ui/build
+      - /ui/.parcel-cache
+      - /ui/server/node_modules
+      - /ui/server/dist
 
   translation:
     build:
@@ -204,16 +213,17 @@ services:
       - service-recommender-api
       - service-recommender-flyway-clean
 
-  # This service can be used to load the PTV data from dev environment S3 to the service-recommender-db running
-  # in docker compose. As it loads data from S3, it requires AWS credentials. Simplest way is to run it with:
-  # aws-vault exec dvv-suomiai-dev -- docker compose --profile load-ptv-data-debug up ptv-data-loader-debug
-  ptv-data-loader-debug:
+  # This service can be used to load the PTV data from dev environment S3 dump to the service-recommender-db running
+  # in docker compose. This is significantly faster than loading the data directly from PTV.
+  # As it loads data from S3, it requires AWS credentials. Simplest way is to run it with:
+  # aws-vault exec dvv-suomiai-dev -- docker compose --profile load-ptv-data-s3 up ptv-data-loader-s3
+  ptv-data-loader-s3:
     profiles:
-      - "load-ptv-data-debug"
+      - "load-ptv-data-s3"
     build:
       context: .
       dockerfile: recommender_api/api.dev.Dockerfile
-    command: ["-m", "recommender_api.ptv_data_loader.debug_data_loader"]
+    command: ["-m", "recommender_api.ptv_data_loader.data_loader_s3"]
     environment:
       ENVIRONMENT: localcluster
       AWS_REGION: "${AWS_REGION-}"
@@ -224,4 +234,4 @@ services:
       DATA_LOADER_MODE: "full-run"
     depends_on:
       - service-recommender-api
-      - service-recommender-flyway-clean
+      # - service-recommender-flyway-clean

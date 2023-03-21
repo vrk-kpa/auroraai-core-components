@@ -204,14 +204,14 @@ const Login: NextPage = () => {
                   name="email"
                   autoComplete="email"
                   labelText={t("common:email")}
-                  visualPlaceholder="mikko.mallikas@osoite.fi"
+                  visualPlaceholder={t("common:email")}
                   control={control}
                 />
               </div>
               <div>
                 <Input
                   name="password"
-                  autoComplete="current-password"
+                  autoComplete="off"
                   labelText={t("common:password")}
                   visualPlaceholder={t("common:password").toLowerCase()}
                   type="password"

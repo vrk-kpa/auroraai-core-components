@@ -49,24 +49,24 @@ export const NavBar: FC<Props> = ({ featureFlags }) => (
     <Container>
       <List>
         <NavItem>
-          <NavLink activeClassName={ACTIVE_LINK_CLASS_NAME} to='/' exact>
+          <NavLink className={(navData) => (navData.isActive ? ACTIVE_LINK_CLASS_NAME : '')} to='/ui/'>
             Tietoa palvelusta
           </NavLink>
         </NavItem>
         <NavItem>
-          <NavLink activeClassName={ACTIVE_LINK_CLASS_NAME} to='/recommender' exact>
+          <NavLink className={(navData) => (navData.isActive ? ACTIVE_LINK_CLASS_NAME : '')} to='/ui/recommender'>
             Palvelusuositukset
           </NavLink>
         </NavItem>
         {featureFlags.includes('ui_search') && (
           <NavItem>
-            <NavLink activeClassName={ACTIVE_LINK_CLASS_NAME} to='/search'>
+            <NavLink className={(navData) => (navData.isActive ? ACTIVE_LINK_CLASS_NAME : '')} to='/ui/search'>
               Tekstisuosittelu
             </NavLink>
           </NavItem>
         )}
         <NavItem>
-          <NavLink activeClassName={ACTIVE_LINK_CLASS_NAME} to='/info'>
+          <NavLink className={(navData) => (navData.isActive ? ACTIVE_LINK_CLASS_NAME : '')} to='/ui/info'>
             Lisätietoja
           </NavLink>
         </NavItem>

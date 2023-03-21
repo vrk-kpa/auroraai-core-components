@@ -1,7 +1,9 @@
-**/venv
-recommender_api/fasttext
-infra
 **/build
 **/node_modules
+**/.parcel-cache
+**/venv
+
+infra
+recommender_api/fasttext
 schemas/scripts/
 schemas/tsconfig.json

@@ -1,6 +1,6 @@
 import re
 from statistics import geometric_mean
-from typing import Dict, Any, List, Union
+from typing import Dict, Any, List, Union, Optional
 
 import pandas as pd
 import numpy as np
@@ -166,7 +166,8 @@ def compute_feedback_data(service_id_list: List[str],
 
 def reranked(
     result: List[Dict[str, Any]],
-    reranker: Any
+    reranker: Any,
+    limit: Optional[int] = None
 ) -> List[Dict[str, Any]]:
     data = pd.DataFrame.from_records(result, columns=RERANKER_FEATURES)
     data = data.astype(dtype=RERANKER_DTYPE)  # convert to types that model requires
@@ -184,6 +185,8 @@ def reranked(
         res.pop('geomean')
         for feature in RERANKER_FEATURES:
             res.pop(feature)
+    if limit:
+        return sorted_result[0:limit]
     return sorted_result
 
 
@@ -243,7 +246,10 @@ def text_search_in_ptv(
     similarities = torch.cosine_similarity(
         embedded_query_tensor, ptv_embeddings_tensor)
 
-    top_count = min(params.limit, len(similarities))
+    if params.rerank: # raise inner limit
+        top_count = min(params.limit+1, len(similarities))
+    else:
+        top_count = min(params.limit, len(similarities))
     torch_top = torch.topk(similarities, k=top_count)
     top_ids = [service_ids[i] for i in torch_top[1]]
     similarity_scores = torch_top[0]
@@ -266,7 +272,7 @@ def text_search_in_ptv(
             service_meta_data,
             params
         )
-        return reranked(result, reranker)
+        return reranked(result, reranker, params.limit)
     for i, res in enumerate(result):
         res['rank'] = i + 1
     return result
@@ -363,6 +369,8 @@ def recommend(params: Recommender3x10dParameters,
                                        ),
                                        reverse=False)
 
+    if len(formatted_results) == 0:
+        return formatted_results
     if params.rerank:
         formatted_results = add_reranker_features_for_recommend(
             formatted_results,

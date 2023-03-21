@@ -11,12 +11,12 @@ from werkzeug.exceptions import InternalServerError
 
 # Swagger for PTV https://api.palvelutietovaranto.suomi.fi/swagger/ui/index.html
 PTV_SERVICE_LIST_URL = config['ptv_url_prefix'] + \
-    config['ptv_service_list_url_suffix']
+                       config['ptv_service_list_url_suffix']
 PTV_SERVICE_CHANNEL_LIST_URL = (
-    config['ptv_url_prefix'] + config['ptv_service_channel_list_url_suffix']
+        config['ptv_url_prefix'] + config['ptv_service_channel_list_url_suffix']
 )
 PTV_SERVICE_COLLECTION_URL = (
-    config['ptv_url_prefix'] + config['ptv_service_collection_url_suffix']
+        config['ptv_url_prefix'] + config['ptv_service_collection_url_suffix']
 )
 LIST_JOINER = ', '
 INCLUDED_SERVICE_CHANNEL_TYPES = [
@@ -35,7 +35,7 @@ def chunks(lst: List, chunk_size: int) -> Generator:
 
 
 def _first_item(
-    list_values: List[Dict[str, Any]], language: str = 'fi', field_name: str = 'value'
+        list_values: List[Dict[str, Any]], language: str = 'fi', field_name: str = 'value'
 ) -> str:
     values_with_language = [
         item[field_name] for item in list_values if item['language'] == language
@@ -48,36 +48,32 @@ def get_str(dictionary: Dict[str, Any], key: str) -> str:
     return '' if value is None else value
 
 
-def _get_list_helper(
-    service: Dict[str, Any], list_field: str, type_val: Optional[str] = None
+def _extract_translated_ptv_value(
+        service_data: Dict[str, Any],
+        field_name: str,
+        language: str,
+        type_attribute: Optional[str] = None
 ):
-    if type_val:
-        list_values = [
-            item.get('value', '')
-            for item in service.get(list_field, [])
-            if item.get('language') == 'fi' and item.get('type') == type_val
-        ]
-    else:
-        list_values = [
-            item.get('value', '')
-            for item in service.get(list_field, [])
-            if item.get('language') == 'fi'
-        ]
+    list_values = [
+        item.get('value', '')
+        for item in service_data.get(field_name, [])
+        if item.get('language') == language and (type_attribute is None or item.get('type') == type_attribute)
+    ]
+
     # Remove possible Nones
     list_values = [x for x in list_values if x is not None]
     return LIST_JOINER.join(list_values)
 
 
-def get_format_service_data(service_ids: List[str]) -> List[Dict[str, Any]]:
+def get_format_service_data(service_ids: List[str], language: str = 'fi') -> List[Dict[str, Any]]:
     service_datas = get_services_ptv_data(service_ids)
     service_channels = get_service_channels_ptv_data(
         _required_service_channel_ids(service_datas)
     )
-    return _format_service_outputs(service_datas, service_channels)
+    return _format_service_outputs(service_datas, service_channels, language)
 
 
 def get_service_channel_web_pages(service_channel_id: str):
-
     mock_channel = search_mock_service_channel(service_channel_id)
     if mock_channel:
         return mock_channel['web_pages']
@@ -99,17 +95,18 @@ def _required_service_channel_ids(services_data: List[Dict[str, Any]]) -> Set[st
 
 
 def _format_service_outputs(
-    service_data: List[Dict[str, Any]], service_channels_data: List[Dict[str, Any]]
+        service_data: List[Dict[str, Any]],
+        service_channels_data: List[Dict[str, Any]],
+        language: str
 ) -> List[Dict[str, Any]]:
-
     formatted_service_channels = {
-        channel['id']: _format_service_channel_output(channel)
+        channel['id']: _format_service_channel_output(channel, language)
         for channel in service_channels_data
         if channel.get('serviceChannelType') in INCLUDED_SERVICE_CHANNEL_TYPES
     }
 
     def _format_responsible_organization(
-        service: Dict[str, Any]
+            service: Dict[str, Any]
     ) -> Optional[Dict[str, str]]:
         organizations = service.get('organizations', [])
         return next(
@@ -141,15 +138,26 @@ def _format_service_outputs(
 
         return {
             'service_id': service['id'],
-            'service_name': _get_list_helper(service, 'serviceNames', 'Name'),
-            'service_description': _get_list_helper(
-                service, 'serviceDescriptions', 'Description'
+            'service_name': _extract_translated_ptv_value(service, 'serviceNames', language, 'Name'),
+            'service_description': _extract_translated_ptv_value(
+                service,
+                'serviceDescriptions',
+                language,
+                'Description',
             ),
-            'service_description_summary': _get_list_helper(
-                service, 'serviceDescriptions', 'Summary'
+            'service_description_summary': _extract_translated_ptv_value(
+                service,
+                'serviceDescriptions',
+                language,
+                'Summary'
             ),
             'funding_type': service.get('fundingType'),
-            'user_instruction': _get_list_helper(service, 'serviceDescriptions', 'UserInstruction'),
+            'user_instruction': _extract_translated_ptv_value(
+                service,
+                'serviceDescriptions',
+                language,
+                'UserInstruction'
+            ),
             'service_channels': channels,
             'area_type': service.get('areaType'),
             'areas': service.get('areas'),
@@ -163,8 +171,11 @@ def _format_service_outputs(
                 if i['language'] == 'fi'
             ],
             'charge_type': get_str(service, 'serviceChargeType'),
-            'charge_additional_info': _get_list_helper(
-                service, 'serviceDescriptions', 'ChargeTypeAdditionalInfo'
+            'charge_additional_info': _extract_translated_ptv_value(
+                service,
+                'serviceDescriptions',
+                language,
+                'ChargeTypeAdditionalInfo'
             ),
         }
 
@@ -176,7 +187,7 @@ def _format_target_groups(target_groups: Dict[str, Any]) -> List[str]:
 
 
 def _format_service_collections(target_groups: Dict[str, Any]) -> List[str]:
-    return list(map(lambda target_group: target_group['id'], target_groups)) # type: ignore
+    return list(map(lambda target_group: target_group['id'], target_groups))  # type: ignore
 
 
 def _format_address(address: Dict[str, Any]) -> Optional[str]:
@@ -222,7 +233,7 @@ def _format_service_hour(service_hour: Dict[str, Any]) -> str:
     return opening_hours
 
 
-def _format_service_channel_output(service_channel: Dict[str, Any]) -> Dict[str, Any]:
+def _format_service_channel_output(service_channel: Dict[str, Any], language: str) -> Dict[str, Any]:
     web_pages = [
         get_str(page, 'url')
         for page in service_channel['webPages']
@@ -258,15 +269,19 @@ def _format_service_channel_output(service_channel: Dict[str, Any]) -> Dict[str,
 
     return {
         'service_channel_id': get_str(service_channel, 'id'),
-        'service_channel_name': _get_list_helper(
-            service_channel, 'serviceChannelNames', 'Name'
-        ),
+        'service_channel_name': _extract_translated_ptv_value(service_channel, 'serviceChannelNames', language, 'Name'),
         'service_channel_type': get_str(service_channel, 'serviceChannelType'),
-        'service_channel_description_summary': _get_list_helper(
-            service_channel, 'serviceChannelDescriptions', 'Summary'
+        'service_channel_description_summary': _extract_translated_ptv_value(
+            service_channel,
+            'serviceChannelDescriptions',
+            language,
+            'Summary'
         ),
-        'service_channel_description': _get_list_helper(
-            service_channel, 'serviceChannelDescriptions', 'Description'
+        'service_channel_description': _extract_translated_ptv_value(
+            service_channel,
+            'serviceChannelDescriptions',
+            language,
+            'Description'
         ),
         'phone_numbers': phone_numbers,
         'web_pages': web_pages,

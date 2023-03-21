@@ -3,9 +3,10 @@ import { HttpRequest } from "@aws-sdk/protocol-http"
 import { SignatureV4 } from "@aws-sdk/signature-v4"
 import { Hash } from "@aws-sdk/hash-node"
 import { formatUrl } from "@aws-sdk/util-format-url"
+import { AssumeRoleWithWebIdentityParams } from "@aws-sdk/credential-provider-web-identity"
 import { CredentialProvider, Credentials } from "@aws-sdk/types"
 import { STS } from "@aws-sdk/client-sts"
-import { AssumeRoleWithWebIdentityParams } from "@aws-sdk/credential-provider-web-identity/dist/types/fromWebToken"
+
 import { config } from "./config"
 
 export type Options = {

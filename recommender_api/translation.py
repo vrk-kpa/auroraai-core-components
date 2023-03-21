@@ -7,6 +7,9 @@ from recommender_api.tools.logger import log
 
 
 def translate_service_information(service, source_language, target_language):
+    if source_language == target_language:
+        return service
+
     description = service.get('service_description', '')
     description_summary = service.get('service_description_summary', '')
     service_name = service.get('service_name', '')
@@ -98,3 +101,19 @@ def _translate_multiple_strings(
         raise InternalServerError(f"Translation failed: {error}") from error
 
     return translation_result.get('TranslatedText', '').split(separator)
+
+
+def localised_fields_present(service):
+    channels_ok = all([
+        channel.get('service_channel_name')
+        and channel.get('service_channel_description')
+        and channel.get('service_channel_description_summary')
+        for channel in service['service_channels']
+    ])
+
+    return bool(
+        channels_ok
+        and service.get('service_name')
+        and service.get('service_description')
+        and service.get('service_description_summary')
+    )

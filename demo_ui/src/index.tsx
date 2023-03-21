@@ -3,13 +3,15 @@ import ReactDOM from 'react-dom'
 import { createGlobalStyle } from 'styled-components'
 import { suomifiDesignTokens } from 'suomifi-ui-components'
 import './index.css'
+import './i18n'
 import { App } from './App'
 import reportWebVitals from './reportWebVitals'
 
 import 'suomifi-ui-components/dist/main.css'
 import { fetchConfig } from './http/api'
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
-import { HelmetProvider } from 'react-helmet-async'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+
+import { default as LocalisedTextSearchApp } from './LocalisedTextSearch/App'
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -23,13 +25,15 @@ config.then((config) => {
     <React.StrictMode>
       <GlobalStyle />
       <BrowserRouter>
-        <Switch>
-          <Route exact path='/ui'>
-            <HelmetProvider>
-              <App config={config} />
-            </HelmetProvider>
+        <Routes>
+          <Route path='ui'>
+            <Route index path='*' element={<App config={config} />} />
+            <Route path='localised'>
+              <Route path='text-search' element={<LocalisedTextSearchApp />} />
+              <Route index path='*' element={<p>404</p>} />
+            </Route>
           </Route>
-        </Switch>
+        </Routes>
       </BrowserRouter>
     </React.StrictMode>,
     document.getElementById('root'),

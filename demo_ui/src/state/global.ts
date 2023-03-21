@@ -1,5 +1,5 @@
 import { atom } from 'recoil'
-import { RecommendServiceResponseDto } from '../dto/RecommendServiceResponseDto'
+import { LocalisedTextSearchResultState, RecommendServiceResponseDto } from '../dto/RecommendServiceResponseDto'
 import { meters, Meters } from '../http/api'
 import { defaultTargetGroups, Language, LocationFilterVariant, PTVServiceClass } from '../types'
 
@@ -29,6 +29,11 @@ export const recommendedServicesState = atom<RecommendServiceResponseDto['recomm
 export const termSearchResultsState = atom<RecommendServiceResponseDto['recommended_services'] | undefined>({
   key: 'termSearchResults',
   default: undefined,
+})
+
+export const localisedTextSearchResultsState = atom<LocalisedTextSearchResultState>({
+  key: 'localisedTextSearchResults',
+  default: { services: undefined, loadingRecommendations: false, loadingTranslations: false },
 })
 
 export const recommendationIDState = atom<number | undefined>({

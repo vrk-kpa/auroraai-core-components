@@ -1,0 +1,182 @@
+{
+  "fi": {
+    "translation": {
+      "abbreviationPieces": "kpl",
+
+      "labelSearchQueryTextInput": "Etsi palveluita suomenkielisellä hakutekstillä:",
+      "labelSearchQuerySendButton": "Etsi",
+      "labelSearchQueryClearButton": "Tyhjennä",
+      "labelLoadingSpinner": "Ladataan...",
+
+      "labelServiceChannelEChannel": "Verkkoasiointi",
+      "labelServiceChannelWebPage": "Lisätietoa verkossa",
+      "labelServiceChannelPhone": "Puhelinasionti",
+      "labelServiceChannelServiceLocation": "Palvelupaikka",
+      "labelMunicipalityCount": "Kuntaa",
+      "labelAreaTypeNationwide": "Koko Suomi",
+      "labelAreaTypeNationwideExceptAlandIslands": "Koko Suomi poislukien Ahvenanmaa",
+      "labelPubliclyFunded": "Julkinen palvelu",
+      "labelMarketFunded": "Yksityinen palvelu",
+
+      "labelNoServiceChannelsFound": "Asiointikanavia ei löytynyt.",
+
+      "labelNationalServiceFilter": "Valtakunnalliset palvelut",
+      "labelAreaAllServices": "Alueelliset ja valtakunnalliset palvelut",
+      "labelAreaOnlyNational": "Vain valtakunnalliset palvelut",
+      "labelAreaOnlyLimited": "Vain alueelliset palvelut",
+
+      "labelMunicipalityFilter": "Kunta",
+      "labelMunicipalityNotFound": "Ei tuloksia",
+      "labelClearMunicipalityFilter": "Poista kuntarajaukset",
+      "labelMunicipalityFilterPlaceholder": "Kirjoita kunnan nimi",
+
+      "labelServiceClassFilter": "Palveluluokka",
+      "labelServiceClassNotFound": "Ei tuloksia",
+      "labelClearServiceClassFilter": "Poista palveluluokkarajaukset",
+      "labelServiceClassFilterPlaceholder": "Kirjoita palveluokan nimi",
+
+      "labelFundingTypeFilter": "Palvelun tuottaja",
+      "labelFundingTypeAllFundingTypes": "Julkiset ja yksityiset palvelut",
+      "labelFundingTypeMarketFunded": "Vain yksityiset palvelut",
+      "labelFundingTypePubliclyFunded": "Vain julkiset palvelut",
+
+      "headingMain": "AuroraAI palvelusuosittelija",
+      "headingFreeTextSearch": "Vapaatekstiin perustuva palvelusuosittelija",
+      "headingSearchResults": "Löytyneet palvelut",
+      "headingServiceChannels": "Asiointikanavat",
+      "headingFilterPanel": "Rajaa hakutuloksia",
+
+      "languageMenuText": "Suomeksi (FI)",
+
+      "alertLabelMachineTranslatedService": "Palvelun tiedot on käännetty koneellisesti.",
+      "alertLabelAttention": "Huom!",
+
+      "alertContentMachineTranslationDisclaimer": "Osa hakutulosten palvelutiedoista on konekäännetty. Tiedoissa voi olla virheitä. Konekäännetyt palvelut on merkitty hakutuloksiin.",
+
+
+      "ariaChipActionLabel": "poista",
+      "ariaOptionChipRemovedText": "poistettu",
+      "ariaOptionsAvailableText": "vaihtoehtoa",
+      "ariaSelectedAmountText": "valittu"
+    }
+  },
+  "sv": {
+    "translation": {
+      "abbreviationPieces": "st.",
+
+      "labelSearchQueryTextInput": "Sök efter tjänster med söktexten på svenska:",
+      "labelSearchQuerySendButton": "Sökä",
+      "labelSearchQueryClearButton": "Tömma",
+      "labelLoadingSpinner": "Läser in...",
+      "labelMunicipalityCount": "Kommuner",
+      "labelAreaTypeNationwide": "Hela Finland",
+      "labelAreaTypeNationwideExceptAlandIslands": "Hela Landet utom Åland",
+      "labelPubliclyFunded": "Offentlig tjänst",
+      "labelMarketFunded": "Privat tjänst",
+      "labelNoServiceChannelsFound": "Inga servicekanaler hittades.",
+
+      "labelNationalServiceFilter": "Tjänster över hela Finland",
+      "labelAreaAllServices": "Inga avgränsningar",
+      "labelAreaOnlyNational": "Endast tjänster över hela Finland",
+      "labelAreaOnlyLimited": "Endast regionala tjänster",
+
+      "labelMunicipalityFilter": "Kommun",
+      "labelMunicipalityNotFound": "Inga sökresultat",
+      "labelClearMunicipalityFilter": "Ta bort kommunavgränsningar",
+      "labelMunicipalityFilterPlaceholder": "Skriv kommunens namn",
+
+      "labelServiceClassFilter": "Servicegrupp",
+      "labelServiceClassNotFound": "Inga sökresultat",
+      "labelClearServiceClassFilter": "Ta bort servicegruppavgränsningar",
+      "labelServiceClassFilterPlaceholder": "Skriv servicegruppens namn",
+
+      "labelFundingTypeFilter": "Tjänsteproducent",
+      "labelFundingTypeAllFundingTypes": "Offentliga och privata tjänster",
+      "labelFundingTypeMarketFunded": "Endast privata tjänster",
+      "labelFundingTypePubliclyFunded": "Endast offentliga tjänster",
+
+      "labelServiceChannelEChannel": "E-tjänst",
+      "labelServiceChannelWebPage": "Tilläggsinfo på nätet",
+      "labelServiceChannelPhone": "Telefonservice",
+      "labelServiceChannelServiceLocation": "Serviceställe",
+      "headingServiceChannels": "Servicekanaler",
+
+      "headingMain": "AuroraAI tjänstsökning",
+      "headingFreeTextSearch": "Fritextbaserad tjänstrekommendation",
+      "headingSearchResults": "Hittade tjänster",
+      "headingFilterPanel": "Avgränsa sökresultat",
+
+      "languageMenuText": "På Svenska (SV)",
+
+      "alertLabelMachineTranslatedService": "Tjänsteinformationen är maskinöversatt.",
+      "alertLabelAttention": "Obs!",
+
+      "alertContentMachineTranslationDisclaimer": "Sökresultaten innehåller tjänster som inte har beskrivningar på svenska. Serviceinformationen har maskinöversatts och kan vara felaktig. Tjänsterna med maskinöversatt information är markerade i sökresultaten.",
+
+
+      "ariaChipActionLabel": "ta bort",
+      "ariaOptionChipRemovedText": "borttagen",
+      "ariaOptionsAvailableText": "alternativ",
+      "ariaSelectedAmountText": "valt"
+    }
+  },
+  "en": {
+    "translation": {
+      "abbreviationPieces": "pcs",
+
+      "labelSearchQueryTextInput": "Search for services by typing a query in English:",
+      "labelSearchQuerySendButton": "Search",
+      "labelSearchQueryClearButton": "Clear",
+      "labelLoadingSpinner": "Loading...",
+      "labelMunicipalityCount": "Municipalities",
+      "labelAreaTypeNationwide": "Nationwide",
+      "labelAreaTypeNationwideExceptAlandIslands": "Nationwide except the Åland islands",
+      "labelPubliclyFunded": "Public Service",
+      "labelMarketFunded": "Private Service",
+      "labelNoServiceChannelsFound": "No service channels found.",
+
+      "labelNationalServiceFilter": "Nationwide services",
+      "labelAreaAllServices": "Nationwide and regional services",
+      "labelAreaOnlyNational": "Only nationwide services",
+      "labelAreaOnlyLimited": "Only regional services",
+
+      "labelMunicipalityFilter": "Municipality",
+      "labelMunicipalityNotFound": "No search results",
+      "labelClearMunicipalityFilter": "Remove municipality filters",
+      "labelMunicipalityFilterPlaceholder": "Enter municipality's name",
+
+      "labelServiceClassFilter": "Service group",
+      "labelServiceClassNotFound": "No search results",
+      "labelClearServiceClassFilter": "Remove service group filters",
+      "labelServiceClassFilterPlaceholder": "Enter service group's name",
+
+      "labelFundingTypeFilter": "Service producer",
+      "labelFundingTypeAllFundingTypes": "Public and private services",
+      "labelFundingTypeMarketFunded": "Only private services",
+      "labelFundingTypePubliclyFunded": "Only public services",
+
+      "labelServiceChannelEChannel": "E-service",
+      "labelServiceChannelWebPage": "Info on website",
+      "labelServiceChannelPhone": "Telephone service",
+      "labelServiceChannelServiceLocation": "Service location",
+      "headingServiceChannels": "Service channels",
+
+      "headingMain": "AuroraAI Service Recommender",
+      "headingFreeTextSearch": "Freeform Text Based Service Recommender",
+      "headingSearchResults": "Services Found",
+      "headingFilterPanel": "Filter search results",
+
+      "alertLabelMachineTranslatedService": "The service information is machine translated.",
+      "alertLabelAttention": "Attention!",
+
+      "alertContentMachineTranslationDisclaimer": "The search results contain services that don't have descriptions in English. The service information has been machine translated and can be erroneous. The services with machine translated information are marked in the search results.",
+
+      "ariaChipActionLabel": "remove",
+      "ariaOptionChipRemovedText": "removed",
+      "ariaOptionsAvailableText": "options",
+      "ariaSelectedAmountText": "selected",
+
+      "languageMenuText": "In English (EN)"
+    }
+  }
+}

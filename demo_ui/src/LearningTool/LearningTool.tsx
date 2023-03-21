@@ -58,10 +58,10 @@ export const LearningTool = ({ featureFlags }: { featureFlags: string[] }) => {
 
   const [isFetching, setIsFetching] = useRecoilState(isFetchingRecommendationsState)
   const [sessionID] = useRecoilState(sessionIDState)
-  const [_, setRecommendedServices] = useRecoilState(recommendedServicesState)
+  const [, setRecommendedServices] = useRecoilState(recommendedServicesState)
   const [recommendationID, setRecommendationID] = useRecoilState(recommendationIDState)
-  const [meters, ___] = useRecoilState(metersState)
-  const [____, setAttributes] = useRecoilState(attributesState)
+  const [meters] = useRecoilState(metersState)
+  const [, setAttributes] = useRecoilState(attributesState)
 
   const visibleLocationFilters = getVisibleFilters(featureFlags)
 

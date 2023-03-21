@@ -4,6 +4,9 @@ FROM public.ecr.aws/docker/library/python:3.9-slim-bullseye AS builder
 RUN apt-get update
 RUN apt-get -y install libpq-dev build-essential
 
+# upgrade python package tools
+RUN python -m pip install --upgrade pip && python -m pip install --upgrade setuptools
+
 COPY ./recommender_api /app/recommender_api/
 WORKDIR /app
 
@@ -27,6 +30,9 @@ RUN apt-get -y install postgresql-client
 ARG DRONE_BRANCH=_
 ARG DRONE_COMMIT_SHA=_
 ARG DRONE_BUILD_NUMBER=_
+
+# upgrade python package tools
+RUN python -m pip install --upgrade pip && python -m pip install --upgrade setuptools
 
 # Add the project sources
 COPY --from=builder /app/recommender_api /app/recommender_api/

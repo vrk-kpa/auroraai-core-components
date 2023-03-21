@@ -43,6 +43,7 @@ const OtherFilters = ({
 
         {fundingTypeFilters.map((item) => (
           <Checkbox
+            key={`${item.type}-checkbox`}
             id={`${item.type}-checkbox`}
             onClick={({ checkboxState }) => selectFundingType(item.type, checkboxState)}
             checked={isFundingTypeSelected(item.type)}

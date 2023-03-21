@@ -50,7 +50,7 @@ export const Questions: FC<Props> = ({ questions, options, onOptionSelect, isMut
                 id={`${q.type}_${option}`}
                 name={q.type}
                 value={option}
-                onChange={(_) => onOptionSelect(q, option)}
+                onChange={() => onOptionSelect(q, option)}
                 disabled={!isMutable}
               />
               <label htmlFor={`${q.type}_${option}`}>{option}</label>

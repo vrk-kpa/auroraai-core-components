@@ -12,4 +12,5 @@ export type TextSearchServiceRequestDto = {
     funding_type?: string[]
   }
   rerank?: boolean
+  limit?: number
 }

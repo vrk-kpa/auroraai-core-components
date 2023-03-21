@@ -84,7 +84,7 @@ export const SelectedFilters = () => {
       <div>
         {(includeNationalServices || onlyNationalServices) && <Chip>Valtakunnalliset palvelut</Chip>}
         {fundingType.map((item) => (
-          <Chip>{fundingTypeFilters.find((it) => it.type === item)?.name}</Chip>
+          <Chip key={item}>{fundingTypeFilters.find((it) => it.type === item)?.name}</Chip>
         ))}
       </div>
 

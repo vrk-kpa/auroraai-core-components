@@ -1,10 +1,13 @@
 import { ServiceChannelType } from './dto/RecommendServiceResponseDto'
+
+/* eslint-disable @typescript-eslint/no-var-requires */
 const ptvServiceClassesResource = require('./resources/ptv_classes.json')
 const regionResource = require('./resources/region_codes.json')
 const hospitalDistrictsResource = require('./resources/codelist_hospital_districts.json')
 const targetGroupsResource = require('./resources/codelist_target_groups.json')
 export const municipalityCodes: { [key: string]: string } = require('./resources/municipality_codes.json')
 const wellbeingCountiesResource = require('./resources/codelist_wellbeing_counties.json')
+/* eslint-enable */
 
 export const serviceChannelTypeToText = (serviceChannelType: ServiceChannelType): string => {
   const channelDescriptions: Partial<{ [type in ServiceChannelType]: string }> = {

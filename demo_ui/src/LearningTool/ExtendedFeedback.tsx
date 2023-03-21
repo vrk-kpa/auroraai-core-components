@@ -60,6 +60,7 @@ export const ExtendedFeedback = ({
       <form id={`${serviceId}-extended-feedback`}>
         {feedbackOptions.map((item, index) => (
           <Checkbox
+            key={`${serviceId}-feedback-option-${index}`}
             id={`${serviceId}-feedback-option-${index}`}
             checked={selectedFeedback.includes(index)}
             onClick={({ checkboxState }) => handleChange(index, checkboxState)}

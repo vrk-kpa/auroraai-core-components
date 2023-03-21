@@ -234,7 +234,7 @@
       "post": {
         "summary": "Search services by freeform text.",
         "operationId": "post-term-search",
-        "description": "Compares the input text against service descriptions in PTV and returns the most relevant services.",
+        "description": "Compares the input text against service descriptions in PTV and returns the most relevant services. Note that the example below displays application of available service filters, which may be too numerous to produce results. In that case, try removing all or some of the filters.",
         "requestBody": {
           "content": {
             "application/json": {
@@ -630,7 +630,7 @@
       "post": {
         "summary": "Experimental: Partially translate Finnish PTV data of a service to a foreign language.",
         "operationId": "post-translation-ptv-service",
-        "description": "This endpoint can be used to translate a PTV service's name, summary and description from Finnish to the selected language. Also service channel names and descriptions are translated. Currently not available in production.",
+        "description": "This endpoint can be used to translate a PTV service's name, summary and description from Finnish to the selected language. Also service channel names and descriptions are translated. If PTV-data is available in the target-language that will be used, otherwise the data is machine-translated. Currently this endpoint is not available in production.",
         "requestBody": {
           "content": {
             "application/json": {
@@ -669,6 +669,7 @@
                     "service_description_orig": "HÄTÄNUMERO 112\nSuomessa on käytössä vain yksi hätänumero, 112. Hätänumeroon 112 tulee soittaa aina kiireellisissä, todellisissa hätätilanteissa hengen, terveyden, omaisuuden tai ympäristön ollessa uhattuna tai vaarassa, tai jos on syytä epäillä näin olevan. Hätäilmoituksen voi tarvittaessa tehdä tekstiviestillä hätänumeroon 112.",
                     "service_description_summary": "In Finnland gibt es nur eine Notrufnummer, 112. Die Notrufnummer 112 sollte in dringenden, echten Notfällen jederzeit angerufen werden. ",
                     "service_description_summary_orig": "Suomessa on käytössä vain yksi hätänumero, 112. Hätänumeroon 112 tulee soittaa aina kiireellisissä, todellisissa hätätilanteissa.",
+                    "machine_translated": true,
 
                     "service_channels": [
                       {
@@ -757,7 +758,11 @@
                         "service_description": {"type":  "string", "description": "Translated description."},
                         "service_description_orig": {"type":  "string", "description": "Original description."},
                         "service_description_summary": {"type":  "string", "description": "Translated summary."},
-                        "service_description_summary_orig": {"type":  "string", "description": "Original summary."}
+                        "service_description_summary_orig": {"type":  "string", "description": "Original summary."},
+                        "machine_translated": {
+                          "type": "boolean",
+                          "description": "False if the service's PTV data was available in the given language. True if machine translation was used."
+                        }
                       }
                     },
                     "target_language": {

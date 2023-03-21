@@ -1,5 +1,7 @@
 import { FC, useState } from 'react'
-import { HashRouter, Route, Switch } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
+import { HelmetProvider } from 'react-helmet-async'
+
 import styled from 'styled-components'
 import { InlineAlert, suomifiDesignTokens } from 'suomifi-ui-components'
 import { AdditionalInfo } from './AdditionalInfo/AdditionalInfo'
@@ -33,8 +35,8 @@ export const App: FC<Props> = ({ config }) => {
   useState<Step>('questionnaire')
 
   return (
-    <RecoilRoot>
-      <HashRouter basename='/'>
+    <HelmetProvider>
+      <RecoilRoot>
         <Header>
           <NavBar featureFlags={config.featureFlags} />
         </Header>
@@ -44,32 +46,47 @@ export const App: FC<Props> = ({ config }) => {
               Käytät {config.environment.toUpperCase()}-ympäristöä
             </InlineAlert>
           )}
-          <Switch>
-            <Route exact path='/'>
-              <Page title='Tietoa palvelusta'>
-                <DemoUIHome />
-              </Page>
-            </Route>
 
-            <Route exact path='/recommender'>
-              <Page title='Palvelusuositukset'>
-                <LearningTool featureFlags={config.featureFlags} />
-              </Page>
-            </Route>
+          <Routes>
+            <Route
+              index
+              path='*'
+              element={
+                <Page title='Tietoa palvelusta'>
+                  <DemoUIHome />
+                </Page>
+              }
+            />
 
-            <Route path='/search'>
-              <Page title='Tekstisuosittelu'>
-                <Search featureFlags={config.featureFlags} />
-              </Page>
-            </Route>
-            <Route path='/info'>
-              <Page title='Lisätietoja'>
-                <AdditionalInfo />
-              </Page>
-            </Route>
-          </Switch>
+            <Route
+              path='recommender'
+              element={
+                <Page title='Palvelusuositukset'>
+                  <LearningTool featureFlags={config.featureFlags} />
+                </Page>
+              }
+            />
+
+            <Route
+              path='search'
+              element={
+                <Page title='Tekstisuosittelu'>
+                  <Search featureFlags={config.featureFlags} />
+                </Page>
+              }
+            />
+
+            <Route
+              path='info'
+              element={
+                <Page title='Lisätietoja'>
+                  <AdditionalInfo />
+                </Page>
+              }
+            />
+          </Routes>
         </Main>
-      </HashRouter>
-    </RecoilRoot>
+      </RecoilRoot>
+    </HelmetProvider>
   )
 }

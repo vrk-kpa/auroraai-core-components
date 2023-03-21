@@ -1,10 +1,10 @@
 import { FC } from 'react'
 import { Button, Heading, suomifiDesignTokens } from 'suomifi-ui-components'
 import { Section } from '../Section/Section'
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 export const DemoUIHome: FC = () => {
-  const history = useHistory()
+  const navigate = useNavigate()
 
   return (
     <>
@@ -22,7 +22,7 @@ export const DemoUIHome: FC = () => {
           kaikista annetuista tiedoista.
         </p>
 
-        <Button variant='link' onClick={() => history.push('/recommender')}>
+        <Button variant='link' onClick={() => navigate('recommender')}>
           Palvelusuositteluun
         </Button>
       </Section>
@@ -37,7 +37,7 @@ export const DemoUIHome: FC = () => {
           perusteella.
         </p>
 
-        <Button variant='link' onClick={() => history.push('/search')}>
+        <Button variant='link' onClick={() => navigate('search')}>
           Kokeile tekstisuosittelua
         </Button>
       </Section>

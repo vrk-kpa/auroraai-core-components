@@ -8,7 +8,14 @@ import { Meter } from '../http/api'
 import { omit } from 'ramda'
 const { Handle } = Slider
 
-const handle = (props: any): JSX.Element => {
+type SliderHandlerProps = {
+  value: number
+  dragging?: boolean | undefined
+  index: number
+  [key: string]: unknown
+}
+
+const handle = (props: SliderHandlerProps): JSX.Element => {
   const { value, dragging, index, ...restProps } = props
   return (
     <SliderTooltip

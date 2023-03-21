@@ -32,7 +32,7 @@ export const Services: FC<Props> = ({ recommendations, allowFeedback = true }) =
         recommendations.map((s) => {
           const channelsByType = groupBy(prop('service_channel_type'), s.service_channels)
           return (
-            <Container>
+            <Container key={s.service_id}>
               <Expander key={s.service_id}>
                 <ExpanderTitleButton asHeading='h3'>
                   <RecommendationHeader service={s} />
@@ -64,7 +64,7 @@ export const SearchServices: FC<SearchProps> = ({ recommendations }) => {
   return !recommendations ? null : (
     <>
       {recommendations?.map((service) => (
-        <Service initialService={service} recommendationID={recommendationID} />
+        <Service key={service.service_id} initialService={service} recommendationID={recommendationID} />
       ))}
     </>
   )

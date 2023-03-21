@@ -101,7 +101,7 @@ def test_format_service_channel_output():
     ) as f:
         otava_channel = json.load(f)
 
-    formated_output = ptv._format_service_channel_output(otava_channel)
+    formated_output = ptv._format_service_channel_output(otava_channel, 'fi')
     print(formated_output)
     assert formated_output == EXPECTED_SERVICE_CHANNEL
 
@@ -115,7 +115,6 @@ def test_format_service_output():
     ) as f:
         otava_channel = json.load(f)
 
-    formated_output = ptv._format_service_outputs(
-        [etalukio_service], [otava_channel])
-    print(formated_output)
-    assert formated_output == [EXPECTED_SERVICE]
+    formatted_output = ptv._format_service_outputs([etalukio_service], [otava_channel], 'fi')
+    print(formatted_output)
+    assert formatted_output == [EXPECTED_SERVICE]

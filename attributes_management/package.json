@@ -55,5 +55,8 @@
     "pg-promise": "10.10.2",
     "uuid": "8.3.2",
     "yaml": "1.10.2"
+  },
+  "resolutions": {
+    "cookiejar": "^2.1.4"
   }
 }

@@ -1,6 +1,7 @@
 import express, { Express, NextFunction, Request, Response } from 'express'
 import axios, { AxiosRequestConfig } from 'axios'
 import helmet from 'helmet'
+import path from 'path'
 
 import { constructAuthorizationHeader } from './utils/auth'
 import { config, environment } from './utils/config'
@@ -51,9 +52,19 @@ app.all(`${API_BASE_URL}/service-recommender/v1(/*)?`, async (req: Request, res:
   }
 })
 
+// serve static content from the build folder
 app.use('/ui', express.static('../build'))
-
+app.use('/ui/localised', express.static('../build'))
 app.use(errorHandler)
+
+// send index.html for all paths not specified above
+// react router will then work out the page to show
+app.get('*', (req, res) => {
+  console.log(req.path)
+
+  const indexPath = path.join(__dirname + '../../../build/index.html')
+  res.sendFile(indexPath)
+})
 
 const server = app.listen(port, () => console.log(`[Demo UI server]: Running on port ${port}`))
 server.keepAliveTimeout = 95 * 1000 // 95 seconds. This must be bigger than the ALB idle_timeout

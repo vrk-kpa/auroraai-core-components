@@ -3,6 +3,7 @@ import { RecommendServiceRequestDto } from '../dto/RecommendServiceRequestDto'
 import { RecommendationFeedbackRequestDto } from '../dto/RecommendationFeedbackRequestDto'
 import { SessionAttributesRequestDto } from '../dto/SessionAttributesRequestDto'
 import { TextSearchServiceRequestDto } from '../dto/TextSearchServiceRequestDto'
+import { RecommendedService, RecommendServiceResponseDto } from '../dto/RecommendServiceResponseDto'
 
 const BASE_URL = '/ui/api'
 const UI_BASE_URL = '/ui'
@@ -36,7 +37,7 @@ export const constructRecommendationPayload = (
   target_groups?: string[],
   funding_type?: string[],
   rerank?: boolean,
-  limit: number = 10,
+  limit = 10,
 ) => {
   return {
     session_id,
@@ -71,7 +72,7 @@ export const fetchRecommendations = (
   target_groups?: string[],
   funding_type?: string[],
   rerank?: boolean,
-  limit: number = 10,
+  limit = 10,
 ) => {
   const payload = constructRecommendationPayload(
     session_id,
@@ -120,21 +121,30 @@ export const fetchTextSearch = (
   target_groups?: string[],
   funding_type?: string[],
   rerank?: boolean,
+  limit?: number,
 ) => {
-  const payload: TextSearchServiceRequestDto = {
-    search_text: searchQuery.trim(),
-    service_filters: {
+  // Area filters are excluded if only_national_services flag is set
+  const areaFilters = Object.fromEntries(
+    Object.entries({
       include_national_services,
-      only_national_services,
       municipality_codes,
       region_codes,
       hospital_district_codes,
       wellbeing_service_county_codes,
+    }).map(([key, value]) => [key, only_national_services ? undefined : value]),
+  )
+
+  const payload: TextSearchServiceRequestDto = {
+    search_text: searchQuery.trim(),
+    service_filters: {
+      only_national_services,
+      ...areaFilters,
       service_classes,
       target_groups,
       funding_type,
     },
     rerank: rerank,
+    limit: limit,
   }
   return fetch(`${BASE_URL}/service-recommender/v1/text_search`, {
     method: 'POST',
@@ -183,4 +193,33 @@ export const createSessionAttributes = (serviceChannelID: string, sessionAttribu
     body: JSON.stringify(payload),
     headers: { 'Content-Type': 'application/json' },
   })
+}
+
+export const translateSearchText = async (searchTerm: string, language: string): Promise<string> => {
+  const response = await fetchSearchTextTranslation(searchTerm, language)
+  if (response.ok) {
+    const body = await response.json()
+    return body.search_text as string
+  } else {
+    console.error('failed to translate')
+    return ''
+  }
+}
+
+export const translateServiceData = async (serviceId: string, language: string): Promise<RecommendedService | undefined> => {
+  const response = await fetchServiceTranslation(serviceId, language)
+  if (response.ok) {
+    const body = await response.json()
+    return body.service as RecommendedService
+  } else {
+    return undefined
+  }
+}
+
+export const translateRecommendationResults = async (searchResults: RecommendServiceResponseDto, language: string) => {
+  return language === 'fi'
+    ? searchResults.recommended_services
+    : await Promise.all(
+        searchResults.recommended_services.map(async (service) => (await translateServiceData(service.service_id, language)) || service),
+      )
 }

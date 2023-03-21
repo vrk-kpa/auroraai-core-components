@@ -18,6 +18,8 @@ export type RecommendedService = {
   areas: Area[]
   similarity_score?: number
   service_description_summary: string
+  funding_type?: string
+  machine_translated?: boolean
 }
 
 export type AreaType = 'Nationwide' | 'NationwideExceptAlandIslands' | 'LimitedType'
@@ -57,4 +59,10 @@ export enum ServiceChannelType {
   Phone = 'Phone',
   ServiceLocation = 'ServiceLocation',
   WebPage = 'WebPage',
+}
+
+export type LocalisedTextSearchResultState = {
+  services: RecommendedService[] | undefined
+  loadingRecommendations: boolean
+  loadingTranslations: boolean
 }

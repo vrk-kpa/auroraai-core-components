@@ -9,6 +9,8 @@ RUN apt-get -y install postgresql-client libpq-dev curl build-essential
 COPY ./recommender_api/.wheel_cache /app/recommender_api/.wheel_cache
 WORKDIR /app
 
+RUN python -m pip install --upgrade pip && python -m pip install --upgrade setuptools
+
 # Load requirements that are not in cache and install
 COPY ./recommender_api/requirements.txt /app/recommender_api/
 RUN python -m pip --default-timeout=1000 \

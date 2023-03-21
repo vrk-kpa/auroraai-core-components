@@ -32,5 +32,9 @@ def test_translate_ptv_service(mock_translate_ptv_service):
     assert response.status_code == 200
     assert json.loads(response.data) == {
         'target_language': 'de',
-        'service': {'description': 'translated description', 'service_id': 'd64476db-f2df-4699-bb6a-1bfae007577a'}
+        'service': {
+            'description': 'translated description',
+            'service_id': 'd64476db-f2df-4699-bb6a-1bfae007577a',
+            'machine_translated': True
+        }
     }
