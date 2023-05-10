@@ -1,0 +1,37 @@
+default:
+  region: eu-west-1
+  db_host_routing: ''
+  db_name: service_recommender
+  db_port: '5432'
+  db_loader_user: service_recommender_loader
+  services_db_table: service_recommender.service
+  service_vectors_db_table: service_recommender.service_vectors
+  service_channels_db_table: service_recommender.service_channel
+  log_level: info
+  log_requests: 'false'
+  log_sql_queries: 'false'
+  log_contacted_data_providers: 'false'
+  ptv_url_prefix: https://api.palvelutietovaranto.suomi.fi
+  ptv_service_url_suffix: /api/v11/Service
+  ptv_service_list_url_suffix: /api/v11/Service/list
+  ptv_service_channel_url_suffix: /api/v11/ServiceChannel/
+  ptv_service_channel_list_url_suffix: /api/v11/ServiceChannel/list
+  services_key: services.json.xz
+  service_vector_key: 3x10d_labels/services_extended_20230202.csv
+  service_channels_key: service_channels.json.xz
+local:
+  db_host_routing: localhost
+  db_port: '5432'
+  db_password: dummy
+  db_loader_user: service_recommender_test
+localcluster:
+  db_host_routing: service-recommender-db
+  db_port: '5432'
+  db_password: dummy
+  db_loader_user: service_recommender_test
+  services_bucket: service-recommender-dev
+localunittest:
+  services_bucket: dummybucket
+  db_password: dummy
+  db_host_routing: localhost
+  db_loader_user: service_recommender_test

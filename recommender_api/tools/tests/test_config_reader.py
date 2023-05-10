@@ -1,23 +1,28 @@
-import unittest
-from recommender_api.tools import config
+import os
+from unittest import mock
+
+from recommender_api.tools.config import _current_env_config_with_defaults
+
+mock_envs = {"AAI_RECOMMENDER_CONFIG_FILE": 'recommender_api/tools/tests/test_data/config.yml'}
 
 
-class TestConfigReader(unittest.TestCase):
-    def test_get_param(self):
-        cfg, global_defaults, env = config._current_env_config_with_defaults(
-            'recommender_api/tools/tests/test_data', 'dev'
-        )
-        self.assertEqual(cfg['param1'], 'param1_dev_value')
-        self.assertEqual(cfg['param2'], 'param2_default')
-        self.assertEqual(global_defaults['param2'], cfg['param2'])
+@mock.patch.dict(os.environ, mock_envs)
+def test_get_param():
+    cfg, global_defaults, __ = _current_env_config_with_defaults('dev')
+    assert cfg['param1'] == 'param1_dev_value'
+    assert cfg['param2'] == 'param2_default'
+    assert global_defaults['param2'] == cfg['param2']
 
-    def test_override_different_env(self):
-        cfg, global_defaults, env = config._current_env_config_with_defaults(
-            'recommender_api/tools/tests/test_data', 'prod'
-        )
-        self.assertEqual(cfg['param1'], 'param1_prod_value')
-        self.assertEqual(cfg['param2'], 'param2_default')
 
-    def test_safe_getter(self):
-        self.assertEqual(config.get('doesnotexist', 'stillgetsadefaultvalue'), 'stillgetsadefaultvalue')
-        self.assertIsNone(config.get('doesnotexist2'))
+@mock.patch.dict(os.environ, mock_envs)
+def test_override_different_env():
+    cfg, _, __ = _current_env_config_with_defaults('prod')
+    assert cfg['param1'] == 'param1_prod_value'
+    assert cfg['param2'] == 'param2_default'
+
+
+@mock.patch.dict(os.environ, mock_envs)
+def test_safe_getter():
+    cfg, _, __ = _current_env_config_with_defaults('prod')
+    assert cfg.get('doesnotexist', 'stillgetsadefaultvalue') == 'stillgetsadefaultvalue'
+    assert cfg.get('doesnotexist2') is None

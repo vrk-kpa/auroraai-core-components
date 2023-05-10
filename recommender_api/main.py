@@ -3,6 +3,7 @@ import pickle
 from pathlib import Path
 
 import boto3
+from boto3.s3.transfer import TransferConfig
 
 from flask import Flask
 
@@ -60,21 +61,30 @@ def init_fasttext(app, path):
 
 
 def download_fasttext_from_s3():
-    if config['load_fasttext_from_s3'] == 'true':
-        Path(config['fasttext_download_dir']).mkdir(parents=True, exist_ok=True)
-
-        s3_client = boto3.client('s3')
-        results = s3_client.list_objects_v2(Bucket=config['services_bucket'], Prefix=config['fasttext_s3_directory'])
-        file_list = [i['Key'] for i in results['Contents'] if i['Key'][-1] != '/']
-
-        for file in file_list:
-            file_name = file.split('/')[-1]
-            dest_file = os.path.join(config['fasttext_download_dir'], file_name)
-            log.debug(f'Copying file {file} to {dest_file}')
-            s3_client.download_file(config['services_bucket'], file, dest_file)
-        log.debug('Fasttext model download done.')
-    else:
+    if config['load_fasttext_from_s3'] != 'true':
         log.debug('No need to download Fasttext model')
+        return
+
+    bucket = config['services_bucket']
+    bucket_directory = config['fasttext_s3_directory']
+    local_directory = config['fasttext_download_dir']
+
+    transfer_config = TransferConfig(max_concurrency=40)
+
+    Path(local_directory).mkdir(parents=True, exist_ok=True)
+
+    s3_client = boto3.client('s3')
+    results = s3_client.list_objects_v2(Bucket=bucket, Prefix=bucket_directory)
+    file_list = [i['Key'] for i in results['Contents'] if i['Key'][-1] != '/']
+
+    for file in file_list:
+        file_name = file.split('/')[-1]
+        dest_file = os.path.join(local_directory, file_name)
+        log.debug(f'Copying file {file} to {dest_file}')
+        s3_client.download_file(bucket, file, dest_file, Config=transfer_config)
+    log.debug('Fasttext model download done.')
+
+
 
 
 def run():

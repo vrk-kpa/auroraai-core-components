@@ -664,7 +664,22 @@ def test_text_search_redirect_urls_returned(mock_client, mock_add_session_transf
     assert re.match(url, response_url)
 
 
-def test_api_call_logging(mock_client, mock_add_session_transfer_indicator, capfd):
+
+@pytest.fixture
+def force_sql_and_request_logging():
+    log_requests_config_original = config.get('log_requests')
+    config['log_requests'] = 'true'
+
+    log_sql_config_original = config.get('log_sql_queries')
+    config['log_sql_queries'] = 'true'
+
+    yield
+
+    config['log_requests'] = log_requests_config_original
+    config['log_sql_requests'] = log_sql_config_original
+
+
+def test_api_call_logging(mock_client, mock_add_session_transfer_indicator, force_sql_and_request_logging, capfd):
     set_log_test_stream()
 
     with mock_client as client:

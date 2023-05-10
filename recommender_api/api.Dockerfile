@@ -1,8 +1,7 @@
 FROM public.ecr.aws/docker/library/python:3.9-slim-bullseye AS builder
 
 # Install required Debian pakgs client to build image
-RUN apt-get update
-RUN apt-get -y install libpq-dev build-essential
+RUN apt-get update && apt-get -y install libpq-dev build-essential
 
 # upgrade python package tools
 RUN python -m pip install --upgrade pip && python -m pip install --upgrade setuptools
@@ -23,8 +22,7 @@ RUN rm -Rf ./recommender_api/.wheel_cache
 
 FROM public.ecr.aws/docker/library/python:3.9-slim-bullseye
 
-RUN apt-get update
-RUN apt-get -y install postgresql-client
+RUN apt-get update && apt-get -y upgrade && apt-get -y install postgresql-client
 
 # Build information from Drone. Passed with build-args in CI pipeline
 ARG DRONE_BRANCH=_

@@ -209,6 +209,7 @@ services:
       AWS_SESSION_TOKEN: "${AWS_SESSION_TOKEN-}"
       AWS_SECURITY_TOKEN: "${AWS_SECURITY_TOKEN-}"
       DATA_LOADER_MODE: "${DATA_LOADER_MODE-}"
+      AAI_RECOMMENDER_CONFIG_FILE: "recommender_api/ptv_data_loader/config.yml"
     depends_on:
       - service-recommender-api
       - service-recommender-flyway-clean
@@ -232,6 +233,7 @@ services:
       AWS_SESSION_TOKEN: "${AWS_SESSION_TOKEN-}"
       AWS_SECURITY_TOKEN: "${AWS_SECURITY_TOKEN-}"
       DATA_LOADER_MODE: "full-run"
+      AAI_RECOMMENDER_CONFIG_FILE: "recommender_api/ptv_data_loader/config.yml"
     depends_on:
       - service-recommender-api
       # - service-recommender-flyway-clean

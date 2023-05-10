@@ -2,8 +2,7 @@ FROM public.ecr.aws/docker/library/python:3.9-slim-bullseye
 # Same python version as in runtime image
 
 # Install required Debian pakgs client to build image
-RUN apt-get update
-RUN apt-get -y install postgresql-client libpq-dev curl build-essential
+RUN apt-get update && apt-get -y install postgresql-client libpq-dev curl build-essential
 
 # Copy cached wheel packages (see make service_recommender_setup)
 COPY ./recommender_api/.wheel_cache /app/recommender_api/.wheel_cache

@@ -37,6 +37,7 @@ class LoggingDictCursor(DictCursor):
     def execute(self, query, _vars=None):
         query_to_log = query if len(query) < 200 else query[:200]
         log.audit.sql_query(query_to_log)
+
         return super().execute(query, _vars)
 
 
@@ -110,7 +111,6 @@ def importable_data(
         ]
         return LIST_JOINER.join(municipality_name_list)
 
-    log.debug(f'Prepare data for import')
     prepared_data = [
         {
             'service_id': id_,
@@ -147,7 +147,6 @@ def build_conflict_statement(columns):
 
 
 def load_services_to_db(services: Dict[str, Dict[str, Any]]):
-    log.debug('Loading service information to database')
     if services:
         # TODO: separate auth endpoint from db endpoint to allow local debugging to AWS RDS
         db_endpoint_address = (
@@ -162,7 +161,6 @@ def load_services_to_db(services: Dict[str, Dict[str, Any]]):
             user=DB_USER,
             region=REGION,
         ) as conn:
-
             log.technical.database(db_endpoint_address, DB_PORT, DB_NAME)
             data_to_import = importable_data(services)
             with conn.cursor(cursor_factory=LoggingDictCursor) as cur:
@@ -176,10 +174,10 @@ def load_services_to_db(services: Dict[str, Dict[str, Any]]):
                 execute_values(cur, query, values)
 
             conn.commit()
+            log.technical.message('Services inserted into db.')
 
 
 def load_service_vectors_to_db(dataframe: pd.DataFrame):
-    log.debug('Loading service vectors to database')
     db_endpoint_address = (
         DB_HOST_ROUTING if DB_HOST_ROUTING != '' else db_endpoint(DB_NAME, REGION)
     )
@@ -191,7 +189,6 @@ def load_service_vectors_to_db(dataframe: pd.DataFrame):
         user=DB_USER,
         region=REGION,
     ) as conn:
-
         log.technical.database(db_endpoint_address, DB_PORT, DB_NAME)
         with conn.cursor(cursor_factory=LoggingDictCursor) as cur:
             cur.execute(f'truncate table {SERVICE_VECTORS_DB_TABLE}')
@@ -201,10 +198,10 @@ def load_service_vectors_to_db(dataframe: pd.DataFrame):
             execute_values(cur, query, tuples)
 
         conn.commit()
+        log.technical.message('Service vectors inserted into db.')
 
 
 def load_service_channels_to_db(service_channels: List[Dict[str, Any]]):
-    log.debug('Loading service channel information to database')
     if service_channels:
         db_endpoint_address = (
             DB_HOST_ROUTING if DB_HOST_ROUTING != '' else db_endpoint(DB_NAME, REGION)
@@ -218,7 +215,6 @@ def load_service_channels_to_db(service_channels: List[Dict[str, Any]]):
             user=DB_USER,
             region=REGION,
         ) as conn:
-
             log.technical.database(db_endpoint_address, DB_PORT, DB_NAME)
 
             values = [
@@ -243,10 +239,10 @@ def load_service_channels_to_db(service_channels: List[Dict[str, Any]]):
                 execute_values(cur, query, values)
 
             conn.commit()
+            log.technical.message('Service channels inserted into db.')
 
 
 def add_ptv_fetch_timestamp_to_db():
-    log.debug('Writing fetch timestamp to database')
     db_endpoint_address = (
         DB_HOST_ROUTING if DB_HOST_ROUTING != '' else db_endpoint(DB_NAME, REGION)
     )
@@ -262,14 +258,13 @@ def add_ptv_fetch_timestamp_to_db():
         log.technical.database(db_endpoint_address, DB_PORT, DB_NAME)
 
         with conn.cursor(cursor_factory=LoggingDictCursor) as cur:
-            cur.execute(
-                'INSERT into service_recommender.ptv_fetch_timestamp DEFAULT VALUES'
-            )
+            cur.execute('INSERT into service_recommender.ptv_fetch_timestamp DEFAULT VALUES')
+
         conn.commit()
+        log.technical.message(f'Updated fetch timestamp in db.')
 
 
 def get_latest_ptv_fetch_timestamp():
-    log.debug('Fetching latest PTV load date')
     db_endpoint_address = (
         DB_HOST_ROUTING if DB_HOST_ROUTING != '' else db_endpoint(DB_NAME, REGION)
     )
@@ -292,6 +287,8 @@ def get_latest_ptv_fetch_timestamp():
             if data == []:
                 return None
             timestamp = data[0].strftime('%Y-%m-%dT%H:%M:%S')
+
+        log.technical.message('Got latest ptv fetch timestamp')
         return timestamp
 
 
@@ -314,6 +311,8 @@ def get_service_data_from_db():
             cur.execute('SELECT service_data FROM service_recommender.service WHERE NOT archived')
             data = [data[0] for data in cur.fetchall()]
             services = {service['id']: service for service in data}
+
+        log.technical.message('Got services from db.')
         return services
 
 
@@ -340,6 +339,8 @@ def get_service_channel_data_from_db():
             service_channels = {
                 service_channel['id']: service_channel for service_channel in data
             }
+
+        log.technical.message('Got service channels from db.')
         return service_channels
 
 
@@ -356,7 +357,6 @@ def flag_archived_services_in_db(service_ids: List[str], service_channel_ids: Li
             user=DB_USER,
             region=REGION,
         ) as conn:
-
             log.technical.database(db_endpoint_address, DB_PORT, DB_NAME)
 
             with conn.cursor(cursor_factory=LoggingDictCursor) as cur:
@@ -371,3 +371,5 @@ def flag_archived_services_in_db(service_ids: List[str], service_channel_ids: Li
                 cur.execute(query, {'service_channels': tuple(service_channel_ids)})
 
             conn.commit()
+
+            log.technical.message('Archived services and channels flagged in db.')

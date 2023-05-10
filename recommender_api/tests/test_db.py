@@ -431,10 +431,7 @@ def test_get_filtered_service_ids_with_target_group():
         funding_type=[]
     )
 
-    assert result == [
-        '6c00d407-d3fd-4c7e-a373-57be9f3b2cff',  # area_type == 'LimitedType' and areas_type == 'Municipality'
-        'd64476db-f2df-4699-bb6a-1bfae007577a'  # area_type == 'Municipality'
-    ]
+    assert result == ['d64476db-f2df-4699-bb6a-1bfae007577a']
 
 
 def test_get_filtered_service_ids_with_invalid_target_group():
@@ -613,7 +610,6 @@ def test_get_filtered_service_ids_all_areas():
         funding_type=[]
     )
     assert result == [
-        '6c00d407-d3fd-4c7e-a373-57be9f3b2cff',
         'b9e2ff7d-3d18-476d-94e0-4a818f1136d6',
         '07058248-f002-4897-b1d5-7df9aa734c55',
         '811c88b7-74db-414c-bbce-9735c9feb14a',
@@ -681,10 +677,7 @@ def test_get_filtered_service_ids_with__public_funding_type():
         funding_type=['PubliclyFunded']
     )
 
-    assert result == [
-        '6c00d407-d3fd-4c7e-a373-57be9f3b2cff',
-        '811c88b7-74db-414c-bbce-9735c9feb14a'
-    ]
+    assert result == ['811c88b7-74db-414c-bbce-9735c9feb14a']
 
 
 def test_get_filtered_service_ids_with__market_funding_type():

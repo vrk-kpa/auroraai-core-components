@@ -8,6 +8,7 @@ import botocore
 from moto import mock_s3
 
 from recommender_api.ptv_data_loader.db import load_services_to_db, importable_data
+from recommender_api.ptv_data_loader.tests.test_data.expected_services import EXPECTED_SERVICES
 from recommender_api.tools.config import config
 from recommender_api.tools.logger import log
 
@@ -24,46 +25,9 @@ BUCKET = f'service-recommender-ci'
 KEY = f'services.json.xz'
 DB_NAME = 'service_recommender'
 
-EXPECTED_SERVICES = [{'service_id': '6c00d407-d3fd-4c7e-a373-57be9f3b2cff',
-                      'service_type': 'Service',
-                      'areas_type': 'Municipality',
-                      'area_type': 'LimitedType',
-                      'service_name': 'Yksilöllistetty oppimäärä',
-                      'description_summary': 'Oppimäärää voidaan yksilöllistää, jos opiskelijalla ei ole '
-                                             'edellytyksiä suoriutua perusopetuksen jonkin oppiaineen oppimäärästä '
-                                             'hyväksytysti.',
-                      'description': 'Liperin koulut noudattavat erityisopetuksen suhteen opetussuunnitelmaa. '
-                                     'Erityisoppilaat integroidaan mahdollisuuksien mukaan yleisopetuksen ryhmiin. '
-                                     'Oppimäärää voidaan yksilöllistää, jos opiskelijalla ei ole edellytyksiä '
-                                     'suoriutua perusopetuksen jonkin oppiaineen oppimäärästä hyväksytysti.',
-                      'user_instruction': 'Oppimäärän yksilöllistämisestä sovitaan yksilöllisesti omassa koulussa. '
-                                          'Koulun rehtori hakee yksilöllistämisen hallintopäätöstä '
-                                          'hyvinvointipalveluiden esimieheltä.\n',
-                      'service_charge_type': None,
-                      'charge_type_additional_info': '',
-                      'target_groups': 'Lapset ja lapsiperheet Kansalaiset',
-                      'service_class_name': 'Perusopetus',
-                      'service_class_description': 'Tähän palvelualaluokkaan kuuluvat sekä varsinainen perusopetus '
-                                                   'sisältöineen ja tavoitteineen sekä perusopetuksen yhteydessä '
-                                                   'ja sen tukemiseksi välittömästi tarjottavat palvelut, '
-                                                   'esimerkiksi koulukuljetukset, kouluruokailu ja '
-                                                   'avustajapalvelut. Tähän luokkaan kuuluvat myös Suomen '
-                                                   'perusopetuksen mukaisen peruskoulutuksen ulkomailla '
-                                                   'suorittamiseen liittyvät asiat.',
-                      'ontology_terms': 'peruskoulu perusopetus',
-                      'life_events': '',
-                      'industrial_classes': '',
-                      'service_channels': 'Liperin koulu Viinijärven koulu Salokylän koulu Mattisenlahden koulu '
-                                          'Ylämyllyn koulu',
-                      'municipality_codes': '426 123',
-                      'municipality_names': 'Liperi Tohmajärvi',
-                      'archived': False
-                      }]
-
 # pylint: disable=W0212
 # Store reference to original api call so that mock function can call it
 original_make_api_call = botocore.client.BaseClient._make_api_call
-
 
 def mock_rds_describe_db_instances(self, operation_name, kwarg):
     # Mock only describeDBInstances
@@ -126,10 +90,14 @@ class TestPTVDataLoad(unittest.TestCase):
             key.delete()
         bucket.delete()
 
+    def test_data_loader_config_file_is_used(self):
+        self.assertIsNone(config.get('db_api_user'))
+        self.assertIsNotNone(config.get('db_loader_user', None))
+
     def test_load_ptv(self):
         log.debug(f'Testing loading PTV data from mock S3')
         services = load_test_data()
-        # drop raw data as its hard to compare
+        # drop raw data as it's hard to compare
         services = {id_: {k: v for k, v in service.items() if k != 'service_data'}
                     for id_, service in services.items()}
         log.debug('Services:')

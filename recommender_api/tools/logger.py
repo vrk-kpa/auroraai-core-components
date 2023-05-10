@@ -6,7 +6,7 @@ from contextvars import ContextVar
 from datetime import datetime
 from enum import Enum
 from typing import Optional, List, Dict, TypeVar
-from .config import config
+from .config import config, env
 
 from flask import Response, Request
 from pythonjsonlogger import jsonlogger
@@ -200,16 +200,19 @@ class AuditLogContext(BaseLogContext):
         self.data: AuditLogEntry = AuditLogEntry()
 
     def request(self, request: Request):
-        self.data.queryString = request.query_string.decode("utf-8")
-        self.data.httpBody = request.data.decode("utf-8")
+        if config.get('log_requests'):
+            self.data.queryString = request.query_string.decode("utf-8")
+            self.data.httpBody = request.data.decode("utf-8")
 
     def sql_query(self, query: str):
-        self.data.sqlQueries.append(query)
+        if config.get('log_sql_queries') == 'true' and env != 'prod':
+            self.data.sqlQueries.append(query)
 
     def contacted_data_provider(self, requests_log_record: logging.LogRecord):
-        self.data.contactedDataProviders.append({
-            'request': requests_log_record.getMessage()
-        })
+        if config.get('log_contacted_data_providers') == 'true':
+            self.data.contactedDataProviders.append({
+                'request': requests_log_record.getMessage()
+            })
 
 
 class AuroraAiJsonFormatter(jsonlogger.JsonFormatter):

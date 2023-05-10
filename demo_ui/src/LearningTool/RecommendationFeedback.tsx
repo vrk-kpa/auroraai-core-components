@@ -3,10 +3,10 @@ import styled from 'styled-components'
 import { useState } from 'react'
 import { sendFeedback } from '../http/api'
 import { ExtendedFeedback } from './ExtendedFeedback'
-import { ReactComponent as ThumbsUpIcon } from '../resources/images/thumbs-up.svg'
-import { ReactComponent as ThumbsDownIcon } from '../resources/images/thumbs-down.svg'
-import { ReactComponent as ThumbsUpIconFilled } from '../resources/images/thumbs-up-filled.svg'
-import { ReactComponent as ThumbsDownIconFilled } from '../resources/images/thumbs-down-filled.svg'
+import ThumbsUpIcon from 'jsx:../resources/images/thumbs-up.svg'
+import ThumbsDownIcon from 'jsx:../resources/images/thumbs-down.svg'
+import ThumbsUpIconFilled from 'jsx:../resources/images/thumbs-up-filled.svg'
+import ThumbsDownIconFilled from 'jsx:../resources/images/thumbs-down-filled.svg'
 
 const FeedbackContainer = styled.div`
   margin: ${suomifiDesignTokens.spacing.s} 0;

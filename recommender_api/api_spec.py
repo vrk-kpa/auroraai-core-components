@@ -74,7 +74,7 @@ class Field3X10D(fields.List):
                 validate=valid_range,
                 strict=True
             ),
-            description=description,
+            metadata={'description': description},
             required=required
         )
 
@@ -122,23 +122,24 @@ class ServiceFiltersSchema(Schema):
                     raise ValidationError(f'only_national_services selected. {area_filter} not allowed.')
 
     include_national_services = StrictBoolean(
-        description="Select if national services are included recommendation results. Defaults to 'true'."
-                    "If set to 'false', only services matching the area filters are recommended.",
+        metadata={'description': "Select if national services are included recommendation results. Defaults to 'true'."
+                                 "If set to 'false', only services matching the area filters are recommended."},
         required=False,
-        default=True
+        dump_default=True
     )
 
     only_national_services = StrictBoolean(
-        description="Select if national services only included at recommendation results. Defaults to 'false'."
-                    "If set to 'true', only nationwide services recommended.",
+        metadata={
+            'description': "Select if national services only included at recommendation results. Defaults to 'false'."
+                           "If set to 'true', only nationwide services recommended."},
         required=False,
-        default=False
+        dump_default=False
     )
 
     municipality_codes = fields.List(
         fields.String(
-            description="Municipality as a code defined in koodistot.suomi.fi from where "
-                        "the recommendations are given.",
+            metadata={'description': "Municipality as a code defined in koodistot.suomi.fi from where "
+                                     "the recommendations are given."},
             validate=validate.OneOf(municipality_data.valid_municipality_codes)
         ),
         required=False,
@@ -148,8 +149,8 @@ class ServiceFiltersSchema(Schema):
 
     region_codes = fields.List(
         fields.String(
-            description="Region (maakunta) as a code defined in stat.fi from where "
-                        "the recommendations are given.",
+            metadata={'description': "Region (maakunta) as a code defined in stat.fi from where "
+                                     "the recommendations are given."},
             validate=validate.OneOf(municipality_data.valid_region_codes)
         ),
         required=False,
@@ -158,8 +159,8 @@ class ServiceFiltersSchema(Schema):
 
     hospital_district_codes = fields.List(
         fields.String(
-            description="Hospital district (sairaanhoitopiiri) as a code defined in stat.fi from where "
-                        "the recommendations are given.",
+            metadata={'description': "Hospital district (sairaanhoitopiiri) as a code defined in stat.fi from where "
+                                     "the recommendations are given."},
             validate=validate.OneOf(
                 municipality_data.valid_hospital_district_codes)
         ),
@@ -170,7 +171,7 @@ class ServiceFiltersSchema(Schema):
 
     service_classes = fields.List(
         fields.String(
-            description="Service class URI as defined in koodistot.suomi.fi.",
+            metadata={'description': "Service class URI as defined in koodistot.suomi.fi."},
             validate=validate.OneOf(valid_service_classes)
         ),
         required=False,
@@ -179,7 +180,7 @@ class ServiceFiltersSchema(Schema):
 
     target_groups = fields.List(
         fields.String(
-            description="Target groups defined using their codes",
+            metadata={'description': "Target groups defined using their codes"},
             validate=validate.OneOf(valid_target_groups)
         ),
         required=False,
@@ -188,21 +189,21 @@ class ServiceFiltersSchema(Schema):
 
     service_collections = fields.List(
         fields.String(
-            description="Service collections defined using their IDs",
+            metadata={'description': "Service collections defined using their IDs"},
         ),
         required=False,
         validate=validate.Length(min=1)
     )
 
     rerank = StrictBoolean(
-        description="Rerank the recommendations based on feedback from users",
+        metadata={'description': "Rerank the recommendations based on feedback from users"},
         required=False,
-        default=False
+        dump_default=False
     )
 
     funding_type = fields.List(
         fields.String(
-            description="Funding type of service",
+            metadata={'description': "Funding type of service"},
             validate=validate.OneOf(valid_funding_types)
         ),
         required=False,
@@ -211,8 +212,9 @@ class ServiceFiltersSchema(Schema):
 
     wellbeing_service_county_codes = fields.List(
         fields.String(
-            description="Wellbeing service county (Hyvinvointialue) as a code defined in stat.fi from where "
-                        "the recommendations are given.",
+            metadata={
+                'description': "Wellbeing service county (Hyvinvointialue) as a code defined in stat.fi from where "
+                               "the recommendations are given."},
             validate=validate.OneOf(wellbeing_service_county_codes.valid_county_codes)
         ),
         required=False,
@@ -221,30 +223,30 @@ class ServiceFiltersSchema(Schema):
 
 
 class LifeSituationMeterInput(Schema):
-    session_id = fields.String(description="ID of the session", required=False)
+    session_id = fields.String(metadata={'description': "ID of the session"}, required=False)
 
     limit = fields.Int(
-        description="Number of recommended services to return. Defaults to 5.",
+        metadata={'description': "Number of recommended services to return. Defaults to 5."},
         required=False,
         validate=validate.Range(min=1, max=50),
         strict=True
     )
 
     rerank = StrictBoolean(
-        description="Rerank the recommendations based on feedback from users",
+        metadata={'description': "Rerank the recommendations based on feedback from users"},
         required=False,
-        default=False
+        dump_default=False
     )
 
     service_filters = fields.Nested(
         ServiceFiltersSchema,
-        description="Filter the services included in recommendations.",
+        metadata={'description': "Filter the services included in recommendations."},
         required=False
     )
 
     life_situation_meters = fields.Nested(
         LifeSituationMetersSchema,
-        description="Life Situation Meters as defined in 3X10D",
+        metadata={'description': "Life Situation Meters as defined in 3X10D"},
         required=True,
         error_messages={"required": "life_situation_meters is required."}
     )
@@ -256,21 +258,17 @@ class LifeSituationMeterInput(Schema):
 
 
 class RedirectInput(Schema):
-    service_id = fields.String(
-        description="PTV service ID", required=True, strict=True)
-    service_channel_id = fields.String(
-        description="PTV service channel ID", required=True, strict=True)
-    session_id = fields.String(
-        description="Session ID for session transfer", required=False)
-    recommendation_id = fields.Int(
-        description="ID of the recommendation", required=True)
+    service_id = fields.String(metadata={'description': "PTV service ID"}, required=True)
+    service_channel_id = fields.String(metadata={'description': "PTV service channel ID"}, required=True)
+    session_id = fields.String(metadata={'description': "Session ID for session transfer"}, required=False)
+    recommendation_id = fields.Int(metadata={'description': "ID of the recommendation"}, required=True)
     link_id = fields.Int(
-        description="Link ID number",
+        metadata={'description': "Link ID number"},
         required=True,
         validate=validate.Range(min=0, max=30)
     )
     auroraai_access_token = fields.String(
-        description="Access token for session transfer",
+        metadata={'description': "Access token for session transfer"},
         required=False
     )
 
@@ -300,27 +298,26 @@ class TextSearchInput(Schema):
 
     service_filters = fields.Nested(
         ServiceFiltersSchema,
-        description="Filter the services included in recommendations.",
+        metadata={'description': "Filter the services included in recommendations."},
         required=False
     )
 
     limit = fields.Int(
-        description="Limit the number of returned results",
+        metadata={'description': "Limit the number of returned results"},
         required=False,
         validate=validate.Range(min=1, max=50),
         strict=True
     )
 
     rerank = StrictBoolean(
-        description="Rerank the recommendations based on feedback from users",
+        metadata={'description': "Rerank the recommendations based on feedback from users"},
         required=False,
-        default=False
+        dump_default=False
     )
 
     language = fields.String(
         validate=validate.OneOf(VALID_LANGUAGES),
-        required=False,
-        strict=True
+        required=False
     )
 
     @post_load
@@ -330,50 +327,58 @@ class TextSearchInput(Schema):
 
 
 class ServiceChannel(Schema):
-    service_channel_id = fields.String(
-        description="ID of the service channel in PTV.", required=True)
-    service_name = fields.String(
-        description='Name of the serivce channel.', required=True)
-    service_channel_description_summary = fields.String(
-        description='Service channel description summary')
+    service_channel_id = fields.String(metadata={'description': "ID of the service channel in PTV."}, required=True)
+    service_name = fields.String(metadata={'description': 'Name of the serivce channel.'}, required=True)
+    service_channel_description_summary = fields.String(metadata={'description': 'Service channel description summary'})
 
 
 class RecommendedService(Schema):
-    service_id = fields.String(
-        description="ID of the service in PTV.", required=True)
-    service_name = fields.String(
-        description='Name of the serivce.', required=True)
-    service_channels = fields.List(fields.Nested(ServiceChannel), description='Information about service channels '
-                                                                              'for the service')
+    service_id = fields.String(metadata={'description': "ID of the service in PTV."}, required=True)
+    service_name = fields.String(metadata={'description': 'Name of the serivce.'}, required=True)
+    service_channels = fields.List(
+        fields.Nested(ServiceChannel),
+        metadata={'description': 'Information about service channels for the service'}
+    )
 
 
 class SearchResultService(Schema):
-    service_id = fields.String(
-        description="ID of the service in PTV.", required=True)
-    service_name = fields.String(
-        description='Name of the serivce.', required=True)
-    similarity_score = fields.Float(description='Similarity score describing how well this service matches given text '
-                                                'input')
-    service_channels = fields.List(fields.Nested(ServiceChannel), description='Information about service channels '
-                                                                              'for the service')
+    service_id = fields.String(metadata={'description': "ID of the service in PTV."}, required=True)
+    service_name = fields.String(metadata={'description': 'Name of the service.'}, required=True)
+    similarity_score = fields.Float(
+        metadata={'description': 'Similarity score describing how well this service matches given text input'}
+    )
+    service_channels = fields.List(
+        fields.Nested(ServiceChannel),
+        metadata={'description': 'Information about service channels for the service'}
+    )
 
 
 class AuroraApiOutput(Schema):
-    recommended_services = fields.List(fields.Nested(RecommendedService), description='List of recommended services.',
-                                       required=True)
-    auroraai_recommendation_id = fields.Int(description=f'Id to identify individual recommendation given by Aurora AI. '
-                                                        f'This should be used when giving feedback on recommendations '
-                                                        f'on service feedback endpoint.',
-                                            required=True)
+    recommended_services = fields.List(
+        fields.Nested(RecommendedService),
+        metadata={'description': 'List of recommended services.'},
+        required=True
+    )
+
+    auroraai_recommendation_id = fields.Int(
+        metadata={'description': f'Id to identify individual recommendation given by Aurora AI. '
+                                 f'This should be used when giving feedback on recommendations '
+                                 f'on service feedback endpoint.'},
+        required=True
+    )
 
 
 class ServiceFeedback(Schema):
     service_id = fields.String(
-        description="ID of the service in PTV as UUIDv4 identifier.", required=True)
-    feedback_score = fields.Int(description=f'Feedback from this specific service as a recommendation. '
-                                            f'+1 for positive feedback, -1 for negative feedback',
-                                required=True,
-                                validate=validate.OneOf(VALID_FEEDBACK_SCORES))
+        metadata={'description': "ID of the service in PTV as UUIDv4 identifier."},
+        required=True
+    )
+    feedback_score = fields.Int(
+        metadata={'description': f'Feedback from this specific service as a recommendation. '
+                                 f'+1 for positive feedback, -1 for negative feedback'},
+        required=True,
+        validate=validate.OneOf(VALID_FEEDBACK_SCORES)
+    )
 
     @validates_schema
     # pylint: disable=R0201
@@ -382,26 +387,43 @@ class ServiceFeedback(Schema):
 
 
 class RecommendationFeedback(Schema):
-    auroraai_recommendation_id = fields.Int(description=f'Id to identify individual recommendation given by Aurora AI',
-                                            required=True,
-                                            strict=True)
-    feedback_score = fields.Int(description=f'Overall feedback from given recommendations. +1 for positive feedback, '
-                                            f'-1 for negative feedback',
-                                required=False,
-                                validate=validate.OneOf(VALID_FEEDBACK_SCORES))
-    service_feedbacks = fields.List(fields.Nested(ServiceFeedback),
-                                    description=f'Feedbacks from individual services as recommendation',
-                                    required=False)
+    auroraai_recommendation_id = fields.Int(
+        metadata={'description': f'Id to identify individual recommendation given by Aurora AI'},
+        required=True,
+        strict=True
+    )
+    feedback_score = fields.Int(
+        metadata={'description': f'Overall feedback from given recommendations. +1 for positive feedback, '
+                                 f'-1 for negative feedback'},
+        required=False,
+        validate=validate.OneOf(VALID_FEEDBACK_SCORES)
+    )
+    service_feedbacks = fields.List(
+        fields.Nested(ServiceFeedback),
+        metadata={'description': f'Feedbacks from individual services as recommendation'},
+        required=False
+    )
 
 
 class UserAttributeValues(Schema):
-    age = fields.Int(description="Age", required=False,
-                     validate=validate.Range(min=0, max=200), strict=True)
-    life_situation_meters = fields.Nested(LifeSituationMetersSchema,
-                                          description="Life Situation Meters as defined in 3X10D", required=False)
-    municipality_code = fields.String(description="Municipality as a code defined in koodistot.suomi.fi",
-                                      required=False,
-                                      validate=validate.OneOf(municipality_data.valid_municipality_codes))
+    age = fields.Int(
+        metadata={'description': "Age"},
+        required=False,
+        validate=validate.Range(min=0, max=200),
+        strict=True
+    )
+
+    life_situation_meters = fields.Nested(
+        LifeSituationMetersSchema,
+        metadata={'description': "Life Situation Meters as defined in 3X10D"},
+        required=False
+    )
+
+    municipality_code = fields.String(
+        metadata={'description': "Municipality as a code defined in koodistot.suomi.fi"},
+        required=False,
+        validate=validate.OneOf(municipality_data.valid_municipality_codes
+                                ))
 
     @validates_schema
     def validate_some_field_present(self, data, **_):
@@ -411,17 +433,17 @@ class UserAttributeValues(Schema):
 
 class PostSessionAttributesInput(Schema):
     service_channel_id = fields.String(
-        description="Service channel id from PTV to which service send the attributes",
+        metadata={'description': "Service channel id from PTV to which service send the attributes"},
         required=True
     )
 
     service_id = fields.String(
-        description="Service id from PTV to which service send the attributes",
+        metadata={'description': "Service id from PTV to which service send the attributes"},
         required=False
     )
 
     auroraai_recommendation_id = fields.Int(
-        description="Recommendation id related to this session transfer.",
+        metadata={'description': "Recommendation id related to this session transfer."},
         required=False,
         strict=True,
         validate=validate.Range(min=0)
@@ -429,7 +451,7 @@ class PostSessionAttributesInput(Schema):
 
     session_attributes = fields.Nested(
         UserAttributeValues,
-        description="Attributes to send",
+        metadata={'description': "Attributes to send"},
         required=True
     )
 
@@ -450,8 +472,7 @@ class PostSessionAttributesInput(Schema):
 class SearchTextTranslation(Schema):
     source_language = fields.String(
         validate=validate.OneOf(VALID_LANGUAGES),
-        required=True,
-        strict=True
+        required=True
     )
 
     search_text = fields.String(
@@ -463,8 +484,7 @@ class SearchTextTranslation(Schema):
 class PtvServiceTranslation(Schema):
     target_language = fields.String(
         validate=validate.OneOf(VALID_LANGUAGES),
-        required=True,
-        strict=True
+        required=True
     )
 
     service_id = fields.String(
@@ -498,22 +518,35 @@ example_input = {'municipality': 'Helsinki', "limit": 5, "session_id": "xyz-123"
                  }}
 
 # register schemas with spec
-spec.components.schema("Input", schema=LifeSituationMeterInput,
-                       description='Information of the subject who is given the recommendations',
-                       example=example_input)
-spec.components.schema("Output", schema=AuroraApiOutput,
-                       description='Recommended services')
-spec.components.schema('UserAttributeValues',
-                       schema=UserAttributeValues, description='User attribute values')
-spec.components.schema('PostSessionAttributesInput',
-                       schema=PostSessionAttributesInput)
+spec.components.schema(
+    "Input",
+    schema=LifeSituationMeterInput,
+    description='Information of the subject who is given the recommendations',
+    example=example_input
+)
+
+spec.components.schema(
+    "Output",
+    schema=AuroraApiOutput,
+    description='Recommended services'
+)
+
+spec.components.schema(
+    'UserAttributeValues',
+    schema=UserAttributeValues,
+    description='User attribute values'
+)
+
+spec.components.schema(
+    'PostSessionAttributesInput',
+    schema=PostSessionAttributesInput
+)
 
 # add swagger tags that are used for endpoint annotation
-tags = [
-    {'name': 'Service recommendation',
-     'description': 'For recommending services from PTV'
-     }
-]
+tags = [{
+    'name': 'Service recommendation',
+    'description': 'For recommending services from PTV'
+}]
 
 for tag in tags:
     log.debug(f"Adding tag: {tag['name']}")

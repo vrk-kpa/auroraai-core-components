@@ -1,0 +1,13 @@
+{
+  "extends": "@parcel/config-default",
+  "transformers": {
+
+    // Import svg files from jsx: prefixed paths as jsx components.
+    // See related bug reports:
+    //  - https://github.com/parcel-bundler/parcel/issues/7587
+    //  - https://github.com/parcel-bundler/parcel/issues/7389
+
+    "jsx:*.svg": ["@parcel/transformer-svg-react"],
+    "jsx:*": ["..."],
+  }
+}

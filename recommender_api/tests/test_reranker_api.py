@@ -130,8 +130,7 @@ if os.getenv('ENVIRONMENT') == 'localunittest':
         result1 = [item.get('service_id') for item in response1.json.get('recommended_services')]
         result2 = [item.get('service_id') for item in response2.json.get('recommended_services')]
 
-        expected = result1 != result2
-        assert expected
+        assert result1 != result2
 
 
     def test_get_redirects_and_feedback():

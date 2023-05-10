@@ -27,7 +27,16 @@ READMEs listed below:
 - [service-recommender-api](recommender_api/README.md)
 - [ptv-data-loader](recommender_api/ptv_data_loader/README.md)
 - [profile-management](profile_management/README.md)
-- [attributes-management](attributes_management/README.md)
 - [api-doc](api_doc/README.md)
 - [demo-ui](demo_ui/README.md)
-- [mock-service](mock_service/README.md)
+
+## AuroraAI Profile Management No Longer Maintained
+
+The Finnish Digital Agency has decided to end hosting the AuroraAI
+Profile Management service where end users were able to create AuroraAI
+accounts and share user attributes in AuroraAI network.
+
+The last version of the Profile Management service source code is available in
+the branch [release/1.2.0](https://github.com/vrk-kpa/auroraai-core-components/tree/release/1.2.0)
+
+The Profile Management source code will be removed from the master branch in upcoming releases.

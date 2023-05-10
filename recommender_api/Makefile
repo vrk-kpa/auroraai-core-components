@@ -20,13 +20,13 @@ service_recommender_setup: ## Run initial development environment setup
 
 service_recommender_db_up:
 	cd $(API_DIR)
-	docker-compose up -d postgresql
-	docker-compose run --rm recommender-flyway
+	docker compose up -d postgresql
+	docker compose run --rm recommender-flyway
 
 service_recommender_db_down:
 	cd $(API_DIR)
-	docker-compose rm -sf postgresql
-	docker-compose rm -sf recommender-flyway
+	docker compose rm -sf postgresql
+	docker compose rm -sf recommender-flyway
 
 service_recommender_api_dev: service_recommender_db_up ## Start API for local development
 	trap '$(call teardown)' EXIT
@@ -41,7 +41,16 @@ service_recommender_test: service_recommender_db_up ## Run tests
 	cd $(API_DIR)
 	. venv/bin/activate
 	cd ..
-	ENVIRONMENT=localunittest PYTHONPATH=./recommender_api python -m pytest recommender_api
+	ENVIRONMENT=localunittest PYTHONPATH=./recommender_api python -m pytest recommender_api/tests recommender_api/tools/tests
+
+data_loader_test: service_recommender_db_up ## Run tests
+	sleep 1
+	trap '$(call teardown)' EXIT
+	cd $(API_DIR)
+	. venv/bin/activate
+	cd ..
+	ENVIRONMENT=localunittest AAI_RECOMMENDER_CONFIG_FILE=recommender_api/ptv_data_loader/config.yml PYTHONPATH=./recommender_api python -m pytest recommender_api/ptv_data_loader/tests
+
 
 service_recommender_lint: ## Run linter
 	cd $(API_DIR)

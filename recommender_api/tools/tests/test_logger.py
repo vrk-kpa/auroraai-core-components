@@ -29,6 +29,7 @@ def test_debug_log(capfd):
     assert output['debugMessage'] == 'foobar'
 
 
+@pytest.mark.skip(reason="This test case will bloat test logs so only for manual runs.")
 def test_very_long_log_entry(capfd):
     set_test_stream()
 
