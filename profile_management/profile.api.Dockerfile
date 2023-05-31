@@ -19,7 +19,7 @@ RUN NODE_ENV=production yarn install --immutable
 RUN cp -LR node_modules node_modules_nosym
 
 # Production image, copy all the files and run
-FROM gcr.io/distroless/nodejs:16 AS runner
+FROM 373155601093.dkr.ecr.eu-north-1.amazonaws.com/base/nodejs-debian11:16 AS runner
 WORKDIR /profile_management
 
 # Copy build

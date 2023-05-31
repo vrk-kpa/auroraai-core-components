@@ -1,4 +1,4 @@
-FROM public.ecr.aws/docker/library/python:3.9-slim-bullseye AS builder
+FROM 373155601093.dkr.ecr.eu-north-1.amazonaws.com/base/python:3.11-bullseye AS builder
 
 # Install required Debian pakgs client to build image
 RUN apt-get update && apt-get -y install libpq-dev build-essential
@@ -20,7 +20,7 @@ RUN python -m pip --default-timeout=1000 \
 RUN rm -Rf ./recommender_api/.wheel_cache
 
 
-FROM public.ecr.aws/docker/library/python:3.9-slim-bullseye
+FROM 373155601093.dkr.ecr.eu-north-1.amazonaws.com/base/python:3.11-bullseye
 
 RUN apt-get update && apt-get -y upgrade && apt-get -y install postgresql-client
 

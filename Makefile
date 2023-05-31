@@ -35,11 +35,4 @@ help:
 
 include demo_ui/Makefile
 include profile_management/api/Makefile
-include profile_management/ui/Makefile
 include recommender_api/Makefile
-
-start_local_k8s: ## Start local kubernetes cluster with minikube
-	scripts/start_minikube.sh
-
-stop_local_k8s: ## Stop local kubernetes cluster
-	scripts/stop_minikube.sh

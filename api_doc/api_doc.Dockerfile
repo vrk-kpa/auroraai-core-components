@@ -9,7 +9,7 @@ WORKDIR /builder/swagger_ui
 COPY .yarn /.yarn
 RUN ./build.sh core_components
 
-FROM gcr.io/distroless/nodejs:16
+FROM 373155601093.dkr.ecr.eu-north-1.amazonaws.com/base/nodejs-debian11:16 AS runner
 COPY --from=node_builder /builder/swagger_ui/build /app
 WORKDIR /app
 CMD ["index.js"]

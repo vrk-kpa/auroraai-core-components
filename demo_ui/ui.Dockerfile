@@ -23,8 +23,8 @@ COPY resources/municipality_codes.json /resources/
 RUN make demo_ui_build
 
 
-# See https://github.com/GoogleContainerTools/distroless
-FROM gcr.io/distroless/nodejs:16 AS runner
+
+FROM 373155601093.dkr.ecr.eu-north-1.amazonaws.com/base/nodejs-debian11:16 AS runner
 
 COPY --from=ui_builder /ui/server/dist /ui/server/dist
 COPY --from=ui_builder /ui/server/node_modules /ui/server/node_modules

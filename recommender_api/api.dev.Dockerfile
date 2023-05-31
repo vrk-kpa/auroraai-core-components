@@ -1,4 +1,4 @@
-FROM public.ecr.aws/docker/library/python:3.9-slim-bullseye
+FROM public.ecr.aws/docker/library/python:3.11-slim-bullseye
 # Same python version as in runtime image
 
 # Install required Debian pakgs client to build image
