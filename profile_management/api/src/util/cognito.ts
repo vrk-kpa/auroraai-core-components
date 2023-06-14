@@ -16,7 +16,7 @@ export const generateSecretHash = async (
   userPoolId: string,
   userPoolClientId: string,
   username: string
-) => {
+): Promise<string> => {
   const clientSecret = await getClientSecret(userPoolId, userPoolClientId)
   return crypto
     .createHmac("SHA256", clientSecret)

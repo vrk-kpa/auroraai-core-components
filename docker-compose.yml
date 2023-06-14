@@ -7,12 +7,7 @@ services:
       - service-recommender-api
       - service-recommender-flyway
       - profile-management-api
-      - profile-management-ui
-      - attributes-management
-      - mock-service-1
-      - mock-service-2
       - demo-ui
-      - translation
     ports:
       - 8080:8080
     volumes:
@@ -104,50 +99,6 @@ services:
       - $PWD/profile_management/api/migrations/test_sql:/flyway/test_sql # add test data
     command: migrate
 
-  profile-management-ui:
-    build:
-      context: .
-      dockerfile: profile_management/profile.ui.Dockerfile_dev
-    environment:
-      ENVIRONMENT: localcluster
-    volumes:
-      - ./profile_management/ui:/builder/ui
-      - /builder/node_modules
-
-  attributes-management:
-    build:
-      context: .
-      dockerfile: attributes_management/attributes_management.dev.Dockerfile
-    environment:
-      ENVIRONMENT: localcluster
-    depends_on:
-      - profile-management-flyway
-    volumes:
-      - ./attributes_management:/builder
-      - /builder/node_modules
-
-  mock-service-1:
-    build:
-      context: .
-      dockerfile: mock_service/mock_service.Dockerfile_dev
-    environment:
-      ENVIRONMENT: localcluster
-      MOCK_INSTANCE: 1
-    volumes:
-      - ./mock_service:/builder
-      - /builder/node_modules
-
-  mock-service-2:
-    build:
-      context: .
-      dockerfile: mock_service/mock_service.Dockerfile_dev
-    environment:
-      ENVIRONMENT: localcluster
-      MOCK_INSTANCE: 2
-    volumes:
-      - ./mock_service:/builder
-      - /builder/node_modules
-
   demo-ui:
     build:
       context: .
@@ -163,13 +114,6 @@ services:
       - /ui/.parcel-cache
       - /ui/server/node_modules
       - /ui/server/dist
-
-  translation:
-    build:
-      context: .
-      dockerfile: translation/translation.Dockerfile
-    environment:
-      ENVIRONMENT: localcluster
 
   ####
   #  load-ptv-data profile

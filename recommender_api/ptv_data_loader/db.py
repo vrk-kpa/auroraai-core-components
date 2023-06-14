@@ -36,7 +36,7 @@ LIST_JOINER = ' '
 class LoggingDictCursor(DictCursor):
     def execute(self, query, _vars=None):
         query_to_log = query if len(query) < 200 else query[:200]
-        log.audit.sql_query(query_to_log)
+        log.audit.sql_query(str(query_to_log))
 
         return super().execute(query, _vars)
 

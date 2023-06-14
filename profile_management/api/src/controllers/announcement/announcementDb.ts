@@ -29,19 +29,19 @@ export async function insertAnnouncement(
   )
 }
 
+export type AnnouncementType = {
+  id: UUID
+  announcementTitle: TranslatableString
+  announcementDescription: TranslatableString
+  announcementStart: Date
+  announcementEnd: Date
+};
+
 export async function selectAnnouncementsBetweenDates(
   tx: ITask<unknown>,
   start: Date,
   end: Date
-): Promise<
-  {
-    id: UUID
-    announcementTitle: TranslatableString
-    announcementDescription: TranslatableString
-    announcementStart: Date
-    announcementEnd: Date
-  }[]
-> {
+): Promise<AnnouncementType[]> {
   return await tx.manyOrNone(
     `SELECT
       id,
@@ -63,13 +63,7 @@ export async function selectAnnouncementsBetweenDates(
 export async function selectAnnouncement(
   tx: ITask<unknown>,
   id: UUID
-): Promise<{
-  id: UUID
-  announcementTitle: TranslatableString
-  announcementDescription: TranslatableString
-  announcementStart: Date
-  announcementEnd: Date
-} | null> {
+): Promise<AnnouncementType | null> {
   return await tx.oneOrNone(
     `SELECT
       id,
@@ -86,15 +80,7 @@ export async function selectAnnouncement(
   )
 }
 
-export async function selectActiveAnnouncements(tx: ITask<unknown>): Promise<
-  {
-    id: UUID
-    announcementTitle: TranslatableString
-    announcementDescription: TranslatableString
-    announcementStart: Date
-    announcementEnd: Date
-  }[]
-> {
+export async function selectActiveAnnouncements(tx: ITask<unknown>): Promise<AnnouncementType[]> {
   return await tx.manyOrNone(
     `SELECT
       id,
@@ -111,15 +97,7 @@ export async function selectActiveAnnouncements(tx: ITask<unknown>): Promise<
   )
 }
 
-export async function selectAnnouncements(tx: ITask<unknown>): Promise<
-  {
-    id: UUID
-    announcementTitle: TranslatableString
-    announcementDescription: TranslatableString
-    announcementStart: Date
-    announcementEnd: Date
-  }[]
-> {
+export async function selectAnnouncements(tx: ITask<unknown>): Promise<AnnouncementType[]> {
   return await tx.manyOrNone(
     `SELECT
       id,

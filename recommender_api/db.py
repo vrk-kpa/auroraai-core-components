@@ -37,7 +37,7 @@ class InvalidRedirectException(Exception):
 
 class LoggingDictCursor(DictCursor):
     def execute(self, query, _vars=None):
-        log.audit.sql_query(query)
+        log.audit.sql_query(str(query))
         return super().execute(query, _vars)
 
 

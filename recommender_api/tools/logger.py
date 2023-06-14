@@ -5,7 +5,7 @@ from contextlib import contextmanager
 from contextvars import ContextVar
 from datetime import datetime
 from enum import Enum
-from typing import Optional, List, Dict, TypeVar
+from typing import Optional, List, Dict, TypeVar, Any
 from .config import config, env
 
 from flask import Response, Request
@@ -13,6 +13,7 @@ from pythonjsonlogger import jsonlogger
 
 _log_context: ContextVar = ContextVar("log_context", default={})
 
+LOG_ITEM_MAX_LEN = 2048
 
 class Log:
     """
@@ -202,11 +203,18 @@ class AuditLogContext(BaseLogContext):
     def request(self, request: Request):
         if config.get('log_requests'):
             self.data.queryString = request.query_string.decode("utf-8")
-            self.data.httpBody = request.data.decode("utf-8")
+
+            # Log up to LOG_ITEM_MAX_LEN characters of the request body.
+            # This is enough to get full logs for typical requests.
+            # The API schema allows some very long requests also, but
+            # the log row size must be limited due to CloudWatch limitations.
+            self.data.httpBody = request.data.decode("utf-8")[:LOG_ITEM_MAX_LEN]
 
     def sql_query(self, query: str):
         if config.get('log_sql_queries') == 'true' and env != 'prod':
-            self.data.sqlQueries.append(query)
+            # Log up to LOG_ITEM_MAX_LEN characters of the SQL query.
+            # The log row size must be limited due to CloudWatch limitations.
+            self.data.sqlQueries.append(query[:LOG_ITEM_MAX_LEN])
 
     def contacted_data_provider(self, requests_log_record: logging.LogRecord):
         if config.get('log_contacted_data_providers') == 'true':

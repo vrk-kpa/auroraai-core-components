@@ -5,7 +5,6 @@
   "private": true,
   "workspaces": [
     "api",
-    "ui",
     "shared",
     "cognito_lambda"
   ],
