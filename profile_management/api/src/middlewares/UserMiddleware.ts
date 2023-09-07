@@ -166,7 +166,11 @@ const getCognitoDataWithTokens = async (
 
 export const UserMiddleware =
   (): RequestHandler =>
-  async (req: Request & Partial<AuthenticatedRequest>, __res: Response, next) => {
+  async (
+    req: Request & Partial<AuthenticatedRequest>,
+    __res: Response,
+    next
+  ) => {
     if (config.profile_management_mock_cognito === "true") {
       mockUserAuthentication(req)
       return next()

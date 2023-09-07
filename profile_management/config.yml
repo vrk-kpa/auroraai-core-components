@@ -21,8 +21,6 @@ default:
   profile_management_mock_cognito: 'false'
   profile_management_secure_cookies: 'true'
   profile_management_cookie_name: __Host-aai
-  attributes_management_url: http://attributes-management
-  attributes_management_port: '80'
 local:
   profile_management_api_url: http://localhost:7000
   profile_management_db_host: localhost
@@ -43,8 +41,6 @@ local:
   profile_management_cognito_user_pool_client_id: 1m6pb1mef3k7g3p1gbo4cb52et
   log_requests: 'false'
   profile_management_mock_ses: 'true'
-  attributes_management_url: localhost
-  attributes_management_port: '7100'
 localcluster:
   service_host: http://localhost:8080
   profile_management_cognito_user_pool_id: eu-west-1_yhuX5R39t

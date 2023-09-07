@@ -1,6 +1,7 @@
 *.iml
 **/*~
 **/.DS_Store
+**/*.egg-info
 .idea
 .vscode/
 *.swp
@@ -40,3 +41,5 @@ infra/terraform/modules/db-dump/db-dump-lambda/node_modules/
 
 npm-license-report.txt
 python-license-report.txt
+
+/document_assistant/common/build/

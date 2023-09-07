@@ -2,6 +2,7 @@
 **/node_modules
 **/.parcel-cache
 **/venv
+**/*.egg-info
 
 infra
 recommender_api/fasttext

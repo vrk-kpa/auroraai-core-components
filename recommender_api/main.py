@@ -30,6 +30,8 @@ def create_app(fasttext_path=''):
         app.register_blueprint(recommendation_blueprint, url_prefix="/service-recommender/v1")
         create_utility_endpoints(app)
 
+        app.recommender_task_limiter = None
+
         # Database connection pool needs to be removed before Gunicorn forks workers
         reset_db_connection_pool()
         return app

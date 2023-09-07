@@ -7,7 +7,8 @@ import {
   selectActiveAnnouncements,
   deleteAnnouncement,
   updateAnnouncement,
-  selectAnnouncement, AnnouncementType,
+  selectAnnouncement,
+  AnnouncementType,
 } from "./announcementDb"
 import { UUID } from "io-ts-types/UUID"
 
@@ -20,7 +21,10 @@ async function addAnnouncement(
   await db.task((t) => insertAnnouncement(t, title, description, start, end))
 }
 
-async function getAnnouncementsBetweenDates(start: Date, end: Date): Promise<AnnouncementType[]> {
+async function getAnnouncementsBetweenDates(
+  start: Date,
+  end: Date
+): Promise<AnnouncementType[]> {
   return await db.task((t) => selectAnnouncementsBetweenDates(t, start, end))
 }
 
@@ -43,7 +47,9 @@ async function modifyAnnouncement(
   start: Date,
   end: Date
 ): Promise<void> {
-  await db.task((t) => updateAnnouncement(t, id, title, description, start, end))
+  await db.task((t) =>
+    updateAnnouncement(t, id, title, description, start, end)
+  )
 }
 
 async function getAnnouncement(id: UUID): Promise<AnnouncementType | null> {

@@ -23,19 +23,19 @@ import { mockClient } from "aws-sdk-client-mock"
 import { Request } from "express"
 import { AuthenticatedRequest } from "../util/requestHandler"
 import { UUID } from "io-ts-types/UUID"
-import {sign} from 'jsonwebtoken'
+import { sign } from "jsonwebtoken"
 
 type Payload = {
   [key: string]: string | undefined
 }
 
-const key = 'mock-cognito'
-const createToken = (content: Payload):string => sign(content, key);
+const key = "mock-cognito"
+const createToken = (content: Payload): string => sign(content, key)
 
 const mockUserEmail = "mock.user@mock.fi"
 const mockUserId = "56622d65-4a7e-482c-82e3-34688b16a383"
-const mockUserAccessToken = createToken({key: "mock-cognito-access-token"})
-const mockUserRefreshToken = createToken({key: "mock-cognito-refresh-token"})
+const mockUserAccessToken = createToken({ key: "mock-cognito-access-token" })
+const mockUserRefreshToken = createToken({ key: "mock-cognito-refresh-token" })
 
 export function setMocks(client: CognitoIdentityProviderClient): void {
   const mockUserResponse = {

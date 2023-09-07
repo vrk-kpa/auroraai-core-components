@@ -6,6 +6,7 @@ import { FilterProps } from './FilterTypes'
 import { useTranslation } from 'react-i18next'
 import ServiceClassFilter from './ServiceClassFilter'
 import { FundingTypeFilter } from './FundingTypeFilter'
+import { MaxResultsFilter } from './MaxResultsFilter'
 
 export const FilterPanel: FC<FilterProps> = ({ filters, setFilters }) => {
   const { t } = useTranslation()
@@ -26,6 +27,7 @@ export const FilterPanel: FC<FilterProps> = ({ filters, setFilters }) => {
         {t('headingFilterPanel')}
       </Heading>
       <Block padding='m'>
+        <MaxResultsFilter filters={filters} setFilters={setFilters} />
         <NationalServiceFilter filters={filters} setFilters={setFilters} name='mainNationalFilter' />
         <MunicipalitiesFilter filters={filters} setFilters={setFilters} />
         <ServiceClassFilter filters={filters} setFilters={setFilters} />

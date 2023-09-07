@@ -15,7 +15,10 @@ const App = () => {
   const { t, i18n } = useTranslation()
   const supportedLanguages = (i18n.options.supportedLngs || []).filter((language) => language !== 'cimode')
 
-  const [filters, setFilters] = useState<ServiceFilters>({ nationalServices: NationalFilterOption.AllServices })
+  const [filters, setFilters] = useState<ServiceFilters>({
+    nationalServices: NationalFilterOption.AllServices,
+    maxResults: 5,
+  })
 
   return (
     <HelmetProvider>

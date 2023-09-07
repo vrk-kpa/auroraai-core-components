@@ -20,6 +20,8 @@
 
       "labelNoServiceChannelsFound": "Asiointikanavia ei löytynyt.",
 
+      "labelMaxResultsFilter": "Tulosten enimmäismäärä",
+
       "labelNationalServiceFilter": "Valtakunnalliset palvelut",
       "labelAreaAllServices": "Alueelliset ja valtakunnalliset palvelut",
       "labelAreaOnlyNational": "Vain valtakunnalliset palvelut",
@@ -74,6 +76,8 @@
       "labelPubliclyFunded": "Offentlig tjänst",
       "labelMarketFunded": "Privat tjänst",
       "labelNoServiceChannelsFound": "Inga servicekanaler hittades.",
+
+      "labelMaxResultsFilter": "Antal sökresultat",
 
       "labelNationalServiceFilter": "Tjänster över hela Finland",
       "labelAreaAllServices": "Inga avgränsningar",
@@ -134,6 +138,8 @@
       "labelPubliclyFunded": "Public Service",
       "labelMarketFunded": "Private Service",
       "labelNoServiceChannelsFound": "No service channels found.",
+
+      "labelMaxResultsFilter": "Max number of search results",
 
       "labelNationalServiceFilter": "Nationwide services",
       "labelAreaAllServices": "Nationwide and regional services",

@@ -8,15 +8,7 @@ import {
   FAILING_SERVICE_ORIGIN,
   MUNICIPALITY_SERVICE_ORIGIN,
 } from "../tests/constants"
-import {
-  mockAttributeSchema,
-  mockScopes,
-  mockAgeSchema,
-  mockLifeSituationMetersSchema,
-  mockMunicipalityCodeSchema,
-  mockTampereDemoFlagSchema,
-  mockLocalisation
-} from "../tests/mockData/attributeManagement"
+
 
 const axios = jest.createMockFromModule<typeof axiosType>("axios")
 
@@ -43,7 +35,7 @@ const responses = {
       data: {
         age: 18,
         municipality_code: "005",
-        tampere_demo_flag: true
+        tampere_demo_flag: true,
       },
     },
   [`${FAILING_SERVICE_ORIGIN}/auroraai/profile-management/v1/user_attributes`]:
@@ -53,50 +45,6 @@ const responses = {
       data: {
         keys: [],
       },
-    },
-    [`${config.attributes_management_url}:${config.attributes_management_port}/attributes-management/v1/schema`]:
-    {
-      data: mockAttributeSchema,
-    },
-    [`${config.attributes_management_url}:${config.attributes_management_port}/attributes-management/v1/schema/age`]:
-    {
-      data: mockAgeSchema,
-    },
-    [`${config.attributes_management_url}:${config.attributes_management_port}/attributes-management/v1/schema/life_situation_meters`]:
-    {
-      data: mockLifeSituationMetersSchema,
-    },
-    [`${config.attributes_management_url}:${config.attributes_management_port}/attributes-management/v1/schema/municipality_code`]:
-    {
-      data: mockMunicipalityCodeSchema,
-    },
-    [`${config.attributes_management_url}:${config.attributes_management_port}/attributes-management/v1/schema/tampere_demo_flag`]:
-    {
-      data: mockTampereDemoFlagSchema,
-    },
-    [`${config.attributes_management_url}:${config.attributes_management_port}/attributes-management/v1/scopes`]:
-    {
-      data: mockScopes,
-    },
-    [`${config.attributes_management_url}:${config.attributes_management_port}/attributes-management/v1/localisation`]:
-    {
-      data: mockLocalisation,
-    },
-    [`${config.attributes_management_url}:${config.attributes_management_port}/attributes-management/v1/localisation/age`]:
-    {
-      data: mockLocalisation.age,
-    },
-    [`${config.attributes_management_url}:${config.attributes_management_port}/attributes-management/v1/localisation/life_situation_meters`]:
-    {
-      data: mockLocalisation.life_situation_meters,
-    },
-    [`${config.attributes_management_url}:${config.attributes_management_port}/attributes-management/v1/localisation/municipality_code`]:
-    {
-      data: mockLocalisation.municipality_code,
-    },
-    [`${config.attributes_management_url}:${config.attributes_management_port}/attributes-management/v1/localisation/tampere_demo_flag`]:
-    {
-      data: mockLocalisation.tampere_demo_flag,
     },
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
 } as Record<string, { data: any; status?: number }>

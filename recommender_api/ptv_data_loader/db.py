@@ -345,7 +345,7 @@ def get_service_channel_data_from_db():
 
 
 def flag_archived_services_in_db(service_ids: List[str], service_channel_ids: List[str]):
-    if service_ids:
+    if service_ids or service_channel_ids:
         db_endpoint_address = (
             DB_HOST_ROUTING if DB_HOST_ROUTING != '' else db_endpoint(DB_NAME, REGION)
         )
@@ -360,15 +360,17 @@ def flag_archived_services_in_db(service_ids: List[str], service_channel_ids: Li
             log.technical.database(db_endpoint_address, DB_PORT, DB_NAME)
 
             with conn.cursor(cursor_factory=LoggingDictCursor) as cur:
-                query = 'UPDATE service_recommender.service SET archived = true WHERE service_id IN %(services)s'
-                cur.execute(query, {'services': tuple(service_ids)})
+                if service_ids:
+                    query = 'UPDATE service_recommender.service SET archived = true WHERE service_id IN %(services)s'
+                    cur.execute(query, {'services': tuple(service_ids)})
 
-                query = """
-                    UPDATE service_recommender.service_channel 
-                    SET archived = true 
-                    WHERE service_channel_id IN %(service_channels)s
-                """
-                cur.execute(query, {'service_channels': tuple(service_channel_ids)})
+                if service_channel_ids:
+                    query = """
+                        UPDATE service_recommender.service_channel 
+                        SET archived = true 
+                        WHERE service_channel_id IN %(service_channels)s
+                    """
+                    cur.execute(query, {'service_channels': tuple(service_channel_ids)})
 
             conn.commit()
 

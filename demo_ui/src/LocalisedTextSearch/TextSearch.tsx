@@ -35,6 +35,8 @@ export const LocalisedTextSearch: FC<FilterProps> = ({ filters }) => {
         filters.serviceClasses,
         undefined,
         filters.fundingTypes,
+        false,
+        filters.maxResults,
       )
 
       if (response.ok) {

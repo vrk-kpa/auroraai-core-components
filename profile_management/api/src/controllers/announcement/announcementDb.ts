@@ -35,7 +35,7 @@ export type AnnouncementType = {
   announcementDescription: TranslatableString
   announcementStart: Date
   announcementEnd: Date
-};
+}
 
 export async function selectAnnouncementsBetweenDates(
   tx: ITask<unknown>,
@@ -80,7 +80,9 @@ export async function selectAnnouncement(
   )
 }
 
-export async function selectActiveAnnouncements(tx: ITask<unknown>): Promise<AnnouncementType[]> {
+export async function selectActiveAnnouncements(
+  tx: ITask<unknown>
+): Promise<AnnouncementType[]> {
   return await tx.manyOrNone(
     `SELECT
       id,
@@ -97,7 +99,9 @@ export async function selectActiveAnnouncements(tx: ITask<unknown>): Promise<Ann
   )
 }
 
-export async function selectAnnouncements(tx: ITask<unknown>): Promise<AnnouncementType[]> {
+export async function selectAnnouncements(
+  tx: ITask<unknown>
+): Promise<AnnouncementType[]> {
   return await tx.manyOrNone(
     `SELECT
       id,

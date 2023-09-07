@@ -46,10 +46,12 @@ default:
   service_host: ''
   service_recommender_api_port: '6000'
   service_recommender_api_host: 0.0.0.0
-  service_recommender_api_workers: '3'
+  service_recommender_api_workers: 5
   service_recommender_api_worker_class: gevent
-  service_recommender_api_timeout: '95'
+  service_recommender_api_worker_connections: 1000
+  service_recommender_api_timeout: 95
   service_recommender_api_worker_tmp_dir: /tmp
+  worker_max_recommendations_tasks: 5
   profile_management_api_port: '7000'
   profile_management_api_url: http://profile-management-api
   profile_management_recommender_api_key: ''

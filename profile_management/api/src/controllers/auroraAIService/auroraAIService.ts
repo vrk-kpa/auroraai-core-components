@@ -51,7 +51,9 @@ async function getAuroraAIServiceId(ptvServiceChannelId: UUID): Promise<UUID> {
   )
 
   if (auroraAIServices.length === 0) {
-    throw new ValidationError(`PTV-service-channel ${ptvServiceChannelId} is not registered to any AuroraAI service.`)
+    throw new ValidationError(
+      `PTV-service-channel ${ptvServiceChannelId} is not registered to any AuroraAI service.`
+    )
   }
 
   return auroraAIServices[0].auroraAIServiceId

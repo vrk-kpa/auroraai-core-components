@@ -11,7 +11,6 @@ import {
   selectAttributeSources,
   selectAllAttributeSources,
 } from "./attributeDb"
-import { attributeIsValid } from "../attributesManagement/attributesManagement"
 
 export const attributeController = {
   addAttributeSources,
@@ -213,16 +212,7 @@ async function getAttributes(
 
     for (const attributeKey of attributes) {
       const attributeValue = attributeValuesFromSource[attributeKey] || null
-
-      // if the attribute does not exist (undefined) or was null, it's invalid
-      // and should be retried from another source
-      if (!await attributeIsValid(attributeKey, attributeValue)) {
-        retryableAttributes[attributeKey] = attributeSources[
-          attributeKey
-        ].filter((s) => s !== source)
-      } else {
-        foundAttributes[attributeKey] = attributeValue
-      }
+      foundAttributes[attributeKey] = attributeValue
     }
   }
 

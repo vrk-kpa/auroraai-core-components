@@ -16,6 +16,7 @@ from recommender_api.api_spec import \
     RecommendationFeedback, TextSearchInput, RedirectInput, SearchTextTranslation, PtvServiceTranslation
 from recommender_api.profile_management import ProfileManagementApiError
 from recommender_api.ptv import get_service_channel_web_pages, get_format_service_data
+from recommender_api.recommender_task_limiter import recommender_task_limit, RecommenderTaskLimiterCapacityError
 from recommender_api.service_recommender import text_search_in_ptv, set_redirect_urls, create_redirect_link
 from recommender_api.translation import translate_service_information, translate_text, localised_fields_present
 
@@ -48,7 +49,7 @@ def prepare_request():
         log.technical.request(request)
         log.audit.request(request)
 
-        _init_xgboost(current_app)
+        _init_xgboost()
 
     except UnicodeDecodeError as error:
         log.technical.error(str(error))
@@ -92,13 +93,13 @@ def _parse_client_id(authorization_header):
         raise ValidationError('Invalid Base64 string') from error
 
 
-def _init_xgboost(app):
+def _init_xgboost():
     if not hasattr(current_app, 'xgboost_model') or current_app.xgboost_model is None:
         try:
             log.debug("Init XGBoost model.")
             booster = XGBRanker()
             booster.load_model(f'recommender_api/xgboost/{config["xgboost_model_file"]}')
-            app.xgboost_model = booster
+            current_app.xgboost_model = booster
         except (ValueError, FileNotFoundError, TypeError) as e:
             raise InternalServerError("Failed to load XGBoost model.") from e
 
@@ -124,12 +125,17 @@ def recommend_service():
         log.technical.error(error_message)
         return error_message, 500
 
-    recommended_services = service_recommender.recommend(
-        body_object,
-        current_app.xgboost_model,
-        request.calling_service,
-        request.path
-    )
+    try:
+        with recommender_task_limit(current_app):
+            recommended_services = service_recommender.recommend(
+                body_object,
+                current_app.xgboost_model,
+                request.calling_service,
+                request.path
+            )
+    except RecommenderTaskLimiterCapacityError:
+        return "Server busy.", 503
+
     session_id = body_object.session_id
 
     recommendation_id = db.store_recommendations_db(
@@ -208,14 +214,18 @@ def text_search():
         log.technical.error(error_message)
         return error_message, 500
 
-    recommended_services = text_search_in_ptv(
-        body_object,
-        current_app.fasttext_embeddings,
-        current_app.fasttext_model,
-        current_app.xgboost_model,
-        request.calling_service,
-        request.path
-    )
+    try:
+        with recommender_task_limit(current_app):
+            recommended_services = text_search_in_ptv(
+                body_object,
+                current_app.fasttext_embeddings,
+                current_app.fasttext_model,
+                current_app.xgboost_model,
+                request.calling_service,
+                request.path
+            )
+    except RecommenderTaskLimiterCapacityError:
+        return "Server busy.", 503
 
     recommendation_id = db.store_recommendations_db(
         [service['service_id'] for service in recommended_services],

@@ -10,10 +10,8 @@ import {
 } from "./sessionAttributeDb"
 import { auditLogger, technicalLogger } from "../../util/logger"
 import { Attributes } from "shared/schemas"
-import { validateAttributes } from "../attributesManagement/attributesManagement"
-import {
-  ValidationError,
-} from "../../util/errors/ApiErrors"
+
+import { ValidationError } from "../../util/errors/ApiErrors"
 
 export const sessionAttributesController = {
   getSessionAttributes: getSessionAttributes,
@@ -21,9 +19,7 @@ export const sessionAttributesController = {
   removeExpiredSessionAttributes: removeExpiredSessionAttributes,
 }
 
-async function getSessionAttributes(
-  accessToken: Buffer
-): Promise<Attributes> {
+async function getSessionAttributes(accessToken: Buffer): Promise<Attributes> {
   return db.task((t) => selectSessionAttributes(t, accessToken))
 }
 
@@ -31,14 +27,7 @@ async function addSessionAttributes(
   ptvServiceChannelId: UUID,
   sessionAttributes: Attributes
 ): Promise<{ ptvServiceChannelId: UUID; accessToken?: string }> {
-
   technicalLogger.info("ptvServiceChannelId", ptvServiceChannelId)
-
-  const validationResult = await validateAttributes(sessionAttributes)
-
-  if (!validationResult.valid) {
-    throw new ValidationError(`Invalid attribute value: ${validationResult.errors[0]}`)
-  }
 
   const [auroraAIServiceId, accessToken] = await Promise.all([
     getServiceIdForSessionTransfer(ptvServiceChannelId),
@@ -91,13 +80,18 @@ async function addSessionAttributes(
   }
 }
 
-const getServiceIdForSessionTransfer = async (ptvServiceChannelId: UUID): Promise<UUID> => {
-  try{
-    return await auroraAIServiceController.getAuroraAIServiceId(ptvServiceChannelId)
-  }
-  catch (error) {
-    if((error?.body?.error === "ValidationError")){
-      throw new ValidationError(`Session transfer not allowed. ${error?.message}`)
+const getServiceIdForSessionTransfer = async (
+  ptvServiceChannelId: UUID
+): Promise<UUID> => {
+  try {
+    return await auroraAIServiceController.getAuroraAIServiceId(
+      ptvServiceChannelId
+    )
+  } catch (error) {
+    if (error?.body?.error === "ValidationError") {
+      throw new ValidationError(
+        `Session transfer not allowed. ${error?.message}`
+      )
     }
 
     throw error

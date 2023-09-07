@@ -32,40 +32,6 @@ describe("addition of session attributes", () => {
     expect(body.error).toEqual("ValidationError")
   })
 
-  it("doesn't return an access token when called without any attributes", async () => {
-    const { status, body } = await request
-      .post("/v1/session_attributes")
-      .set(AUTHORIZATION_HEADERS)
-      .type("json")
-      .send({
-        ptvServiceChannelId: VALID_PTV_ID,
-        sessionAttributes: {},
-      })
-
-    expect(status).toBe(400)
-    expect(body.accessToken).toBeUndefined()
-  })
-
-  it("doesn't return an access token when called with unsupported attributes", async () => {
-    // The service VALID_PTV_ID config allows only "age" and "municipality_code" session transfer attributes.
-    const { status, body } = await request
-      .post("/v1/session_attributes")
-      .set(AUTHORIZATION_HEADERS)
-      .type("json")
-      .send({
-        ptvServiceChannelId: VALID_PTV_ID,
-        sessionAttributes: {
-          life_situation_meters: {
-            family: [8],
-          },
-        },
-      })
-
-    expect(status).toBe(200)
-    expect(body.ptvServiceChannelId).toBe(VALID_PTV_ID)
-    expect(body.accessToken).toBeUndefined()
-  })
-
   it("returns an access token when when called with all supported attributes", async () => {
     const { status, body } = await request
       .post("/v1/session_attributes")

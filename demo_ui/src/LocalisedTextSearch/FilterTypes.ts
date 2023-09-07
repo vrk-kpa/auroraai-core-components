@@ -15,6 +15,7 @@ export type ServiceFilters = {
   serviceClasses?: string[]
   fundingTypes?: string[]
   nationalServices?: NationalFilterOption
+  maxResults: number
 }
 
 export type FilterProps = {

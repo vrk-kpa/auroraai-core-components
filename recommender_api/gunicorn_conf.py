@@ -16,12 +16,14 @@ class AaiGunicornLogger(glogging.Logger):
 
 
 # Gunicorn config variables
+worker_class = tools.config.config['service_recommender_api_worker_class']
 workers = tools.config.config['service_recommender_api_workers']
+worker_connections = tools.config.config['service_recommender_api_worker_connections']
+
 loglevel = 'warning'
 bind = f"{tools.config.config['service_recommender_api_host']}:{tools.config.config['service_recommender_api_port']}"
 keepalive = 95  # This must be bigger than the ALB idle_timeout
 errorlog = "-"
-worker_class = tools.config.config['service_recommender_api_worker_class']
 timeout = tools.config.config['service_recommender_api_timeout']
 worker_tmp_dir = tools.config.config['service_recommender_api_worker_tmp_dir']
 logger_class = AaiGunicornLogger

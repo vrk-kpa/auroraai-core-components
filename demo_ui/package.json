@@ -27,10 +27,10 @@
     "web-vitals": "^0.2.4"
   },
   "devDependencies": {
-    "@parcel/packager-raw-url": "2.8.3",
-    "@parcel/transformer-svg-react": "^2.8.3",
-    "@parcel/transformer-webmanifest": "2.8.3",
-    "@testing-library/jest-dom": "^5.12.0",
+    "@parcel/packager-raw-url": "^2.9.3",
+    "@parcel/transformer-svg-react": "^2.9.3",
+    "@parcel/transformer-webmanifest": "^2.9.3",
+    "@testing-library/jest-dom": "^6.1.2",
     "@testing-library/react": "^12.1.5",
     "@testing-library/user-event": "^12.8.3",
     "@types/jest": "^26.0.23",
@@ -96,6 +96,7 @@
     "@types/react-dom": "17.0.15",
     "svgo": "^2.8.0",
     "loader-utils": "^2.0.4",
-    "recursive-readdir": "^2.2.3"
+    "recursive-readdir": "^2.2.3",
+    "semver": "^7.5.2"
   }
 }

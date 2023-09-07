@@ -8,6 +8,10 @@ services:
       - service-recommender-flyway
       - profile-management-api
       - demo-ui
+      - digiturva-chat
+      - suomifi-chat
+      - dvvfi-chat
+      - ohjepankki
     ports:
       - 8080:8080
     volumes:
@@ -114,6 +118,112 @@ services:
       - /ui/.parcel-cache
       - /ui/server/node_modules
       - /ui/server/dist
+
+  ohjepankki:
+    build:
+      context: .
+      dockerfile: document_assistant/ohjepankki/ohjepankki.dev.Dockerfile
+    environment:
+      ENVIRONMENT: localcluster
+
+  digiturva-chat:
+    build:
+      context: .
+      dockerfile: document_assistant/digiturva.dev.Dockerfile
+
+    environment:
+      ENVIRONMENT: localcluster
+
+
+      # OpenAI api key can be set explicitly in this environment variable or
+      # docker compose can be run with aws-vault and the api key is fetched from secrets manager.
+      OPENAI_API_KEY: "${OPENAI_API_KEY-}"
+
+      APP_BASE_PATH: "/digiturva-chat"
+
+      AWS_REGION: "${AWS_REGION-}"
+      AWS_DEFAULT_REGION: "${AWS_DEFAULT_REGION-}"
+      AWS_ACCESS_KEY_ID: "${AWS_ACCESS_KEY_ID-}"
+      AWS_SECRET_ACCESS_KEY: "${AWS_SECRET_ACCESS_KEY-}"
+      AWS_SESSION_TOKEN: "${AWS_SESSION_TOKEN-}"
+      AWS_SECURITY_TOKEN: "${AWS_SECURITY_TOKEN-}"
+
+      LANGCHAIN_ENDPOINT: "http://langchain-backend:8000"
+
+  suomifi-chat:
+    build:
+      context: .
+      dockerfile: document_assistant/suomifi.dev.Dockerfile
+
+    environment:
+      ENVIRONMENT: localcluster
+
+      # OpenAI api key can be set explicitly in this environment variable or
+      # docker compose can be run with aws-vault and the api key is fetched from secrets manager.
+      OPENAI_API_KEY: "${OPENAI_API_KEY-}"
+
+      APP_BASE_PATH: "/suomifi-chat"
+
+      AWS_REGION: "${AWS_REGION-}"
+      AWS_DEFAULT_REGION: "${AWS_DEFAULT_REGION-}"
+      AWS_ACCESS_KEY_ID: "${AWS_ACCESS_KEY_ID-}"
+      AWS_SECRET_ACCESS_KEY: "${AWS_SECRET_ACCESS_KEY-}"
+      AWS_SESSION_TOKEN: "${AWS_SESSION_TOKEN-}"
+      AWS_SECURITY_TOKEN: "${AWS_SECURITY_TOKEN-}"
+
+      LANGCHAIN_ENDPOINT: "http://langchain-backend-suomifi:8000"
+
+  dvvfi-chat:
+    build:
+      context: .
+      dockerfile: document_assistant/dvvfi.dev.Dockerfile
+
+    environment:
+      ENVIRONMENT: localcluster
+
+      # OpenAI api key can be set explicitly in this environment variable or
+      # docker compose can be run with aws-vault and the api key is fetched from secrets manager.
+      OPENAI_API_KEY: "${OPENAI_API_KEY-}"
+
+      APP_BASE_PATH: "/dvvfi-chat"
+
+      AWS_REGION: "${AWS_REGION-}"
+      AWS_DEFAULT_REGION: "${AWS_DEFAULT_REGION-}"
+      AWS_ACCESS_KEY_ID: "${AWS_ACCESS_KEY_ID-}"
+      AWS_SECRET_ACCESS_KEY: "${AWS_SECRET_ACCESS_KEY-}"
+      AWS_SESSION_TOKEN: "${AWS_SESSION_TOKEN-}"
+      AWS_SECURITY_TOKEN: "${AWS_SECURITY_TOKEN-}"
+
+      LANGCHAIN_ENDPOINT: "http://langchain-backend-dvvfi:8000"
+
+  langchain-frontend:
+    image: notlangchain/langchainplus-frontend:latest
+    ports:
+      - 4173:4173
+    environment:
+      - BACKEND_URL=http://langchain-backend:8000
+      - PUBLIC_BASE_URL=http://localhost:8000
+      - PUBLIC_DEV_MODE=true
+    depends_on:
+      - langchain-backend
+  langchain-backend:
+    image: notlangchain/langchainplus:latest
+    environment:
+      - PORT=8000
+      - LANGCHAIN_ENV=local
+    ports:
+      - 8000:8000
+    depends_on:
+      - langchain-db
+  langchain-db:
+    image: postgres:14.1
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=postgres
+    expose:
+      - 5432
+
 
   ####
   #  load-ptv-data profile

@@ -69,7 +69,6 @@ import { RequestCognitoUser } from "../../util/requestHandler"
 import { generateSecretHash } from "../../util/cognito"
 import { generateEmailParams, sesClient } from "../../ses/config"
 import { CustomMessage, translations } from "../../util/translation"
-import { fetchValidAttributeScopes } from "../attributesManagement/attributesManagement"
 
 /**
  * User controller functionalities that do not require authentication
@@ -822,13 +821,9 @@ async function validateAuthorizationRequest(
     })
   }
 
-  const validScopes = await fetchValidAttributeScopes()
-
   if (
     requestedScopes.some(
-      (scope) =>
-        scope !== "openid" &&
-        !(validScopes.includes(scope) && client.allowedScopes.includes(scope))
+      (scope) => scope !== "openid" && !client.allowedScopes.includes(scope)
     )
   ) {
     throw new UnauthorizedError("Unauthorized scope included", {
@@ -1185,9 +1180,9 @@ export function getTokenNames(): { access: string; refresh: string } {
   }
 }
 
-export function getCookieName(): string{
+export function getCookieName(): string {
   const env = process.env.ENVIRONMENT
-  const envPostfix = env === 'prod' ? '' : `-${env}` 
+  const envPostfix = env === "prod" ? "" : `-${env}`
   const cookieName = `${config.profile_management_cookie_name}${envPostfix}`
 
   return cookieName
@@ -1198,20 +1193,18 @@ export async function setAuthTokens(
   accessToken: string,
   refreshToken?: string
 ): Promise<void> {
-
   req.session.access = createAndDecodeTokenObjectFromString(accessToken)
 
-  if(refreshToken){
+  if (refreshToken) {
     req.session.refresh = createAndDecodeTokenObjectFromString(refreshToken)
   }
 
-  await req.session.save();
+  await req.session.save()
 }
 
-export function destroySession(req: Request,): void {
-  req.session.destroy();
+export function destroySession(req: Request): void {
+  req.session.destroy()
 }
-
 
 /**
  * "Server metadata" is data transferred via the
