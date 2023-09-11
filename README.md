@@ -6,8 +6,8 @@ are for reference purposes only. The Finnish Digital Agency does not encourage t
 takes no responsibility if you decide to use the code for any purpose and provides no support whatsoever related to this project.
 
 
-
-# AuroraAI Core Components ARCHIVED PROJECT DESCRIPTION BELOW
+# --- ARCHIVED PROJECT DESCRIPTION BELOW ---
+# AuroraAI Core Components
 
 ## Overview
 The National Artificial Intelligence Programme AuroraAI is based on the strategic objective of building a dynamic 
