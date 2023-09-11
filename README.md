@@ -1,4 +1,4 @@
-# !! PROJECT NO LONGER MAINTAINED !!)
+# !! PROJECT NO LONGER MAINTAINED !!
 
 ## Disclaimer
 This project is not maintained anymore starting Sep 2023. The source code and documentation in this repository 
