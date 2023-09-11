@@ -1,4 +1,14 @@
-# AuroraAI Core Components
+# !! PROJECT NO LONGER MAINTAINED !!)
+
+## Disclaimer
+This project is not maintained anymore starting Sep 2023. The source code and documentation in this repository 
+are for reference purposes only. The Finnish Digital Agency does not encourage the use of this code for any purpose,
+takes no responsibility if you decide to use the code for any purpose and provides no support whatsoever related to this project.
+
+
+
+# AuroraAI Core Components ARCHIVED PROJECT DESCRIPTION BELOW
+
 ## Overview
 The National Artificial Intelligence Programme AuroraAI is based on the strategic objective of building a dynamic 
 and thriving Finland expressed in Prime Minister Marin’s Government Programme. 
